@@ -1,0 +1,141 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Sameh Shehata Abdelaziz
+    - name: Location
+      value: Cairo, Egypt
+    - name: Phone
+      value: +201274766641
+    - name: Email
+      value: samehshihata@gmail.com
+    - name: LinkedIn
+      value: www.linkedin.com/in/sameh-shihata
+    - name: Portfolio
+      value: https://samehshi.github.io/portfolio/
+    - name: Languages
+      value: Arabic (Native), English (very good)
+
+- title: Summary
+  type: list
+  contents:
+    - Data Analyst with 15+ Years in Complex Systems
+    - Former aeronautical navigator specializing in data analytics
+    - Proficient in Power BI, Tableau, and Looker
+    - Strong background in data wrangling, analysis, and visualization
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Bachelor's Degree in Chemistry and Microbiology
+      institution: Ain Shams University, Cairo, Egypt
+      year: 2008
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Freelance Data Analyst
+      institution: Self-employed
+      year: 2022 - Present
+      description:
+        - Combined extensive experience with Excel and Office Suite tools with proficiency in modern data analytics platforms
+        - Worked on projects across various industries, helping clients tackle unique business challenges
+        - Expertise in data cleaning, exploration, analysis, and visualization
+
+    - title: Aeronautical Telecommunication Officer
+      institution: NANSC [National Air Navigation Service Co.], Cairo, Egypt
+      year: 2009 - Present
+      description:
+        - Over 15 years of experience as an ICAO Aeronautical Telecommunication Officer
+        - Strong foundation in complex systems analysis and data-driven problem-solving
+        - Extensive use of Excel and other Office Suite tools
+
+- title: Professional Development and Certifications
+  type: time_table
+  contents:
+    - title: Google Data Analytics Professional Certificate
+      institution: Coursera
+      year: 2023
+      description:
+        - Completed 8 courses covering various aspects of data analytics
+
+    - title: IBM Data Analytics Professional Certificate
+      institution: Coursera
+      year: 2023
+      description:
+        - Completed 9 courses covering data analysis, visualization, and databases
+
+    - title: Google Business Intelligence Specialization Certificate
+      institution: Coursera
+      year: 2024
+      description:
+        - Completed 3 courses on business intelligence fundamentals
+
+    - title: Google Advanced Data Analytics Certificate
+      institution: Coursera
+      year: 2024
+      description:
+        - Completed 7 courses covering advanced data analytics topics
+
+    - title: McKinsey Forward Program
+      institution: McKinsey
+      year: 2023
+
+    - title: Google Cloud Data Analytics Certificate
+      institution: Google Cloud Skills Boost
+      year: 2024
+      description:
+        - Completed 5 courses on cloud-based data analytics
+
+- title: Projects
+  type: time_table
+  contents:
+    - title: Applied Data Science Labs
+      institution: WorldQuant University
+      year: 2024
+      description:
+        - Completed 8 projects covering various data science applications
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Data Analysis
+      items:
+        - Statistical Data Analysis
+        - Exploratory Data Analysis
+        - Trend Analysis
+    - title: Data Visualization
+      items:
+        - Tableau
+        - Power BI
+        - Looker
+        - Excel Dashboards
+    - title: Programming & Tools
+      items:
+        - SQL
+        - Python
+        - R
+        - Pandas
+        - Google BigQuery
+    - title: ETL & Databases
+      items:
+        - Extract, Transform, Load (ETL)
+        - Databases
+        - IBM Db2
+        - IBM Cognos
+    - title: General
+      items:
+        - Digital Transformation
+        - Microsoft Office
+
+- title: Interpersonal Skills (Soft Skills)
+  type: list
+  contents:
+    - Problem Solving
+    - Adaptability and Resilience
+    - Communication
+    - Design Thinking
+    - Creative Thinking
+    - Agile Thinking
+    - Leadership
+    - Digital Transformation
