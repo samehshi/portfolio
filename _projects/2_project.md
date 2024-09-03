@@ -1,76 +1,63 @@
 ---
 layout: page
 title: Project 2
-description: Google Data Analytics (Case Study 1)
-img: assets/img/g1-case1-image1.png
+description: IBM Data Analytics Proffesional Certificate proyect
+img: assets/img/IBM.png
 importance: 2
 category: work
 related_publications: false
 ---
 
-This project is a part of the Google Data Analytics Professional Certificate. It involves the analysis of a dataset related to a fictional bike-sharing company, Cyclistic. The goal is to provide insights that can help the company understand how different customer types use their bikes differently, and how Cyclistic can use these insights to design a new marketing strategy to convert casual riders into annual members.
+# Technology Trends Dashboard
+
+Welcome to our comprehensive Technology Trends Dashboard! This interactive tool provides valuable insights into current technology usage and future trends based on survey data from developers worldwide. Our dashboard is divided into three main tabs, each offering unique perspectives on the ever-evolving tech landscape:
+
+## A. Current Technology Usage Tab
+
+This tab showcases the most popular technologies currently in use:
+
+- Top 10 programming languages
+- Top 10 databases
+- Various platforms
+- Top 10 web frameworks
+
+## B. Future Technology Trends Tab
+
+Explore the technologies developers are most eager to learn and work with in the coming year:
+
+- Top 10 programming languages of interest
+- Top 10 databases gaining traction
+- Platforms expected to grow in popularity
+- Top 10 web frameworks on the rise
+
+## C. Demographics Tab
+
+Gain insights into the diverse background of survey respondents:
+
+- Work experience distribution
+- Geographical representation
+- Age demographics
+- Gender distribution and education levels
+
+Navigate through these tabs to explore detailed visualizations and gain a comprehensive understanding of the current state and future direction of technology in the developer community. This dashboard serves as a valuable resource for technology strategists, hiring managers, and developers looking to stay ahead in the rapidly changing tech industry.
 
 ---
 
-## Cyclistic Bike-Share: Turning Casual Riders into Members
+<iframe src="https://eu-de.dataplatform.cloud.ibm.com/dashboards/3a212504-ebfe-413b-a83e-52b858fa3a41/view/5b33a60402b802e865cfe6e407ca2b572f612c5fe3bb8604848c7b4908617597f0691398c87d4f5fd8130261f3ec435b98" 
+        width="100%" 
+        height="600px" 
+        frameborder="0" 
+        allowfullscreen>
+</iframe>
 
-**Objective:** We analyzed one year of Cyclistic bike-share data to understand the differences between annual members and casual riders, with the goal of developing strategies to convert casual riders into members.
+<p>If the dashboard does not load, you can view it directly by clicking the following link: 
+    <a href="https://eu-de.dataplatform.cloud.ibm.com/dashboards/3a212504-ebfe-413b-a83e-52b858fa3a41/view/5b33a60402b802e865cfe6e407ca2b572f612c5fe3bb8604848c7b4908617597f0691398c87d4f5fd8130261f3ec435b98" target="_blank">View Dashboard</a>.
+</p>
 
-**Key Findings:**
+---
 
-- **Annual members use bikes primarily for commuting:** Their usage is consistent throughout the weekdays, with shorter ride times.
-- **Casual riders use bikes for leisure:** Their usage peaks on weekends and during summer, with longer ride times.
-- **Electric bikes are popular, especially among members:** This indicates a preference for assisted riding.
-- **Ridership spikes in summer and falls during winter:** Weather plays a major role in bike usage.
+The PDF below is a demonstration of my data visualization and storytelling skills, following the dashboard i've completed in the previous modules. In this module, I'll find a compelling narrative that clarifies the analysis through an easy-to-understand presentation.
 
-**Recommendations:**
+---
 
-1. **Target casual riders with a commuting-focused marketing campaign:**
-   - Highlight the benefits of cycling for work: save money on gas, avoid traffic, and contribute to a healthier lifestyle.
-   - Promote the campaign on professional social media platforms (LinkedIn) to reach the target audience effectively.
-2. **Incentivize winter ridership:**
-   - Offer discounts or special promotions during colder months to encourage year-round usage.
-3. **Showcase the versatility of Cyclistic bikes:**
-   - Run advertising campaigns that demonstrate bikes are suitable for both commuting and recreation.
-   - Emphasize practicality and bike availability. Target these campaigns on platforms frequented by potential casual riders.
-
-**Impact:** By understanding how casual riders differ from members, we can tailor our marketing to effectively convert them, leading to increased membership, higher revenue, and a more sustainable transportation system.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image2.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image3.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image4.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image5.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image6.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image7.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="row justify-content-sm-center">
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image8.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image9.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row justify-content-sm-center">
-    <iframe src="https://www.kaggle.com/embed/samehshehata/google-data-analytics-capstone-project-case-1?kernelSessionId=152673146" height="800" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="Google Case Study 1 :"></iframe>
-</div>
+<iframe src="https://drive.google.com/file/d/1ly2cUboZKZucsAqcTIz7YonYMSLAJ1C0/preview" width="100%" height="600px"></iframe>
