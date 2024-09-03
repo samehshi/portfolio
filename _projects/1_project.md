@@ -37,15 +37,31 @@ This project is a part of the Google Data Analytics Professional Certificate. It
 **Impact:** By understanding how casual riders differ from members, we can tailor our marketing to effectively convert them, leading to increased membership, higher revenue, and a more sustainable transportation system.
 
 <div class="row">
-    <div class="col-sm-15 mt-3 mt-md-0">
+    <div class="col-sm-20 mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
+
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-20 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+</div>
+
+<div class="row">
+    <div class="col-sm-20 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-20 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-20 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
