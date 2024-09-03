@@ -1,0 +1,48 @@
+Heres an explanation of some of the git configuration settings listed, along with how to use them:
+
+1. credential.helper=osxkeychain
+    - This setting tells Git to use the macOS Keychain to store credentials like username and password.
+
+2. init.defaultbranch=main
+    - This setting specifies \"main\" as the default branch name for newly initialized repositories.
+
+3. credential.helper=cache
+    - This configuration enables Git to cache credentials in memory for use by future Git commands.
+
+4. core.repositoryformatversion=0
+    - This indicates the format version of the repository. The version 0 is the current default version.
+
+5. core.filemode=true
+    - When true, Git will respect file mode changes (i.e., executable bit changes in files).
+
+6. core.bare=false
+    - This setting indicates that the repository is not a bare repository (i.e., it has a working directory).
+
+7. core.logallrefupdates=true
+    - This setting makes Git log updates to the \"refs\" directory.
+
+8. core.ignorecase=true
+    - When true, Git treats file names as case insensitive. Useful on case-insensitive file systems.
+
+9. core.precomposeunicode=true
+    - This makes Git decompose Unicode composed forms. Useful for macOS file systems.
+
+10. remote.origin.url=git@github.com:samehshi/portfolio.git
+    - This is the URL of the remote repository. This is where the git push and git pull commands will send and fetch data from.
+
+11. remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+    - This specifies how to map branches from the remote repository to the local repository.
+
+12. branch.master.remote=origin
+    - This indicates that the \"master\" branch is tracked from the \"origin\" remote.
+
+13. branch.master.merge=refs/heads/master
+    - This indicates that the branch \"master\" is set up to merge with the remote \"master\" branch.
+
+To make changes to these settings, you can use the \"git config\" command. For example, to change the default branch name for new repositories, you can run:
+
+```
+git config --global init.defaultbranch main
+```
+
+If you need to configure any specific setting or need more information on a particular configuration, let me know!
