@@ -2,7 +2,7 @@
 layout: page
 title: Project 1
 description: Google Data Analytics (Case Study 1)
-img: assets/img/Project_1-kaggle_worksheet.png
+img: assets/img/g1-case1-image1.png
 importance: 1
 category: work
 related_publications: false
@@ -36,32 +36,41 @@ This project is a part of the Google Data Analytics Professional Certificate. It
 
 **Impact:** By understanding how casual riders differ from members, we can tailor our marketing to effectively convert them, leading to increased membership, higher revenue, and a more sustainable transportation system.
 
-<div class="row">
-    <div class="col-sm-20 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image3.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-20 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image4.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image5.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-20 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image6.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image7.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="row justify-content-sm-center">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image8.png" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/g1-case1-image9.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-20 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-20 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Project_1-kaggle_worksheet.png" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
+<div class="row justify-content-sm-center">
+    <iframe src="https://www.kaggle.com/embed/samehshehata/google-data-analytics-capstone-project-case-1?kernelSessionId=152673146" height="800" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="Google Case Study 1 :"></iframe>
 </div>
