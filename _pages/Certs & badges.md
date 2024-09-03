@@ -22,17 +22,17 @@ horizontal: false
 
 {% case category %}
 {% when "Badges" %}
+
 <div class="row justify-content-sm-center" style="max-width: 400px;">
 <div data-iframe-width="400" data-iframe-height="270" data-share-badge-id="1e7fec78-1157-48e6-90d9-5c8000198e33" data-share-badge-host="https://www.credly.com"></div>
 <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </div>
 
-    {% when "Certifications" %}
-    <div class="row justify-content-sm-center" style="max-width: 400px;">
-      <img src="path-to-your-image.jpg" alt="Certification Image" />
-    </div>
+{% when "Certifications" %}
 
-    <!-- Add more cases here if you have more categories -->
+  <div class="row justify-content-sm-center" style="max-width: 400px;">
+      <img src="path-to-your-image.jpg" alt="Certification Image" />
+  </div>
 
 {% endcase %}
 
