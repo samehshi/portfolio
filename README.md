@@ -6,10 +6,11 @@ Welcome to my portfolio, a sleek, minimalistic academic portfolio website built 
 
 <div align="center">
 
-[![Preview](readme_preview/Readme-Website-Preview.png)](https://samehshi.github.io/portfolio/)
+[![Preview](assets/img/Readme-Website-Preview.png)](https://samehshi.github.io/portfolio/)
+
 </div>
 
-##  ✨ **Features**
+## ✨ **Features**
 
 - **Responsive Design**: Mobile-first design ensuring optimal user experience across devices.
 - **Easy Customization**: Modify content, layout, and theme to match your personal branding.
