@@ -40,15 +40,18 @@ body.sticky-bottom-footer {
 /* TODO: redefine publications layout. */
 
 /*****************************************************************************
-* Projects
-*****************************************************************************/
+ * Projects
+ *****************************************************************************/
 
 /* TODO: redefine projects layout. */
 
-/* reset */
+/* Form reset styles */
 #fs-frm input,
 #fs-frm select,
-#fs-frm textarea,
+#fs-frm textarea {
+  color: #000000 !important;
+}
+
 #fs-frm fieldset,
 #fs-frm optgroup,
 #fs-frm label,
@@ -76,7 +79,7 @@ body.sticky-bottom-footer {
   align-items: baseline;
 }
 
-/* border, padding, margin, width */
+/* Border, padding, margin, width */
 #fs-frm input,
 #fs-frm select,
 #fs-frm textarea,
@@ -142,7 +145,7 @@ body.sticky-bottom-footer {
   appearance: radio;
 }
 
-/* address, locale */
+/* Address, locale */
 #fs-frm fieldset.locale input[name="city"],
 #fs-frm fieldset.locale select[name="state"],
 #fs-frm fieldset.locale input[name="postal-code"] {
@@ -163,39 +166,79 @@ body.sticky-bottom-footer {
   margin-right: 3%;
 }
 
-/* Provided form styles */
+/******************************************************************************
+ * Form Styling 
+ ******************************************************************************/
+
 form {
   max-width: 100%;
   margin: 0;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
   border-radius: 5px;
 }
 
+/* Labels */
 form label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+  color: var(--global-text-color);
 }
 
+/* Input fields */
 form input,
 form textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--global-divider-color);
   border-radius: 3px;
+  background-color: var(--global-bg-color);
+  color: var(--global-text-color);
   margin-bottom: 20px;
 }
 
+form input:focus,
+form textarea:focus {
+  border-color: var(--global-theme-color);
+  outline: none;
+  box-shadow: 0 0 3px var(--global-theme-color);
+}
+
+/* Placeholder styling */
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--global-text-color-light);
+}
+
+/* Button */
 form button[type="submit"] {
-  background-color: #4caf50;
-  color: white;
+  background-color: #4caf50 !important; /* Use your desired color */
+  color: #ffffff !important; /* Use your desired text color */
   padding: 10px 20px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 form button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #45a049 !important; /* Use your desired hover color */
+  color: #ffffff !important; /* Use your desired hover text color */
+}
+
+/* Error and Success Messages */
+.error-message {
+  color: var(--global-danger-block-text);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.success-message {
+  color: var(--global-tip-block-text);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
 }

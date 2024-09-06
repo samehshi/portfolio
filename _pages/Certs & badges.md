@@ -82,45 +82,57 @@ horizontal: false
 </div>
 
 <style>
+// SCSS styling for badges
+
 .badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+  // Container styling
+  display: flex; // Ensures badges are laid out in a row
+  flex-wrap: wrap; // Allows wrapping to the next line if space is insufficient
+  gap: 0.5rem; // Space between badges
+  padding: 0.5rem 0; // Space above and below badges container
+  
+  // Optional styling for alignment and appearance
+  align-items: center;
+  justify-content: center;
 }
 
-.badge {
-    display: flex;
-    justify-content: center;
+.badges span {
+  // Individual badge styling
+  display: inline-block;
+  color: var(--global-text-color); // Set text color from variable
+  background-color: var(--badge-background-color, #f0f0f0); // Set background color with fallback
+  border-radius: 0.25rem; // Rounded corners
+  padding: 0.2rem 0.5rem; // Padding inside each badge
+  margin: 0; // Remove any default margins
+  text-align: center; // Center text within the badge
+  font-size: 0.875rem; // Font size for readability
+  line-height: 1.2; // Line height for spacing
+  border: 1px solid var(--badge-border-color, #ddd); // Border around badge with fallback color
+
+  // Hover effect
+  &:hover {
+    text-decoration: underline; // Underline on hover
+    cursor: pointer; // Pointer cursor on hover
+  }
 }
 
 .badge div {
-    width: 100%; 
+  border: 2px solid #ddd;
+  width: 100%;
+  height: 270px; /* Adjust height to match the iframe content */
+  overflow: hidden; /* Hide anything outside the frame */
 }
 
-/* Credly Profile styling */
-.credly-profile {
-  text-align: center; /* Center the content horizontally */
-  margin-top: 20px; /* Add space above */
-  margin-bottom: 20px; /* Add space below */
+// Optional media query for responsive design
+@media (max-width: 600px) {
+  .badges {
+    gap: 0.25rem; // Reduce gap on smaller screens
+    padding: 0.25rem 0; // Adjust padding for small screens
+  }
+  
+  .badges span {
+    font-size: 0.75rem; // Adjust font size for small screens
+  }
 }
 
-.certifications {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.certifications figure {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 400px;
-}
-
-.certifications figcaption {
-    text-align: center;
-    margin-top: 5px;
-}
 </style>

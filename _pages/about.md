@@ -10,11 +10,35 @@ profile:
   more_info: >
     <p>Cairo, Egypt</p>
     <p>samehshihata@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/sameh-shehata/">sameh-shehata</a></p>
-    <p>Tableau: <a href="https://public.tableau.com/app/profile/sameh.shehata/vizzes">sameh.shehata</a></p>
-    <p>GitHub: <a href="https://github.com/samehshi">samehshehata</a></p>
-    <p>Kaggle: <a href="https://www.kaggle.com/samehshi">samehshi</a></p>
-    <p>Phone: +201274766641</p>
+
+    <p> 
+      <a href="https://www.linkedin.com/in/sameh-shihata/" target="_blank">
+       <i class="fab fa-linkedin"></i> LinkedIn Profile
+      </a>
+    </p>
+
+    <p>
+      <a href="https://public.tableau.com/app/profile/sameh.shehata/vizzes" target="_blank">
+        <i class="fas fa-chart-bar"></i> Tableau Profile
+      </a>
+    </p>
+
+    <p>
+      <a href="https://github.com/samehshi" target="_blank">
+        <i class="fab fa-github"></i> GitHub Profile
+      </a>
+    </p>
+
+    <p>
+      <a href="https://www.kaggle.com/samehshehata" target="_blank">
+        <i class="fab fa-kaggle"></i> Kaggle Profile
+      </a>
+    </p>
+
+    <p>
+      <i class="fas fa-phone"></i> +201274766641
+    </p>
+
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -51,5 +75,7 @@ Explore my work and discover how I can help drive success through data-driven so
     <textarea rows="5" name="message" id="message" placeholder="" required=""></textarea>
     <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
   </fieldset>
-  <input type="submit" value="Submit">
+  <!-- <input type="submit" value="Submit"> -->
+  <button type="submit" style="background-color: #4caf50 !important; color: #ffffff !important;">Submit</button>
+
 </form>
