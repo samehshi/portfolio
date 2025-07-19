@@ -1,0 +1,8 @@
+---
+layout: distill
+title: Predicting Apartment Prices in Buenos Aires
+description: Machine learning model to predict apartment prices in Buenos Aires using location and property features
+importance: 6
+category: Data Science Projects
+tools: ["Python", "Machine Learning", "Regression Analysis", "Geospatial Analysis"]
+---

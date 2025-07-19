@@ -1,0 +1,16 @@
+---
+layout: distill
+title: Bankruptcy Risk Assessment in Poland
+description: XGBoost models for financial risk prediction enabling proactive risk management and strategic decision-making
+importance: 9
+category: machine-learning
+secondary_categories: ["financial-analytics", "classification"]
+business_objective: "Develop accurate bankruptcy prediction models for financial risk management"
+methodology: "Advanced XGBoost modeling with financial ratio analysis and feature importance"
+strategic_outcome: "Early warning system for financial distress with actionable intervention triggers"
+tools: ["Python", "XGBoost", "Classification", "Financial Analysis"]
+business_impact: ["risk-management", "strategic-decision-making"]
+complexity: "expert"
+kpi: "85%+ accuracy in predicting bankruptcy risk"
+quantified_results: "12-18 month early warning capability for financial distress indicators"
+---

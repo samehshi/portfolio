@@ -56,6 +56,11 @@ horizontal: false
 {% when "Certifications" %}
 
 <div class="certifications">
+        <figure>
+        <iframe src="https://drive.google.com/file/d/1xQmqwyQHlNB_zmVRipM8I8hcqtwI8m_R/preview" width="100%" height="600px"></iframe>
+        <figcaption>Microsoft Certified: Fabric Analytics Engineer Associate DP-600</figcaption>
+    </figure>
+    <figure>
     <figure>
         <iframe src="https://drive.google.com/file/d/17MJIXzvnzBtO4-ttrnnbVYZIK2NRTmrX/preview" width="100%" height="600px"></iframe>
         <figcaption>Microsoft Certified: Power BI Data Analyst Associate PL-300</figcaption>

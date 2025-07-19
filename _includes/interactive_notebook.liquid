@@ -1,0 +1,13 @@
+{% if include.kaggle_link %}
+<div class="row justify-content-sm-center">
+    <iframe src="{{ include.kaggle_link }}" height="800" style="margin: 0 auto; width: 100%; max-width: 950px;" frameborder="0" scrolling="auto" title="{{ include.title | default: 'Interactive Notebook' }}"></iframe>
+</div>
+{% endif %}
+
+{% if include.github_link %}
+<div class="mt-3">
+    <a href="{{ include.github_link }}" target="_blank" class="btn btn-primary">
+        <i class="fab fa-github mr-1"></i> View on GitHub
+    </a>
+</div>
+{% endif %}
