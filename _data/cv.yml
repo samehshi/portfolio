@@ -1,0 +1,146 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: "Sameh Shehata Abdelaziz"
+    - name: Location
+      value: "Cairo, Egypt"
+    - name: Phone
+      value: "+201274766641"
+    - name: Email
+      value: "samehshihata@gmail.com"
+    - name: LinkedIn
+      value: "https://www.linkedin.com/in/sameh-shihata/"
+    - name: Portfolio
+      value: "https://samehshi.github.io/portfolio/"
+    - name: Languages
+      value: "Arabic (Native), English (Very Good)"
+
+- title: Summary
+  type: list
+  contents:
+    - "Data Analyst and Business Intelligence professional with 15+ years of experience"
+    - "Skilled in systems analysis and data-driven problem-solving"
+    - "Expertise in Power BI, Tableau, SQL, Python, and modern analytics tools"
+    - "Strong communicator bridging technical and business functions"
+
+- title: Education
+  type: time_table
+  contents:
+    - title: "Bachelor's Degree in Chemistry and Microbiology"
+      institution: "Ain Shams University, Cairo, Egypt"
+      year: 2008
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: "Freelance Data Analyst"
+      institution: "Self-employed"
+      year: "2022 - Present"
+      description:
+        - "Transformed raw data into actionable insights using Power BI, Tableau, and Looker"
+        - "Developed data pipelines increasing processing efficiency"
+        - "Conducted data cleaning, exploration, and visualization for various industries"
+
+    - title: "Aeronautical Telecommunication Officer"
+      institution: "NANSC [National Air Navigation Service Co.], Cairo, Egypt"
+      year: "2009 - Present"
+      description:
+        - "Optimized air navigation processes through complex systems analysis"
+        - "Utilized Excel and Office Suite for operational improvements"
+        - "Enhanced safety protocols by implementing data-driven solutions"
+
+- title: Professional Development and Certifications
+  type: time_table
+  contents:
+    - title: "Microsoft Certified: Power BI Data Analyst Associate (PL-300)"
+      institution: "Microsoft Learning"
+      year: 2024
+      description:
+        - "Mastered data modeling, visualization, and advanced calculations in Power BI"
+
+    - title: "Google Advanced Data Analytics Professional Certificate"
+      institution: "Coursera"
+      year: 2024
+      description:
+        - "Completed advanced courses in statistical analysis, machine learning, and business applications"
+
+    - title: "Google Business Intelligence Professional Certificate"
+      institution: "Coursera"
+      year: 2024
+      description:
+        - "Mastered BI foundations, ETL processes, and data visualization techniques"
+
+    - title: "Google Cloud Data Analytics Certificate"
+      institution: "Google Cloud Skills Boost"
+      year: 2024
+      description:
+        - "Proficient in Google BigQuery and cloud-based data analysis"
+
+    - title: "IBM Data Analytics Professional Certificate"
+      institution: "Coursera"
+      year: 2023
+      description:
+        - "Gained expertise in Python, SQL, and IBM Cognos for data analysis and visualization"
+
+    - title: "Google Data Analytics Professional Certificate"
+      institution: "Coursera"
+      year: 2023
+      description:
+        - "Covered data cleaning, analysis, and visualization fundamentals using R and Excel"
+
+    - title: "McKinsey Forward Program"
+      institution: "McKinsey"
+      year: 2023
+      description:
+        - "Enhanced structured thinking, problem-solving, and communication skills"
+
+- title: Projects
+  type: time_table
+  contents:
+    - title: "Applied Data Science Labs"
+      institution: "WorldQuant University"
+      year: 2024
+      description:
+        - "Completed 8 data science projects covering regression, clustering, time series analysis, and A/B testing"
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: "Data Analysis"
+      items:
+        - "Statistical Data Analysis"
+        - "Predictive Analytics"
+        - "Exploratory Data Analysis"
+    - title: "Data Visualization"
+      items:
+        - "Tableau"
+        - "Power BI"
+        - "Looker"
+        - "Excel Dashboards"
+    - title: "Programming & Tools"
+      items:
+        - "SQL"
+        - "Python"
+        - "R"
+        - "Pandas"
+        - "Google BigQuery"
+    - title: "BI & Databases"
+      items:
+        - "IBM Db2"
+        - "IBM Cognos"
+        - "Data Pipeline Development (ETL)"
+    - title: "General"
+      items:
+        - "Digital Transformation"
+        - "Microsoft Office Suite"
+
+- title: Interpersonal Skills
+  type: list
+  contents:
+    - "Problem Solving"
+    - "Cross-functional Collaboration"
+    - "Communication"
+    - "Adaptability and Resilience"
+    - "Design Thinking"
+    - "Leadership"
