@@ -1,16 +1,28 @@
 <div class="col mb-4">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
+  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{% include project_link.liquid project=project %}{% endif %}">
     <div class="card h-100 hoverable">
       <div class="row no-gutters">
-        {% if project.img %}
-          <div class="col-md-6">
-            {% include figure.liquid loading="eager" path=project.img sizes="(min-width: 768px) 156px, 50vw" alt="project thumbnail" class="card-img" %}
-          </div>
-        {% endif %}
-        <div class="{% if project.img %}col-md-6{% else %}col-md-12{% endif %}">
+        <div class="col-md-6">
+          {% if project.img %}
+            {% include figure.liquid loading="eager" path=project.img sizes="(min-width: 768px) 156px, 50vw" alt=project.title class="card-img" %}
+          {% else %}
+            {% include figure.liquid loading="eager" path="assets/img/project-placeholder.svg" sizes="(min-width: 768px) 156px, 50vw" alt=project.title class="card-img" %}
+          {% endif %}
+        </div>
+        <div class="col-md-6">
           <div class="card-body">
             <h3 class="card-title">{{ project.title }}</h3>
-            <p class="card-text">{{ project.description }}</p>
+            <p class="card-text">{{ project.description | truncate: 200 }}</p>
+            {% if project.category %}
+              <div class="project-category mb-2">
+                <span class="badge badge-secondary">{{ project.category }}</span>
+                {% if project.secondary_categories %}
+                  {% for cat in project.secondary_categories %}
+                    <span class="badge badge-light">{{ cat }}</span>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            {% endif %}
             <div class="row ml-1 mr-1 p-0">
               {% if project.github %}
                 <div class="github-icon">

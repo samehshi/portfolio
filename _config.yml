@@ -247,6 +247,8 @@ exclude:
   - README.md
   - readme_preview/
   - vendor
+  - "_projects/**/*.py"
+  - "_projects/**/.ipynb_checkpoints/"
 keep_files:
   - CNAME
   - .nojekyll
@@ -288,6 +290,15 @@ jekyll-minifier:
   exclude: ["robots.txt", "assets/js/search/*.js"]
   uglifier_args:
     harmony: true
+
+# -----------------------------------------------------------------------------
+# Jupyter Notebook Configuration
+# -----------------------------------------------------------------------------
+
+jupyter_notebook:
+  kernel_name: python3
+  input_prompt: "In [%s]:"
+  output_prompt: "Out[%s]:"
 
 # -----------------------------------------------------------------------------
 # Jekyll Archives

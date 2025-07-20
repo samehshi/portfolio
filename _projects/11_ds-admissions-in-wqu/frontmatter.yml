@@ -1,9 +1,9 @@
 ---
-layout: distill
+layout: notebook
 title: Improving Applicant Engagement through A/B Testing
 description: Statistical testing for conversion optimization enabling data-driven marketing decisions and enhanced enrollment strategies
 importance: 11
-category: data-analytics
+category: Data Science Projects
 secondary_categories: ["ab-testing", "marketing-analytics"]
 business_objective: "Optimize applicant conversion rates through evidence-based engagement strategies"
 methodology: "Rigorous A/B testing with statistical validation and conversion funnel analysis"

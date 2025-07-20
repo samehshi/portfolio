@@ -1,0 +1,34 @@
+{% comment %}
+  This include handles linking between project directories and main project pages
+  Usage: {% include project_link.liquid project=project %}
+{% endcomment %}
+
+{% assign project_url = project.url | relative_url %}
+
+{% comment %}
+  Check if this is a project directory with a frontmatter.yml file
+  If so, find the corresponding main project page
+{% endcomment %}
+{% if project.path contains 'frontmatter.yml' %}
+  {% assign project_dir = project.path | split: '/' | slice: 0, -1 | join: '/' %}
+  {% assign project_name = project_dir | split: '/' | last %}
+  
+  {% comment %}Look for a corresponding .md file{% endcomment %}
+  {% for p in site.projects %}
+    {% assign p_name = p.path | split: '/' | last | remove: '.md' %}
+    {% if p_name == project_name %}
+      {% assign project_url = p.url | relative_url %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% comment %}
+  Check if this is a standalone notebook file
+  If so, use the notebook file directly
+{% endcomment %}
+{% if project.path contains '.ipynb' %}
+  {% assign project_url = project.url | relative_url %}
+{% endif %}
+
+{{ project_url }}

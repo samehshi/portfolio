@@ -1,0 +1,184 @@
+// Jupyter notebook styling
+.jupyter-notebook {
+  .input-group,
+  .output-group {
+    margin-bottom: 1rem;
+  }
+
+  .input-prompt,
+  .output-prompt {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+    margin-right: 0.5rem;
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .input-area,
+  .output-area {
+    background-color: var(--global-code-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 4px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-area {
+    background-color: #f8f9fa;
+    
+    pre {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .output-area {
+    background-color: #ffffff;
+    
+    &.output-error {
+      background-color: #fff5f5;
+      border-color: #fed7d7;
+      color: #c53030;
+    }
+  }
+
+  .output-text {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+  }
+
+  .output-html {
+    .dataframe {
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      
+      th, td {
+        border: 1px solid var(--global-divider-color);
+        padding: 0.5rem;
+        text-align: left;
+      }
+      
+      th {
+        background-color: var(--global-bg-color);
+        font-weight: 600;
+      }
+      
+      tr:nth-child(even) {
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+    }
+  }
+
+  .output-image {
+    text-align: center;
+    margin: 1rem 0;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .cell-metadata {
+    font-size: 0.8rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.5rem;
+  }
+
+  // Plotly chart containers
+  .plotly-graph-div {
+    margin: 1rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  // Code syntax highlighting
+  .highlight {
+    background: none !important;
+    
+    .c { color: #6a737d; } // Comments
+    .k { color: #d73a49; } // Keywords
+    .s { color: #032f62; } // Strings
+    .n { color: #24292e; } // Names
+    .o { color: #d73a49; } // Operators
+    .nb { color: #005cc5; } // Built-ins
+    .nf { color: #6f42c1; } // Functions
+  }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] {
+  .jupyter-notebook {
+    .input-area {
+      background-color: #2d3748;
+      border-color: #4a5568;
+    }
+
+    .output-area {
+      background-color: #1a202c;
+      border-color: #4a5568;
+      color: #e2e8f0;
+      
+      &.output-error {
+        background-color: #742a2a;
+        border-color: #e53e3e;
+        color: #fed7d7;
+      }
+    }
+
+    .dataframe {
+      th, td {
+        border-color: #4a5568;
+      }
+      
+      th {
+        background-color: #2d3748;
+      }
+      
+      tr:nth-child(even) {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+
+    .highlight {
+      .c { color: #6a737d; }
+      .k { color: #f97583; }
+      .s { color: #9ecbff; }
+      .n { color: #e1e4e8; }
+      .o { color: #f97583; }
+      .nb { color: #79b8ff; }
+      .nf { color: #b392f0; }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .jupyter-notebook {
+    .input-prompt,
+    .output-prompt {
+      min-width: 60px;
+      font-size: 0.8rem;
+    }
+    
+    .input-area,
+    .output-area {
+      padding: 0.5rem;
+    }
+    
+    .dataframe {
+      font-size: 0.8rem;
+      
+      th, td {
+        padding: 0.25rem;
+      }
+    }
+  }
+}

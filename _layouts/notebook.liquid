@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+  <head>
+    {% include head.liquid %}
+    {% if site.enable_medium_zoom %}
+      <!-- Medium Zoom JS -->
+      <script
+        defer
+        src="{{ site.third_party_libraries.medium_zoom.url.js }}"
+        integrity="{{ site.third_party_libraries.medium_zoom.integrity.js }}"
+        crossorigin="anonymous"
+      ></script>
+      <script defer src="{{ '/assets/js/zoom.js' | relative_url | bust_file_cache }}"></script>
+    {% endif %}
+    {% include scripts/jquery.liquid %}
+    {% include scripts/mathjax.liquid %}
+    
+    <!-- Plotly.js for interactive charts -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+    <!-- Custom notebook styling -->
+    <style>
+      .jupyter-notebook {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      
+      .jupyter-notebook .highlight {
+        background: #f8f9fa;
+        border-radius: 4px;
+        padding: 0.5rem;
+      }
+      
+      .jupyter-notebook .output_png,
+      .jupyter-notebook .output_jpeg {
+        text-align: center;
+        margin: 1rem 0;
+      }
+      
+      .jupyter-notebook .output_png img,
+      .jupyter-notebook .output_jpeg img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+    
+    {% if page._styles %}
+      <!-- Page/Post style -->
+      <style type="text/css">
+        {{ page._styles }}
+      </style>
+    {% endif %}
+  </head>
+
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <!-- Header -->
+    {% include header.liquid %}
+
+    <!-- Content -->
+    <div class="container mt-5">
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">{{ page.title }}</h1>
+          {% if page.description %}
+            <p class="post-description">{{ page.description }}</p>
+          {% endif %}
+          
+          {% if page.category %}
+            <div class="post-meta">
+              <span class="badge badge-primary">{{ page.category }}</span>
+              {% if page.secondary_categories %}
+                {% for cat in page.secondary_categories %}
+                  <span class="badge badge-secondary">{{ cat }}</span>
+                {% endfor %}
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          {% if page.tools %}
+            <div class="post-tools mt-2">
+              <strong>Tools:</strong>
+              {% for tool in page.tools %}
+                <span class="badge badge-light">{{ tool }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </header>
+
+        <article class="post-content jupyter-notebook">
+          {{ content }}
+        </article>
+        
+        {% if page.github_link %}
+          <div class="post-footer mt-4">
+            <a href="{{ page.github_link }}" target="_blank" class="btn btn-primary">
+              <i class="fab fa-github mr-1"></i> View on GitHub
+            </a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {% include footer.liquid %}
+    {% include scripts/bootstrap.liquid %}
+    {% include scripts/analytics.liquid %}
+    {% include scripts/progressBar.liquid %}
+    {% include scripts/back_to_top.liquid %}
+    {% include scripts/search.liquid %}
+    
+    <!-- Custom script for notebook enhancements -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add alt text to images that don't have it
+        const images = document.querySelectorAll('.jupyter-notebook img:not([alt])');
+        images.forEach(function(img, index) {
+          img.alt = 'Notebook output image ' + (index + 1);
+        });
+        
+        // Enhance table styling
+        const tables = document.querySelectorAll('.jupyter-notebook table');
+        tables.forEach(function(table) {
+          table.classList.add('table', 'table-striped', 'table-hover');
+          const wrapper = document.createElement('div');
+          wrapper.classList.add('table-responsive');
+          table.parentNode.insertBefore(wrapper, table);
+          wrapper.appendChild(table);
+        });
+        
+        // Handle Plotly charts
+        const plotlyDivs = document.querySelectorAll('.plotly-graph-div');
+        plotlyDivs.forEach(function(div) {
+          if (div.data && div.layout) {
+            Plotly.newPlot(div, div.data, div.layout, {responsive: true});
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
