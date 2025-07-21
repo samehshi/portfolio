@@ -38,9 +38,7 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Install lychee 🔗
+        run: npm install -g lychee
       - name: Link Checker 🔗
-        uses: lycheeverse/lychee-action@v1.9.0
-        with:
-          fail: true
-          # only check local links
-          args: --offline --remap '_site(/?.*)/assets/(.*) _site/assets/$2' --verbose --no-progress '_site/**/*.html'
+        run: npx lychee --offline --remap '_site(/?.*)/assets/(.*) _site/assets/$2' --verbose --no-progress '_site/**/*.html'
