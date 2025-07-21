@@ -1,21 +1,4 @@
 User-agent: *
-Allow: /
+Disallow:
 
-# Disallow crawling of development and temporary files
-Disallow: /_site/
-Disallow: /bin/
-Disallow: /node_modules/
-Disallow: /.git/
-Disallow: /.jekyll-cache/
-Disallow: /vendor/
-
-# Allow crawling of important pages
-Allow: /projects/
-Allow: /cv/
-Allow: /assets/
-
-# Crawl delay (optional - be respectful to servers)
-Crawl-delay: 1
-
-# Sitemap location
 Sitemap: https://samehshi.github.io/portfolio/sitemap.xml
