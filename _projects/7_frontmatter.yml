@@ -1,8 +1,0 @@
----
-layout: distill
-title: Predictive Modeling for Air Quality in Nairobi, Kenya
-description: Time series analysis and predictive modeling to forecast air quality metrics in Nairobi
-importance: 7
-category: Data Science Projects
-tools: ["Python", "Time Series Analysis", "Environmental Data", "Forecasting"]
----

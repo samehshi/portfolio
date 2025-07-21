@@ -1,8 +1,0 @@
----
-layout: distill
-title: Customer Segmentation for Financial Services
-description: Advanced clustering analysis to identify customer segments for targeted financial product offerings
-importance: 10
-category: Data Science Projects
-tools: ["Python", "Clustering", "Customer Analytics", "Financial Services"]
----

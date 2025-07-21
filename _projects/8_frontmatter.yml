@@ -1,8 +1,0 @@
----
-layout: distill
-title: Predicting Earthquake Damage - Case Study Nepal
-description: Classification model to predict building damage levels from earthquake data in Nepal
-importance: 8
-category: Data Science Projects
-tools: ["Python", "Classification", "Disaster Analytics", "Feature Engineering"]
----
