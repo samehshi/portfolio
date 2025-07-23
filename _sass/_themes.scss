@@ -1,39 +1,95 @@
 /*******************************************************************************
- * Themes
+ * Modern Theme System
+ * 
+ * This file defines the light and dark theme color tokens using CSS custom properties.
+ * It includes:
+ * - Semantic color tokens for consistent theming
+ * - Legacy variable mappings for backward compatibility
+ * - Theme-specific component styling
+ * - Enhanced accessibility with proper contrast ratios
+ * 
+ * Enhanced with semantic color tokens and improved accessibility
  ******************************************************************************/
 
 :root {
-  --global-bg-color: #{$white-color};
-  --global-code-bg-color: #{$code-bg-color-light};
-  --global-text-color: #{$black-color};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$purple-color};
-  --global-hover-color: #{$purple-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-dark};
-  --global-footer-text-color: #{$grey-color-light};
-  --global-footer-link-color: #{$white-color};
-  --global-distill-app-color: #{$grey-color};
-  --global-divider-color: rgba(0, 0, 0, 0.1);
-  --global-card-bg-color: #{$white-color};
-  --global-highlight-color: #{$red-color-dark};
-  --global-back-to-top-bg-color: rgba(#{red($black-color)}, #{green($black-color)}, #{blue($black-color)}, 0.4);
-  --global-back-to-top-text-color: #{$white-color};
-  --global-newsletter-bg-color: #{$white-color};
-  --global-newsletter-text-color: #{$black-color};
+  // =============================================================================
+  // Semantic Color Tokens - Light Theme
+  // =============================================================================
+  
+  // Surface colors
+  --surface-primary: #{$white-color};
+  --surface-secondary: #{$neutral-50};
+  --surface-elevated: #{$white-color};
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+  
+  // Text colors with improved contrast ratios
+  --text-primary: #{$neutral-900};
+  --text-secondary: #{$neutral-600};
+  --text-tertiary: #{$neutral-500};
+  --text-inverse: #{$white-color};
+  
+  // Interactive colors
+  --interactive-primary: #{$primary-600};
+  --interactive-primary-hover: #{$primary-700};
+  --interactive-primary-active: #{$primary-800};
+  --interactive-secondary: #{$purple-600};
+  --interactive-secondary-hover: #{$purple-700};
+  
+  // Border and divider colors
+  --border-primary: #{$neutral-200};
+  --border-secondary: #{$neutral-300};
+  --divider: rgba(0, 0, 0, 0.08);
+  
+  // Status colors with proper contrast
+  --status-success: #{$success-500};
+  --status-success-bg: #f0fdf4;
+  --status-success-text: #166534;
+  --status-warning: #{$warning-500};
+  --status-warning-bg: #fffbeb;
+  --status-warning-text: #92400e;
+  --status-error: #{$error-500};
+  --status-error-bg: #fef2f2;
+  --status-error-text: #991b1b;
+  --status-info: #{$info-500};
+  --status-info-bg: #eff6ff;
+  --status-info-text: #1e40af;
+  
+  // =============================================================================
+  // Legacy Variable Mappings for Backward Compatibility
+  // =============================================================================
+  
+  --global-bg-color: var(--surface-primary);
+  --global-code-bg-color: #{rgba($primary-500, 0.05)};
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--interactive-primary);
+  --global-hover-color: var(--interactive-primary-hover);
+  --global-hover-text-color: var(--text-inverse);
+  --global-footer-bg-color: #{$neutral-800};
+  --global-footer-text-color: #{$neutral-300};
+  --global-footer-link-color: var(--text-inverse);
+  --global-distill-app-color: var(--text-secondary);
+  --global-divider-color: var(--divider);
+  --global-card-bg-color: var(--surface-elevated);
+  --global-highlight-color: var(--status-error);
+  --global-back-to-top-bg-color: rgba(0, 0, 0, 0.6);
+  --global-back-to-top-text-color: var(--text-inverse);
+  --global-newsletter-bg-color: var(--surface-primary);
+  --global-newsletter-text-color: var(--text-primary);
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  // Enhanced status blocks with better accessibility
+  --global-tip-block: var(--status-success);
+  --global-tip-block-bg: var(--status-success-bg);
+  --global-tip-block-text: var(--status-success-text);
+  --global-tip-block-title: var(--status-success);
+  --global-warning-block: var(--status-warning);
+  --global-warning-block-bg: var(--status-warning-bg);
+  --global-warning-block-text: var(--status-warning-text);
+  --global-warning-block-title: var(--status-warning);
+  --global-danger-block: var(--status-error);
+  --global-danger-block-bg: var(--status-error-bg);
+  --global-danger-block-text: var(--status-error-text);
+  --global-danger-block-title: var(--status-error);
 
   #light-toggle-system {
     padding-left: 10px;
@@ -68,35 +124,84 @@
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #{$grey-color-dark};
-  --global-code-bg-color: #{$code-bg-color-dark};
-  --global-text-color: #{$grey-color-light};
-  --global-text-color-light: #{$grey-color};
-  --global-theme-color: #{$cyan-color};
-  --global-hover-color: #{$cyan-color};
-  --global-hover-text-color: #{$white-color};
-  --global-footer-bg-color: #{$grey-color-light};
-  --global-footer-text-color: #{$grey-color-dark};
-  --global-footer-link-color: #{$black-color};
-  --global-distill-app-color: #{$grey-color-light};
-  --global-divider-color: #424246;
-  --global-card-bg-color: #{$grey-900};
-  --global-back-to-top-bg-color: rgba(#{red($white-color)}, #{green($white-color)}, #{blue($white-color)}, 0.5);
-  --global-back-to-top-text-color: #{$black-color};
+  // =============================================================================
+  // Semantic Color Tokens - Dark Theme
+  // Enhanced with better contrast ratios for accessibility
+  // =============================================================================
   
+  // Surface colors - improved dark theme hierarchy
+  --surface-primary: #{$neutral-900};
+  --surface-secondary: #{$neutral-800};
+  --surface-elevated: #{$neutral-800};
+  --surface-overlay: rgba(23, 23, 23, 0.95);
+  
+  // Text colors with enhanced contrast for better readability
+  --text-primary: #{$neutral-100};
+  --text-secondary: #{$neutral-300};
+  --text-tertiary: #{$neutral-400};
+  --text-inverse: #{$neutral-900};
+  
+  // Interactive colors - optimized for dark backgrounds
+  --interactive-primary: #{$primary-400};
+  --interactive-primary-hover: #{$primary-300};
+  --interactive-primary-active: #{$primary-200};
+  --interactive-secondary: #{$purple-400};
+  --interactive-secondary-hover: #{$purple-300};
+  
+  // Border and divider colors
+  --border-primary: #{$neutral-700};
+  --border-secondary: #{$neutral-600};
+  --divider: rgba(255, 255, 255, 0.1);
+  
+  // Status colors adapted for dark theme with proper contrast
+  --status-success: #22c55e;
+  --status-success-bg: rgba(34, 197, 94, 0.1);
+  --status-success-text: #86efac;
+  --status-warning: #fbbf24;
+  --status-warning-bg: rgba(251, 191, 36, 0.1);
+  --status-warning-text: #fde047;
+  --status-error: #f87171;
+  --status-error-bg: rgba(248, 113, 113, 0.1);
+  --status-error-text: #fca5a5;
+  --status-info: #60a5fa;
+  --status-info-bg: rgba(96, 165, 250, 0.1);
+  --status-info-text: #93c5fd;
+  
+  // =============================================================================
+  // Legacy Variable Mappings for Dark Theme
+  // =============================================================================
+  
+  --global-bg-color: var(--surface-primary);
+  --global-code-bg-color: #{$neutral-800};
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--interactive-primary);
+  --global-hover-color: var(--interactive-primary-hover);
+  --global-hover-text-color: var(--text-inverse);
+  --global-footer-bg-color: #{$neutral-800};
+  --global-footer-text-color: var(--text-secondary);
+  --global-footer-link-color: var(--text-primary);
+  --global-distill-app-color: var(--text-secondary);
+  --global-divider-color: var(--divider);
+  --global-card-bg-color: var(--surface-elevated);
+  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.2);
+  --global-back-to-top-text-color: var(--text-primary);
+  --global-newsletter-bg-color: var(--surface-elevated);
+  --global-newsletter-text-color: var(--text-primary);
 
-  --global-tip-block: #42b983;
-  --global-tip-block-bg: #e2f5ec;
-  --global-tip-block-text: #215d42;
-  --global-tip-block-title: #359469;
-  --global-warning-block: #e7c000;
-  --global-warning-block-bg: #fff8d8;
-  --global-warning-block-text: #6b5900;
-  --global-warning-block-title: #b29400;
-  --global-danger-block: #c00;
-  --global-danger-block-bg: #ffe0e0;
-  --global-danger-block-text: #600;
-  --global-danger-block-title: #c00;
+  // Enhanced status blocks for dark theme
+  --global-tip-block: var(--status-success);
+  --global-tip-block-bg: var(--status-success-bg);
+  --global-tip-block-text: var(--status-success-text);
+  --global-tip-block-title: var(--status-success);
+  --global-warning-block: var(--status-warning);
+  --global-warning-block-bg: var(--status-warning-bg);
+  --global-warning-block-text: var(--status-warning-text);
+  --global-warning-block-title: var(--status-warning);
+  --global-danger-block: var(--status-error);
+  --global-danger-block-bg: var(--status-error-bg);
+  --global-danger-block-text: var(--status-error-text);
+  --global-danger-block-title: var(--status-error);
 
   .repo-img-light {
     display: none;

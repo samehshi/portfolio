@@ -1,27 +1,71 @@
-// Project card styling
+/*******************************************************************************
+ * Project Cards and Layout
+ * Modern project showcase with enhanced hover effects and responsive design
+ ******************************************************************************/
+
+// =============================================================================
+// Project Grid Layout
+// =============================================================================
+
 .projects {
   .project-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: $spacing-6;
   }
 
+  // Enhanced card styling with modern hover effects
   .card {
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    transition: transform $duration-200 $ease-out, box-shadow $duration-200 $ease-out;
     border: 1px solid var(--global-divider-color);
+    border-radius: $card-border-radius;
+    overflow: hidden;
     
     &.hoverable:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: $card-shadow-hover;
+    }
+
+    img {
+      padding: $spacing-12;
     }
   }
+
+  // Project link styling
+  a {
+    text-decoration: none;
+    transition: $transition-colors;
+
+    &:hover {
+      .card-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .col {
+    padding-bottom: $spacing-4;
+  }
+
+  // Category headers
+  h2.category {
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-top: $spacing-2;
+    margin: $spacing-8 0 $spacing-4;
+    text-align: right;
+  }
+
+  // =============================================================================
+  // Project Image Handling
+  // =============================================================================
 
   .card-img-container {
     position: relative;
     overflow: hidden;
     
     .card-img-top {
-      transition: transform 0.3s ease;
+      transition: transform $duration-300 $ease-out;
       height: 200px;
       object-fit: cover;
+      width: 100%;
     }
     
     &:hover .card-img-top {
@@ -32,61 +76,81 @@
   .card-img {
     height: 200px;
     object-fit: cover;
+    width: 100%;
   }
 
+  // =============================================================================
+  // Card Content Layout
+  // =============================================================================
+
   .card-body {
-    padding: 1.25rem;
+    padding: $card-padding;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
 
   .card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    line-height: $line-height-snug;
+    letter-spacing: $letter-spacing-tight;
+    margin-bottom: $spacing-3;
     color: var(--global-text-color);
+    transition: $transition-colors;
   }
 
   .card-text {
     flex-grow: 1;
-    margin-bottom: 1rem;
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-4;
     color: var(--global-text-color-light);
-    line-height: 1.5;
   }
 
+  // =============================================================================
+  // Project Categories and Badges
+  // =============================================================================
+
   .project-category {
-    margin-bottom: 0.75rem;
+    margin-bottom: $spacing-3;
     
     .badge {
-      font-size: 0.75rem;
-      margin-right: 0.25rem;
-      padding: 0.25rem 0.5rem;
-    }
-    
-    .badge-secondary {
-      background-color: var(--global-theme-color);
-      color: white;
-    }
-    
-    .badge-light {
-      background-color: var(--global-bg-color);
-      color: var(--global-text-color-light);
-      border: 1px solid var(--global-divider-color);
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      letter-spacing: $letter-spacing-wide;
+      margin-right: $spacing-1;
+      padding: $spacing-1 $spacing-2;
+      border-radius: $border-radius-sm;
+      text-transform: uppercase;
+      
+      &.badge-secondary {
+        background-color: var(--global-theme-color);
+        color: white;
+      }
+      
+      &.badge-light {
+        background-color: var(--global-bg-color);
+        color: var(--global-text-color-light);
+        border: 1px solid var(--global-divider-color);
+      }
     }
   }
+
+  // =============================================================================
+  // GitHub Integration and Metadata
+  // =============================================================================
 
   .github-icon {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: $spacing-2;
     margin-top: auto;
     
     .icon a {
       color: var(--global-text-color-light);
-      font-size: 1.2rem;
-      transition: color 0.2s ease;
+      font-size: $font-size-lg;
+      transition: $transition-colors;
       
       &:hover {
         color: var(--global-theme-color);
@@ -94,19 +158,26 @@
     }
     
     .stars {
-      font-size: 0.85rem;
+      font-size: $font-size-sm;
       color: var(--global-text-color-light);
     }
   }
 }
 
-// Category navigation
+// =============================================================================
+// Category Navigation
+// =============================================================================
+
 .category {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-snug;
+  letter-spacing: $letter-spacing-tight;
   color: var(--global-theme-color);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: $spacing-4;
+  padding-bottom: $spacing-2;
   border-bottom: 2px solid var(--global-theme-color);
+  transition: $transition-colors;
   
   &:hover {
     text-decoration: none;
@@ -114,8 +185,11 @@
   }
 }
 
-// Responsive adjustments
-@media (max-width: 768px) {
+// =============================================================================
+// Responsive Design
+// =============================================================================
+
+@media (max-width: $breakpoint-md) {
   .projects {
     .card-img-container .card-img-top,
     .card-img {
@@ -123,11 +197,15 @@
     }
     
     .card-title {
-      font-size: 1rem;
+      font-size: $font-size-base;
     }
     
     .card-text {
-      font-size: 0.9rem;
+      font-size: $font-size-sm;
+    }
+    
+    .card-body {
+      padding: $spacing-4;
     }
   }
 }

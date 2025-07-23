@@ -1,48 +1,64 @@
+/*******************************************************************************
+ * Tab Navigation Component
+ * Modern tab interface with improved accessibility and design tokens
+ ******************************************************************************/
+
+// =============================================================================
+// Tab Navigation
+// =============================================================================
+
 .tab {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -20px;
+  margin-left: -$spacing-5;
   padding: 0;
   list-style: none;
   position: relative;
+
+  > * {
+    flex: none;
+    padding-left: $spacing-5;
+    position: relative;
+
+    > a {
+      display: block;
+      text-align: center;
+      padding: $spacing-2 $spacing-5;
+      color: var(--global-text-color-light);
+      border-bottom: 2px solid transparent;
+      font-size: $font-size-xs;
+      text-transform: uppercase;
+      transition: $transition-colors;
+      line-height: $line-height-snug;
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: $letter-spacing-wide;
+
+      &:hover {
+        color: var(--global-text-color);
+      }
+    }
+  }
+
+  > .active > a {
+    color: var(--global-text-color);
+    border-color: var(--global-theme-color);
+    font-weight: $font-weight-medium;
+  }
 }
 
-.tab > * {
-  flex: none;
-  padding-left: 20px;
-  position: relative;
-}
-
-.tab > * > a {
-  display: block;
-  text-align: center;
-  padding: 9px 20px;
-  color: var(--global-text-color-light);
-  border-bottom: 2px solid transparent;
-  border-bottom-color: transparent;
-  font-size: 12px;
-  text-transform: uppercase;
-  transition: color 0.1s ease-in-out;
-  line-height: 20px;
-}
-
-.tab > .active > a {
-  color: var(--global-text-color);
-  border-color: var(--global-theme-color);
-}
-
-.tab > li > a {
-  text-decoration: none;
-  cursor: pointer;
-}
+// =============================================================================
+// Tab Content
+// =============================================================================
 
 .tab-content {
   padding: 0;
-}
 
-.tab-content > li {
-  display: none;
-}
-.tab-content > li.active {
-  display: block;
+  > li {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
 }

@@ -1,85 +1,100 @@
-/*****************************
- * CV shared styles
- *****************************/
+/*******************************************************************************
+ * CV and Resume Components
+ * Styling for curriculum vitae and resume layouts with modern design tokens
+ ******************************************************************************/
 
+// =============================================================================
+// Base CV Components
+// =============================================================================
+
+// Container for link buttons
 div.container-link-button {
-  margin-right: 0.5rem;
+  margin-right: $spacing-2;
 }
 
+// CV table styling
 table.table-cv {
   background-color: transparent !important;
 }
 
+// CV button styling with modern design tokens
 a.btncv {
   color: var(--global-text-color) !important;
   border: 1px solid var(--global-text-color) !important;
-  border-radius: 0.125rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  border-radius: $border-radius-sm;
+  padding: $spacing-1 $spacing-4;
   text-decoration: none;
-  font-weight: 400;
-  font-size: 0.7rem;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-xs;
   text-align: center;
   vertical-align: middle;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: $transition-colors;
+  display: inline-block;
+
+  &:hover {
+    color: var(--global-theme-color) !important;
+    border-color: var(--global-theme-color) !important;
+    text-decoration: none !important;
+  }
 }
 
-a.btncv:hover {
-  color: var(--global-theme-color) !important;
-  border-color: var(--global-theme-color) !important;
-  text-decoration: none !important;
-}
+// =============================================================================
+// CV Time Table Layout
+// =============================================================================
 
-/*****************************
- * CV TIME_TABLE styles
- *****************************/
-
+// Location information
 p.location {
-  font-size: 0.7rem;
+  font-size: $font-size-xs;
   white-space: nowrap;
+  color: var(--global-text-color-light);
+}
+
+// Icon styling for different CV sections
+i.iconlocation,
+i.iconinstitution,
+i.icondepartment {
+  color: var(--global-theme-color);
 }
 
 i.iconlocation {
-  color: var(--global-theme-color);
-  font-size: 0.8rem;
+  font-size: $font-size-sm;
 }
 
 i.iconinstitution {
-  color: var(--global-theme-color);
-  font-size: 0.95rem;
-  margin-right: 0.3rem;
+  font-size: $font-size-base;
+  margin-right: $spacing-1;
 }
 
 i.icondepartment {
-  color: var(--global-theme-color);
-  font-size: 0.8rem;
-  margin-right: 0.3rem;
+  font-size: $font-size-sm;
+  margin-right: $spacing-1;
 }
 
+// Institution and department tables
 table.institution {
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-4;
 }
 
 td.department {
-  font-size: 0.8rem;
+  font-size: $font-size-sm;
 }
 
+// Links container with flexbox layout
 div.container-links {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  margin: $spacing-4 0 $spacing-2;
+  gap: $spacing-2;
 }
 
-/*****************************
- * CV MAP styles
- *****************************/
+// =============================================================================
+// CV Map and PDF Container
+// =============================================================================
 
 div.container-pdf {
   display: flex;
@@ -87,11 +102,12 @@ div.container-pdf {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
+  gap: $spacing-2;
 }
 
-/*****************************
- * CV LIST_GROUPS styles
- *****************************/
+// =============================================================================
+// CV List Groups Layout
+// =============================================================================
 
 div.list-groups {
   display: flex;
@@ -99,6 +115,7 @@ div.list-groups {
   justify-content: flex-start;
   flex-direction: row;
   align-content: center;
+  gap: $spacing-4;
 }
 
 div.list-group {
@@ -106,49 +123,53 @@ div.list-group {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: $spacing-8;
 }
 
+// List group table cell styling
 td.list-group-category {
   color: var(--global-theme-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: $spacing-2;
+  font-weight: $font-weight-semibold;
 }
 
 td.list-group-category-icon {
-  font-size: 0.8rem;
+  font-size: $font-size-sm;
   color: var(--global-theme-color);
   width: 1.4rem;
-  padding-right: 0.4rem;
+  padding-right: $spacing-2;
 }
 
 td.list-group-name {
-  font-size: 0.8rem;
+  font-size: $font-size-sm;
 }
 
 td.list-group-level {
-  font-size: 0.8rem;
-  padding-left: 0.5rem;
+  font-size: $font-size-sm;
+  padding-left: $spacing-2;
 }
 
 td.list-group-school {
-  font-size: 0.7rem;
-  padding-left: 0.5rem;
+  font-size: $font-size-xs;
+  padding-left: $spacing-2;
   text-align: center;
 }
 
 p.list-group-time {
-  font-size: 0.7rem;
-  padding-left: 0.5rem;
+  font-size: $font-size-xs;
+  padding-left: $spacing-2;
+  color: var(--global-text-color-light);
 }
 
 td.list-group-link {
-  padding-left: 0.5rem;
+  padding-left: $spacing-2;
 }
 
-/*****************************
- * CV TOC styles
- *****************************/
+// =============================================================================
+// CV Table of Contents and Timeline
+// =============================================================================
 
+// Anchor links for navigation
 a.anchor {
   display: block;
   position: relative;
@@ -156,38 +177,39 @@ a.anchor {
   visibility: hidden;
 }
 
+// Timeline layout
 ul.timeline {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin: $spacing-8 0;
+
+  li {
+    position: relative;
+    min-height: 2.2rem;
+    color: var(--global-text-color);
+    list-style-position: inside;
+
+    &::before {
+      content: "";
+      min-height: 2.5rem;
+      width: 1px;
+      background: var(--global-text-color);
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      left: 2px;
+      top: -$spacing-2;
+    }
+  }
 }
 
-ul.timeline li {
-  position: relative;
-  min-height: 2.2rem;
-  color: var(--global-text-color);
-  list-style-position: inside;
-}
-
+// Table of contents badge styling
 span.badge-toc {
   color: var(--global-bg-color);
   background-color: var(--global-theme-color);
-  border-radius: 0.125rem;
-  padding: 0.125rem 0.5rem 0.125rem 0.5rem;
-  font-weight: 700 !important;
+  border-radius: $border-radius-sm;
+  padding: $spacing-1 $spacing-2;
+  font-weight: $font-weight-bold !important;
   display: inline-block;
   inline-size: fit-content;
-}
-
-ul.timeline li::before {
-  content: "";
-  min-height: 2.5rem;
-  width: 1px;
-  background: var(--global-text-color);
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  left: 2px;
-  top: -0.5rem;
 }
 
 /*ul.timeline::before {

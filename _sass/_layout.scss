@@ -1,4 +1,643 @@
 /******************************************************************************
+ * Modern Navigation & Header Styling
+ ******************************************************************************/
+
+// Modern navbar with cleaner design and better spacing
+.navbar {
+  background-color: var(--surface-elevated);
+  border-bottom: 1px solid var(--border-primary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: $shadow-xs;
+  transition: $transition-shadow;
+  padding: $spacing-2 0;
+  
+  &.fixed-top,
+  &.sticky-top {
+    z-index: 1030;
+  }
+  
+  // Enhanced container spacing
+  .container {
+    padding-left: $spacing-4;
+    padding-right: $spacing-4;
+    
+    @media (min-width: $breakpoint-md) {
+      padding-left: $spacing-6;
+      padding-right: $spacing-6;
+    }
+  }
+}
+
+// Modern navbar brand styling
+.navbar-brand {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: $letter-spacing-tight;
+  transition: $transition-colors;
+  padding: $spacing-2 0;
+  
+  &:hover,
+  &:focus {
+    color: var(--interactive-primary);
+    text-decoration: none;
+  }
+  
+  // Social icons in brand area
+  &.social {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    
+    a {
+      color: var(--text-secondary);
+      font-size: $font-size-lg;
+      transition: $transition-colors;
+      
+      &:hover {
+        color: var(--interactive-primary);
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+// Modern navbar toggle button (hamburger menu)
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  padding: $spacing-2;
+  border-radius: $border-radius-md;
+  transition: $transition-colors;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  
+  &:focus {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+  }
+  
+  &:hover {
+    background-color: var(--surface-secondary);
+  }
+  
+  // Modern hamburger icon
+  .icon-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 1px;
+    transition: all $duration-200 $ease-in-out;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    &.top-bar {
+      top: 12px;
+    }
+    
+    &.middle-bar {
+      top: 18px;
+    }
+    
+    &.bottom-bar {
+      top: 24px;
+    }
+  }
+  
+  // Animated hamburger to X transformation
+  &.collapsed {
+    .icon-bar {
+      &.top-bar {
+        transform: translateX(-50%) rotate(0deg);
+        top: 12px;
+      }
+      
+      &.middle-bar {
+        opacity: 1;
+        transform: translateX(-50%);
+      }
+      
+      &.bottom-bar {
+        transform: translateX(-50%) rotate(0deg);
+        top: 24px;
+      }
+    }
+  }
+  
+  &:not(.collapsed) {
+    .icon-bar {
+      &.top-bar {
+        transform: translateX(-50%) rotate(45deg);
+        top: 18px;
+      }
+      
+      &.middle-bar {
+        opacity: 0;
+        transform: translateX(-50%) scale(0);
+      }
+      
+      &.bottom-bar {
+        transform: translateX(-50%) rotate(-45deg);
+        top: 18px;
+      }
+    }
+  }
+}
+
+// Modern navbar navigation
+.navbar-nav {
+  gap: $spacing-1;
+  
+  @media (min-width: $breakpoint-lg) {
+    gap: $spacing-2;
+  }
+  
+  // Navigation items
+  .nav-item {
+    position: relative;
+    
+    // Modern nav links
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: $font-weight-medium;
+      font-size: $font-size-base;
+      padding: $spacing-2 $spacing-3;
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      text-decoration: none;
+      position: relative;
+      
+      &:hover,
+      &:focus {
+        color: var(--interactive-primary);
+        background-color: var(--surface-secondary);
+      }
+      
+      // Active state indicator
+      &.active,
+      .nav-item.active & {
+        color: var(--interactive-primary);
+        font-weight: $font-weight-semibold;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 20px;
+          height: 2px;
+          background-color: var(--interactive-primary);
+          border-radius: 1px;
+          
+          @media (max-width: $breakpoint-lg - 1px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  
+  // Special styling for search and theme toggle
+  .nav-item {
+    // Search button
+    #search-toggle {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: $spacing-2 $spacing-3;
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      font-size: $font-size-sm;
+      display: flex;
+      align-items: center;
+      gap: $spacing-1;
+      
+      &:hover,
+      &:focus {
+        color: var(--interactive-primary);
+        background-color: var(--surface-secondary);
+        outline: none;
+      }
+      
+      .nav-link {
+        padding: 0;
+        background: none;
+        color: inherit;
+        
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+  
+  // Theme toggle container
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    margin-left: $spacing-2;
+    
+    #light-toggle {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: $spacing-2;
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      font-size: $font-size-lg;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:hover,
+      &:focus {
+        color: var(--interactive-primary);
+        background-color: var(--surface-secondary);
+        outline: none;
+      }
+    }
+  }
+}
+
+// Modern dropdown styling
+.dropdown {
+  .dropdown-toggle {
+    &::after {
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+      margin-left: $spacing-1;
+      transition: transform $duration-200 $ease-in-out;
+    }
+    
+    &[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+  }
+  
+  .dropdown-menu {
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border-primary);
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    padding: $spacing-2;
+    margin-top: $spacing-1;
+    min-width: 200px;
+    
+    .dropdown-item {
+      color: var(--text-secondary);
+      padding: $spacing-2 $spacing-3;
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      text-decoration: none;
+      font-weight: $font-weight-normal;
+      
+      &:hover,
+      &:focus {
+        color: var(--interactive-primary);
+        background-color: var(--surface-secondary);
+        text-decoration: none;
+      }
+      
+      &.active {
+        color: var(--interactive-primary);
+        background-color: var(--surface-secondary);
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .dropdown-divider {
+      border-top: 1px solid var(--border-primary);
+      margin: $spacing-2 0;
+    }
+  }
+}
+
+// Mobile navigation improvements with enhanced touch-friendly design
+@media (max-width: $breakpoint-lg - 1px) {
+  .navbar-collapse {
+    background-color: var(--surface-elevated);
+    border-radius: $border-radius-lg;
+    margin-top: $spacing-3;
+    padding: $spacing-4;
+    box-shadow: $shadow-lg;
+    border: 1px solid var(--border-primary);
+    
+    // Smooth slide-in animation
+    &.collapsing {
+      transition: height $duration-300 $ease-in-out;
+    }
+    
+    &.show {
+      animation: slideIn $duration-200 $ease-out;
+    }
+    
+    .navbar-nav {
+      gap: $spacing-1;
+      
+      .nav-item {
+        .nav-link {
+          padding: $spacing-3 $spacing-4;
+          border-radius: $border-radius-md;
+          font-size: $font-size-base;
+          
+          // Touch-friendly sizing (minimum 44px for accessibility)
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+          
+          // Remove desktop active indicator on mobile
+          &.active::after {
+            display: none;
+          }
+          
+          // Enhanced mobile active state
+          &.active,
+          .nav-item.active & {
+            background-color: var(--surface-secondary);
+            color: var(--interactive-primary);
+          }
+        }
+      }
+      
+      // Mobile dropdown styling with improved UX
+      .dropdown {
+        .dropdown-toggle {
+          &::after {
+            margin-left: auto;
+          }
+        }
+        
+        .dropdown-menu {
+          position: static;
+          float: none;
+          width: 100%;
+          margin-top: $spacing-2;
+          box-shadow: none;
+          border: 1px solid var(--border-primary);
+          background-color: var(--surface-secondary);
+          
+          .dropdown-item {
+            padding: $spacing-2 $spacing-4;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            
+            // Indent dropdown items for better hierarchy
+            padding-left: $spacing-6;
+            position: relative;
+            
+            &::before {
+              content: '→';
+              position: absolute;
+              left: $spacing-4;
+              color: var(--text-tertiary);
+              font-size: $font-size-sm;
+            }
+          }
+        }
+      }
+      
+      // Mobile search and theme toggle with better touch targets
+      #search-toggle {
+        min-height: 44px;
+        justify-content: flex-start;
+        padding: $spacing-3 $spacing-4;
+        width: 100%;
+        text-align: left;
+        
+        .nav-link {
+          width: 100%;
+          justify-content: space-between;
+          
+          i {
+            margin-left: auto;
+          }
+        }
+      }
+      
+      .toggle-container {
+        margin-left: 0;
+        width: 100%;
+        
+        #light-toggle {
+          min-height: 44px;
+          justify-content: flex-start;
+          padding: $spacing-3 $spacing-4;
+          width: 100%;
+          text-align: left;
+          
+          // Theme toggle icons alignment
+          i {
+            margin-right: $spacing-2;
+          }
+        }
+      }
+    }
+  }
+  
+  // Improved mobile navbar brand
+  .navbar-brand {
+    font-size: $font-size-lg;
+    
+    &.social {
+      gap: $spacing-2;
+      
+      a {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+// Tablet-specific improvements
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1px) {
+  .navbar {
+    .container {
+      padding-left: $spacing-5;
+      padding-right: $spacing-5;
+    }
+  }
+  
+  .navbar-nav {
+    .nav-item .nav-link {
+      padding: $spacing-2 $spacing-4;
+    }
+  }
+}
+
+// Large screen enhancements
+@media (min-width: $breakpoint-xl) {
+  .navbar {
+    .container {
+      padding-left: $spacing-8;
+      padding-right: $spacing-8;
+    }
+  }
+  
+  .navbar-nav {
+    gap: $spacing-3;
+    
+    .nav-item .nav-link {
+      padding: $spacing-2 $spacing-4;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Animation keyframes for mobile menu
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Enhanced focus states for better accessibility
+.navbar {
+  // Skip to main content link (for screen readers)
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--interactive-primary);
+    color: var(--text-inverse);
+    padding: $spacing-2 $spacing-3;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    z-index: 1040;
+    transition: top $duration-200 $ease-out;
+    
+    &:focus {
+      top: 6px;
+    }
+  }
+  
+  // Enhanced keyboard navigation
+  .navbar-nav {
+    .nav-item {
+      .nav-link,
+      button {
+        &:focus-visible {
+          outline: 2px solid var(--interactive-primary);
+          outline-offset: 2px;
+          border-radius: $border-radius-md;
+        }
+      }
+    }
+  }
+  
+  // Improved dropdown keyboard navigation
+  .dropdown {
+    .dropdown-menu {
+      .dropdown-item {
+        &:focus-visible {
+          outline: 2px solid var(--interactive-primary);
+          outline-offset: -2px;
+        }
+      }
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .navbar {
+    border-bottom-width: 2px;
+    
+    .navbar-nav .nav-item .nav-link {
+      &.active::after {
+        height: 3px;
+      }
+    }
+    
+    .navbar-toggler .icon-bar {
+      height: 3px;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .navbar-toggler .icon-bar,
+  .dropdown-toggle::after,
+  .navbar-collapse,
+  .nav-link,
+  .dropdown-item,
+  #progress {
+    transition: none;
+  }
+  
+  @keyframes slideIn {
+    from, to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Print styles for navigation
+@media print {
+  .navbar {
+    display: none;
+  }
+  
+  #progress {
+    display: none;
+  }
+}
+
+// Progress bar styling (if enabled)
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  z-index: 1031;
+  
+  &::-webkit-progress-bar {
+    background: transparent;
+  }
+  
+  &::-webkit-progress-value {
+    background: var(--interactive-primary);
+    transition: width $duration-150 $ease-out;
+  }
+  
+  &::-moz-progress-bar {
+    background: var(--interactive-primary);
+    transition: width $duration-150 $ease-out;
+  }
+  
+  .progress-container {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    
+    .progress-bar {
+      height: 100%;
+      background: var(--interactive-primary);
+      transition: width $duration-150 $ease-out;
+    }
+  }
+}
+
+/******************************************************************************
  * Content
  ******************************************************************************/
 
@@ -6,6 +645,94 @@ body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-normal;
+}
+
+// Modern Typography Hierarchy
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-base;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $spacing-4;
+  margin-top: $spacing-6;
+  color: var(--global-text-color);
+}
+
+h1 {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-6;
+}
+
+h2 {
+  font-size: $font-size-4xl;
+  line-height: $line-height-snug;
+  margin-bottom: $spacing-5;
+}
+
+h3 {
+  font-size: $font-size-3xl;
+  line-height: $line-height-snug;
+  margin-bottom: $spacing-4;
+}
+
+h4 {
+  font-size: $font-size-2xl;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-3;
+}
+
+h5 {
+  font-size: $font-size-xl;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-3;
+}
+
+h6 {
+  font-size: $font-size-lg;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-2;
+}
+
+// Improved paragraph and text styling
+p {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-4;
+  letter-spacing: $letter-spacing-normal;
+}
+
+// Enhanced list styling
+ul, ol {
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-4;
+  
+  li {
+    margin-bottom: $spacing-1;
+  }
+}
+
+// Code typography
+code {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+}
+
+pre {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+}
+
+// Small text
+small {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
 }
 
 body h1,
@@ -45,200 +772,136 @@ body.sticky-bottom-footer {
 
 /* TODO: redefine projects layout. */
 
-/* Form reset styles */
-#fs-frm input,
-#fs-frm select,
-#fs-frm textarea {
-  color: #000000 !important;
+// =============================================================================
+// Specialized Form Components (Formspree integration)
+// =============================================================================
+
+// Formspree form styling - consolidated and modernized
+#fs-frm {
+  fieldset,
+  optgroup,
+  label,
+  #card-element:disabled {
+    font-family: inherit;
+    font-size: 100%;
+    color: inherit;
+    border: none;
+    border-radius: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  label,
+  legend,
+  ::placeholder {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-2;
+    padding-top: $spacing-1;
+    display: flex;
+    align-items: baseline;
+  }
+
+  input,
+  select,
+  textarea,
+  #card-element {
+    border: 1px solid var(--border-primary);
+    background-color: var(--surface-primary);
+    padding: $spacing-3 $spacing-4;
+    margin-bottom: $spacing-6;
+    border-radius: $border-radius-md;
+    color: var(--text-primary);
+
+    &:focus {
+      background-color: var(--surface-primary);
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: -1px;
+    }
+  }
+
+  [type="text"],
+  [type="email"] {
+    width: 100%;
+  }
+
+  [type="button"],
+  [type="submit"],
+  [type="reset"] {
+    width: auto;
+    cursor: pointer;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    &:focus {
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  [type="submit"],
+  [type="reset"] {
+    margin-bottom: 0;
+  }
+
+  [type="checkbox"] {
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    appearance: checkbox;
+    display: inline-block;
+    width: auto;
+    margin: 0 $spacing-2 0 0 !important;
+  }
+
+  [type="radio"] {
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+    appearance: radio;
+  }
+
+  // Address/locale field layout
+  fieldset.locale {
+    input[name="city"],
+    select[name="state"],
+    input[name="postal-code"] {
+      display: inline;
+    }
+
+    input[name="city"] {
+      width: 52%;
+    }
+
+    select[name="state"],
+    input[name="postal-code"] {
+      width: 20%;
+    }
+
+    input[name="city"],
+    select[name="state"] {
+      margin-right: 3%;
+    }
+  }
 }
 
-#fs-frm fieldset,
-#fs-frm optgroup,
-#fs-frm label,
-#fs-frm #card-element:disabled {
-  font-family: inherit;
-  font-size: 100%;
-  color: inherit;
-  border: none;
-  border-radius: 0;
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
+// =============================================================================
+// Form Styling
+// Note: Main form styles are consolidated in _base.scss
+// This section contains only layout-specific form enhancements
+// =============================================================================
 
-#fs-frm label,
-#fs-frm legend,
-#fs-frm ::placeholder {
-  font-size: 0.825rem;
-  margin-bottom: 0.5rem;
-  padding-top: 0.2rem;
-  display: flex;
-  align-items: baseline;
-}
-
-/* Border, padding, margin, width */
-#fs-frm input,
-#fs-frm select,
-#fs-frm textarea,
-#fs-frm #card-element {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 0.75em 1rem;
-  margin-bottom: 1.5rem;
-}
-
-#fs-frm input:focus,
-#fs-frm select:focus,
-#fs-frm textarea:focus {
-  background-color: white;
-  outline-style: solid;
-  outline-width: thin;
-  outline-color: gray;
-  outline-offset: -1px;
-}
-
-#fs-frm [type="text"],
-#fs-frm [type="email"] {
-  width: 100%;
-}
-
-#fs-frm [type="button"],
-#fs-frm [type="submit"],
-#fs-frm [type="reset"] {
-  width: auto;
-  cursor: pointer;
-  -webkit-appearance: button;
-  -moz-appearance: button;
-  appearance: button;
-}
-
-#fs-frm [type="button"]:focus,
-#fs-frm [type="submit"]:focus,
-#fs-frm [type="reset"]:focus {
-  outline: none;
-}
-
-#fs-frm [type="submit"],
-#fs-frm [type="reset"] {
-  margin-bottom: 0;
-}
-
-#fs-frm select {
-  text-transform: none;
-}
-
-#fs-frm [type="checkbox"] {
-  -webkit-appearance: checkbox;
-  -moz-appearance: checkbox;
-  appearance: checkbox;
-  display: inline-block;
-  width: auto;
-  margin: 0 0.5em 0 0 !important;
-}
-
-#fs-frm [type="radio"] {
-  -webkit-appearance: radio;
-  -moz-appearance: radio;
-  appearance: radio;
-}
-
-/* Address, locale */
-#fs-frm fieldset.locale input[name="city"],
-#fs-frm fieldset.locale select[name="state"],
-#fs-frm fieldset.locale input[name="postal-code"] {
-  display: inline;
-}
-
-#fs-frm fieldset.locale input[name="city"] {
-  width: 52%;
-}
-
-#fs-frm fieldset.locale select[name="state"],
-#fs-frm fieldset.locale input[name="postal-code"] {
-  width: 20%;
-}
-
-#fs-frm fieldset.locale input[name="city"],
-#fs-frm fieldset.locale select[name="state"] {
-  margin-right: 3%;
-}
-
-/******************************************************************************
- * Form Styling 
- ******************************************************************************/
-
-form {
-  max-width: 100%;
-  margin: 0;
-  padding: 20px;
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
-  border-radius: 5px;
-}
-
-/* Labels */
-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: var(--global-text-color);
-}
-
-/* Input fields */
-form input,
-form textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 3px;
-  background-color: var(--global-bg-color);
-  color: var(--global-text-color);
-  margin-bottom: 20px;
-}
-
-form input:focus,
-form textarea:focus {
-  border-color: var(--global-theme-color);
-  outline: none;
-  box-shadow: 0 0 3px var(--global-theme-color);
-}
-
-/* Placeholder styling */
-form input::placeholder,
-form textarea::placeholder {
-  color: var(--global-text-color-light);
-}
-
-/* Button */
-form button[type="submit"] {
-  background-color: #4caf50 !important; /* Use your desired color */
-  color: #ffffff !important; /* Use your desired text color */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-form button[type="submit"]:hover {
-  background-color: #45a049 !important; /* Use your desired hover color */
-  color: #ffffff !important; /* Use your desired hover text color */
-}
-
-/* Error and Success Messages */
+// Message styling
 .error-message {
   color: var(--global-danger-block-text);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-4;
 }
 
 .success-message {
   color: var(--global-tip-block-text);
-  font-size: 0.875rem;
-  margin-bottom: 1rem;
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-4;
 }

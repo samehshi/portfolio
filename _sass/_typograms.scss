@@ -1,34 +1,45 @@
+/*******************************************************************************
+ * Typogram Diagram Styling
+ * ASCII art diagrams with modern design tokens and improved accessibility
+ ******************************************************************************/
+
+// =============================================================================
+// Base Diagram Elements
+// =============================================================================
+
 .typogram {
   .diagram {
     display: block;
+
+    // Basic shape styling
+    line,
+    circle,
+    rect {
+      stroke: var(--global-text-color);
+    }
+
+    line {
+      stroke-width: 2;
+    }
+
+    circle {
+      r: 3.5;
+    }
+
+    rect {
+      width: 6px;
+      height: 6px;
+    }
   }
 
-  .diagram line,
-  .diagram circle,
-  .diagram rect {
-    stroke: var(--global-text-color);
-  }
-
-  .diagram line {
-    stroke-width: 2;
-  }
-
-  .diagram circle {
-    r: 3.5;
-  }
-
-  .diagram rect {
-    width: 6px;
-    height: 6px;
-  }
+  // =============================================================================
+  // Text and Typography
+  // =============================================================================
 
   .diagram text,
   .glyph,
   .debug text {
-    /** font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; **/
-    font-family:
-      Iosevka Fixed,
-      monospace;
+    font-family: $font-family-monospace;
     font-size: 3em;
     text-anchor: middle;
     alignment-baseline: central;
@@ -41,71 +52,90 @@
     white-space: pre;
   }
 
-  .debug[debug="true"] .reserved {
-    fill: var(--global-text-color);
-    opacity: 0.5;
+  // =============================================================================
+  // Debug Mode Styling
+  // =============================================================================
+
+  .debug[debug="true"] {
+    .reserved {
+      fill: var(--global-text-color);
+      opacity: 0.5;
+    }
+
+    line.grid {
+      stroke: var(--global-text-color);
+      stroke-width: 0.2;
+      stroke-linecap: butt;
+      fill: var(--global-text-color);
+      opacity: 0.01;
+    }
+
+    polygon.inner {
+      fill: var(--global-text-color);
+      stroke: var(--global-text-color);
+      opacity: 0.05;
+    }
   }
 
-  .debug[debug="true"] line.grid {
-    stroke: var(--global-text-color);
-    stroke-width: 0.2;
-    stroke-linecap: butt;
-    fill: var(--global-text-color);
-    opacity: 1%;
-  }
+  // =============================================================================
+  // Polygon and Shape Styling
+  // =============================================================================
 
   polygon {
+    stroke: var(--global-text-color);
     stroke-width: 0;
-  }
-
-  .debug[debug="true"] polygon.inner {
-    fill: var(--global-text-color);
-    stroke: var(--global-text-color);
-    opacity: 5%;
-  }
-
-  polygon {
-    stroke: var(--global-text-color);
-    /** stroke-width: 0.2; **/
     stroke-linecap: butt;
     fill: var(--global-text-color);
   }
 
-  .debug[debug="true"] polygon,
-  .debug[debug="true"] line.grid {
-    opacity: 10%;
+  // Enhanced debug mode with better visual hierarchy
+  .debug[debug="true"] {
+    polygon,
+    line.grid {
+      opacity: 0.1;
+    }
+
+    polygon,
+    path,
+    circle {
+      opacity: 0.5;
+    }
+
+    polygon {
+      fill: red;
+      stroke: red;
+    }
+
+    circle,
+    path {
+      opacity: 0.5;
+      fill: red;
+    }
+
+    circle {
+      stroke: red;
+    }
+
+    .inner {
+      stroke-width: 0.2;
+    }
+
+    line.part {
+      opacity: 0.5;
+      stroke: red;
+    }
+
+    line.center {
+      stroke-width: 3;
+      stroke-linecap: butt;
+      opacity: 0.1;
+      stroke: var(--global-text-color);
+    }
   }
 
-  .debug[debug="true"] polygon,
-  .debug[debug="true"] path,
-  .debug[debug="true"] circle {
-    opacity: 50%;
-  }
-
-  .debug[debug="true"] polygon {
-    fill: red;
-    stroke: red;
-  }
-
-  /**
-  circle {
-    fill: var(--global-text-color);
-  }
-  **/
-
-  .debug[debug="true"] circle,
-  .debug[debug="true"] path {
-    opacity: 50%;
-    fill: red;
-  }
-
-  .debug[debug="true"] circle {
-    stroke: red;
-  }
-
-  .debug[debug="true"] .inner {
-    stroke-width: 0.2;
-  }
+  // =============================================================================
+  // Line Parts and Interactive Elements
+  // =============================================================================
 
   line.part {
     stroke-width: 6;
@@ -113,18 +143,7 @@
     stroke: var(--global-text-color);
   }
 
-  .debug[debug="true"] line.part {
-    opacity: 50%;
-    stroke: red;
-  }
-
-  .debug[debug="true"] line.center {
-    stroke-width: 3;
-    stroke-linecap: butt;
-    opacity: 10%;
-    stroke: var(--global-text-color);
-  }
-
+  // Text selection styling
   text::selection {
     fill: HighlightText;
     background-color: Highlight;

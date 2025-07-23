@@ -1,9 +1,13 @@
 /*******************************************************************************
- * Styles for the base elements of the theme.
+ * Base Element Styles
+ * Core styling for fundamental HTML elements and components
  ******************************************************************************/
 
-// Typography
+// =============================================================================
+// Typography Base
+// =============================================================================
 
+// Base text color for all text elements
 p,
 h1,
 h2,
@@ -19,25 +23,32 @@ strong {
   color: var(--global-text-color);
 }
 
+// =============================================================================
+// Basic HTML Elements
+// =============================================================================
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }
 
+// Table styling with consistent spacing
 table {
   td,
   th {
-    font-size: 1rem;
-    padding: 1px 1rem 1px 0;
+    font-size: $font-size-base;
+    padding: $spacing-px $spacing-4 $spacing-px 0;
   }
 
   th {
-    font-weight: bold;
+    font-weight: $font-weight-bold;
   }
 }
 
+// Link styling with consistent hover states
 a,
 table.table a {
   color: var(--global-theme-color);
+  transition: $transition-colors;
 
   &:hover {
     color: var(--global-theme-color);
@@ -56,12 +67,18 @@ table.table a {
   }
 }
 
+// =============================================================================
+// Content Blocks
+// =============================================================================
+
+// Enhanced blockquote styling with modern spacing
 blockquote {
   background: var(--global-bg-color);
   border-left: 5px solid var(--global-theme-color);
-  margin: 1.5em 0;
-  padding: 1em;
-  font-size: 1.2rem;
+  margin: $spacing-6 0;
+  padding: $spacing-4;
+  font-size: $font-size-lg;
+  border-radius: $border-radius-md;
 
   p {
     margin-bottom: 0;
@@ -132,83 +149,101 @@ blockquote {
   }
 }
 
-// Checklist
+// =============================================================================
+// Task Lists and Interactive Elements
+// =============================================================================
 
+// Task list styling with improved spacing
 ul.task-list {
-  list-style-type: none; /* Remove bullets from all levels */
+  list-style-type: none;
+
+  > li ul {
+    padding-inline-start: $spacing-6;
+  }
+
+  input[type="checkbox"] {
+    margin: $spacing-1 $spacing-2 $spacing-2 (-$spacing-4);
+    vertical-align: middle;
+  }
 }
 
-ul.task-list > li ul {
-  /* Nested lists within .task-list */
-  padding-inline-start: 1.5rem;
-}
+// =============================================================================
+// Content Utilities
+// =============================================================================
 
-ul.task-list input[type="checkbox"] {
-  margin: 0.275rem 0.5rem 0.5rem -1rem;
-  vertical-align: middle;
-}
-
-// Math
-
+// Mathematical equations
 .equation {
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-4;
   text-align: center;
 }
 
-// Caption
-
+// Image and content captions
 .caption {
-  font-size: 0.875rem;
-  margin-top: 0.75rem;
-  margin-bottom: 1.5rem;
+  font-size: $font-size-sm;
+  margin-top: $spacing-3;
+  margin-bottom: $spacing-6;
   text-align: center;
+  color: var(--global-text-color-light);
 }
 
-// Card
+// =============================================================================
+// Modern Card Components
+// =============================================================================
 
+// Base card styling with modern design tokens
 .card {
-  background-color: var(--global-card-bg-color); /* Set your card background */
-  border-radius: 0.5rem; /* Optional: if you want rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: if you want a subtle shadow*/
-  overflow: hidden; /* Ensures rounded corners are applied properly */
+  background-color: var(--global-card-bg-color);
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  overflow: hidden;
+  transition: $card-transition;
+  border: $card-border-width solid var(--global-divider-color);
+
+  &:hover {
+    box-shadow: $card-shadow-hover;
+  }
 }
 
 .card-body {
-  padding: 1.5rem;
+  padding: $card-padding;
 }
 
+// Card content layout with flexbox
 .card-content {
   display: flex;
-  align-items: center; /* Center items vertically */
+  align-items: center;
+  gap: $spacing-4;
 }
 
 .card-image {
-  flex: 0 0 auto; /* Don't grow, don't shrink, maintain initial width */
-  margin-right: 1rem; /* Spacing between image and text */
-  width: 25%; /* Adjust as needed for the logo size, this will be a quarter of the card by default */
-  max-width: 120px; /* Optional: If you want to give a fixed max width */
-}
+  flex: 0 0 auto;
+  width: 25%;
+  max-width: 120px;
 
-.card-image img {
-  max-width: 100%;
-  display: block; /* To remove extra space under images */
-  height: auto; /* Maintain aspect ratio */
+  img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    border-radius: $border-radius-sm;
+  }
 }
 
 .card-text {
-  flex: 1; /* Text will take remaining space*/
+  flex: 1;
 }
 
 .card-title {
-  color: var(--global-text-color); /* Set your card title color */
-  font-size: 1.5rem; /* Adjust font size as needed */
-  margin-bottom: 0.75rem; /* Spacing between title and description */
+  color: var(--global-text-color);
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-3;
+  line-height: $line-height-snug;
 }
 
 .card-description {
-  color: var(--global-text-color); /* Set your card description color */
-  font-size: 1rem; /* Adjust font size as needed */
-  line-height: 1.5;
+  color: var(--global-text-color);
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
 }
 
 // Citation
@@ -256,8 +291,8 @@ ul.task-list input[type="checkbox"] {
 }
 
 .post-description {
-  margin-bottom: 2rem;
-  font-size: 0.875rem;
+  margin-bottom: $spacing-8;
+  font-size: $font-size-sm;
 
   a {
     color: inherit;
@@ -269,8 +304,13 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
-// Navbar customization
+// =============================================================================
+// Navigation Components (Base Overrides)
+// Note: Main navigation styles are in _layout.scss
+// These are minimal base overrides - full styles in _layout.scss
+// =============================================================================
 
+// Basic navbar styling - detailed styles in _layout.scss
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
@@ -278,135 +318,11 @@ ul.task-list input[type="checkbox"] {
   opacity: 0.95;
 }
 
-.navbar .dropdown-menu {
-  background-color: var(--global-bg-color);
-  border: 1px solid var(--global-divider-color);
+// =============================================================================
+// Social Media and Footer Components
+// =============================================================================
 
-  a:not(.active) {
-    color: var(--global-text-color);
-  }
-
-  a:hover {
-    color: var(--global-hover-color);
-  }
-
-  .dropdown-divider {
-    border-top: 1px solid var(--global-divider-color) !important;
-  }
-}
-
-.dropdown-item {
-  color: var(--global-text-color);
-
-  &:hover {
-    color: var(--global-hover-color);
-    background-color: var(--global-bg-color);
-  }
-}
-
-.navbar.navbar-light {
-  a {
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .navbar-brand {
-    color: var(--global-text-color);
-  }
-
-  .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
-
-    &:hover {
-      color: var(--global-hover-color);
-    }
-  }
-
-  .navbar-nav .nav-item.active > .nav-link {
-    background-color: inherit;
-    font-weight: bolder;
-    color: var(--global-theme-color);
-
-    &:hover {
-      color: var(--global-hover-color);
-    }
-  }
-
-  .navbar-brand.social {
-    padding-bottom: 0;
-    padding-top: 0;
-    font-size: 1.7rem;
-
-    a {
-      i::before {
-        color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
-      }
-
-      &:hover {
-        i::before {
-          color: var(--global-theme-color);
-        }
-      }
-    }
-  }
-}
-
-.navbar-toggler {
-  .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--global-text-color);
-    border-radius: 1px;
-    margin-bottom: 4px;
-    transition: all 0.2s;
-  }
-
-  .top-bar {
-    transform: rotate(45deg);
-    transform-origin: 10% 10%;
-  }
-
-  .middle-bar {
-    opacity: 0;
-  }
-
-  .bottom-bar {
-    transform: rotate(-45deg);
-    transform-origin: 10% 90%;
-  }
-}
-
-.navbar-toggler.collapsed {
-  .top-bar {
-    transform: rotate(0);
-  }
-
-  .middle-bar {
-    opacity: 1;
-  }
-
-  .bottom-bar {
-    transform: rotate(0);
-  }
-}
-
-#light-toggle,
-#search-toggle {
-  padding: 0;
-  border: 0;
-  background-color: inherit;
-  color: var(--global-text-color);
-
-  &:hover {
-    color: var(--global-hover-color);
-  }
-}
-
-// Social (bottom)
-
+// Social media icons and contact section
 .social {
   text-align: center;
 
@@ -416,7 +332,7 @@ ul.task-list input[type="checkbox"] {
     a {
       i::before {
         color: var(--global-text-color);
-        transition-property: all 0.2s ease-in-out;
+        transition: $transition-colors;
       }
 
       &:hover {
@@ -428,77 +344,80 @@ ul.task-list input[type="checkbox"] {
   }
 
   .contact-note {
-    font-size: 0.8rem;
+    font-size: $font-size-sm;
+    color: var(--global-text-color-light);
   }
 }
 
+// WeChat modal component
 .wechat-modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.8);
-}
 
-.wechat-modal > img {
-  display: block;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  width: 33%;
-  max-width: 400px;
-  transform: translate(-50%, -50%);
-}
+  > img {
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 33%;
+    max-width: 400px;
+    transform: translate(-50%, -50%);
 
-@media only screen and (max-width: 400px) {
-  .wechat-modal > img {
-    width: 100%;
-  }
-}
-
-// Footer
-footer.fixed-bottom {
-  background-color: var(--global-footer-bg-color);
-  font-size: 0.75rem;
-
-  .container {
-    color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
-    text-align: center;
-  }
-
-  a {
-    color: var(--global-footer-link-color);
-
-    &:hover {
-      color: var(--global-theme-color);
-      text-decoration: none;
+    @media (max-width: 400px) {
+      width: 100%;
     }
   }
 }
 
-footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
-  font-size: 0.9rem;
+// Footer styling for different layouts
+footer {
+  &.fixed-bottom {
+    background-color: var(--global-footer-bg-color);
+    font-size: $font-size-xs;
 
-  .container {
-    text-align: center;
+    .container {
+      color: var(--global-footer-text-color);
+      padding: $spacing-2 0;
+      text-align: center;
+    }
+
+    a {
+      color: var(--global-footer-link-color);
+      transition: $transition-colors;
+
+      &:hover {
+        color: var(--global-theme-color);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.sticky-bottom {
+    border-top: 1px solid var(--global-divider-color);
+    padding: $spacing-10 0;
+    font-size: $font-size-sm;
+
+    .container {
+      text-align: center;
+    }
   }
 }
 
-// CV
+// =============================================================================
+// CV and Resume Components
+// =============================================================================
 
+// CV page layout and styling
 .cv {
-  margin-bottom: 40px;
+  margin-bottom: $spacing-10;
 
   .card {
     background-color: var(--global-card-bg-color);
@@ -516,6 +435,7 @@ footer.sticky-bottom {
   }
 }
 
+// CV table styling
 .table-cv-map {
   background-color: transparent;
   border: none;
@@ -535,24 +455,27 @@ footer.sticky-bottom {
   }
 }
 
-// Blog
+// =============================================================================
+// Blog and Content Layout Components
+// =============================================================================
 
+// Blog header with large title
 .header-bar {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding: $spacing-8 0 $spacing-12;
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-size: $font-size-5xl;
   }
 }
 
+// Tag and category navigation
 .tag-category-list {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: 1rem;
+  padding-top: $spacing-4;
 
   ul {
     justify-content: center;
@@ -562,7 +485,7 @@ footer.sticky-bottom {
     li {
       list-style: none;
       display: inline-block;
-      padding: 1rem 0.5rem;
+      padding: $spacing-4 $spacing-2;
       color: var(--global-text-color-light);
     }
   }
@@ -574,52 +497,53 @@ footer.sticky-bottom {
   }
 }
 
+// Post listing with consistent spacing
 .post-list {
-  margin: 0;
-  margin-bottom: 40px;
+  margin: 0 0 $spacing-10;
   padding: 0;
 
   li {
     border-bottom: 1px solid var(--global-divider-color);
     list-style: none;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: $spacing-8 0;
 
-    .post-meta {
+    .post-meta,
+    .post-tags {
       color: var(--global-text-color-light);
-      font-size: 0.875rem;
+      font-size: $font-size-sm;
       margin-bottom: 0;
     }
 
     .post-tags {
-      color: var(--global-text-color-light);
-      font-size: 0.875rem;
-      padding-top: 0.25rem;
-      padding-bottom: 0;
+      padding-top: $spacing-1;
     }
 
     a {
       color: var(--global-text-color);
       text-decoration: none;
+      transition: $transition-colors;
 
       &:hover {
         color: var(--global-theme-color);
       }
     }
 
+    // MathJax container fix
     mjx-container[jax="CHTML"][display="true"] {
       display: unset;
     }
   }
 }
 
+// Pagination component styling
 .pagination {
   .page-item {
     .page-link {
       color: var(--global-text-color);
+      transition: $transition-colors;
 
       &:hover {
-        color: $black-color;
+        color: var(--global-hover-color);
       }
     }
 
@@ -643,91 +567,77 @@ footer.sticky-bottom {
   }
 }
 
-// Projects
+// =============================================================================
+// Project Components (Base Overrides)
+// Note: Main project styles are in _projects.scss
+// These are minimal base overrides - full styles in _projects.scss
+// =============================================================================
 
+// Basic project layout - detailed styles in _projects.scss
 .projects {
-  a {
-    text-decoration: none;
-
-    &:hover {
-      .card-title {
-        color: var(--global-theme-color);
-      }
-    }
-  }
-  .card {
-    img {
-      padding: 3rem;
-    }
-  }
-
-  .col {
-    padding-bottom: 1rem;
-  }
-
+  // Masonry grid layout
   .grid-sizer,
   .grid-item {
     width: 250px;
-    margin-bottom: 10px;
-  }
-
-  h2.category {
-    /* color: var(--global-divider-color); */
-    border-bottom: 1px solid var(--global-divider-color);
-    padding-top: 0.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    text-align: right;
+    margin-bottom: $spacing-3;
   }
 }
 
-// Publications
+// =============================================================================
+// Publications and Bibliography
+// =============================================================================
 
 .publications {
-  margin-top: 2rem;
+  margin-top: $spacing-8;
 
+  // Publication page title
   h1 {
     color: var(--global-theme-color);
-    font-size: 2rem;
+    font-size: $font-size-4xl;
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin: $spacing-4 0;
   }
 
+  // Section headings
   h2 {
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-4;
 
     span {
-      font-size: 1.5rem;
+      font-size: $font-size-xl;
+    }
+
+    // Bibliography section header
+    &.bibliography {
+      color: var(--global-divider-color);
+      border-top: 1px solid var(--global-divider-color);
+      padding-top: $spacing-4;
+      margin-top: $spacing-8;
+      text-align: right;
     }
   }
 
-  h2.bibliography {
-    color: var(--global-divider-color);
-    border-top: 1px solid var(--global-divider-color);
-    padding-top: 1rem;
-    margin-top: 2rem;
-    text-align: right;
-  }
-
+  // Bibliography list with enhanced styling
   ol.bibliography {
     list-style: none;
     padding: 0;
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-4;
 
       .abbr {
-        margin-bottom: 0.5rem;
+        margin-bottom: $spacing-2;
 
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
-          margin-bottom: 0.5rem;
+          margin-bottom: $spacing-2;
+          padding: $spacing-1 $spacing-2;
+          border-radius: $border-radius-sm;
 
           a {
             color: white;
+            transition: $transition-colors;
 
             &:hover {
               text-decoration: none;
@@ -742,12 +652,14 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: $font-weight-bold;
       }
 
+      // Author links and styling
       .author {
         a {
           border-bottom: 1px dashed var(--global-theme-color);
+          transition: $transition-colors;
 
           &:hover {
             border-bottom-style: solid;
@@ -764,6 +676,7 @@ footer.sticky-bottom {
           color: var(--global-text-color-light);
           border-bottom: 1px dashed var(--global-text-color-light);
           cursor: pointer;
+          transition: $transition-colors;
 
           &:hover {
             color: var(--global-text-color);
@@ -776,30 +689,32 @@ footer.sticky-bottom {
         a.btn {
           color: var(--global-text-color);
           border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
+          padding: $spacing-1 $spacing-4;
           margin-left: 0;
+          border-radius: $border-radius-md;
+          transition: $transition-colors;
 
           &:hover {
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
           }
-        }
-        a.award.btn {
-          border-color: var(--global-highlight-color);
+
+          &.award {
+            border-color: var(--global-highlight-color);
+          }
         }
       }
 
       .badges {
-        padding-bottom: 0.5rem;
+        padding-bottom: $spacing-2;
+        
         span {
           display: inline-block;
           color: $black-color;
           height: 100%;
-          padding-right: 0.5rem;
+          padding-right: $spacing-2;
           vertical-align: middle;
+          transition: $transition-colors;
 
           &:hover {
             text-decoration: underline;
@@ -807,65 +722,68 @@ footer.sticky-bottom {
         }
       }
 
+      // Collapsible content sections
       .hidden {
-        font-size: 0.875rem;
-        max-height: 0px;
+        font-size: $font-size-sm;
+        max-height: 0;
         overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        transition: all $duration-150 $ease-in-out;
 
         p {
-          line-height: 1.4em;
-          margin: 10px;
+          line-height: $line-height-snug;
+          margin: $spacing-3;
         }
 
         pre {
-          font-size: 1em;
-          line-height: 1.4em;
-          padding: 10px;
+          font-size: $font-size-base;
+          line-height: $line-height-snug;
+          padding: $spacing-3;
+        }
+
+        &.open {
+          max-height: 100em;
         }
       }
 
-      .hidden.open {
-        max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
-      }
-
+      // Abstract and award sections
       div.abstract.hidden {
         border: dashed 1px var(--global-bg-color);
-      }
 
-      div.abstract.hidden.open {
-        border-color: var(--global-text-color);
+        &.open {
+          border-color: var(--global-text-color);
+        }
       }
     }
+
     div.award.hidden {
       border: dashed 1px var(--global-bg-color);
-    }
-    div.award.hidden.open {
-      border-color: var(--global-highlight-color);
+
+      &.open {
+        border-color: var(--global-highlight-color);
+      }
     }
   }
 }
 
-// Rouge Color Customization
+// =============================================================================
+// Code Highlighting and Syntax
+// =============================================================================
+
+// Code block containers
 figure.highlight {
-  margin: 0 0 1rem;
+  margin: 0 0 $spacing-4;
 }
 
+// Pre-formatted code blocks
 pre {
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 6px;
-  padding: 6px 12px;
+  border-radius: $border-radius-md;
+  padding: $spacing-2 $spacing-3;
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
 
   pre,
   code {
@@ -876,14 +794,21 @@ pre {
   }
 }
 
+// Inline code styling
 code {
   color: var(--global-theme-color);
   background-color: var(--global-code-bg-color);
-  border-radius: 3px;
-  padding: 3px 3px;
+  border-radius: $border-radius-sm;
+  padding: $spacing-1;
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
 }
 
-// Transitioning Themes
+// =============================================================================
+// Theme Transitions and Post Styling
+// =============================================================================
+
+// Smooth theme transitions
 html.transition,
 html.transition *,
 html.transition *:before,
@@ -892,23 +817,23 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 
-// Extra Markdown style (post Customization)
+// Individual post styling
 .post {
   .post-meta {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    font-size: $font-size-sm;
     margin-bottom: 0;
   }
 
   .post-tags {
     color: var(--global-text-color-light);
-    font-size: 0.875rem;
-    padding-top: 0.25rem;
-    padding-bottom: 1rem;
+    font-size: $font-size-sm;
+    padding: $spacing-1 0 $spacing-4;
 
     a {
       color: var(--global-text-color-light);
       text-decoration: none;
+      transition: $transition-colors;
 
       &:hover {
         color: var(--global-theme-color);
@@ -917,42 +842,36 @@ html.transition *:after {
   }
 }
 
+// =============================================================================
+// Progress Indicators and Interactive Elements
+// =============================================================================
+
+// Reading progress bar
 progress {
-  /* Positioning */
   position: fixed;
   left: 0;
   top: 56px;
   z-index: 10;
-
-  /* Dimensions */
   width: 100%;
   height: 1px;
-
-  /* Reset the appearance */
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-
-  /* Get rid of the default border in Firefox/Opera. */
   border: none;
-
-  /* Progress bar container for Firefox/IE10  */
   background-color: transparent;
-
-  /* Progress bar value for IE10  */
   color: var(--global-theme-color);
-}
 
-progress::-webkit-progress-bar {
-  background-color: transparent;
-}
+  &::-webkit-progress-bar {
+    background-color: transparent;
+  }
 
-progress::-webkit-progress-value {
-  background-color: var(--global-theme-color);
-}
+  &::-webkit-progress-value {
+    background-color: var(--global-theme-color);
+  }
 
-progress::-moz-progress-bar {
-  background-color: var(--global-theme-color);
+  &::-moz-progress-bar {
+    background-color: var(--global-theme-color);
+  }
 }
 
 .progress-container {
@@ -963,30 +882,32 @@ progress::-moz-progress-bar {
   left: 0;
   height: 5px;
   display: block;
+
+  .progress-bar {
+    background-color: var(--global-theme-color);
+    width: 0%;
+    display: block;
+    height: inherit;
+    transition: width $duration-150 $ease-out;
+  }
 }
 
-.progress-bar {
-  background-color: var(--global-theme-color);
-  width: 0%;
-  display: block;
-  height: inherit;
-}
-
-/* Copy button */
+// Code copy button
 .code-display-wrapper {
   position: relative;
 
   .copy {
     background: var(--global-card-bg-color);
-    border-color: var(--global-bg-color);
-    border-radius: 0.3rem;
-    border-style: none;
+    border: none;
+    border-radius: $border-radius-md;
     color: var(--global-text-color);
-    font-size: medium;
+    font-size: $font-size-base;
     opacity: 0;
     position: absolute;
-    right: 0.2rem;
-    top: 0.2rem;
+    right: $spacing-1;
+    top: $spacing-1;
+    padding: $spacing-1 $spacing-2;
+    transition: $transition-opacity;
   }
 
   &:active .copy,
@@ -1050,12 +971,12 @@ nav[data-toggle="toc"] {
   top: 5rem;
 
   .nav .nav > li > a {
-    font-size: 0.75rem;
+    font-size: $font-size-xs;
   }
 
   .nav > li > a {
     color: var(--global-text-color);
-    font-size: 0.75rem;
+    font-size: $font-size-xs;
 
     &:hover {
       color: var(--global-hover-color);
@@ -1066,7 +987,7 @@ nav[data-toggle="toc"] {
   .nav-link.active {
     color: var(--global-theme-color);
     border-left-color: var(--global-theme-color);
-    font-size: 0.75rem;
+    font-size: $font-size-xs;
 
     &:hover {
       color: var(--global-hover-color);
@@ -1212,8 +1133,190 @@ ninja-keys::part(ninja-input-wrapper) {
   }
 }
 
-// highlight-search-term
-::highlight(search) {
-  background-color: var(--global-theme-color);
-  color: var(--global-text-color);
+// =============================================================================
+// Modern Button Components
+// =============================================================================
+
+// Base button styling with modern design tokens
+.btn {
+  border-radius: $button-border-radius;
+  padding: $button-padding-y $button-padding-x;
+  font-weight: $button-font-weight;
+  transition: $button-transition;
+  box-shadow: $button-shadow;
+  border: 1px solid transparent;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+
+  &:hover {
+    box-shadow: $button-shadow-hover;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+  }
+
+  // Primary button variant
+  &.btn-primary {
+    background-color: var(--interactive-primary);
+    border-color: var(--interactive-primary);
+    color: var(--text-inverse);
+
+    &:hover {
+      background-color: var(--interactive-primary-hover);
+      border-color: var(--interactive-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--interactive-primary-active);
+      border-color: var(--interactive-primary-active);
+    }
+  }
+
+  // Secondary button variant
+  &.btn-secondary {
+    background-color: transparent;
+    border-color: var(--border-primary);
+    color: var(--text-primary);
+
+    &:hover {
+      background-color: var(--surface-secondary);
+      border-color: var(--border-secondary);
+    }
+  }
+
+  // Small button variant
+  &.btn-sm {
+    padding: $spacing-1 $spacing-3;
+    font-size: $font-size-sm;
+  }
+
+  // Large button variant
+  &.btn-lg {
+    padding: $spacing-3 $spacing-6;
+    font-size: $font-size-lg;
+  }
 }
+
+// =============================================================================
+// Modern Form Components
+// =============================================================================
+
+// Base input styling
+.form-control {
+  border-radius: $input-border-radius;
+  padding: $input-padding-y $input-padding-x;
+  border: $input-border-width solid var(--border-primary);
+  transition: $input-transition;
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+
+  &:focus {
+    border-color: var(--interactive-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(var(--interactive-primary), 0.2);
+  }
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+// Form group spacing
+.form-group {
+  margin-bottom: $spacing-4;
+}
+
+// Form labels
+.form-label {
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-2;
+  color: var(--text-primary);
+  display: block;
+}
+
+// Enhanced form container styling
+form {
+  max-width: 100%;
+  margin: 0;
+  padding: $spacing-5;
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: $border-radius-md;
+
+  // Form-specific input and textarea styling
+  input,
+  textarea {
+    width: 100%;
+    padding: $input-padding-y $input-padding-x;
+    border: $input-border-width solid var(--global-divider-color);
+    border-radius: $input-border-radius;
+    background-color: var(--global-bg-color);
+    color: var(--global-text-color);
+    margin-bottom: $spacing-5;
+    transition: $input-transition;
+
+    &:focus {
+      border-color: var(--global-theme-color);
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(var(--global-theme-color), 0.2);
+    }
+
+    &::placeholder {
+      color: var(--global-text-color-light);
+    }
+  }
+
+  // Form-specific label styling
+  label {
+    display: block;
+    margin-bottom: $spacing-2;
+    font-weight: $font-weight-medium;
+    color: var(--global-text-color);
+  }
+
+  // Submit button styling
+  button[type="submit"] {
+    background-color: var(--status-success) !important;
+    color: var(--text-inverse) !important;
+    padding: $button-padding-y $button-padding-x;
+    border: none;
+    border-radius: $button-border-radius;
+    cursor: pointer;
+    transition: $button-transition;
+    font-weight: $button-font-weight;
+
+    &:hover {
+      background-color: var(--status-success) !important;
+      filter: brightness(0.9);
+    }
+  }
+}
+
+// Form message styling
+.error-message {
+  color: var(--global-danger-block-text);
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-4;
+}
+
+.success-message {
+  color: var(--global-tip-block-text);
+  font-size: $font-size-sm;
+  margin-bottom: $spacing-4;
+}
+
+// =============================================================================
+// Miscellaneous Components and Utilities
+// =============================================================================
+
+// Note: highlight-search-term styles removed as the JS was removed in cleanup
