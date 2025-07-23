@@ -1,5 +1,8 @@
 {% if site.bib_search %}
-  <script src="{{ '/assets/js/bibsearch.js' | relative_url | bust_file_cache }}" type="module"></script>
-  <input type="text" id="bibsearch" spellcheck="false" autocomplete="off" class="search bibsearch-form-input" placeholder="Type to filter">
+  <!-- Bibliography search functionality is currently disabled -->
+  <!-- To re-enable: restore assets/js/bibsearch.js and assets/js/highlight-search-term.js -->
+  <div class="alert alert-info" role="alert">
+    <i class="fas fa-info-circle"></i>
+    Bibliography search is currently unavailable. All entries are displayed below.
+  </div>
 {% endif %}
-
