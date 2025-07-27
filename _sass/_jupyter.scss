@@ -13,7 +13,7 @@
     margin-bottom: $spacing-4;
   }
 
-  // Prompt styling for input/output cells
+  // Consolidated prompt styling for input/output cells
   .input-prompt,
   .output-prompt {
     font-family: $font-family-monospace;
@@ -28,9 +28,9 @@
   // Cell Areas and Content
   // =============================================================================
 
+  // Base styling for cell areas
   .input-area,
   .output-area {
-    background-color: var(--global-code-bg-color);
     border: 1px solid var(--global-divider-color);
     border-radius: $border-radius-md;
     padding: $spacing-3;
@@ -147,14 +147,18 @@
 
 [data-theme="dark"] {
   .jupyter-notebook {
+    // Dark theme cell area styling
+    .input-area,
+    .output-area {
+      border-color: var(--border-primary);
+    }
+    
     .input-area {
       background-color: var(--surface-secondary);
-      border-color: var(--border-primary);
     }
 
     .output-area {
       background-color: var(--surface-primary);
-      border-color: var(--border-primary);
       color: var(--text-primary);
       
       &.output-error {
@@ -164,15 +168,14 @@
       }
     }
 
+    // Dark theme table styling
     .dataframe {
-      th, td {
+      th, 
+      td {
         border-color: var(--border-primary);
       }
       
-      th {
-        background-color: var(--surface-secondary);
-      }
-      
+      th,
       tr:nth-child(even) {
         background-color: var(--surface-secondary);
       }

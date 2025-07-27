@@ -81,28 +81,25 @@ td.department {
   font-size: $font-size-sm;
 }
 
-// Links container with flexbox layout
+// Links container styling consolidated above with container-pdf
+
+// =============================================================================
+// CV Container Components
+// Consolidated container styling for consistent layout
+// =============================================================================
+
+div.container-pdf,
 div.container-links {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  margin: $spacing-4 0 $spacing-2;
   gap: $spacing-2;
 }
 
-// =============================================================================
-// CV Map and PDF Container
-// =============================================================================
-
-div.container-pdf {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: $spacing-2;
+div.container-links {
+  margin: $spacing-4 0 $spacing-2;
 }
 
 // =============================================================================
@@ -212,26 +209,4 @@ span.badge-toc {
   inline-size: fit-content;
 }
 
-/*ul.timeline::before {
-     content: "●";
-     font-size: 1em;
-     display: inline-block;
-     margin: 0;
-     padding: 0;
-     position: relative;
-     left: -2px;
-     top: 0.4rem;
-     color: var(--global-text-color);
-}
- ul.timeline::after {
-     content: "●";
-     font-size: 1em;
-     display: inline-block;
-     margin: 0;
-     padding: 0;
-     position: relative;
-     left: -2px;
-     top: -1rem;
-     color: var(--global-text-color);
-}
-*/
+// Timeline decorative elements removed - using cleaner modern approach

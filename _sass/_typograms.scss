@@ -88,34 +88,24 @@
     fill: var(--global-text-color);
   }
 
-  // Enhanced debug mode with better visual hierarchy
+  // Enhanced debug mode with consolidated styling
   .debug[debug="true"] {
+    // Base debug element styling
     polygon,
     line.grid {
       opacity: 0.1;
     }
 
+    // Debug shapes with red coloring
     polygon,
     path,
     circle {
       opacity: 0.5;
-    }
-
-    polygon {
       fill: red;
       stroke: red;
     }
 
-    circle,
-    path {
-      opacity: 0.5;
-      fill: red;
-    }
-
-    circle {
-      stroke: red;
-    }
-
+    // Specific debug element adjustments
     .inner {
       stroke-width: 0.2;
     }

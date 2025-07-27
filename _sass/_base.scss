@@ -1,6 +1,12 @@
 /*******************************************************************************
  * Base Element Styles
- * Core styling for fundamental HTML elements and components
+ * 
+ * Core styling for fundamental HTML elements and components.
+ * This file has been optimized to:
+ * - Consolidate redundant styles and remove duplicates
+ * - Group related styles logically for better maintainability
+ * - Use consistent modern design tokens throughout
+ * - Improve code organization with clear section comments
  ******************************************************************************/
 
 // =============================================================================
@@ -44,19 +50,52 @@ table {
   }
 }
 
-// Link styling with consistent hover states
+// Link styling with enhanced hover states and modern interactions
 a,
 table.table a {
   color: var(--global-theme-color);
-  transition: $transition-colors;
+  transition: all $duration-200 $ease-out;
+  position: relative;
+  text-decoration: none;
 
-  &:hover {
-    color: var(--global-theme-color);
-    text-decoration: underline;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--global-theme-color);
+    transition: width $duration-200 $ease-out;
   }
 
-  &:hover:after :not(.nav-item.dropdown) {
-    width: 100%;
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: none;
+    
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &:focus {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  // Special handling for navigation and dropdown links
+  &.nav-link,
+  .nav-item.dropdown & {
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -75,10 +114,11 @@ table.table a {
 blockquote {
   background: var(--global-bg-color);
   border-left: 5px solid var(--global-theme-color);
-  margin: $spacing-6 0;
-  padding: $spacing-4;
+  margin: $spacing-8 0;
+  padding: $spacing-6;
   font-size: $font-size-lg;
   border-radius: $border-radius-md;
+  line-height: $line-height-relaxed;
 
   p {
     margin-bottom: 0;
@@ -156,13 +196,19 @@ blockquote {
 // Task list styling with improved spacing
 ul.task-list {
   list-style-type: none;
+  margin-bottom: $spacing-6;
 
-  > li ul {
-    padding-inline-start: $spacing-6;
+  > li {
+    margin-bottom: $spacing-3;
+    
+    ul {
+      padding-inline-start: $spacing-6;
+      margin-top: $spacing-2;
+    }
   }
 
   input[type="checkbox"] {
-    margin: $spacing-1 $spacing-2 $spacing-2 (-$spacing-4);
+    margin: $spacing-1 $spacing-3 $spacing-2 (-$spacing-4);
     vertical-align: middle;
   }
 }
@@ -171,54 +217,104 @@ ul.task-list {
 // Content Utilities
 // =============================================================================
 
-// Mathematical equations
+// Mathematical equations with enhanced spacing
 .equation {
-  margin-bottom: $spacing-4;
+  margin: $spacing-8 0;
   text-align: center;
+  padding: $spacing-4 0;
 }
 
-// Image and content captions
+// Image and content captions with better hierarchy
 .caption {
   font-size: $font-size-sm;
-  margin-top: $spacing-3;
-  margin-bottom: $spacing-6;
+  margin-top: $spacing-4;
+  margin-bottom: $spacing-8;
   text-align: center;
   color: var(--global-text-color-light);
+  line-height: $line-height-normal;
+  font-style: italic;
 }
 
 // =============================================================================
 // Modern Card Components
 // =============================================================================
 
-// Base card styling with modern design tokens
+// Base card styling with modern design tokens and enhanced interactions
 .card {
   background-color: var(--global-card-bg-color);
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
   overflow: hidden;
-  transition: $card-transition;
+  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
   border: $card-border-width solid var(--global-divider-color);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--interactive-primary), var(--interactive-secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $duration-300 $ease-out;
+  }
 
   &:hover {
     box-shadow: $card-shadow-hover;
+    transform: translateY(-2px);
+    border-color: var(--border-secondary);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    transition-duration: $duration-75;
   }
 }
 
 .card-body {
   padding: $card-padding;
+  
+  // Enhanced spacing within cards
+  > * + * {
+    margin-top: $spacing-4;
+  }
+  
+  // Tighter spacing for related elements
+  .card-title + .card-text,
+  .card-title + .card-description {
+    margin-top: $spacing-2;
+  }
 }
 
-// Card content layout with flexbox
+// Card content layout with flexbox and improved spacing
 .card-content {
   display: flex;
-  align-items: center;
-  gap: $spacing-4;
+  align-items: flex-start;
+  gap: $spacing-5;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-4;
+  }
 }
 
 .card-image {
   flex: 0 0 auto;
   width: 25%;
   max-width: 120px;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
 
   img {
     max-width: 100%;
@@ -230,6 +326,11 @@ ul.task-list {
 
 .card-text {
   flex: 1;
+  
+  // Better spacing within card text content
+  > * + * {
+    margin-top: $spacing-3;
+  }
 }
 
 .card-title {
@@ -238,12 +339,14 @@ ul.task-list {
   font-weight: $font-weight-semibold;
   margin-bottom: $spacing-3;
   line-height: $line-height-snug;
+  letter-spacing: $letter-spacing-tight;
 }
 
 .card-description {
   color: var(--global-text-color);
   font-size: $font-size-base;
   line-height: $line-height-relaxed;
+  margin-bottom: 0;
 }
 
 // Citation
@@ -257,25 +360,62 @@ ul.task-list {
 
 .profile {
   width: 100%;
+  margin-bottom: $spacing-8;
 
   .more-info {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    font-family: monospace;
+    margin-top: $spacing-4;
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
 
     p {
-      display: inline-block;
-      margin: 0;
+      display: block;
+      margin-bottom: $spacing-3;
+      color: var(--global-text-color-light);
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      a {
+        color: var(--global-theme-color);
+        text-decoration: none;
+        transition: $transition-colors;
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-2;
+        
+        &:hover {
+          color: var(--global-theme-color);
+          text-decoration: underline;
+        }
+        
+        i {
+          font-size: $font-size-base;
+        }
+      }
     }
   }
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: $spacing-6;
+  margin-bottom: $spacing-6;
+  
+  @media (max-width: $breakpoint-md) {
+    margin-left: 0;
+    margin-bottom: $spacing-8;
+  }
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: $spacing-6;
+  margin-bottom: $spacing-6;
+  
+  @media (max-width: $breakpoint-md) {
+    margin-right: 0;
+    margin-bottom: $spacing-8;
+  }
 }
 
 @media (min-width: 576px) {
@@ -290,12 +430,34 @@ ul.task-list {
   }
 }
 
+@media (max-width: $breakpoint-md) {
+  .profile {
+    width: 100% !important;
+    float: none !important;
+    text-align: center;
+    margin: 0 0 $spacing-8 0;
+    
+    .more-info {
+      text-align: left;
+      max-width: 300px;
+      margin: $spacing-4 auto 0;
+    }
+  }
+}
+
 .post-description {
-  margin-bottom: $spacing-8;
-  font-size: $font-size-sm;
+  margin-bottom: $spacing-10;
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: var(--global-text-color-light);
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $font-size-base;
+  }
 
   a {
     color: inherit;
+    transition: $transition-colors;
 
     &:hover {
       color: var(--global-theme-color);
@@ -305,40 +467,231 @@ ul.task-list {
 }
 
 // =============================================================================
-// Navigation Components (Base Overrides)
-// Note: Main navigation styles are in _layout.scss
-// These are minimal base overrides - full styles in _layout.scss
+// Accessibility and Focus Management
 // =============================================================================
 
-// Basic navbar styling - detailed styles in _layout.scss
-.navbar {
-  box-shadow: none;
-  border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+// Universal focus styles for all interactive elements
+button,
+input,
+textarea,
+select,
+[role="button"],
+[tabindex]:not([tabindex="-1"]) {
+  &:focus {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
+
+// Enhanced button styles with proper focus states
+button,
+.btn,
+[role="button"] {
+  background-color: var(--interactive-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: $button-border-radius;
+  padding: $button-padding-y $button-padding-x;
+  font-weight: $button-font-weight;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  cursor: pointer;
+  transition: $button-transition;
+  box-shadow: $button-shadow;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left $duration-500 $ease-out;
+  }
+
+  &:hover {
+    background-color: var(--interactive-primary-hover);
+    box-shadow: $button-shadow-hover;
+    transform: translateY(-1px);
+
+    &::before {
+      left: 100%;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: $button-shadow;
+    transition-duration: $duration-75;
+  }
+
+  &:focus {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    box-shadow: $button-shadow-hover, 0 0 0 4px rgba(59, 130, 246, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+
+    &:hover {
+      background-color: var(--interactive-primary);
+      transform: none;
+    }
+  }
+
+  // Button variants
+  &.btn-secondary {
+    background-color: var(--interactive-secondary);
+
+    &:hover {
+      background-color: var(--interactive-secondary-hover);
+    }
+  }
+
+  &.btn-outline {
+    background-color: transparent;
+    color: var(--interactive-primary);
+    border: 2px solid var(--interactive-primary);
+
+    &:hover {
+      background-color: var(--interactive-primary);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+// Form element focus styles
+input,
+textarea,
+select {
+  border: $input-border-width solid var(--border-primary);
+  border-radius: $input-border-radius;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+  transition: $input-transition;
+
+  &:focus {
+    border-color: var(--interactive-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+  }
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+}
+
+// Skip link for keyboard navigation
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--interactive-primary);
+  color: var(--text-inverse);
+  padding: $spacing-2 $spacing-4;
+  text-decoration: none;
+  border-radius: $border-radius-md;
+  z-index: 1000;
+  font-weight: $font-weight-medium;
+  transition: top $duration-200 $ease-out;
+
+  &:focus {
+    top: 6px;
+    outline: 2px solid var(--text-inverse);
+    outline-offset: 2px;
+  }
+}
+
+// =============================================================================
+// Navigation Components (Base Overrides)
+// Note: Main navigation styles are in _layout.scss to avoid duplication
+// =============================================================================
 
 // =============================================================================
 // Social Media and Footer Components
 // =============================================================================
 
-// Social media icons and contact section
+// Social media icons and contact section with enhanced spacing
 .social {
   text-align: center;
+  margin: $spacing-12 0;
+  padding: $spacing-8 0;
 
   .contact-icons {
     font-size: 4rem;
-
+    margin-bottom: $spacing-6;
+    
+    // Better spacing between icons with enhanced interactions
     a {
+      margin: 0 $spacing-3;
+      display: inline-block;
+      position: relative;
+      border-radius: $border-radius-lg;
+      padding: $spacing-2;
+      transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+      
       i::before {
         color: var(--global-text-color);
-        transition: $transition-colors;
+        transition: all $duration-200 $ease-out;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: var(--global-theme-color);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all $duration-300 $ease-out;
+        opacity: 0.1;
+        z-index: -1;
       }
 
       &:hover {
+        transform: translateY(-4px) scale(1.05);
+        
         i::before {
           color: var(--global-theme-color);
         }
+        
+        &::after {
+          width: 60px;
+          height: 60px;
+        }
+      }
+
+      &:active {
+        transform: translateY(-2px) scale(1.02);
+        transition-duration: $duration-75;
       }
     }
   }
@@ -346,6 +699,9 @@ ul.task-list {
   .contact-note {
     font-size: $font-size-sm;
     color: var(--global-text-color-light);
+    line-height: $line-height-relaxed;
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 
@@ -377,7 +733,7 @@ ul.task-list {
   }
 }
 
-// Footer styling for different layouts
+// Footer styling for different layouts with enhanced spacing
 footer {
   &.fixed-bottom {
     background-color: var(--global-footer-bg-color);
@@ -385,13 +741,15 @@ footer {
 
     .container {
       color: var(--global-footer-text-color);
-      padding: $spacing-2 0;
+      padding: $spacing-4 0;
       text-align: center;
+      line-height: $line-height-normal;
     }
 
     a {
       color: var(--global-footer-link-color);
       transition: $transition-colors;
+      margin: 0 $spacing-1;
 
       &:hover {
         color: var(--global-theme-color);
@@ -402,11 +760,13 @@ footer {
 
   &.sticky-bottom {
     border-top: 1px solid var(--global-divider-color);
-    padding: $spacing-10 0;
+    padding: $spacing-12 0;
     font-size: $font-size-sm;
+    margin-top: $spacing-16;
 
     .container {
       text-align: center;
+      line-height: $line-height-relaxed;
     }
   }
 }
@@ -415,21 +775,60 @@ footer {
 // CV and Resume Components
 // =============================================================================
 
-// CV page layout and styling
+// CV page layout and styling with enhanced spacing
 .cv {
-  margin-bottom: $spacing-10;
+  margin-bottom: $spacing-16;
 
   .card {
     background-color: var(--global-card-bg-color);
     border: 1px solid var(--global-divider-color);
+    margin-bottom: $spacing-8;
+    
+    .card-header {
+      padding: $spacing-5 $spacing-6;
+      background-color: var(--global-bg-color);
+      border-bottom: 1px solid var(--global-divider-color);
+      
+      h3, h4, h5 {
+        margin: 0;
+        color: var(--global-theme-color);
+      }
+    }
 
     .list-group-item {
       background-color: inherit;
       border-color: var(--global-divider-color);
+      padding: $spacing-4 $spacing-6;
+      
+      &:not(:last-child) {
+        margin-bottom: $spacing-2;
+      }
 
       .badge {
         color: var(--global-card-bg-color) !important;
         background-color: var(--global-theme-color) !important;
+        padding: $spacing-1 $spacing-2;
+        font-size: $font-size-xs;
+        margin-left: $spacing-2;
+      }
+      
+      // Better spacing for CV content
+      .cv-item-title {
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacing-2;
+        color: var(--global-text-color);
+      }
+      
+      .cv-item-description {
+        color: var(--global-text-color-light);
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-2;
+      }
+      
+      .cv-item-date {
+        font-size: $font-size-sm;
+        color: var(--global-text-color-light);
+        font-style: italic;
       }
     }
   }
@@ -459,34 +858,60 @@ footer {
 // Blog and Content Layout Components
 // =============================================================================
 
-// Blog header with large title
+// Blog header with large title and enhanced spacing
 .header-bar {
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 2px solid var(--global-divider-color);
   text-align: center;
-  padding: $spacing-8 0 $spacing-12;
+  padding: $spacing-12 0 $spacing-16;
+  margin-bottom: $spacing-12;
 
   h1 {
     color: var(--global-theme-color);
     font-size: $font-size-5xl;
+    margin-bottom: $spacing-4;
+    line-height: $line-height-tight;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-4xl;
+    }
+  }
+  
+  .subtitle {
+    font-size: $font-size-lg;
+    color: var(--global-text-color-light);
+    margin-top: $spacing-4;
+    line-height: $line-height-relaxed;
   }
 }
 
-// Tag and category navigation
+// Tag and category navigation with improved spacing
 .tag-category-list {
   border-bottom: 1px solid var(--global-divider-color);
   text-align: center;
-  padding-top: $spacing-4;
+  padding: $spacing-6 0;
+  margin-bottom: $spacing-10;
 
   ul {
     justify-content: center;
-    display: flow-root;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-2;
+    margin: 0;
+    padding: 0;
 
     p,
     li {
       list-style: none;
       display: inline-block;
-      padding: $spacing-4 $spacing-2;
+      padding: $spacing-2 $spacing-4;
       color: var(--global-text-color-light);
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      
+      &:hover {
+        background-color: var(--global-bg-color);
+        color: var(--global-theme-color);
+      }
     }
   }
 }
@@ -497,34 +922,72 @@ footer {
   }
 }
 
-// Post listing with consistent spacing
+// Post listing with enhanced spacing and hierarchy
 .post-list {
-  margin: 0 0 $spacing-10;
+  margin: 0 0 $spacing-16;
   padding: 0;
 
   li {
     border-bottom: 1px solid var(--global-divider-color);
     list-style: none;
-    padding: $spacing-8 0;
+    padding: $spacing-10 0;
+    
+    &:first-child {
+      padding-top: $spacing-6;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    // Better spacing for post content
+    .post-title {
+      margin-bottom: $spacing-3;
+      line-height: $line-height-snug;
+      
+      a {
+        color: var(--global-text-color);
+        text-decoration: none;
+        transition: $transition-colors;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-semibold;
+
+        &:hover {
+          color: var(--global-theme-color);
+        }
+      }
+    }
+    
+    .post-description {
+      margin: $spacing-4 0;
+      line-height: $line-height-relaxed;
+      color: var(--global-text-color-light);
+    }
 
     .post-meta,
     .post-tags {
       color: var(--global-text-color-light);
       font-size: $font-size-sm;
       margin-bottom: 0;
+      line-height: $line-height-normal;
     }
 
     .post-tags {
-      padding-top: $spacing-1;
-    }
-
-    a {
-      color: var(--global-text-color);
-      text-decoration: none;
-      transition: $transition-colors;
-
-      &:hover {
-        color: var(--global-theme-color);
+      margin-top: $spacing-3;
+      
+      a {
+        margin-right: $spacing-2;
+        padding: $spacing-1 $spacing-2;
+        background-color: var(--global-bg-color);
+        border-radius: $border-radius-sm;
+        text-decoration: none;
+        transition: $transition-colors;
+        
+        &:hover {
+          background-color: var(--global-theme-color);
+          color: white;
+        }
       }
     }
 
@@ -569,61 +1032,69 @@ footer {
 
 // =============================================================================
 // Project Components (Base Overrides)
-// Note: Main project styles are in _projects.scss
-// These are minimal base overrides - full styles in _projects.scss
+// Note: Main project styles are in _projects.scss to avoid duplication
 // =============================================================================
-
-// Basic project layout - detailed styles in _projects.scss
-.projects {
-  // Masonry grid layout
-  .grid-sizer,
-  .grid-item {
-    width: 250px;
-    margin-bottom: $spacing-3;
-  }
-}
 
 // =============================================================================
 // Publications and Bibliography
 // =============================================================================
 
 .publications {
-  margin-top: $spacing-8;
+  margin-top: $spacing-12;
+  margin-bottom: $spacing-16;
 
-  // Publication page title
+  // Publication page title with enhanced spacing
   h1 {
     color: var(--global-theme-color);
     font-size: $font-size-4xl;
     text-align: center;
-    margin: $spacing-4 0;
+    margin: $spacing-8 0 $spacing-12;
+    line-height: $line-height-tight;
+    
+    @media (max-width: $breakpoint-md) {
+      font-size: $font-size-3xl;
+    }
   }
 
-  // Section headings
+  // Section headings with better hierarchy
   h2 {
-    margin-bottom: $spacing-4;
+    margin-bottom: $spacing-6;
+    margin-top: $spacing-12;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
 
     span {
       font-size: $font-size-xl;
     }
 
-    // Bibliography section header
+    // Bibliography section header with enhanced spacing
     &.bibliography {
       color: var(--global-divider-color);
-      border-top: 1px solid var(--global-divider-color);
-      padding-top: $spacing-4;
-      margin-top: $spacing-8;
+      border-top: 2px solid var(--global-divider-color);
+      padding-top: $spacing-6;
+      margin-top: $spacing-16;
+      margin-bottom: $spacing-8;
       text-align: right;
     }
   }
 
-  // Bibliography list with enhanced styling
+  // Bibliography list with enhanced styling and spacing
   ol.bibliography {
     list-style: none;
     padding: 0;
     margin-top: 0;
 
     li {
-      margin-bottom: $spacing-4;
+      margin-bottom: $spacing-8;
+      padding: $spacing-6;
+      background-color: var(--global-card-bg-color);
+      border: 1px solid var(--global-divider-color);
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-xs;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       .abbr {
         margin-bottom: $spacing-2;
@@ -1034,101 +1505,88 @@ nav[data-toggle="toc"] {
   }
 }
 
-.unloaded {
-  display: none !important;
-}
+// Utility styles consolidated above in Utility Classes section
 
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-  z-index: 999;
-}
+// =============================================================================
+// Third-party Component Integration
+// Styling for external libraries and components
+// =============================================================================
 
-#toc-sidebar {
-  z-index: 1;
-}
-
-.echarts {
-  height: 400px;
-  width: 100%;
-}
-
-.map {
-  height: 400px;
-  width: 100%;
-}
-
+// Swiper carousel component
 swiper-container {
   --swiper-navigation-color: var(--global-theme-color);
   --swiper-pagination-color: var(--global-theme-color);
   --swiper-pagination-bullet-inactive-color: var(--global-text-color);
 }
 
+// Pseudocode algorithm styling
 .ps-root {
   .ps-algorithm {
     margin: 0.8em 0;
     border-top: 3px solid var(--global-text-color);
     border-bottom: 2px solid var(--global-text-color);
-  }
 
-  .ps-algorithm.with-caption > .ps-line:first-child {
-    border-bottom: 2px solid var(--global-text-color);
+    &.with-caption > .ps-line:first-child {
+      border-bottom: 2px solid var(--global-text-color);
+    }
   }
 }
 
-// Ninja Keys
-// for more options, check https://github.com/ssleptsov/ninja-keys?tab=readme-ov-file#css-variables
+// Ninja Keys command palette
+// For more options: https://github.com/ssleptsov/ninja-keys
 ninja-keys {
   --ninja-accent-color: var(--global-theme-color);
   --ninja-icon-size: 0px;
   --ninja-modal-background: var(--global-bg-color);
   --ninja-z-index: 1031;
+
+  &::part(ninja-input) {
+    color: var(--ninja-selected-text-color);
+  }
+
+  &::part(ninja-input-wrapper) {
+    background: var(--global-bg-color);
+  }
 }
 
-ninja-keys::part(ninja-input) {
-  color: var(--ninja-selected-text-color);
-}
-
-ninja-keys::part(ninja-input-wrapper) {
-  background: var(--global-bg-color);
-}
 
 
+// =============================================================================
+// Popover Components
+// Used for annotations in bibliography and other interactive elements
+// =============================================================================
 
-// popover is used for annotation in bib.liquid
 .popover {
   background-color: var(--global-bg-color);
   border-color: var(--global-divider-color);
 
   .popover-header {
-    color: var(--global-text-color); // Header text color
+    color: var(--global-text-color);
     border-bottom: 1px solid var(--global-divider-color);
   }
 
   .popover-body {
-    color: var(--global-text-color); // Body text color
+    color: var(--global-text-color);
   }
 }
 
-.bs-popover-top {
-  // arrow fill color
-  .arrow::after {
+// Popover arrow styling for different positions
+.bs-popover-top .arrow {
+  &::after {
     border-top-color: var(--global-bg-color);
   }
-
-  // arrow border color
-  .arrow:before {
+  
+  &:before {
     border-top-color: var(--global-divider-color);
   }
 }
 
-.bs-popover-bottom {
-  // arrow fill color
-  .arrow::after {
+.bs-popover-bottom .arrow {
+  &::after {
     border-bottom-color: var(--global-bg-color);
   }
-
-  // arrow border color
-  .arrow:before {
+  
+  &:before {
     border-bottom-color: var(--global-divider-color);
   }
 }
@@ -1142,7 +1600,7 @@ ninja-keys::part(ninja-input-wrapper) {
   border-radius: $button-border-radius;
   padding: $button-padding-y $button-padding-x;
   font-weight: $button-font-weight;
-  transition: $button-transition;
+  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
   box-shadow: $button-shadow;
   border: 1px solid transparent;
   text-decoration: none;
@@ -1152,26 +1610,67 @@ ninja-keys::part(ninja-input-wrapper) {
   cursor: pointer;
   font-size: $font-size-base;
   line-height: $line-height-normal;
+  position: relative;
+  overflow: hidden;
 
+  // Enhanced hover and focus states
   &:hover {
+    transform: translateY(-1px);
     box-shadow: $button-shadow-hover;
     text-decoration: none;
   }
 
-  &:focus {
-    outline: 2px solid var(--interactive-primary);
-    outline-offset: 2px;
+  &:active {
+    transform: translateY(0);
+    transition-duration: $duration-75;
   }
 
-  // Primary button variant
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    box-shadow: $button-shadow-hover;
+  }
+
+  // Disabled state
+  &:disabled,
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    
+    &:hover {
+      transform: none;
+      box-shadow: $button-shadow;
+    }
+  }
+
+  // Primary button variant with enhanced interactions
   &.btn-primary {
     background-color: var(--interactive-primary);
     border-color: var(--interactive-primary);
     color: var(--text-inverse);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left $duration-500 $ease-out;
+    }
 
     &:hover {
       background-color: var(--interactive-primary-hover);
       border-color: var(--interactive-primary-hover);
+      
+      &::before {
+        left: 100%;
+      }
     }
 
     &:active {
@@ -1180,15 +1679,33 @@ ninja-keys::part(ninja-input-wrapper) {
     }
   }
 
-  // Secondary button variant
+  // Secondary button variant with enhanced interactions
   &.btn-secondary {
     background-color: transparent;
     border-color: var(--border-primary);
     color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: var(--surface-secondary);
+      transition: width $duration-200 $ease-out;
+      z-index: -1;
+    }
 
     &:hover {
-      background-color: var(--surface-secondary);
-      border-color: var(--border-secondary);
+      color: var(--interactive-primary);
+      border-color: var(--interactive-primary);
+      
+      &::before {
+        width: 100%;
+      }
     }
   }
 
@@ -1207,81 +1724,110 @@ ninja-keys::part(ninja-input-wrapper) {
 
 // =============================================================================
 // Modern Form Components
+// Consolidated form styling with consistent design tokens
 // =============================================================================
 
-// Base input styling
-.form-control {
+// Base form control styling with modern design tokens and enhanced interactions
+.form-control,
+form input,
+form textarea {
   border-radius: $input-border-radius;
   padding: $input-padding-y $input-padding-x;
-  border: $input-border-width solid var(--border-primary);
-  transition: $input-transition;
-  background-color: var(--surface-primary);
-  color: var(--text-primary);
+  border: $input-border-width solid var(--global-divider-color);
+  transition: all $duration-200 $ease-out, box-shadow $duration-150 $ease-out, transform $duration-150 $ease-out;
+  background-color: var(--global-bg-color);
+  color: var(--global-text-color);
   font-size: $font-size-base;
   line-height: $line-height-normal;
+  width: 100%;
+  position: relative;
+
+  &:hover {
+    border-color: var(--border-secondary);
+    box-shadow: 0 0 0 1px rgba(var(--global-theme-color), 0.1);
+  }
 
   &:focus {
-    border-color: var(--interactive-primary);
+    border-color: var(--global-theme-color);
     outline: none;
-    box-shadow: 0 0 0 2px rgba(var(--interactive-primary), 0.2);
+    box-shadow: 0 0 0 3px rgba(var(--global-theme-color), 0.15);
+    transform: translateY(-1px);
   }
 
   &::placeholder {
-    color: var(--text-tertiary);
+    color: var(--global-text-color-light);
+    opacity: 0.7;
+    transition: opacity $duration-200 $ease-out;
+  }
+
+  &:focus::placeholder {
+    opacity: 0.5;
+  }
+
+  // Enhanced validation states
+  &:valid:not(:placeholder-shown) {
+    border-color: var(--status-success);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(var(--status-success), 0.15);
+    }
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-color: var(--status-error);
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(var(--status-error), 0.15);
+    }
   }
 }
 
-// Form group spacing
+// Form group and label styling with enhanced spacing
 .form-group {
-  margin-bottom: $spacing-4;
+  margin-bottom: $spacing-6;
 }
 
-// Form labels
-.form-label {
+.form-label,
+form label {
   font-weight: $font-weight-medium;
-  margin-bottom: $spacing-2;
-  color: var(--text-primary);
+  margin-bottom: $spacing-3;
+  color: var(--global-text-color);
   display: block;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
 }
 
-// Enhanced form container styling
+// Enhanced form container styling with better spacing
 form {
   max-width: 100%;
-  margin: 0;
-  padding: $spacing-5;
+  margin: $spacing-8 0;
+  padding: $spacing-8;
   background-color: var(--global-card-bg-color);
   border: 1px solid var(--global-divider-color);
-  border-radius: $border-radius-md;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
 
-  // Form-specific input and textarea styling
-  input,
-  textarea {
-    width: 100%;
-    padding: $input-padding-y $input-padding-x;
-    border: $input-border-width solid var(--global-divider-color);
-    border-radius: $input-border-radius;
-    background-color: var(--global-bg-color);
-    color: var(--global-text-color);
-    margin-bottom: $spacing-5;
-    transition: $input-transition;
-
-    &:focus {
-      border-color: var(--global-theme-color);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(var(--global-theme-color), 0.2);
-    }
-
-    &::placeholder {
-      color: var(--global-text-color-light);
-    }
+  @media (min-width: $breakpoint-md) {
+    padding: $spacing-10;
   }
 
-  // Form-specific label styling
-  label {
-    display: block;
-    margin-bottom: $spacing-2;
-    font-weight: $font-weight-medium;
-    color: var(--global-text-color);
+  // Form-specific spacing with better hierarchy
+  input,
+  textarea {
+    margin-bottom: $spacing-6;
+    
+    &:last-of-type {
+      margin-bottom: $spacing-8;
+    }
+  }
+  
+  // Better spacing between form sections
+  fieldset {
+    margin-bottom: $spacing-6;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   // Submit button styling
@@ -1294,6 +1840,7 @@ form {
     cursor: pointer;
     transition: $button-transition;
     font-weight: $button-font-weight;
+    width: auto;
 
     &:hover {
       background-color: var(--status-success) !important;
@@ -1302,7 +1849,7 @@ form {
   }
 }
 
-// Form message styling
+// Form message styling - consolidated for consistency
 .error-message {
   color: var(--global-danger-block-text);
   font-size: $font-size-sm;
@@ -1316,7 +1863,388 @@ form {
 }
 
 // =============================================================================
-// Miscellaneous Components and Utilities
+// Utility Classes and Miscellaneous Components
 // =============================================================================
 
+// Utility classes for common patterns
+.unloaded {
+  display: none !important;
+}
+
+// Media zoom utilities
+.medium-zoom-overlay,
+.medium-zoom-image--opened {
+  z-index: 999;
+}
+
+// Sidebar utilities
+#toc-sidebar {
+  z-index: 1;
+}
+
+// Chart and map containers
+.echarts,
+.map {
+  height: 400px;
+  width: 100%;
+}
+
 // Note: highlight-search-term styles removed as the JS was removed in cleanup
+
+// =============================================================================
+// Enhanced Interactive Elements and Modern Transitions
+// Comprehensive styling for all interactive elements with consistent timing
+// =============================================================================
+
+// Enhanced focus states for better accessibility
+*:focus-visible {
+  outline: 2px solid var(--interactive-primary);
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// Smooth transitions for all interactive elements
+button,
+[role="button"],
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.clickable,
+.interactive {
+  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    transition-duration: $duration-75;
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+// Enhanced badge and tag interactions
+.badge,
+.tag,
+.chip {
+  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $shadow-sm;
+  }
+
+  &:active {
+    transform: scale(1.02);
+    transition-duration: $duration-75;
+  }
+}
+
+// Enhanced table row interactions
+.table {
+  tbody tr {
+    transition: background-color $duration-150 $ease-out;
+    
+    &:hover {
+      background-color: var(--surface-secondary);
+    }
+  }
+}
+
+// Enhanced list item interactions
+.list-group-item,
+li.interactive {
+  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+  
+  &:hover {
+    background-color: var(--surface-secondary);
+    transform: translateX(4px);
+  }
+
+  &:active {
+    transform: translateX(2px);
+    transition-duration: $duration-75;
+  }
+}
+
+// Enhanced image hover effects
+img.interactive,
+.image-hover {
+  transition: all $duration-300 $ease-out, transform $duration-200 $ease-out;
+  
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: scale(1.01);
+    transition-duration: $duration-100;
+  }
+}
+
+// Enhanced modal and overlay transitions
+.modal,
+.overlay,
+.popup {
+  .modal-content,
+  .overlay-content,
+  .popup-content {
+    transition: all $duration-300 $ease-out, transform $duration-200 $ease-out;
+    
+    &.show,
+    &.active {
+      transform: scale(1) translateY(0);
+    }
+    
+    &.hide,
+    &.inactive {
+      transform: scale(0.95) translateY(-20px);
+    }
+  }
+}
+
+// Enhanced tooltip interactions
+.tooltip,
+[data-tooltip] {
+  &::before,
+  &::after {
+    transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Enhanced accordion and collapsible content
+.accordion,
+.collapsible {
+  .accordion-header,
+  .collapsible-header {
+    transition: all $duration-200 $ease-out;
+    
+    &:hover {
+      background-color: var(--surface-secondary);
+    }
+  }
+  
+  .accordion-content,
+  .collapsible-content {
+    transition: all $duration-300 $ease-out;
+  }
+}
+
+// Enhanced tab interactions
+.nav-tabs {
+  .nav-link {
+    transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      transition-duration: $duration-75;
+    }
+  }
+}
+
+// Enhanced progress bar animations
+.progress {
+  .progress-bar {
+    transition: width $duration-500 $ease-out, background-color $duration-200 $ease-out;
+  }
+}
+
+// Enhanced loading states
+.loading,
+.spinner {
+  &::after {
+    animation: spin $duration-1000 linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Enhanced slide animations
+.slide-in {
+  animation: slideIn $duration-300 $ease-out;
+}
+
+.slide-out {
+  animation: slideOut $duration-300 $ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+// Enhanced fade animations
+.fade-in {
+  animation: fadeIn $duration-300 $ease-out;
+}
+
+.fade-out {
+  animation: fadeOut $duration-300 $ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+// Enhanced scale animations
+.scale-in {
+  animation: scaleIn $duration-200 $ease-out;
+}
+
+.scale-out {
+  animation: scaleOut $duration-200 $ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+// Reduced motion support - respect user preferences
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  // Disable transform animations for reduced motion
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  .clickable,
+  .interactive,
+  .card,
+  .nav-link,
+  .dropdown-item,
+  #search-toggle,
+  #light-toggle,
+  #back-to-top {
+    &:hover,
+    &:focus,
+    &:active {
+      transform: none !important;
+    }
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  button,
+  .btn,
+  input,
+  .form-control {
+    border-width: 2px;
+  }
+  
+  .card {
+    border-width: 2px;
+  }
+  
+  a::after {
+    height: 3px;
+  }
+}
+
+// Print styles - remove interactive effects
+@media print {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}

@@ -1,25 +1,43 @@
 /*******************************************************************************
- * Style overrides for distill blog posts.
+ * Distill Blog Post Styling
+ * 
+ * Style overrides for distill blog posts with modern design tokens.
+ * This file contains:
+ * - Byline and article header styling
+ * - Content area and navigation styling
+ * - Table of contents and footnote styling
+ * - Responsive design adaptations
  ******************************************************************************/
+
+// =============================================================================
+// Distill Byline and Header Styling
+// =============================================================================
 
 d-byline {
   border-top-color: var(--global-divider-color) !important;
-}
 
-d-byline h3 {
-  color: var(--global-text-color) !important;
-}
+  h3 {
+    color: var(--global-text-color) !important;
+  }
 
-d-byline a,
-d-article d-byline a {
-  color: var(--global-text-color) !important;
-  &:hover {
-    color: var(--global-hover-color) !important;
+  a,
+  d-article & a {
+    color: var(--global-text-color) !important;
+    
+    &:hover {
+      color: var(--global-hover-color) !important;
+    }
   }
 }
 
+// =============================================================================
+// Distill Article Content Styling
+// =============================================================================
+
 d-article {
   border-top-color: var(--global-divider-color) !important;
+  
+  // Text elements styling
   p,
   h1,
   h2,
@@ -31,6 +49,8 @@ d-article {
   table {
     color: var(--global-text-color) !important;
   }
+  
+  // Border elements styling
   h1,
   h2,
   hr,
@@ -39,20 +59,30 @@ d-article {
   table td {
     border-bottom-color: var(--global-divider-color) !important;
   }
+  
+  // Link styling
   a {
     color: var(--global-theme-color) !important;
+    
     &:hover {
       color: var(--global-theme-color) !important;
     }
   }
+  
+  // Inline elements
   b i {
     display: inline;
   }
+  
+  // Blockquote styling
   blockquote {
     border-left: 2px solid var(--global-theme-color) !important;
   }
 
-  // Style taken from code blocks
+  // =============================================================================
+  // Distill Details and Code Block Styling
+  // =============================================================================
+  
   details {
     color: var(--global-text-color);
     background-color: var(--global-code-bg-color);
@@ -74,6 +104,10 @@ d-article {
     }
   }
 
+  // =============================================================================
+  // Distill Table of Contents Styling
+  // =============================================================================
+  
   d-contents {
     align-self: start;
     grid-column: 1 / 4;
@@ -130,10 +164,18 @@ d-article {
     }
   }
 
+  // =============================================================================
+  // Distill Footnote Styling
+  // =============================================================================
+  
   d-footnote {
     scroll-margin-top: 66px;
   }
 }
+
+// =============================================================================
+// Distill Appendix Styling
+// =============================================================================
 
 d-appendix {
   border-top-color: var(--global-divider-color) !important;
@@ -151,6 +193,10 @@ d-appendix {
     }
   }
 }
+
+// =============================================================================
+// Distill Responsive Design
+// =============================================================================
 
 @media (max-width: 1024px) {
   d-article {

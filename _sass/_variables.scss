@@ -10,6 +10,12 @@
  * 
  * Updated with contemporary design tokens for improved visual consistency
  * and accessibility across the portfolio theme.
+ * 
+ * Optimized for:
+ * - Consistent spacing system based on 4px grid
+ * - Modern color palette with semantic naming
+ * - Comprehensive component variables for reusability
+ * - Legacy compatibility while encouraging modern usage
  ******************************************************************************/
 
 // =============================================================================
@@ -24,7 +30,7 @@ $primary-200: #bae6fd !default;
 $primary-300: #7dd3fc !default;
 $primary-400: #38bdf8 !default;
 $primary-500: #0ea5e9 !default;
-$primary-600: #0284c7 !default;
+$primary-600: #0369a1 !default;
 $primary-700: #0369a1 !default;
 $primary-800: #075985 !default;
 $primary-900: #0c4a6e !default;
@@ -60,6 +66,7 @@ $error-500: #ef4444 !default;
 $info-500: #3b82f6 !default;
 
 // Legacy color mappings for backward compatibility
+// These maintain compatibility with existing code while using modern tokens
 $purple-color: $purple-600 !default;
 $cyan-color: $primary-500 !default;
 $red-color-dark: $error-500 !default;
@@ -175,16 +182,13 @@ $spacing-28: $spacer * 7 !default;         // 112px
 $spacing-32: $spacer * 8 !default;         // 128px
 
 // Legacy spacing mappings for backward compatibility
+// These provide semantic names for common spacing values
 $spacing-xs: $spacing-1 !default;
 $spacing-sm: $spacing-2 !default;
 $spacing-md: $spacing-4 !default;
 $spacing-lg: $spacing-6 !default;
 $spacing-xl: $spacing-8 !default;
 $spacing-xxl: $spacing-12 !default;
-
-// Component spacing
-$component-padding: $spacing-4 !default;
-$component-margin: $spacing-6 !default;
 
 // =============================================================================
 // Layout

@@ -1,0 +1,381 @@
+/*******************************************************************************
+ * Responsive Design Improvements
+ * 
+ * This file contains comprehensive responsive improvements for the portfolio theme
+ * including enhanced mobile experience, touch-friendly elements, and fluid typography.
+ ******************************************************************************/
+
+// =============================================================================
+// Enhanced Mobile Navigation
+// =============================================================================
+
+// Improved mobile menu with better touch targets
+@media (max-width: $breakpoint-lg - 1px) {
+  .navbar-nav {
+    .nav-item .nav-link {
+      // Ensure minimum touch target size (44px)
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      padding: $spacing-3 $spacing-4;
+      
+      // Better visual feedback on touch
+      &:active {
+        background-color: var(--surface-secondary);
+        transform: scale(0.98);
+        transition-duration: $duration-75;
+      }
+    }
+    
+    // Enhanced dropdown for mobile
+    .dropdown-menu {
+      .dropdown-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        
+        &:active {
+          background-color: var(--interactive-primary);
+          color: var(--text-inverse);
+        }
+      }
+    }
+  }
+  
+  // Better mobile search and theme toggle
+  #search-toggle,
+  #light-toggle {
+    min-height: 44px;
+    min-width: 44px;
+    
+    &:active {
+      transform: scale(0.95);
+      transition-duration: $duration-75;
+    }
+  }
+}
+
+// =============================================================================
+// Fluid Typography System
+// =============================================================================
+
+// Enhanced responsive typography with better scaling
+h1, h2, h3, h4, h5, h6 {
+  // Prevent text from becoming too small on mobile
+  @media (max-width: $breakpoint-sm - 1px) {
+    line-height: $line-height-snug;
+    margin-top: clamp($spacing-4, 3vw, $spacing-8);
+    margin-bottom: clamp($spacing-2, 2vw, $spacing-4);
+  }
+}
+
+// Responsive paragraph text
+p, li, .card-text {
+  @media (max-width: $breakpoint-sm - 1px) {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+  }
+  
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1px) {
+    font-size: $font-size-base;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+  }
+}
+
+// =============================================================================
+// Enhanced Card Responsiveness
+// =============================================================================
+
+.card {
+  // Better mobile card spacing
+  @media (max-width: $breakpoint-sm - 1px) {
+    margin-bottom: $spacing-4;
+    border-radius: $border-radius-md;
+    
+    .card-body {
+      padding: $spacing-3;
+    }
+    
+    .card-title {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-2;
+    }
+    
+    .card-text {
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-3;
+    }
+  }
+  
+  // Tablet optimizations
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1px) {
+    .card-body {
+      padding: $spacing-5;
+    }
+    
+    .card-title {
+      font-size: $font-size-xl;
+    }
+  }
+}
+
+// =============================================================================
+// Touch-Friendly Interactive Elements
+// =============================================================================
+
+// Enhanced button touch targets
+.btn, button, .nav-link, .dropdown-item {
+  @media (hover: none) and (pointer: coarse) {
+    min-height: 44px;
+    min-width: 44px;
+    
+    // Better touch feedback
+    &:active {
+      transform: scale(0.96);
+      transition: transform $duration-75 $ease-out;
+    }
+  }
+}
+
+// Social media icons with better touch targets
+.social .contact-icons a {
+  @media (max-width: $breakpoint-md - 1px) {
+    margin: $spacing-2;
+    padding: $spacing-3;
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+// =============================================================================
+// Improved Form Responsiveness
+// =============================================================================
+
+// Better form field sizing on mobile
+#fs-frm {
+  @media (max-width: $breakpoint-md - 1px) {
+    input, textarea, select {
+      font-size: 16px; // Prevents zoom on iOS
+      padding: $spacing-3 $spacing-4;
+      border-radius: $border-radius-md;
+    }
+    
+    button[type="submit"] {
+      min-height: 48px;
+      padding: $spacing-3 $spacing-6;
+      font-size: $font-size-base;
+      border-radius: $border-radius-md;
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Profile Section Responsiveness
+// =============================================================================
+
+.profile {
+  @media (max-width: $breakpoint-md - 1px) {
+    text-align: center;
+    margin-bottom: $spacing-8;
+    
+    img {
+      max-width: 200px;
+      margin: 0 auto $spacing-4;
+    }
+    
+    .more-info {
+      text-align: left;
+      max-width: 300px;
+      margin: $spacing-4 auto 0;
+      
+      p {
+        margin-bottom: $spacing-2;
+        
+        a {
+          display: inline-flex;
+          align-items: center;
+          gap: $spacing-2;
+          padding: $spacing-1 $spacing-2;
+          border-radius: $border-radius-sm;
+          transition: $transition-colors;
+          
+          &:hover {
+            background-color: var(--surface-secondary);
+          }
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Content Layout Improvements
+// =============================================================================
+
+// Better content spacing on different screen sizes
+.post, .page-content {
+  @media (max-width: $breakpoint-sm - 1px) {
+    .post-header {
+      padding-bottom: $spacing-4;
+      margin-bottom: $spacing-6;
+      
+      .post-title {
+        font-size: clamp($font-size-2xl, 6vw, $font-size-4xl);
+        line-height: $line-height-tight;
+        margin-bottom: $spacing-3;
+      }
+      
+      .post-description {
+        font-size: $font-size-base;
+        margin-top: $spacing-2;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Table Responsiveness
+// =============================================================================
+
+// Better table handling on mobile
+table {
+  @media (max-width: $breakpoint-md - 1px) {
+    font-size: $font-size-sm;
+    
+    td, th {
+      padding: $spacing-2 $spacing-3;
+      
+      // Stack table cells on very small screens
+      @media (max-width: $breakpoint-sm - 1px) {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid var(--border-primary);
+        
+        &:before {
+          content: attr(data-label) ": ";
+          font-weight: $font-weight-semibold;
+          display: inline-block;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Image and Media Responsiveness
+// =============================================================================
+
+// Better image handling
+img {
+  @media (max-width: $breakpoint-md - 1px) {
+    border-radius: $border-radius-md;
+  }
+}
+
+// Video responsiveness
+video, iframe {
+  @media (max-width: $breakpoint-md - 1px) {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius-md;
+  }
+}
+
+// =============================================================================
+// Footer Responsiveness
+// =============================================================================
+
+footer {
+  @media (max-width: $breakpoint-md - 1px) {
+    .container {
+      padding: $spacing-6 $spacing-4;
+      text-align: center;
+      
+      p {
+        margin-bottom: $spacing-2;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
+// =============================================================================
+// Accessibility Improvements
+// =============================================================================
+
+// Better focus indicators for keyboard navigation
+*:focus-visible {
+  outline: 2px solid var(--interactive-primary);
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .card {
+    border-width: 2px;
+  }
+  
+  .nav-link.active::after {
+    height: 3px;
+  }
+  
+  button, .btn {
+    border-width: 2px;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card.hoverable:hover {
+    transform: none;
+  }
+}
+
+// =============================================================================
+// Print Styles
+// =============================================================================
+
+@media print {
+  .navbar, .social, #back-to-top {
+    display: none;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+  
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+  
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+}

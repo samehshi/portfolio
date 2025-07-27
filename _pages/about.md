@@ -44,7 +44,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-# BI & Data Analyst Portfolio
+# BI & Data Analyst
 
 I'm Sameh Shehata, a seasoned BI & Data Analyst with over 15 years of experience transforming complex data into actionable insights. My unique background as an Aeronautical Telecommunication Officer at NANSC,Egypt has instilled in me a passion for precision and a data-driven approach to problem-solving.
 

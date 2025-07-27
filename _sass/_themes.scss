@@ -56,6 +56,7 @@
   
   // =============================================================================
   // Legacy Variable Mappings for Backward Compatibility
+  // These maintain compatibility with existing components while using semantic tokens
   // =============================================================================
   
   --global-bg-color: var(--surface-primary);
@@ -120,6 +121,32 @@
     height: $back-to-top-height;
     width: $back-to-top-width;
     z-index: $back-to-top-z-index;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+    box-shadow: $shadow-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-lg;
+    
+    &:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: $shadow-lg;
+      background: var(--interactive-primary);
+      color: var(--text-inverse);
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(1.05);
+      transition-duration: $duration-75;
+    }
+
+    &:focus {
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -229,6 +256,11 @@ html[data-theme-setting="dark"] {
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
+    
+    &:hover {
+      background: var(--interactive-primary);
+      color: var(--text-inverse);
+    }
   }
 }
 

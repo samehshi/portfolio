@@ -17,14 +17,24 @@
     z-index: 1030;
   }
   
-  // Enhanced container spacing
+  // Enhanced container spacing with better responsive behavior
   .container {
     padding-left: $spacing-4;
     padding-right: $spacing-4;
     
+    @media (min-width: $breakpoint-sm) {
+      padding-left: $spacing-5;
+      padding-right: $spacing-5;
+    }
+    
     @media (min-width: $breakpoint-md) {
       padding-left: $spacing-6;
       padding-right: $spacing-6;
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+      padding-left: $spacing-8;
+      padding-right: $spacing-8;
     }
   }
 }
@@ -161,21 +171,43 @@
   .nav-item {
     position: relative;
     
-    // Modern nav links
+    // Modern nav links with enhanced interactions
     .nav-link {
       color: var(--text-secondary);
       font-weight: $font-weight-medium;
       font-size: $font-size-base;
       padding: $spacing-2 $spacing-3;
       border-radius: $border-radius-md;
-      transition: $transition-colors;
+      transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       text-decoration: none;
       position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(var(--interactive-primary), 0.1), transparent);
+        transition: left $duration-300 $ease-out;
+      }
       
       &:hover,
       &:focus {
         color: var(--interactive-primary);
         background-color: var(--surface-secondary);
+        transform: translateY(-1px);
+        
+        &::before {
+          left: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateY(0);
+        transition-duration: $duration-75;
       }
       
       // Active state indicator
@@ -212,17 +244,44 @@
       color: var(--text-secondary);
       padding: $spacing-2 $spacing-3;
       border-radius: $border-radius-md;
-      transition: $transition-colors;
+      transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       font-size: $font-size-sm;
       display: flex;
       align-items: center;
       gap: $spacing-1;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: var(--interactive-primary);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: all $duration-200 $ease-out;
+        opacity: 0.1;
+        z-index: -1;
+      }
       
       &:hover,
       &:focus {
         color: var(--interactive-primary);
         background-color: var(--surface-secondary);
         outline: none;
+        transform: scale(1.05);
+        
+        &::after {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &:active {
+        transform: scale(1.02);
+        transition-duration: $duration-75;
       }
       
       .nav-link {
@@ -249,19 +308,45 @@
       color: var(--text-secondary);
       padding: $spacing-2;
       border-radius: $border-radius-md;
-      transition: $transition-colors;
+      transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       font-size: $font-size-lg;
       width: 40px;
       height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--interactive-primary);
+        border-radius: $border-radius-md;
+        opacity: 0;
+        transform: scale(0.8) rotate(180deg);
+        transition: all $duration-300 $ease-out;
+        z-index: -1;
+      }
       
       &:hover,
       &:focus {
-        color: var(--interactive-primary);
-        background-color: var(--surface-secondary);
+        color: var(--text-inverse);
         outline: none;
+        transform: scale(1.1) rotate(15deg);
+        
+        &::before {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      &:active {
+        transform: scale(1.05) rotate(10deg);
+        transition-duration: $duration-75;
       }
     }
   }
@@ -297,21 +382,49 @@
       color: var(--text-secondary);
       padding: $spacing-2 $spacing-3;
       border-radius: $border-radius-md;
-      transition: $transition-colors;
+      transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       text-decoration: none;
       font-weight: $font-weight-normal;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: var(--interactive-primary);
+        transition: width $duration-200 $ease-out;
+        opacity: 0.1;
+      }
       
       &:hover,
       &:focus {
         color: var(--interactive-primary);
         background-color: var(--surface-secondary);
         text-decoration: none;
+        transform: translateX(4px);
+        
+        &::before {
+          width: 100%;
+        }
+      }
+
+      &:active {
+        transform: translateX(2px);
+        transition-duration: $duration-75;
       }
       
       &.active {
         color: var(--interactive-primary);
         background-color: var(--surface-secondary);
         font-weight: $font-weight-medium;
+        
+        &::before {
+          width: 100%;
+        }
       }
     }
     
@@ -331,6 +444,13 @@
     padding: $spacing-4;
     box-shadow: $shadow-lg;
     border: 1px solid var(--border-primary);
+    
+    // Ensure proper spacing on very small screens
+    @media (max-width: $breakpoint-sm - 1px) {
+      margin-left: -$spacing-2;
+      margin-right: -$spacing-2;
+      border-radius: $border-radius-md;
+    }
     
     // Smooth slide-in animation
     &.collapsing {
@@ -651,69 +771,209 @@ body {
   letter-spacing: $letter-spacing-normal;
 }
 
-// Modern Typography Hierarchy
+// Enhanced content spacing and layout with improved responsive behavior
+.container {
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  
+  // Ensure minimum spacing on very small screens
+  @media (max-width: $breakpoint-sm - 1px) {
+    padding-left: $spacing-3;
+    padding-right: $spacing-3;
+  }
+  
+  @media (min-width: $breakpoint-sm) {
+    padding-left: $spacing-5;
+    padding-right: $spacing-5;
+  }
+  
+  @media (min-width: $breakpoint-md) {
+    padding-left: $spacing-6;
+    padding-right: $spacing-6;
+  }
+  
+  @media (min-width: $breakpoint-lg) {
+    padding-left: $spacing-8;
+    padding-right: $spacing-8;
+  }
+  
+  @media (min-width: $breakpoint-xl) {
+    padding-left: $spacing-10;
+    padding-right: $spacing-10;
+  }
+}
+
+// Modern Typography Hierarchy with Enhanced Spacing
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-base;
   font-weight: $font-weight-semibold;
   line-height: $line-height-tight;
   letter-spacing: $letter-spacing-tight;
-  margin-bottom: $spacing-4;
-  margin-top: $spacing-6;
   color: var(--global-text-color);
+  
+  // Enhanced spacing for better visual hierarchy
+  margin-top: $spacing-12;
+  margin-bottom: $spacing-6;
+  
+  // First heading in content should have less top margin
+  &:first-child {
+    margin-top: $spacing-4;
+  }
+  
+  // Headings following other headings need less spacing
+  h1 + &,
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  h5 + &,
+  h6 + & {
+    margin-top: $spacing-8;
+  }
 }
 
 h1 {
-  font-size: $font-size-5xl;
+  font-size: clamp($font-size-2xl, 5vw, $font-size-5xl);
   font-weight: $font-weight-bold;
   line-height: $line-height-tight;
-  margin-bottom: $spacing-6;
+  margin-bottom: clamp($spacing-4, 3vw, $spacing-8);
+  margin-top: clamp($spacing-8, 4vw, $spacing-16);
+  
+  &:first-child {
+    margin-top: clamp($spacing-3, 2vw, $spacing-6);
+  }
+  
+  // Better mobile scaling
+  @media (max-width: $breakpoint-sm - 1px) {
+    font-size: $font-size-3xl;
+    margin-top: $spacing-6;
+    margin-bottom: $spacing-4;
+  }
 }
 
 h2 {
-  font-size: $font-size-4xl;
+  font-size: clamp($font-size-xl, 4vw, $font-size-4xl);
   line-height: $line-height-snug;
-  margin-bottom: $spacing-5;
+  margin-bottom: clamp($spacing-3, 2vw, $spacing-6);
+  margin-top: clamp($spacing-6, 3vw, $spacing-14);
+  
+  &:first-child {
+    margin-top: clamp($spacing-2, 1.5vw, $spacing-4);
+  }
+  
+  // Better mobile scaling
+  @media (max-width: $breakpoint-sm - 1px) {
+    font-size: $font-size-2xl;
+    margin-top: $spacing-8;
+    margin-bottom: $spacing-3;
+  }
 }
 
 h3 {
-  font-size: $font-size-3xl;
+  font-size: clamp($font-size-lg, 3vw, $font-size-3xl);
   line-height: $line-height-snug;
-  margin-bottom: $spacing-4;
+  margin-bottom: clamp($spacing-2, 1.5vw, $spacing-5);
+  margin-top: clamp($spacing-4, 2.5vw, $spacing-12);
+  
+  &:first-child {
+    margin-top: clamp($spacing-2, 1vw, $spacing-3);
+  }
+  
+  // Better mobile scaling
+  @media (max-width: $breakpoint-sm - 1px) {
+    font-size: $font-size-xl;
+    margin-top: $spacing-6;
+    margin-bottom: $spacing-2;
+  }
 }
 
 h4 {
   font-size: $font-size-2xl;
   line-height: $line-height-normal;
-  margin-bottom: $spacing-3;
+  margin-bottom: $spacing-4;
+  margin-top: $spacing-10;
+  
+  &:first-child {
+    margin-top: $spacing-3;
+  }
 }
 
 h5 {
   font-size: $font-size-xl;
   line-height: $line-height-normal;
   margin-bottom: $spacing-3;
+  margin-top: $spacing-8;
+  
+  &:first-child {
+    margin-top: $spacing-2;
+  }
 }
 
 h6 {
   font-size: $font-size-lg;
   line-height: $line-height-normal;
-  margin-bottom: $spacing-2;
+  margin-bottom: $spacing-3;
+  margin-top: $spacing-6;
+  
+  &:first-child {
+    margin-top: $spacing-2;
+  }
 }
 
-// Improved paragraph and text styling
+// Improved paragraph and text styling with enhanced spacing
 p {
   font-size: $font-size-base;
   line-height: $line-height-relaxed;
-  margin-bottom: $spacing-4;
+  margin-bottom: $spacing-6;
   letter-spacing: $letter-spacing-normal;
+  
+  // Better spacing after headings
+  h1 + &,
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  h5 + &,
+  h6 + & {
+    margin-top: $spacing-2;
+  }
+  
+  // Tighter spacing for consecutive paragraphs in lists
+  li & {
+    margin-bottom: $spacing-3;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-// Enhanced list styling
+// Enhanced list styling with improved hierarchy
 ul, ol {
   line-height: $line-height-relaxed;
-  margin-bottom: $spacing-4;
+  margin-bottom: $spacing-6;
+  margin-top: $spacing-2;
   
   li {
-    margin-bottom: $spacing-1;
+    margin-bottom: $spacing-2;
+    
+    // Nested lists with better spacing
+    ul, ol {
+      margin-top: $spacing-2;
+      margin-bottom: $spacing-2;
+      
+      li {
+        margin-bottom: $spacing-1;
+      }
+    }
+  }
+  
+  // Better spacing after headings
+  h1 + &,
+  h2 + &,
+  h3 + &,
+  h4 + &,
+  h5 + &,
+  h6 + & {
+    margin-top: $spacing-3;
   }
 }
 
@@ -756,8 +1016,84 @@ body.sticky-bottom-footer {
   max-width: $max-content-width;
 }
 
-.profile img {
-  width: 100%;
+// Enhanced post layout with improved spacing
+.post {
+  margin-bottom: $spacing-16;
+  
+  .post-header {
+    margin-bottom: $spacing-10;
+    padding-bottom: $spacing-6;
+    border-bottom: 1px solid var(--global-divider-color);
+    
+    .post-title {
+      margin-bottom: $spacing-4;
+      line-height: $line-height-tight;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    .post-description,
+    .desc {
+      font-size: $font-size-lg;
+      color: var(--global-text-color-light);
+      line-height: $line-height-relaxed;
+      margin-bottom: 0;
+      margin-top: $spacing-3;
+    }
+  }
+  
+  article {
+    line-height: $line-height-relaxed;
+    
+    // Enhanced spacing for content sections
+    > * + * {
+      margin-top: $spacing-6;
+    }
+    
+    // Special spacing for specific elements
+    > h1 + *,
+    > h2 + *,
+    > h3 + *,
+    > h4 + *,
+    > h5 + *,
+    > h6 + * {
+      margin-top: $spacing-4;
+    }
+    
+    // Better spacing for content blocks
+    > blockquote,
+    > pre,
+    > .highlight,
+    > figure {
+      margin-top: $spacing-8;
+      margin-bottom: $spacing-8;
+    }
+  }
+}
+
+.profile {
+  margin-bottom: $spacing-8;
+  
+  img {
+    width: 100%;
+    margin-bottom: $spacing-4;
+  }
+  
+  .more-info {
+    margin-top: $spacing-4;
+    
+    p {
+      margin-bottom: $spacing-2;
+      font-size: $font-size-sm;
+      line-height: $line-height-normal;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 /******************************************************************************
@@ -890,18 +1226,5 @@ body.sticky-bottom-footer {
 // =============================================================================
 // Form Styling
 // Note: Main form styles are consolidated in _base.scss
-// This section contains only layout-specific form enhancements
+// Form message styling moved to _base.scss to avoid duplication
 // =============================================================================
-
-// Message styling
-.error-message {
-  color: var(--global-danger-block-text);
-  font-size: $font-size-sm;
-  margin-bottom: $spacing-4;
-}
-
-.success-message {
-  color: var(--global-tip-block-text);
-  font-size: $font-size-sm;
-  margin-bottom: $spacing-4;
-}
