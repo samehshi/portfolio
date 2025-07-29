@@ -92,6 +92,39 @@
   --global-danger-block-text: var(--status-error-text);
   --global-danger-block-title: var(--status-error);
 
+  // Additional theme coverage for common UI elements
+  --button-primary-bg: var(--interactive-primary);
+  --button-primary-text: var(--text-inverse);
+  --button-primary-hover-bg: var(--interactive-primary-hover);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--interactive-primary);
+  --button-secondary-border: var(--interactive-primary);
+  --button-secondary-hover-bg: var(--interactive-primary);
+  --button-secondary-hover-text: var(--text-inverse);
+  
+  // Form elements
+  --input-bg: var(--surface-primary);
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-border: var(--interactive-primary);
+  
+  // Code and syntax highlighting
+  --code-bg: var(--surface-secondary);
+  --code-text: var(--text-primary);
+  --code-border: var(--border-primary);
+  
+  // Tables
+  --table-bg: var(--surface-primary);
+  --table-border: var(--border-primary);
+  --table-header-bg: var(--surface-secondary);
+  --table-row-hover-bg: var(--surface-secondary);
+  
+  // Overlays and modals
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --modal-bg: var(--surface-elevated);
+  --modal-border: var(--border-primary);
+
   
 
   .repo-img-light {
@@ -217,6 +250,39 @@ html[data-theme="dark"] {
   --global-danger-block-bg: var(--status-error-bg);
   --global-danger-block-text: var(--status-error-text);
   --global-danger-block-title: var(--status-error);
+
+  // Additional theme coverage for dark mode
+  --button-primary-bg: var(--interactive-primary);
+  --button-primary-text: var(--text-inverse);
+  --button-primary-hover-bg: var(--interactive-primary-hover);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--interactive-primary);
+  --button-secondary-border: var(--interactive-primary);
+  --button-secondary-hover-bg: var(--interactive-primary);
+  --button-secondary-hover-text: var(--text-inverse);
+  
+  // Form elements for dark theme
+  --input-bg: var(--surface-secondary);
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-border: var(--interactive-primary);
+  
+  // Code and syntax highlighting for dark theme
+  --code-bg: var(--surface-elevated);
+  --code-text: var(--text-primary);
+  --code-border: var(--border-primary);
+  
+  // Tables for dark theme
+  --table-bg: var(--surface-primary);
+  --table-border: var(--border-primary);
+  --table-header-bg: var(--surface-secondary);
+  --table-row-hover-bg: var(--surface-secondary);
+  
+  // Overlays and modals for dark theme
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --modal-bg: var(--surface-elevated);
+  --modal-border: var(--border-primary);
 
   .repo-img-light {
     display: none;

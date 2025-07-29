@@ -648,8 +648,8 @@ html[data-theme="dark"] {
           }
 
           .badge-success {
-            background-color: #28a745;
-            color: white;
+            background-color: var(--status-success);
+            color: var(--text-inverse);
             border: none;
 
             i {
@@ -711,7 +711,7 @@ html[data-theme="dark"] {
       border-radius: $border-radius-md;
 
       .text-success {
-        color: #28a745;
+        color: var(--status-success);
         font-weight: $font-weight-semibold;
       }
 
@@ -733,7 +733,7 @@ html[data-theme="dark"] {
         color: var(--global-text-color-light);
 
         i {
-          color: #28a745;
+          color: var(--status-success);
         }
       }
     }
@@ -786,7 +786,7 @@ html[data-theme="dark"] {
         text-decoration: none;
 
         &.btn-light {
-          background-color: white;
+          background-color: var(--text-inverse);
           color: var(--global-theme-color);
           border: none;
 
@@ -798,12 +798,12 @@ html[data-theme="dark"] {
         }
 
         &.btn-outline-light {
-          color: white;
-          border: 2px solid white;
+          color: var(--text-inverse);
+          border: 2px solid var(--text-inverse);
           background: transparent;
 
           &:hover {
-            background-color: white;
+            background-color: var(--text-inverse);
             color: var(--global-theme-color);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -966,14 +966,14 @@ html[data-theme="dark"] {
     // Primary CTA - Main conversion action
     &.cta-primary {
       background: linear-gradient(135deg, var(--global-theme-color), rgba(var(--global-theme-color-rgb), 0.8));
-      color: white;
+      color: var(--text-inverse);
       box-shadow: 0 4px 16px rgba(var(--global-theme-color-rgb), 0.3);
 
       &:hover {
         background: linear-gradient(135deg, rgba(var(--global-theme-color-rgb), 0.9), var(--global-theme-color));
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(var(--global-theme-color-rgb), 0.4);
-        color: white;
+        color: var(--text-inverse);
         text-decoration: none;
       }
 
@@ -991,7 +991,7 @@ html[data-theme="dark"] {
 
       &:hover {
         background: var(--global-theme-color);
-        color: white;
+        color: var(--text-inverse);
         transform: translateY(-2px);
         box-shadow: 0 4px 16px rgba(var(--global-theme-color-rgb), 0.3);
         text-decoration: none;
@@ -1027,41 +1027,41 @@ html[data-theme="dark"] {
 
     // Success CTA - Positive action
     &.cta-success {
-      background: linear-gradient(135deg, #28a745, #20c997);
-      color: white;
-      box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);
+      background: linear-gradient(135deg, var(--status-success), var(--interactive-secondary));
+      color: var(--text-inverse);
+      box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
 
       &:hover {
-        background: linear-gradient(135deg, #20c997, #28a745);
+        background: linear-gradient(135deg, var(--interactive-secondary), var(--status-success));
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
-        color: white;
+        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+        color: var(--text-inverse);
         text-decoration: none;
       }
 
       &:active {
         transform: translateY(0);
-        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+        box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
       }
     }
 
     // Warning CTA - Attention-grabbing
     &.cta-warning {
-      background: linear-gradient(135deg, #ffc107, #fd7e14);
-      color: #212529;
-      box-shadow: 0 4px 16px rgba(255, 193, 7, 0.3);
+      background: linear-gradient(135deg, var(--status-warning), var(--status-error));
+      color: var(--status-warning-text);
+      box-shadow: 0 4px 16px rgba(251, 191, 36, 0.3);
 
       &:hover {
-        background: linear-gradient(135deg, #fd7e14, #ffc107);
+        background: linear-gradient(135deg, var(--status-error), var(--status-warning));
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
-        color: #212529;
+        box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+        color: var(--status-warning-text);
         text-decoration: none;
       }
 
       &:active {
         transform: translateY(0);
-        box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+        box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
       }
     }
   }
@@ -1135,14 +1135,14 @@ html[data-theme="dark"] {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    color: var(--text-inverse);
 
     &:hover {
       background: rgba(255, 255, 255, 0.25);
       border-color: rgba(255, 255, 255, 0.5);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      color: white;
+      color: var(--text-inverse);
       text-decoration: none;
     }
   }
@@ -1151,7 +1151,7 @@ html[data-theme="dark"] {
 // Final CTA Section - Comprehensive conversion section
 .final-cta-section {
   background: linear-gradient(135deg, var(--global-theme-color), rgba(var(--global-theme-color-rgb), 0.8));
-  color: white;
+  color: var(--text-inverse);
   padding: $spacing-8 $spacing-6;
   border-radius: $border-radius-lg;
   margin: $spacing-6 0;
@@ -1207,21 +1207,21 @@ html[data-theme="dark"] {
         background: rgba(255, 255, 255, 0.15);
         backdrop-filter: blur(10px);
         border: 2px solid rgba(255, 255, 255, 0.3);
-        color: white;
+        color: var(--text-inverse);
 
         &:hover {
           background: rgba(255, 255, 255, 0.25);
           border-color: rgba(255, 255, 255, 0.5);
           transform: translateY(-3px);
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-          color: white;
+          color: var(--text-inverse);
           text-decoration: none;
         }
 
         &.cta-primary {
-          background: white;
+          background: var(--text-inverse);
           color: var(--global-theme-color);
-          border-color: white;
+          border-color: var(--text-inverse);
 
           &:hover {
             background: rgba(255, 255, 255, 0.9);
@@ -1233,24 +1233,24 @@ html[data-theme="dark"] {
 
         &.cta-secondary {
           background: transparent;
-          color: white;
-          border: 2px solid white;
+          color: var(--text-inverse);
+          border: 2px solid var(--text-inverse);
 
           &:hover {
-            background: white;
+            background: var(--text-inverse);
             color: var(--global-theme-color);
           }
         }
 
         &.cta-tertiary {
           background: rgba(255, 255, 255, 0.1);
-          color: white;
+          color: var(--text-inverse);
           border: 1px solid rgba(255, 255, 255, 0.3);
 
           &:hover {
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.5);
-            color: white;
+            color: var(--text-inverse);
           }
         }
       }
