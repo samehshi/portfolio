@@ -12,6 +12,54 @@
   transition: $transition-shadow;
   padding: $spacing-2 0;
   
+  // Override Bootstrap's navbar-light class to use theme colors
+  &.navbar-light {
+    .navbar-brand {
+      color: var(--text-primary);
+      
+      &:hover,
+      &:focus {
+        color: var(--interactive-primary);
+      }
+    }
+    
+    .navbar-nav {
+      .nav-link {
+        color: var(--text-primary);
+        
+        &:hover,
+        &:focus {
+          color: var(--interactive-primary);
+        }
+        
+        &.active {
+          color: var(--interactive-primary);
+        }
+      }
+      
+      .dropdown-toggle {
+        color: var(--text-primary);
+        
+        &:hover,
+        &:focus {
+          color: var(--interactive-primary);
+        }
+        
+        &::after {
+          border-top-color: var(--text-primary);
+        }
+      }
+    }
+    
+    .navbar-toggler {
+      border-color: var(--border-primary);
+      
+      .icon-bar {
+        background-color: var(--text-primary);
+      }
+    }
+  }
+  
   &.fixed-top,
   &.sticky-top {
     z-index: 1030;
@@ -62,7 +110,7 @@
     gap: $spacing-3;
     
     a {
-      color: var(--text-secondary);
+      color: var(--text-primary);
       font-size: $font-size-lg;
       transition: $transition-colors;
       
@@ -173,7 +221,7 @@
     
     // Modern nav links with enhanced interactions
     .nav-link {
-      color: var(--text-secondary);
+      color: var(--text-primary);
       font-weight: $font-weight-medium;
       font-size: $font-size-base;
       padding: $spacing-2 $spacing-3;
@@ -241,7 +289,7 @@
     #search-toggle {
       background: transparent;
       border: none;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       padding: $spacing-2 $spacing-3;
       border-radius: $border-radius-md;
       transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
@@ -305,7 +353,7 @@
     #light-toggle {
       background: transparent;
       border: none;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       padding: $spacing-2;
       border-radius: $border-radius-md;
       font-size: $font-size-lg;
@@ -322,6 +370,12 @@
         color: var(--interactive-primary);
         background-color: var(--surface-secondary); // Simplified feedback
         outline: none;
+        box-shadow: none;
+      }
+
+      &:focus-visible {
+        outline: none;
+        box-shadow: none;
       }
     }
   }
@@ -354,7 +408,7 @@
     min-width: 200px;
     
     .dropdown-item {
-      color: var(--text-secondary);
+      color: var(--text-primary);
       padding: $spacing-2 $spacing-3;
       border-radius: $border-radius-md;
       transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
@@ -652,15 +706,22 @@
 @media (prefers-contrast: high) {
   .navbar {
     border-bottom-width: 2px;
+    background-color: var(--surface-primary);
     
     .navbar-nav .nav-item .nav-link {
+      font-weight: $font-weight-semibold;
+      
       &.active::after {
         height: 3px;
       }
     }
     
-    .navbar-toggler .icon-bar {
-      height: 3px;
+    .navbar-toggler {
+      border-width: 2px;
+      
+      .icon-bar {
+        height: 3px;
+      }
     }
   }
 }
@@ -738,8 +799,8 @@
 
 body {
   padding-bottom: 70px;
-  color: var(--global-text-color);
-  background-color: var(--global-bg-color);
+  color: var(--text-primary);
+  background-color: var(--surface-primary);
   font-family: $font-family-base;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -784,7 +845,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: $font-weight-semibold;
   line-height: $line-height-tight;
   letter-spacing: $letter-spacing-tight;
-  color: var(--global-text-color);
+  color: var(--text-primary);
   
   // Enhanced spacing for better visual hierarchy
   margin-top: $spacing-12;
@@ -998,7 +1059,7 @@ body.sticky-bottom-footer {
   .post-header {
     margin-bottom: $spacing-10;
     padding-bottom: $spacing-6;
-    border-bottom: 1px solid var(--global-divider-color);
+    border-bottom: 1px solid var(--border-primary);
     
     .post-title {
       margin-bottom: $spacing-4;
@@ -1012,7 +1073,7 @@ body.sticky-bottom-footer {
     .post-description,
     .desc {
       font-size: $font-size-lg;
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
       line-height: $line-height-relaxed;
       margin-bottom: 0;
       margin-top: $spacing-3;

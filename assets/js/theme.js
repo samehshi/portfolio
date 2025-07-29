@@ -1,14 +1,12 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
-// Toggle through light, dark, and system theme settings.
+// Toggle through light and dark theme settings.
 let toggleThemeSetting = () => {
   let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    setThemeSetting("light");
-  } else if (themeSetting == "light") {
+  if (themeSetting == "light") {
     setThemeSetting("dark");
   } else {
-    setThemeSetting("system");
+    setThemeSetting("light");
   }
 };
 
@@ -199,37 +197,47 @@ let setSearchTheme = (theme) => {
 };
 
 let transTheme = () => {
-  document.documentElement.classList.add("transition");
+  // Add smooth transition class
+  document.documentElement.classList.add("theme-transitioning");
+  
+  // Announce theme change to screen readers
+  announceThemeChange();
+  
   window.setTimeout(() => {
-    document.documentElement.classList.remove("transition");
-  }, 500);
+    document.documentElement.classList.remove("theme-transitioning");
+  }, 300);
 };
 
-// Determine the expected state of the theme toggle, which can be "dark", "light", or
-// "system". Default is "system".
+// Announce theme changes to screen readers for better accessibility
+let announceThemeChange = () => {
+  const theme = determineComputedTheme();
+  const announcement = document.createElement('div');
+  announcement.setAttribute('aria-live', 'polite');
+  announcement.setAttribute('aria-atomic', 'true');
+  announcement.className = 'sr-only';
+  announcement.textContent = `Theme changed to ${theme} mode`;
+  
+  document.body.appendChild(announcement);
+  
+  // Remove announcement after screen reader has processed it
+  setTimeout(() => {
+    document.body.removeChild(announcement);
+  }, 1000);
+};
+
+// Determine the expected state of the theme toggle, which can be "dark" or "light". Default is "light".
 let determineThemeSetting = () => {
   let themeSetting = localStorage.getItem("theme");
-  if (themeSetting != "dark" && themeSetting != "light" && themeSetting != "system") {
+  if (themeSetting != "dark" && themeSetting != "light") {
     // Force light theme if no theme is set
     themeSetting = "light";
   }
   return themeSetting;
 };
 
-// Determine the computed theme, which can be "dark" or "light". If the theme setting is
-// "system", the computed theme is determined based on the user's system preference.
+// Determine the computed theme, which can be "dark" or "light".
 let determineComputedTheme = () => {
-  let themeSetting = determineThemeSetting();
-  if (themeSetting == "system") {
-    const userPref = window.matchMedia;
-    if (userPref && userPref("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    } else {
-      return "light";
-    }
-  } else {
-    return themeSetting;
-  }
+  return determineThemeSetting();
 };
 
 let initTheme = () => {
@@ -241,15 +249,41 @@ let initTheme = () => {
   document.addEventListener("DOMContentLoaded", function () {
     const mode_toggle = document.getElementById("light-toggle");
 
+    // Set initial accessibility attributes
+    updateThemeToggleAccessibility();
+
     mode_toggle.addEventListener("click", function () {
       toggleThemeSetting();
+      updateThemeToggleAccessibility();
+    });
+
+    // Handle keyboard navigation
+    mode_toggle.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleThemeSetting();
+        updateThemeToggleAccessibility();
+      }
     });
   });
 
+// Update theme toggle button accessibility attributes
+let updateThemeToggleAccessibility = () => {
+  const mode_toggle = document.getElementById("light-toggle");
+  const currentTheme = determineComputedTheme();
+  const nextTheme = currentTheme === "light" ? "dark" : "light";
+  
+  if (mode_toggle) {
+    mode_toggle.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
+    mode_toggle.setAttribute("aria-pressed", currentTheme === "dark" ? "true" : "false");
+    mode_toggle.title = `Switch to ${nextTheme} theme (current: ${currentTheme})`;
+  }
+};
+
   // Add event listener to the system theme preference change.
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-    applyTheme();
-  });
+  // window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+  //   applyTheme();
+  // });
 };
 
 initTheme();

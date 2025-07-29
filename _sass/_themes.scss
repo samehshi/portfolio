@@ -60,21 +60,21 @@
   // =============================================================================
   
   --global-bg-color: var(--surface-primary);
-  --global-code-bg-color: #{rgba($primary-500, 0.05)};
+  --global-code-bg-color: var(--surface-secondary);
   --global-text-color: var(--text-primary);
   --global-text-color-light: var(--text-secondary);
   --global-theme-color: var(--interactive-primary);
   --global-hover-color: var(--interactive-primary-hover);
   --global-hover-text-color: var(--text-inverse);
   --global-footer-bg-color: #{$neutral-800};
-  --global-footer-text-color: #{$neutral-300};
-  --global-footer-link-color: var(--text-inverse);
+  --global-footer-text-color: var(--text-secondary);
+  --global-footer-link-color: var(--text-primary);
   --global-distill-app-color: var(--text-secondary);
   --global-divider-color: var(--divider);
   --global-card-bg-color: var(--surface-elevated);
   --global-highlight-color: var(--status-error);
-  --global-back-to-top-bg-color: rgba(0, 0, 0, 0.6);
-  --global-back-to-top-text-color: var(--text-inverse);
+  --global-back-to-top-bg-color: var(--surface-secondary);
+  --global-back-to-top-text-color: var(--text-primary);
   --global-newsletter-bg-color: var(--surface-primary);
   --global-newsletter-text-color: var(--text-primary);
 
@@ -82,7 +82,7 @@
   --global-tip-block: var(--status-success);
   --global-tip-block-bg: var(--status-success-bg);
   --global-tip-block-text: var(--status-success-text);
-  --global-tip-block-title: var(--status-success);
+  --global-tip-block-title: var(--status-info);
   --global-warning-block: var(--status-warning);
   --global-warning-block-bg: var(--status-warning-bg);
   --global-warning-block-text: var(--status-warning-text);
@@ -92,19 +92,7 @@
   --global-danger-block-text: var(--status-error-text);
   --global-danger-block-title: var(--status-error);
 
-  #light-toggle-system {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
-  }
-
-  #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
-    display: none;
-  }
+  
 
   .repo-img-light {
     display: block;
@@ -199,7 +187,7 @@ html[data-theme="dark"] {
   // =============================================================================
   
   --global-bg-color: var(--surface-primary);
-  --global-code-bg-color: #{$neutral-800};
+  --global-code-bg-color: var(--surface-secondary);
   --global-text-color: var(--text-primary);
   --global-text-color-light: var(--text-secondary);
   --global-theme-color: var(--interactive-primary);
@@ -211,7 +199,7 @@ html[data-theme="dark"] {
   --global-distill-app-color: var(--text-secondary);
   --global-divider-color: var(--divider);
   --global-card-bg-color: var(--surface-elevated);
-  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.2);
+  --global-back-to-top-bg-color: var(--surface-secondary);
   --global-back-to-top-text-color: var(--text-primary);
   --global-newsletter-bg-color: var(--surface-elevated);
   --global-newsletter-text-color: var(--text-primary);
@@ -220,7 +208,7 @@ html[data-theme="dark"] {
   --global-tip-block: var(--status-success);
   --global-tip-block-bg: var(--status-success-bg);
   --global-tip-block-text: var(--status-success-text);
-  --global-tip-block-title: var(--status-success);
+  --global-tip-block-title: var(--status-info);
   --global-warning-block: var(--status-warning);
   --global-warning-block-bg: var(--status-warning-bg);
   --global-warning-block-text: var(--status-warning-text);
@@ -239,18 +227,14 @@ html[data-theme="dark"] {
 }
 
 html[data-theme-setting="dark"] {
-  #light-toggle-system {
-    display: none;
-  }
-
   #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
-    display: block;
+    display: none;
   }
 
   #light-toggle-light {
-    display: none;
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block;
   }
 
   #back-to-top {
@@ -265,17 +249,163 @@ html[data-theme-setting="dark"] {
 }
 
 html[data-theme-setting="light"] {
-  #light-toggle-system {
-    display: none;
-  }
-
   #light-toggle-dark {
-    display: none;
-  }
-
-  #light-toggle-light {
     padding-left: 10px;
     padding-top: 12px;
     display: block;
   }
+
+  #light-toggle-light {
+    display: none;
+  }
+}
+
+// =============================================================================
+// High Contrast Mode Support
+// Enhanced accessibility for users who need higher contrast
+// =============================================================================
+
+@media (prefers-contrast: high) {
+  :root {
+    // Enhanced contrast ratios for high contrast mode
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f0f0f0;
+    --border-primary: #000000;
+    --border-secondary: #333333;
+    --interactive-primary: #0000ff;
+    --interactive-primary-hover: #000080;
+  }
+  
+  html[data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --surface-primary: #000000;
+    --surface-secondary: #1a1a1a;
+    --border-primary: #ffffff;
+    --border-secondary: #cccccc;
+    --interactive-primary: #66b3ff;
+    --interactive-primary-hover: #99ccff;
+  }
+  
+  .card {
+    border-width: 2px;
+    box-shadow: none;
+  }
+  
+  .nav-link.active::after {
+    height: 3px;
+  }
+  
+  button, .btn {
+    border-width: 2px;
+    font-weight: $font-weight-bold;
+  }
+  
+  a {
+    text-decoration: underline;
+    
+    &::after {
+      display: none; // Remove subtle underline animations in high contrast
+    }
+  }
+  
+  .navbar {
+    border-bottom-width: 3px;
+  }
+  
+  // Ensure all interactive elements have strong borders
+  input, textarea, select {
+    border-width: 2px;
+  }
+  
+  // Remove subtle shadows and gradients
+  .professional-header,
+  .final-cta-section {
+    background: var(--interactive-primary) !important;
+    
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// =============================================================================
+// Theme Transition Announcements for Screen Readers
+// Improved accessibility for theme switching
+// =============================================================================
+
+.theme-announcement {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  
+  &.announce {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+    overflow: visible;
+  }
+}
+
+// =============================================================================
+// Enhanced Focus Management
+// Better keyboard navigation support
+// =============================================================================
+
+// Skip link improvements
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--interactive-primary);
+  color: var(--text-inverse);
+  padding: $spacing-2 $spacing-4;
+  text-decoration: none;
+  border-radius: $border-radius-md;
+  z-index: 1040;
+  font-weight: $font-weight-medium;
+  transition: top $duration-200 $ease-out;
+  border: 2px solid transparent;
+
+  &:focus {
+    top: 6px;
+    outline: 2px solid var(--text-inverse);
+    outline-offset: 2px;
+    border-color: var(--text-inverse);
+  }
+}
+
+// Enhanced focus indicators for all interactive elements
+*:focus-visible {
+  outline: 2px solid var(--interactive-primary);
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// Focus trap for modals and dropdowns
+.focus-trap {
+  &:focus {
+    outline: none;
+  }
+}
+
+// =============================================================================
+// Improved Theme Switching Animation
+// Smoother transitions between light and dark modes
+// =============================================================================
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *:before,
+html.theme-transitioning *:after {
+  transition: background-color $duration-300 $ease-in-out,
+              color $duration-300 $ease-in-out,
+              border-color $duration-300 $ease-in-out,
+              box-shadow $duration-300 $ease-in-out !important;
+  transition-delay: 0 !important;
 }
