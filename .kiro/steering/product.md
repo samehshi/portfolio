@@ -1,6 +1,6 @@
 # Product Overview
 
-This is a personal academic portfolio website for Sameh Shehata Abdelaziz, a BI & Data Insights Analyst. The site showcases:
+This is a personal portfolio website for Sameh Shehata Abdelaziz, a BI & Data Insights Analyst. The site showcases:
 
 - Professional experience and achievements in data analytics
 - Portfolio of data science projects and case studies

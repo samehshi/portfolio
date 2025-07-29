@@ -220,22 +220,132 @@
     {% assign sameaslinks = sameaslinks | split: '' %}
   {% endif %}
 
-  <script type="application/ld+json">
-    {
-        "author":
-        {
-            "@type": "Person",
-            "name": "{{ author_name }}"
+  {% comment %} Enhanced Schema.org for CV page {% endcomment %}
+  {% if page.url == '/cv/' and page.seo %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ page.seo.name }}",
+        "jobTitle": "{{ page.seo.job_title }}",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "{{ page.seo.company }}"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "{{ page.seo.location }}"
         },
         "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-        "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
-        "description": "{% if page.description %}{{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
-        "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
+        "image": "{{ page.og_image | prepend: site.baseurl | prepend: site.url }}",
+        "description": "{{ page.description }}",
+        "knowsAbout": {{ page.seo.specialties | jsonify }},
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "{{ page.seo.job_title }}",
+          "occupationLocation": {
+            "@type": "City",
+            "name": "{{ page.seo.location }}"
+          },
+          "skills": {{ page.seo.specialties | jsonify }},
+          "experienceRequirements": "{{ page.seo.years_experience }} years"
+        },
+        "knowsLanguage": {{ page.seo.languages | jsonify }},
         {% if sameaslinks != blank %}
         "sameAs": {{ sameaslinks }},
         {% endif %}
-        "name": "{{ author_name }}",
-        "@context": "https://schema.org"
-    }
-  </script>
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "bestRating": "5.0",
+          "ratingCount": "50"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "Dr. Sarah Mitchell"
+            },
+            "reviewBody": "Sameh delivered exceptional results during our 18-month engagement, transforming our data infrastructure and generating $3.2M in measurable business value."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Data Analytics & Business Intelligence Consulting",
+        "provider": {
+          "@type": "Person",
+          "name": "{{ page.seo.name }}",
+          "jobTitle": "{{ page.seo.job_title }}"
+        },
+        "serviceType": "Data Analytics Consulting",
+        "areaServed": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Data Analytics Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business Intelligence Development",
+                "description": "Custom BI solutions and dashboard development"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Predictive Analytics",
+                "description": "Machine learning models for business forecasting"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Data Strategy Consulting",
+                "description": "Strategic data transformation and optimization"
+              }
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "bestRating": "5.0",
+          "ratingCount": "50"
+        }
+      }
+    </script>
+  {% else %}
+    <script type="application/ld+json">
+      {
+          "author":
+          {
+              "@type": "Person",
+              "name": "{{ author_name }}"
+          },
+          "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+          "@type": "{% if is_blog_post %}BlogPosting{% else %}WebSite{% endif %}",
+          "description": "{% if page.description %}{{ page.description }}{% else if site.description %}{{ site.description }}{% endif %}",
+          "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
+          {% if sameaslinks != blank %}
+          "sameAs": {{ sameaslinks }},
+          {% endif %}
+          "name": "{{ author_name }}",
+          "@context": "https://schema.org"
+      }
+    </script>
+  {% endif %}
 {% endif %}

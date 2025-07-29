@@ -2,6 +2,14 @@
   {% for content in entry.contents %}
     <li class="list-group-item">
       <h5 class="font-italic">{{ content.title }}</h5>
+      {% if content.proficiency %}
+        <div class="mb-2">
+          <span class="badge badge-info">{{ content.proficiency }}</span>
+          {% if content.business_impact %}
+            <span class="badge badge-success ml-2">{{ content.business_impact }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
       {% if content.items %}
         <ul class="subitems">
           {% for subitem in content.items %}
@@ -10,6 +18,21 @@
             </li>
           {% endfor %}
         </ul>
+      {% endif %}
+      
+      {% comment %} Handle CTA sections in nested lists {% endcomment %}
+      {% if content.type == "cta_section" %}
+        <div class="nested-list-cta mt-3">
+          {% include cv/cta_button.liquid 
+             type=content.cta_type 
+             text=content.text 
+             action=content.action 
+             value_prop=content.value_prop 
+             icon=content.icon 
+             tracking=content.tracking 
+             context=content.context 
+             size='small' %}
+        </div>
       {% endif %}
     </li>
   {% endfor %}

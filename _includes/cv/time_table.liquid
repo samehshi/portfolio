@@ -56,6 +56,92 @@
           {% if content.maindescription %}
             <div class="ml-1 ml-md-4">{{ content.maindescription }}</div>
           {% endif %}
+          {% if content.business_context %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Business Context:</strong> {{ content.business_context }}
+            </div>
+          {% endif %}
+          {% if content.industry %}
+            <div class="ml-1 ml-md-4 mb-1">
+              <span class="badge badge-primary">{{ content.industry }}</span>
+              {% if content.business_value %}
+                <span class="badge badge-success ml-2">{{ content.business_value }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+          {% if content.challenge %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Challenge:</strong> {{ content.challenge }}
+            </div>
+          {% endif %}
+          {% if content.action %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Action:</strong> {{ content.action }}
+            </div>
+          {% endif %}
+          {% if content.result %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Result:</strong> {{ content.result }}
+            </div>
+          {% endif %}
+          {% if content.industry_relevance %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Industry Relevance:</strong> {{ content.industry_relevance }}
+            </div>
+          {% endif %}
+          {% if content.business_application %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Business Application:</strong> {{ content.business_application }}
+            </div>
+          {% endif %}
+          {% if content.skill_development %}
+            <div class="ml-1 ml-md-4 mb-2">
+              <strong>Skill Development:</strong> {{ content.skill_development }}
+            </div>
+          {% endif %}
+          {% comment %} Display quantified business value metrics {% endcomment %}
+          {% if content.quantified_business_value %}
+            <div class="ml-1 ml-md-4 mb-3">
+              <h6 class="font-weight-bold text-primary mb-2">
+                <i class="fa-solid fa-chart-line mr-2"></i>Quantified Business Value Delivered
+              </h6>
+              <div class="row">
+                {% for metric in content.quantified_business_value %}
+                  <div class="col-md-6 mb-2">
+                    <div class="metric-card p-2 border rounded">
+                      <div class="metric-value font-weight-bold text-success">{{ metric.amount }}</div>
+                      <div class="metric-name font-weight-medium">{{ metric.metric }}</div>
+                      <div class="metric-description small text-muted">{{ metric.description }}</div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          {% comment %} Display industry-specific achievements with cross-sector adaptability {% endcomment %}
+          {% if content.industry_specific_achievements %}
+            <div class="ml-1 ml-md-4 mb-3">
+              <h6 class="font-weight-bold text-primary mb-2">
+                <i class="fa-solid fa-industry mr-2"></i>Industry-Specific Achievements & Cross-Sector Adaptability
+              </h6>
+              {% for achievement in content.industry_specific_achievements %}
+                <div class="achievement-item mb-3 p-3 border-left border-primary bg-light">
+                  <div class="industry-badge mb-2">
+                    <span class="badge badge-primary">{{ achievement.industry }}</span>
+                  </div>
+                  <div class="achievement-text mb-2">
+                    <strong>Achievement:</strong> {{ achievement.achievement }}
+                  </div>
+                  <div class="cross-sector-text">
+                    <strong>Cross-Sector Application:</strong> 
+                    <em>{{ achievement.cross_sector_application }}</em>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
           {% if content.description %}
             <ul class="items">
               {% for item in content.description %}
@@ -111,8 +197,51 @@
               {% endfor %}
             </div>
           {% endif %}
+          
+          {% comment %} Display contextual CTA if available {% endcomment %}
+          {% if content.contextual_cta %}
+            <div class="experience-cta ml-1 ml-md-4 mt-3">
+              {% include cv/cta_button.liquid 
+                 type=content.contextual_cta.cta_type
+                 text=content.contextual_cta.text
+                 action=content.contextual_cta.action
+                 value_prop=content.contextual_cta.value_prop
+                 icon=content.contextual_cta.icon
+                 tracking=content.contextual_cta.tracking
+                 context=content.contextual_cta.context
+                 size='small' %}
+            </div>
+          {% elsif content.client_value_delivered %}
+            {% comment %} Fallback CTA for entries with client value but no specific contextual CTA {% endcomment %}
+            <div class="experience-cta ml-1 ml-md-4 mt-3">
+              {% assign cta_action = "mailto:samehshihata@gmail.com?subject=Similar Results Discussion - " | append: content.title %}
+              {% include cv/cta_button.liquid 
+                 type='tertiary' 
+                 text='Ready to Achieve Similar Results? Let\'s Connect' 
+                 action=cta_action
+                 value_prop='Discuss how I can deliver comparable value for your organization' 
+                 icon='fa-solid fa-handshake' 
+                 tracking='experience_similar_results' 
+                 context='experience' 
+                 size='small' %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </li>
   {% endfor %}
 </ul>
+
+{% comment %} Experience Section CTA {% endcomment %}
+{% if entry.title == "Experience" %}
+  <div class="experience-section-cta mt-4">
+    {% include cv/cta_button.liquid 
+       type='primary' 
+       text='Interested in These Results for Your Business?' 
+       action='calendar' 
+       value_prop='Schedule a consultation to discuss how I can transform your data challenges into competitive advantages' 
+       icon='fa-solid fa-rocket' 
+       tracking='experience_section_consultation' 
+       context='experience_section' %}
+  </div>
+{% endif %}

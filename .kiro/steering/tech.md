@@ -33,7 +33,7 @@ bundle install
 npm install
 
 # Serve locally with live reload
-bundle exec jekyll serve --config _config.yml,_config_dev.yml
+bundle exec jekyll serve --trace
 
 # Build for production
 bundle exec jekyll build

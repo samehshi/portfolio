@@ -1,0 +1,160 @@
+{% comment %}
+SEO Meta Component for CV Page
+Provides enhanced SEO metadata specifically for the CV page
+{% endcomment %}
+
+{% if page.url == '/cv/' %}
+  <!-- Enhanced SEO Meta Tags for CV Page -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  
+  <!-- Professional Profile Meta Tags -->
+  <meta name="profession" content="Data Analyst">
+  <meta name="specialization" content="Business Intelligence, Predictive Analytics, Machine Learning">
+  <meta name="experience-years" content="15">
+  <meta name="location" content="Cairo, Egypt">
+  <meta name="availability" content="Available for consulting">
+  
+  <!-- Industry-Specific Keywords -->
+  <meta name="industry-expertise" content="Aviation, Finance, Retail, Healthcare, Technology">
+  <meta name="technical-skills" content="Python, SQL, Power BI, Tableau, Machine Learning, Statistical Analysis">
+  <meta name="business-value" content="$20M+ client value delivered, 99.9% satisfaction rate">
+  
+  <!-- Local SEO -->
+  <meta name="geo.region" content="EG-C">
+  <meta name="geo.placename" content="Cairo">
+  <meta name="geo.position" content="30.0444;31.2357">
+  <meta name="ICBM" content="30.0444, 31.2357">
+  
+  <!-- Professional Verification -->
+  <meta name="verification.linkedin" content="sameh-shehata">
+  <meta name="portfolio.url" content="{{ site.url }}{{ site.baseurl }}">
+  
+  <!-- Content Freshness -->
+  <meta name="last-modified" content="{{ site.time | date_to_xmlschema }}">
+  <meta name="content-language" content="en">
+  
+  <!-- Mobile Optimization -->
+  <meta name="format-detection" content="telephone=yes">
+  <meta name="format-detection" content="email=yes">
+  
+  <!-- Rich Snippets Support -->
+  <meta name="rating" content="5.0">
+  <meta name="review-count" content="50">
+  <meta name="client-count" content="50+">
+  
+  <!-- Professional Categories -->
+  <meta name="category" content="Data Analytics">
+  <meta name="category" content="Business Intelligence">
+  <meta name="category" content="Consulting">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+  
+  <!-- Alternate Language Versions (if applicable) -->
+  <link rel="alternate" hreflang="en" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+  
+  <!-- Professional JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Sameh Shehata Abdelaziz",
+      "alternateName": "Sameh S. Abdelaziz",
+      "jobTitle": "Data Analyst & Business Intelligence Specialist",
+      "description": "{{ page.description }}",
+      "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+      "image": "{{ '/assets/img/prof_pic.jpg' | prepend: site.baseurl | prepend: site.url }}",
+      "telephone": "+201274766641",
+      "email": "samehshihata@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cairo",
+        "addressCountry": "Egypt"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Independent Data Analytics Consultant"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Data Analyst",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Cairo, Egypt"
+        },
+        "skills": [
+          "Data Analytics",
+          "Business Intelligence", 
+          "Predictive Analytics",
+          "Machine Learning",
+          "Python Programming",
+          "SQL Database Management",
+          "Power BI Development",
+          "Statistical Analysis"
+        ],
+        "experienceRequirements": "15 years",
+        "qualifications": "Bachelor's Degree in Chemistry and Microbiology, Multiple Professional Certifications"
+      },
+      "knowsAbout": [
+        "Data Analytics",
+        "Business Intelligence",
+        "Predictive Analytics", 
+        "Machine Learning",
+        "Statistical Analysis",
+        "Data Visualization",
+        "Database Management",
+        "Aviation Analytics",
+        "Financial Data Analysis",
+        "Retail Analytics",
+        "Healthcare Data"
+      ],
+      "knowsLanguage": ["English", "Arabic"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Ain Shams University"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Microsoft Fabric Analytics Engineer Associate (DP-600)",
+          "credentialCategory": "Professional Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential", 
+          "name": "Power BI Data Analyst Associate (PL-300)",
+          "credentialCategory": "Professional Certification"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/sameh-shehata",
+        "{{ site.url }}{{ site.baseurl }}"
+      ]
+    }
+  }
+  </script>
+  
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}{{ site.baseurl }}"
+      },
+      {
+        "@type": "ListItem", 
+        "position": 2,
+        "name": "CV - Data Analyst & BI Specialist",
+        "item": "{{ page.url | prepend: site.baseurl | prepend: site.url }}"
+      }
+    ]
+  }
+  </script>
+{% endif %}

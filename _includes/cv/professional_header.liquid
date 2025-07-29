@@ -1,0 +1,95 @@
+{% comment %}
+Professional Header Component for CV
+Displays dynamic professional headline, key metrics dashboard, and contact information
+{% endcomment %}
+
+<div class="professional-header">
+  {% assign professional_title = "" %}
+  {% assign value_proposition = "" %}
+  {% assign key_metrics = "" %}
+  {% assign contact_info = "" %}
+  {% assign social_links = "" %}
+  
+  {% comment %} Extract data from entry contents {% endcomment %}
+  {% for content in entry.contents %}
+    {% if content.name == "Professional Title" %}
+      {% assign professional_title = content.value %}
+    {% elsif content.name == "Value Proposition" %}
+      {% assign value_proposition = content.value %}
+    {% elsif content.name == "Key Metrics" %}
+      {% assign key_metrics = content.value %}
+    {% elsif content.name == "Full Name" %}
+      {% assign full_name = content.value %}
+    {% elsif content.name == "Location" %}
+      {% assign location = content.value %}
+    {% elsif content.name == "Phone" %}
+      {% assign phone = content.value %}
+    {% elsif content.name == "Email" %}
+      {% assign email = content.value %}
+    {% elsif content.name == "Portfolio" %}
+      {% assign portfolio = content.value %}
+    {% elsif content.name == "Primary CTA" %}
+      {% assign primary_cta = content %}
+    {% endif %}
+  {% endfor %}
+
+  {% comment %} Professional Headline Section {% endcomment %}
+  <div class="header-headline">
+    <h1 class="professional-title">{{ professional_title }}</h1>
+    <p class="value-proposition">{{ value_proposition }}</p>
+  </div>
+
+  {% comment %} Key Metrics Dashboard {% endcomment %}
+  <div class="metrics-dashboard">
+    <div class="metrics-container">
+      {% assign metrics_array = key_metrics | split: " • " %}
+      {% for metric in metrics_array %}
+        <div class="metric-item">
+          <span class="metric-text">{{ metric }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} Contact Information with Professional Links {% endcomment %}
+  <div class="contact-section">
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fa-solid fa-user contact-icon"></i>
+        <span class="contact-text">{{ full_name }}</span>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fa-solid fa-location-dot contact-icon"></i>
+        <span class="contact-text">{{ location }}</span>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fa-solid fa-phone contact-icon"></i>
+        <a href="tel:{{ phone }}" class="contact-link">{{ phone }}</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope contact-icon"></i>
+        <a href="mailto:{{ email }}" class="contact-link">{{ email }}</a>
+      </div>
+      
+      <div class="contact-item">
+        <i class="fa-solid fa-globe contact-icon"></i>
+        <a href="{{ portfolio }}" target="_blank" rel="noopener noreferrer" class="contact-link">Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} Primary CTA Section {% endcomment %}
+  {% if primary_cta %}
+    {% include cv/cta_button.liquid 
+       type=primary_cta.cta_type 
+       text=primary_cta.text 
+       action=primary_cta.action 
+       value_prop=primary_cta.value_prop 
+       icon=primary_cta.icon 
+       tracking=primary_cta.tracking 
+       context=primary_cta.context %}
+  {% endif %}
+</div>
