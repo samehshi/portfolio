@@ -26,7 +26,7 @@ div,
 li,
 span,
 strong {
-  color: var(--global-text-color);
+  color: var(--text-primary);
 }
 
 // =============================================================================
@@ -53,8 +53,8 @@ table {
 // Link styling with enhanced hover states and modern interactions
 a,
 table.table a {
-  color: var(--global-theme-color);
-  transition: all $duration-200 $ease-out;
+  color: var(--interactive-primary);
+  transition: $transition-colors;
   position: relative;
   text-decoration: none;
 
@@ -65,12 +65,12 @@ table.table a {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--global-theme-color);
+    background-color: var(--interactive-primary);
     transition: width $duration-200 $ease-out;
   }
 
   &:hover {
-    color: var(--global-hover-color);
+    color: var(--interactive-primary-hover);
     text-decoration: none;
     
     &::after {
@@ -245,7 +245,7 @@ ul.task-list {
   border-radius: $card-border-radius;
   box-shadow: $card-shadow;
   overflow: hidden;
-  transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+  transition: $card-transition;
   border: $card-border-width solid var(--global-divider-color);
   position: relative;
 
@@ -371,14 +371,14 @@ ul.task-list {
     p {
       display: block;
       margin-bottom: $spacing-3;
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
       
       &:last-child {
         margin-bottom: 0;
       }
       
       a {
-        color: var(--global-theme-color);
+        color: var(--interactive-primary);
         text-decoration: none;
         transition: $transition-colors;
         display: inline-flex;
@@ -386,7 +386,7 @@ ul.task-list {
         gap: $spacing-2;
         
         &:hover {
-          color: var(--global-theme-color);
+          color: var(--interactive-primary-hover);
           text-decoration: underline;
         }
         
@@ -449,7 +449,7 @@ ul.task-list {
   margin-bottom: $spacing-10;
   font-size: $font-size-lg;
   line-height: $line-height-relaxed;
-  color: var(--global-text-color-light);
+  color: var(--text-secondary);
   
   @media (max-width: $breakpoint-md) {
     font-size: $font-size-base;
@@ -460,7 +460,7 @@ ul.task-list {
     transition: $transition-colors;
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--interactive-primary);
       text-decoration: none;
     }
   }
@@ -547,7 +547,7 @@ button,
   &:focus {
     outline: 2px solid var(--interactive-primary);
     outline-offset: 2px;
-    box-shadow: $button-shadow-hover, 0 0 0 4px rgba(59, 130, 246, 0.1);
+    box-shadow: $button-shadow-hover, 0 0 0 4px rgba(var(--interactive-primary), 0.1);
   }
 
   &:disabled {
@@ -657,7 +657,7 @@ select {
       transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       
       i::before {
-        color: var(--global-text-color);
+        color: var(--text-primary);
         transition: all $duration-200 $ease-out;
       }
 
@@ -668,7 +668,7 @@ select {
         left: 50%;
         width: 0;
         height: 0;
-        background-color: var(--global-theme-color);
+        background-color: var(--interactive-primary);
         border-radius: 50%;
         transform: translate(-50%, -50%);
         transition: all $duration-300 $ease-out;
@@ -680,7 +680,7 @@ select {
         transform: translateY(-4px) scale(1.05);
         
         i::before {
-          color: var(--global-theme-color);
+          color: var(--interactive-primary);
         }
         
         &::after {
@@ -698,7 +698,7 @@ select {
 
   .contact-note {
     font-size: $font-size-sm;
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     line-height: $line-height-relaxed;
     max-width: 600px;
     margin: 0 auto;
@@ -736,30 +736,30 @@ select {
 // Footer styling for different layouts with enhanced spacing
 footer {
   &.fixed-bottom {
-    background-color: var(--global-footer-bg-color);
+    background-color: var(--surface-elevated);
     font-size: $font-size-xs;
 
     .container {
-      color: var(--global-footer-text-color);
+      color: var(--text-secondary);
       padding: $spacing-4 0;
       text-align: center;
       line-height: $line-height-normal;
     }
 
     a {
-      color: var(--global-footer-link-color);
+      color: var(--interactive-primary);
       transition: $transition-colors;
       margin: 0 $spacing-1;
 
       &:hover {
-        color: var(--global-theme-color);
+        color: var(--interactive-primary-hover);
         text-decoration: none;
       }
     }
   }
 
   &.sticky-bottom {
-    border-top: 1px solid var(--global-divider-color);
+    border-top: 1px solid var(--border-primary);
     padding: $spacing-12 0;
     font-size: $font-size-sm;
     margin-top: $spacing-16;
@@ -780,24 +780,24 @@ footer {
   margin-bottom: $spacing-16;
 
   .card {
-    background-color: var(--global-card-bg-color);
-    border: 1px solid var(--global-divider-color);
+    background-color: var(--surface-primary);
+    border: 1px solid var(--border-primary);
     margin-bottom: $spacing-8;
     
     .card-header {
       padding: $spacing-5 $spacing-6;
-      background-color: var(--global-bg-color);
-      border-bottom: 1px solid var(--global-divider-color);
+      background-color: var(--surface-secondary);
+      border-bottom: 1px solid var(--border-primary);
       
       h3, h4, h5 {
         margin: 0;
-        color: var(--global-theme-color);
+        color: var(--interactive-primary);
       }
     }
 
     .list-group-item {
       background-color: inherit;
-      border-color: var(--global-divider-color);
+      border-color: var(--border-primary);
       padding: $spacing-4 $spacing-6;
       
       &:not(:last-child) {
@@ -805,8 +805,8 @@ footer {
       }
 
       .badge {
-        color: var(--global-card-bg-color) !important;
-        background-color: var(--global-theme-color) !important;
+        color: var(--text-inverse) !important;
+        background-color: var(--interactive-primary) !important;
         padding: $spacing-1 $spacing-2;
         font-size: $font-size-xs;
         margin-left: $spacing-2;
@@ -816,18 +816,18 @@ footer {
       .cv-item-title {
         font-weight: $font-weight-semibold;
         margin-bottom: $spacing-2;
-        color: var(--global-text-color);
+        color: var(--text-primary);
       }
       
       .cv-item-description {
-        color: var(--global-text-color-light);
+        color: var(--text-secondary);
         line-height: $line-height-relaxed;
         margin-bottom: $spacing-2;
       }
       
       .cv-item-date {
         font-size: $font-size-sm;
-        color: var(--global-text-color-light);
+        color: var(--text-secondary);
         font-style: italic;
       }
     }
@@ -860,13 +860,13 @@ footer {
 
 // Blog header with large title and enhanced spacing
 .header-bar {
-  border-bottom: 2px solid var(--global-divider-color);
+  border-bottom: 2px solid var(--border-primary);
   text-align: center;
   padding: $spacing-12 0 $spacing-16;
   margin-bottom: $spacing-12;
 
   h1 {
-    color: var(--global-theme-color);
+    color: var(--interactive-primary);
     font-size: $font-size-5xl;
     margin-bottom: $spacing-4;
     line-height: $line-height-tight;
@@ -878,7 +878,7 @@ footer {
   
   .subtitle {
     font-size: $font-size-lg;
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     margin-top: $spacing-4;
     line-height: $line-height-relaxed;
   }
@@ -886,7 +886,7 @@ footer {
 
 // Tag and category navigation with improved spacing
 .tag-category-list {
-  border-bottom: 1px solid var(--global-divider-color);
+  border-bottom: 1px solid var(--border-primary);
   text-align: center;
   padding: $spacing-6 0;
   margin-bottom: $spacing-10;
@@ -904,13 +904,13 @@ footer {
       list-style: none;
       display: inline-block;
       padding: $spacing-2 $spacing-4;
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
       border-radius: $border-radius-md;
       transition: $transition-colors;
       
       &:hover {
-        background-color: var(--global-bg-color);
-        color: var(--global-theme-color);
+        background-color: var(--surface-secondary);
+        color: var(--interactive-primary);
       }
     }
   }
@@ -928,7 +928,7 @@ footer {
   padding: 0;
 
   li {
-    border-bottom: 1px solid var(--global-divider-color);
+    border-bottom: 1px solid var(--border-primary);
     list-style: none;
     padding: $spacing-10 0;
     
@@ -947,14 +947,14 @@ footer {
       line-height: $line-height-snug;
       
       a {
-        color: var(--global-text-color);
+        color: var(--text-primary);
         text-decoration: none;
         transition: $transition-colors;
         font-size: $font-size-2xl;
         font-weight: $font-weight-semibold;
 
         &:hover {
-          color: var(--global-theme-color);
+          color: var(--interactive-primary);
         }
       }
     }
@@ -962,12 +962,12 @@ footer {
     .post-description {
       margin: $spacing-4 0;
       line-height: $line-height-relaxed;
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
     }
 
     .post-meta,
     .post-tags {
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
       font-size: $font-size-sm;
       margin-bottom: 0;
       line-height: $line-height-normal;
@@ -979,14 +979,14 @@ footer {
       a {
         margin-right: $spacing-2;
         padding: $spacing-1 $spacing-2;
-        background-color: var(--global-bg-color);
+        background-color: var(--surface-secondary);
         border-radius: $border-radius-sm;
         text-decoration: none;
         transition: $transition-colors;
         
         &:hover {
-          background-color: var(--global-theme-color);
-          color: white;
+          background-color: var(--interactive-primary);
+          color: var(--text-inverse);
         }
       }
     }
@@ -1002,20 +1002,20 @@ footer {
 .pagination {
   .page-item {
     .page-link {
-      color: var(--global-text-color);
+      color: var(--text-primary);
       transition: $transition-colors;
 
       &:hover {
-        color: var(--global-hover-color);
+        color: var(--interactive-primary);
       }
     }
 
     &.active .page-link {
-      color: $white-color;
-      background-color: var(--global-theme-color);
+      color: var(--text-inverse);
+      background-color: var(--interactive-primary);
 
       &:hover {
-        background-color: var(--global-theme-color);
+        background-color: var(--interactive-primary-hover);
       }
     }
   }
@@ -1045,7 +1045,7 @@ footer {
 
   // Publication page title with enhanced spacing
   h1 {
-    color: var(--global-theme-color);
+    color: var(--interactive-primary);
     font-size: $font-size-4xl;
     text-align: center;
     margin: $spacing-8 0 $spacing-12;
@@ -1069,8 +1069,8 @@ footer {
 
     // Bibliography section header with enhanced spacing
     &.bibliography {
-      color: var(--global-divider-color);
-      border-top: 2px solid var(--global-divider-color);
+      color: var(--border-primary);
+      border-top: 2px solid var(--border-primary);
       padding-top: $spacing-6;
       margin-top: $spacing-16;
       margin-bottom: $spacing-8;
@@ -1087,8 +1087,8 @@ footer {
     li {
       margin-bottom: $spacing-8;
       padding: $spacing-6;
-      background-color: var(--global-card-bg-color);
-      border: 1px solid var(--global-divider-color);
+      background-color: var(--surface-primary);
+      border: 1px solid var(--border-primary);
       border-radius: $border-radius-lg;
       box-shadow: $shadow-xs;
       
@@ -1101,13 +1101,13 @@ footer {
 
         abbr {
           display: inline-block;
-          background-color: var(--global-theme-color);
+          background-color: var(--interactive-primary);
           margin-bottom: $spacing-2;
           padding: $spacing-1 $spacing-2;
           border-radius: $border-radius-sm;
 
           a {
-            color: white;
+            color: var(--text-inverse);
             transition: $transition-colors;
 
             &:hover {
@@ -1117,8 +1117,8 @@ footer {
         }
 
         .award {
-          color: var(--global-theme-color) !important;
-          border: 1px solid var(--global-theme-color);
+          color: var(--interactive-primary) !important;
+          border: 1px solid var(--interactive-primary);
         }
       }
 
@@ -1129,7 +1129,7 @@ footer {
       // Author links and styling
       .author {
         a {
-          border-bottom: 1px dashed var(--global-theme-color);
+          border-bottom: 1px dashed var(--interactive-primary);
           transition: $transition-colors;
 
           &:hover {
@@ -1144,34 +1144,34 @@ footer {
         }
 
         > span.more-authors {
-          color: var(--global-text-color-light);
-          border-bottom: 1px dashed var(--global-text-color-light);
+          color: var(--text-secondary);
+          border-bottom: 1px dashed var(--text-secondary);
           cursor: pointer;
           transition: $transition-colors;
 
           &:hover {
-            color: var(--global-text-color);
-            border-bottom: 1px dashed var(--global-text-color);
+            color: var(--text-primary);
+            border-bottom: 1px dashed var(--text-primary);
           }
         }
       }
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
+          color: var(--text-primary);
+          border: 1px solid var(--text-primary);
           padding: $spacing-1 $spacing-4;
           margin-left: 0;
           border-radius: $border-radius-md;
           transition: $transition-colors;
 
           &:hover {
-            color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            color: var(--interactive-primary);
+            border-color: var(--interactive-primary);
           }
 
           &.award {
-            border-color: var(--global-highlight-color);
+            border-color: var(--status-error);
           }
         }
       }
@@ -1181,7 +1181,7 @@ footer {
         
         span {
           display: inline-block;
-          color: $black-color;
+          color: var(--text-primary);
           height: 100%;
           padding-right: $spacing-2;
           vertical-align: middle;
@@ -1219,19 +1219,19 @@ footer {
 
       // Abstract and award sections
       div.abstract.hidden {
-        border: dashed 1px var(--global-bg-color);
+        border: dashed 1px var(--surface-primary);
 
         &.open {
-          border-color: var(--global-text-color);
+          border-color: var(--text-primary);
         }
       }
     }
 
     div.award.hidden {
-      border: dashed 1px var(--global-bg-color);
+      border: dashed 1px var(--surface-primary);
 
       &.open {
-        border-color: var(--global-highlight-color);
+        border-color: var(--status-error);
       }
     }
   }
@@ -1248,8 +1248,8 @@ figure.highlight {
 
 // Pre-formatted code blocks
 pre {
-  color: var(--global-theme-color);
-  background-color: var(--global-code-bg-color);
+  color: var(--text-primary);
+  background-color: var(--surface-secondary);
   border-radius: $border-radius-md;
   padding: $spacing-2 $spacing-3;
   font-family: $font-family-monospace;
@@ -1267,8 +1267,8 @@ pre {
 
 // Inline code styling
 code {
-  color: var(--global-theme-color);
-  background-color: var(--global-code-bg-color);
+  color: var(--text-primary);
+  background-color: var(--surface-secondary);
   border-radius: $border-radius-sm;
   padding: $spacing-1;
   font-family: $font-family-monospace;
@@ -1291,23 +1291,23 @@ html.transition *:after {
 // Individual post styling
 .post {
   .post-meta {
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     font-size: $font-size-sm;
     margin-bottom: 0;
   }
 
   .post-tags {
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     font-size: $font-size-sm;
     padding: $spacing-1 0 $spacing-4;
 
     a {
-      color: var(--global-text-color-light);
+      color: var(--text-secondary);
       text-decoration: none;
       transition: $transition-colors;
 
       &:hover {
-        color: var(--global-theme-color);
+        color: var(--interactive-primary);
       }
     }
   }
@@ -1330,18 +1330,18 @@ progress {
   appearance: none;
   border: none;
   background-color: transparent;
-  color: var(--global-theme-color);
+  color: var(--interactive-primary);
 
   &::-webkit-progress-bar {
     background-color: transparent;
   }
 
   &::-webkit-progress-value {
-    background-color: var(--global-theme-color);
+    background-color: var(--interactive-primary);
   }
 
   &::-moz-progress-bar {
-    background-color: var(--global-theme-color);
+    background-color: var(--interactive-primary);
   }
 }
 
@@ -1355,7 +1355,7 @@ progress {
   display: block;
 
   .progress-bar {
-    background-color: var(--global-theme-color);
+    background-color: var(--interactive-primary);
     width: 0%;
     display: block;
     height: inherit;
@@ -1368,10 +1368,10 @@ progress {
   position: relative;
 
   .copy {
-    background: var(--global-card-bg-color);
+    background: var(--surface-secondary);
     border: none;
     border-radius: $border-radius-md;
-    color: var(--global-text-color);
+    color: var(--text-primary);
     font-size: $font-size-base;
     opacity: 0;
     position: absolute;
@@ -1384,7 +1384,7 @@ progress {
   &:active .copy,
   &:focus .copy,
   &:hover .copy {
-    color: var(--global-hover-color);
+    color: var(--interactive-primary);
     opacity: 1;
   }
 }
@@ -1396,43 +1396,43 @@ progress {
   }
 
   .btn-secondary.dropdown-toggle {
-    border: 1px solid var(--global-divider-color);
+    border: 1px solid var(--border-primary);
 
     .page-size {
       color: inherit;
     }
 
     &:not(.active) {
-      background-color: var(--global-bg-color) !important;
-      color: var(--global-text-color);
+      background-color: var(--surface-primary) !important;
+      color: var(--text-primary);
     }
 
     &:hover {
-      background-color: var(--global-hover-color) !important;
-      color: var(--global-hover-text-color) !important;
+      background-color: var(--surface-secondary) !important;
+      color: var(--interactive-primary) !important;
     }
   }
 
   .dropdown-menu {
-    background-color: var(--global-bg-color);
+    background-color: var(--surface-primary);
   }
 
   .dropdown-item {
-    background-color: var(--global-bg-color);
-    color: var(--global-text-color);
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--interactive-primary);
     }
   }
 
   .dropdown-item.active,
   .dropdown-item:active {
-    background-color: var(--global-hover-color);
-    color: var(--global-hover-text-color) !important;
+    background-color: var(--surface-secondary);
+    color: var(--interactive-primary) !important;
 
     &:hover {
-      color: var(--global-hover-text-color);
+      color: var(--interactive-primary);
     }
   }
 }
@@ -1446,23 +1446,23 @@ nav[data-toggle="toc"] {
   }
 
   .nav > li > a {
-    color: var(--global-text-color);
+    color: var(--text-primary);
     font-size: $font-size-xs;
 
     &:hover {
-      color: var(--global-hover-color);
-      border-left-color: var(--global-hover-color);
+      color: var(--interactive-primary);
+      border-left-color: var(--interactive-primary);
     }
   }
 
   .nav-link.active {
-    color: var(--global-theme-color);
-    border-left-color: var(--global-theme-color);
+    color: var(--interactive-primary);
+    border-left-color: var(--interactive-primary);
     font-size: $font-size-xs;
 
     &:hover {
-      color: var(--global-hover-color);
-      border-left-color: var(--global-hover-color);
+      color: var(--interactive-primary-hover);
+      border-left-color: var(--interactive-primary-hover);
     }
   }
 }
@@ -1479,7 +1479,7 @@ nav[data-toggle="toc"] {
 
 .featured-posts {
   a {
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     text-decoration: none;
 
     .card-text {
@@ -1489,19 +1489,19 @@ nav[data-toggle="toc"] {
     }
 
     &:hover {
-      color: var(--global-theme-color);
+      color: var(--interactive-primary);
 
       .card-title {
-        color: var(--global-theme-color);
+        color: var(--interactive-primary);
       }
     }
   }
 
   .post-meta {
-    color: var(--global-text-color-light);
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-size: $font-size-sm;
     margin-bottom: 0;
-    padding-top: 0.5rem;
+    padding-top: $spacing-2;
   }
 }
 
@@ -1514,20 +1514,20 @@ nav[data-toggle="toc"] {
 
 // Swiper carousel component
 swiper-container {
-  --swiper-navigation-color: var(--global-theme-color);
-  --swiper-pagination-color: var(--global-theme-color);
-  --swiper-pagination-bullet-inactive-color: var(--global-text-color);
+  --swiper-navigation-color: var(--interactive-primary);
+  --swiper-pagination-color: var(--interactive-primary);
+  --swiper-pagination-bullet-inactive-color: var(--text-secondary);
 }
 
 // Pseudocode algorithm styling
 .ps-root {
   .ps-algorithm {
-    margin: 0.8em 0;
-    border-top: 3px solid var(--global-text-color);
-    border-bottom: 2px solid var(--global-text-color);
+    margin: $spacing-3 0;
+    border-top: 3px solid var(--text-primary);
+    border-bottom: 2px solid var(--text-primary);
 
     &.with-caption > .ps-line:first-child {
-      border-bottom: 2px solid var(--global-text-color);
+      border-bottom: 2px solid var(--text-primary);
     }
   }
 }
@@ -1535,17 +1535,16 @@ swiper-container {
 // Ninja Keys command palette
 // For more options: https://github.com/ssleptsov/ninja-keys
 ninja-keys {
-  --ninja-accent-color: var(--global-theme-color);
-  --ninja-icon-size: 0px;
-  --ninja-modal-background: var(--global-bg-color);
+  --ninja-accent-color: var(--interactive-primary);
+  --ninja-modal-background: var(--surface-primary);
   --ninja-z-index: 1031;
 
   &::part(ninja-input) {
-    color: var(--ninja-selected-text-color);
+    color: var(--text-primary);
   }
 
   &::part(ninja-input-wrapper) {
-    background: var(--global-bg-color);
+    background: var(--surface-primary);
   }
 }
 
@@ -1557,37 +1556,37 @@ ninja-keys {
 // =============================================================================
 
 .popover {
-  background-color: var(--global-bg-color);
-  border-color: var(--global-divider-color);
+  background-color: var(--surface-primary);
+  border-color: var(--border-primary);
 
   .popover-header {
-    color: var(--global-text-color);
-    border-bottom: 1px solid var(--global-divider-color);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-primary);
   }
 
   .popover-body {
-    color: var(--global-text-color);
+    color: var(--text-primary);
   }
 }
 
 // Popover arrow styling for different positions
 .bs-popover-top .arrow {
   &::after {
-    border-top-color: var(--global-bg-color);
+    border-top-color: var(--surface-primary);
   }
   
   &:before {
-    border-top-color: var(--global-divider-color);
+    border-top-color: var(--border-primary);
   }
 }
 
 .bs-popover-bottom .arrow {
   &::after {
-    border-bottom-color: var(--global-bg-color);
+    border-bottom-color: var(--surface-primary);
   }
   
   &:before {
-    border-bottom-color: var(--global-divider-color);
+    border-bottom-color: var(--border-primary);
   }
 }
 
@@ -1733,10 +1732,10 @@ form input,
 form textarea {
   border-radius: $input-border-radius;
   padding: $input-padding-y $input-padding-x;
-  border: $input-border-width solid var(--global-divider-color);
+  border: $input-border-width solid var(--border-primary);
   transition: all $duration-200 $ease-out, box-shadow $duration-150 $ease-out, transform $duration-150 $ease-out;
-  background-color: var(--global-bg-color);
-  color: var(--global-text-color);
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
   font-size: $font-size-base;
   line-height: $line-height-normal;
   width: 100%;
@@ -1744,18 +1743,18 @@ form textarea {
 
   &:hover {
     border-color: var(--border-secondary);
-    box-shadow: 0 0 0 1px rgba(var(--global-theme-color), 0.1);
+    box-shadow: 0 0 0 1px rgba(var(--interactive-primary), 0.1);
   }
 
   &:focus {
-    border-color: var(--global-theme-color);
+    border-color: var(--interactive-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--global-theme-color), 0.15);
+    box-shadow: 0 0 0 3px rgba(var(--interactive-primary), 0.15);
     transform: translateY(-1px);
   }
 
   &::placeholder {
-    color: var(--global-text-color-light);
+    color: var(--text-secondary);
     opacity: 0.7;
     transition: opacity $duration-200 $ease-out;
   }
@@ -1791,7 +1790,7 @@ form textarea {
 form label {
   font-weight: $font-weight-medium;
   margin-bottom: $spacing-3;
-  color: var(--global-text-color);
+  color: var(--text-primary);
   display: block;
   font-size: $font-size-base;
   line-height: $line-height-normal;
@@ -1802,8 +1801,8 @@ form {
   max-width: 100%;
   margin: $spacing-8 0;
   padding: $spacing-8;
-  background-color: var(--global-card-bg-color);
-  border: 1px solid var(--global-divider-color);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-primary);
   border-radius: $border-radius-lg;
   box-shadow: $shadow-sm;
 
@@ -1851,13 +1850,13 @@ form {
 
 // Form message styling - consolidated for consistency
 .error-message {
-  color: var(--global-danger-block-text);
+  color: var(--status-error-text);
   font-size: $font-size-sm;
   margin-bottom: $spacing-4;
 }
 
 .success-message {
-  color: var(--global-tip-block-text);
+  color: var(--status-success-text);
   font-size: $font-size-sm;
   margin-bottom: $spacing-4;
 }

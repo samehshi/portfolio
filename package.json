@@ -1,6 +1,13 @@
 {
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.4.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "axe-core": "^4.8.0",
+    "jsdom": "^23.0.0"
+  },
+  "scripts": {
+    "audit:accessibility": "node accessibility_audit_tool.js",
+    "audit:theme": "node theme_consistency_validator.js",
+    "audit:all": "npm run audit:accessibility && npm run audit:theme"
   }
 }
