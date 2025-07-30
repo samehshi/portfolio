@@ -15,28 +15,27 @@ This document provides comprehensive guidelines for maintaining the portfolio we
 
 ## Automated Testing
 
-### Comprehensive Validation Suite
+### Jekyll Build Testing
 
-The portfolio includes a comprehensive validation suite that tests multiple aspects of the website:
+The portfolio uses Jekyll's built-in testing capabilities and GitHub Actions for continuous integration:
 
 ```bash
-# Run all validation tests
-node comprehensive_validation_suite.js
+# Test local build
+bundle exec jekyll build --trace
 
-# Run individual test suites
-node accessibility_audit_tool.js
-node theme_consistency_validator.js
+# Serve locally for testing
+bundle exec jekyll serve --trace
 ```
 
-### Test Coverage
+### Manual Testing Areas
 
-The validation suite covers:
+Key areas to test manually:
 
-- **Accessibility**: WCAG 2.1 AA compliance using axe-core engine
-- **Theme Consistency**: Light/dark mode validation and CSS custom properties
-- **Content Verification**: Professional tone and verifiable claims analysis
-- **Performance**: File size optimization and asset compression
-- **Maintenance**: Documentation completeness and automation setup
+- **Accessibility**: WCAG 2.1 AA compliance using browser dev tools
+- **Theme Consistency**: Light/dark mode switching functionality
+- **Responsive Design**: Mobile and desktop layouts
+- **Performance**: Page load times and asset optimization
+- **Content**: Professional presentation and accuracy
 
 ## Accessibility Maintenance
 
@@ -45,30 +44,33 @@ The validation suite covers:
 Based on research from W3C WAI and Deque Systems, maintain accessibility through:
 
 #### Color Contrast Requirements
+
 - **Normal text**: Minimum 4.5:1 contrast ratio
 - **Large text**: Minimum 3.0:1 contrast ratio
 - **UI components**: Minimum 3.0:1 contrast ratio
 
 #### Keyboard Navigation
+
 - Ensure all interactive elements are keyboard accessible
 - Provide visible focus indicators
 - Implement proper tab order
 - Include skip links for main content
 
 #### Screen Reader Support
+
 - Use semantic HTML elements
 - Provide alternative text for images
 - Include proper ARIA labels and descriptions
 - Test with screen readers (NVDA, JAWS, VoiceOver)
 
-### Automated Accessibility Testing
+### Browser-Based Accessibility Testing
+
+Use browser developer tools for accessibility testing:
 
 ```bash
-# Run accessibility audit
-node accessibility_audit_tool.js
-
-# Check specific pages
-node accessibility_audit_tool.js --pages="index.html,cv/index.html"
+# Chrome DevTools Lighthouse
+# Firefox Accessibility Inspector
+# Safari Web Inspector
 ```
 
 ### Manual Testing Checklist
@@ -78,6 +80,7 @@ node accessibility_audit_tool.js --pages="index.html,cv/index.html"
 - [ ] Check screen reader announcements
 - [ ] Validate form labels and error messages
 - [ ] Test with browser zoom up to 200%
+- [ ] Use browser accessibility tools (Lighthouse, axe DevTools)
 
 ## Theme Consistency
 
@@ -131,7 +134,7 @@ When adding new CSS custom properties:
 2. Use semantic naming (e.g., `--surface-*`, `--text-*`, `--interactive-*`)
 3. Ensure proper contrast ratios
 4. Test in both themes
-5. Update the validation configuration
+5. Verify with browser developer tools
 
 ## Content Verification
 
@@ -140,12 +143,14 @@ When adding new CSS custom properties:
 Based on research of professional portfolio best practices:
 
 #### Verifiable Claims Only
+
 - Avoid specific metrics that require employer verification
 - Use percentage improvements instead of absolute numbers
 - Focus on skills and technologies rather than proprietary details
 - Present achievements as general capabilities
 
 #### Professional Tone Indicators
+
 - "Experience with" instead of "Expert in"
 - "Contributed to" instead of "Single-handedly delivered"
 - "Skilled in" instead of "Master of"
@@ -164,7 +169,7 @@ node comprehensive_validation_suite.js --suites="contentVerification"
 2. **Professional Tone**: Use humble, professional language
 3. **Fact-Check**: Verify all technical details and dates
 4. **Consistency**: Maintain consistent terminology across pages
-5. **Validation**: Run content verification tests
+5. **Review**: Manually review content for accuracy and professionalism
 
 ## Performance Optimization
 
@@ -183,6 +188,8 @@ node comprehensive_validation_suite.js --suites="contentVerification"
 - [ ] Enable gzip compression
 
 ### Performance Testing
+
+Use browser tools and online services:
 
 ```bash
 # Run performance validation
@@ -203,43 +210,37 @@ name: Accessibility and Quality Checks
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-          
+          node-version: "18"
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: "3.0"
           bundler-cache: true
-          
+
       - name: Install dependencies
         run: |
           npm install
           bundle install
-          
+
       - name: Build site
         run: bundle exec jekyll build
-        
+
       - name: Run comprehensive validation
-        run: node comprehensive_validation_suite.js
-        
-      - name: Upload validation report
-        uses: actions/upload-artifact@v3
-        with:
-          name: validation-report
-          path: comprehensive_validation_report.json
+        run: bundle exec jekyll build --trace
 ```
 
 ### Pre-commit Hooks
@@ -249,12 +250,12 @@ jobs:
 repos:
   - repo: local
     hooks:
-      - id: accessibility-check
-        name: Accessibility Check
-        entry: node accessibility_audit_tool.js
-        language: node
+      - id: jekyll-build
+        name: Jekyll Build Check
+        entry: bundle exec jekyll build --trace
+        language: system
         pass_filenames: false
-        
+
       - id: theme-validation
         name: Theme Validation
         entry: node theme_consistency_validator.js
@@ -282,11 +283,11 @@ repos:
 
 ### Quarterly Tasks
 
-- [ ] Comprehensive accessibility audit with manual testing
+- [ ] Manual accessibility testing with browser tools
 - [ ] Performance optimization review
 - [ ] Content strategy review and updates
 - [ ] Security vulnerability assessment
-- [ ] Backup and disaster recovery testing
+- [ ] Backup verification and repository health check
 
 ## Troubleshooting
 
@@ -301,10 +302,10 @@ repos:
 
 #### Accessibility Violations
 
-1. Run `node accessibility_audit_tool.js` for detailed report
+1. Use browser accessibility tools (Lighthouse, axe DevTools) for detailed analysis
 2. Focus on high-impact issues first (color contrast, keyboard navigation)
 3. Test with actual assistive technologies
-4. Validate fixes with automated tools
+4. Validate fixes with browser developer tools
 
 #### Performance Issues
 
@@ -323,8 +324,8 @@ repos:
 ### Getting Help
 
 1. **Documentation**: Check existing documentation files
-2. **Validation Reports**: Review detailed JSON reports for specific issues
-3. **Community Resources**: 
+2. **Browser Tools**: Use developer tools for detailed analysis
+3. **Community Resources**:
    - [W3C Web Accessibility Initiative](https://www.w3.org/WAI/)
    - [Deque axe-core documentation](https://github.com/dequelabs/axe-core)
    - [Jekyll documentation](https://jekyllrb.com/docs/)
@@ -336,12 +337,12 @@ repos:
 1. **Immediate**: Revert to last known good commit
 2. **Investigate**: Run comprehensive validation to identify issues
 3. **Fix**: Address critical issues first (accessibility, functionality)
-4. **Test**: Validate fixes before deployment
+4. **Test**: Validate fixes with browser tools before deployment
 5. **Deploy**: Push fixes and monitor
 
 #### Accessibility Compliance Issues
 
-1. **Assess**: Run accessibility audit immediately
+1. **Assess**: Use browser accessibility tools immediately
 2. **Prioritize**: Focus on WCAG 2.1 AA violations first
 3. **Fix**: Address color contrast and keyboard navigation issues
 4. **Validate**: Test with assistive technologies
@@ -357,21 +358,25 @@ Keep a record of maintenance activities:
 ### [Date] - [Maintainer Name]
 
 **Tasks Completed:**
+
 - [ ] Comprehensive validation suite run
 - [ ] Issues addressed: [list specific issues]
 - [ ] Dependencies updated: [list packages]
 - [ ] Content updates: [describe changes]
 
 **Validation Results:**
+
 - Accessibility: [pass/fail] - [number] violations
 - Theme Consistency: [pass/fail] - [number] issues
 - Content Verification: [pass/fail] - [number] issues
 - Performance: [pass/fail] - [number] optimizations needed
 
 **Next Actions:**
+
 - [List any pending issues or improvements]
 
 **Notes:**
+
 - [Any additional observations or recommendations]
 ```
 
@@ -387,4 +392,4 @@ Regular maintenance using these guidelines ensures the portfolio website remains
 - **Performant**: Optimized for fast loading and good user experience
 - **Maintainable**: Well-documented and automated for ongoing care
 
-For questions or issues not covered in this guide, refer to the comprehensive validation reports and community resources listed above.
+For questions or issues not covered in this guide, refer to the community resources listed above and use browser developer tools for detailed analysis.

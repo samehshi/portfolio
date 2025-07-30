@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Predicting Earthquake Damage: A Case Study in Nepal
-description: A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.
+title: "Predicting Earthquake Damage: A Case Study in Nepal"
+description: "A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal."
 img: assets/img/Placeholders/Capture-2025-07-21-201604.png
 importance: 8
-category: Data Science Projects
+category: "Data Science Projects"
 ---
 
 This project focuses on predicting the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal. The goal is to classify buildings into different damage grades based on their structural characteristics and the intensity of the earthquake.

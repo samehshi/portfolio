@@ -20,9 +20,9 @@ The entire codebase has been indexed using the MCP code-context server for seman
 - **Files Indexed**: 73 files, 1212 chunks
 - **Usage**: Enables semantic search across all project files for theme-related analysis
 
-### 2. Accessibility Testing Tool
+### 2. Browser-Based Accessibility Testing
 
-**File**: `accessibility_audit_tool.js`
+**Tools**: Browser developer tools (Lighthouse, axe DevTools)
 
 Automated accessibility testing tool based on axe-core library that tests WCAG 2.1 AA compliance.
 

@@ -228,7 +228,7 @@ plugins:
   - jekyll-imagemagick
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
-  - jekyll-minifier
+  # - jekyll-minifier  # Temporarily disabled due to JS parsing errors
   - jekyll-paginate-v2
   - jekyll-regex-replace
   - jekyll/scholar
