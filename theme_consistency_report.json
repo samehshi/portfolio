@@ -1,0 +1,195 @@
+{
+  "timestamp": "2025-07-30T03:10:51.588Z",
+  "summary": {
+    "totalIssues": 24,
+    "highSeverity": 21,
+    "mediumSeverity": 3,
+    "lowSeverity": 0,
+    "themesAnalyzed": [
+      "light",
+      "dark"
+    ],
+    "propertiesFound": {
+      "light": 0,
+      "dark": 0
+    }
+  },
+  "properties": {
+    "light": {},
+    "dark": {}
+  },
+  "issues": {
+    "completeness": [
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-bg-color",
+        "severity": "high",
+        "message": "Missing required property --global-bg-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-bg-color",
+        "severity": "high",
+        "message": "Missing required property --global-bg-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-text-color",
+        "severity": "high",
+        "message": "Missing required property --global-text-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-text-color",
+        "severity": "high",
+        "message": "Missing required property --global-text-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-text-color-light",
+        "severity": "high",
+        "message": "Missing required property --global-text-color-light in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-text-color-light",
+        "severity": "high",
+        "message": "Missing required property --global-text-color-light in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-theme-color",
+        "severity": "high",
+        "message": "Missing required property --global-theme-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-theme-color",
+        "severity": "high",
+        "message": "Missing required property --global-theme-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-hover-color",
+        "severity": "high",
+        "message": "Missing required property --global-hover-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-hover-color",
+        "severity": "high",
+        "message": "Missing required property --global-hover-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-footer-bg-color",
+        "severity": "high",
+        "message": "Missing required property --global-footer-bg-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-footer-bg-color",
+        "severity": "high",
+        "message": "Missing required property --global-footer-bg-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-footer-text-color",
+        "severity": "high",
+        "message": "Missing required property --global-footer-text-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-footer-text-color",
+        "severity": "high",
+        "message": "Missing required property --global-footer-text-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-distill-app-color",
+        "severity": "high",
+        "message": "Missing required property --global-distill-app-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-distill-app-color",
+        "severity": "high",
+        "message": "Missing required property --global-distill-app-color in dark theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "light",
+        "property": "--global-divider-color",
+        "severity": "high",
+        "message": "Missing required property --global-divider-color in light theme"
+      },
+      {
+        "type": "missing_property",
+        "theme": "dark",
+        "property": "--global-divider-color",
+        "severity": "high",
+        "message": "Missing required property --global-divider-color in dark theme"
+      }
+    ],
+    "contrast": [],
+    "switching": [
+      {
+        "type": "missing_data_theme",
+        "file": "_site/index.html",
+        "severity": "high",
+        "message": "Missing data-theme attribute on html element in _site/index.html"
+      },
+      {
+        "type": "no_theme_elements",
+        "file": "_site/index.html",
+        "severity": "medium",
+        "message": "No theme-related elements found in _site/index.html"
+      },
+      {
+        "type": "missing_data_theme",
+        "file": "_site/cv/index.html",
+        "severity": "high",
+        "message": "Missing data-theme attribute on html element in _site/cv/index.html"
+      },
+      {
+        "type": "no_theme_elements",
+        "file": "_site/cv/index.html",
+        "severity": "medium",
+        "message": "No theme-related elements found in _site/cv/index.html"
+      },
+      {
+        "type": "missing_data_theme",
+        "file": "_site/projects/index.html",
+        "severity": "high",
+        "message": "Missing data-theme attribute on html element in _site/projects/index.html"
+      },
+      {
+        "type": "no_theme_elements",
+        "file": "_site/projects/index.html",
+        "severity": "medium",
+        "message": "No theme-related elements found in _site/projects/index.html"
+      }
+    ]
+  },
+  "recommendations": [
+    "🚨 Address high-severity issues first - these affect basic functionality",
+    "🔧 Complete missing CSS custom properties for both themes",
+    "⚡ Fix theme switching functionality and HTML structure"
+  ]
+}
