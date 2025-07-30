@@ -3,18 +3,24 @@
 // Toggle through light and dark theme settings.
 let toggleThemeSetting = () => {
   let themeSetting = determineThemeSetting();
+  console.log("toggleThemeSetting - current theme:", themeSetting);
   if (themeSetting == "light") {
+    console.log("Switching to dark theme");
     setThemeSetting("dark");
   } else {
+    console.log("Switching to light theme");
     setThemeSetting("light");
   }
 };
 
 // Change the theme setting and apply the theme.
 let setThemeSetting = (themeSetting) => {
+  console.log("setThemeSetting called with:", themeSetting);
   localStorage.setItem("theme", themeSetting);
+  console.log("localStorage updated to:", localStorage.getItem("theme"));
 
   document.documentElement.setAttribute("data-theme-setting", themeSetting);
+  console.log("data-theme-setting set to:", document.documentElement.getAttribute("data-theme-setting"));
 
   applyTheme();
 };
@@ -22,6 +28,7 @@ let setThemeSetting = (themeSetting) => {
 // Apply the computed dark or light theme to the website.
 let applyTheme = () => {
   let theme = determineComputedTheme();
+  console.log("applyTheme called with computed theme:", theme);
 
   transTheme();
   setHighlight(theme);
@@ -240,33 +247,6 @@ let determineComputedTheme = () => {
   return determineThemeSetting();
 };
 
-let initTheme = () => {
-  let themeSetting = determineThemeSetting();
-
-  setThemeSetting(themeSetting);
-
-  // Add event listener to the theme toggle button.
-  document.addEventListener("DOMContentLoaded", function () {
-    const mode_toggle = document.getElementById("light-toggle");
-
-    // Set initial accessibility attributes
-    updateThemeToggleAccessibility();
-
-    mode_toggle.addEventListener("click", function () {
-      toggleThemeSetting();
-      updateThemeToggleAccessibility();
-    });
-
-    // Handle keyboard navigation
-    mode_toggle.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleThemeSetting();
-        updateThemeToggleAccessibility();
-      }
-    });
-  });
-
 // Update theme toggle button accessibility attributes
 let updateThemeToggleAccessibility = () => {
   const mode_toggle = document.getElementById("light-toggle");
@@ -279,6 +259,70 @@ let updateThemeToggleAccessibility = () => {
     mode_toggle.title = `Switch to ${nextTheme} theme (current: ${currentTheme})`;
   }
 };
+
+let initTheme = () => {
+  console.log("=== Theme System Debug ===");
+  let themeSetting = determineThemeSetting();
+  console.log("Initial theme setting:", themeSetting);
+
+  setThemeSetting(themeSetting);
+  console.log("After setThemeSetting - HTML data-theme:", document.documentElement.getAttribute("data-theme"));
+  console.log("After setThemeSetting - HTML data-theme-setting:", document.documentElement.getAttribute("data-theme-setting"));
+
+  // Add event listener to the theme toggle button.
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM Content Loaded - looking for theme toggle button");
+    const mode_toggle = document.getElementById("light-toggle");
+
+    if (!mode_toggle) {
+      console.warn("Theme toggle button not found");
+      return;
+    }
+
+    console.log("Theme toggle button found:", mode_toggle);
+    console.log("Button innerHTML:", mode_toggle.innerHTML);
+
+    // Check icons
+    const darkIcon = document.getElementById("light-toggle-dark");
+    const lightIcon = document.getElementById("light-toggle-light");
+    console.log("Dark icon found:", !!darkIcon, darkIcon ? window.getComputedStyle(darkIcon).display : "N/A");
+    console.log("Light icon found:", !!lightIcon, lightIcon ? window.getComputedStyle(lightIcon).display : "N/A");
+
+    // Set initial accessibility attributes
+    updateThemeToggleAccessibility();
+
+    mode_toggle.addEventListener("click", function (e) {
+      console.log("=== THEME TOGGLE CLICKED ===");
+      console.log("Before toggle - theme:", determineThemeSetting());
+      console.log("Before toggle - data-theme:", document.documentElement.getAttribute("data-theme"));
+      console.log("Before toggle - data-theme-setting:", document.documentElement.getAttribute("data-theme-setting"));
+      
+      toggleThemeSetting();
+      updateThemeToggleAccessibility();
+      
+      // Check after toggle
+      setTimeout(() => {
+        console.log("After toggle - theme:", determineThemeSetting());
+        console.log("After toggle - data-theme:", document.documentElement.getAttribute("data-theme"));
+        console.log("After toggle - data-theme-setting:", document.documentElement.getAttribute("data-theme-setting"));
+        console.log("After toggle - localStorage:", localStorage.getItem("theme"));
+        
+        // Check icon visibility after toggle
+        if (darkIcon) console.log("After toggle - Dark icon display:", window.getComputedStyle(darkIcon).display);
+        if (lightIcon) console.log("After toggle - Light icon display:", window.getComputedStyle(lightIcon).display);
+      }, 100);
+    });
+
+    // Handle keyboard navigation
+    mode_toggle.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        console.log("Keyboard toggle activated");
+        toggleThemeSetting();
+        updateThemeToggleAccessibility();
+      }
+    });
+  });
 
   // Add event listener to the system theme preference change.
   // window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {

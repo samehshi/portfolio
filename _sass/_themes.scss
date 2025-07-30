@@ -101,6 +101,32 @@
   --button-secondary-border: var(--interactive-primary);
   --button-secondary-hover-bg: var(--interactive-primary);
   --button-secondary-hover-text: var(--text-inverse);
+
+  // Theme toggle button styling
+  #light-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: var(--surface-secondary);
+      color: var(--interactive-primary);
+    }
+    
+    &:focus {
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
+    
+    i {
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+  }
   
   // Form elements
   --input-bg: var(--surface-primary);
@@ -292,15 +318,16 @@ html[data-theme="dark"] {
   }
 }
 
+// Theme toggle icon visibility rules
 html[data-theme-setting="dark"] {
   #light-toggle-dark {
-    display: none;
+    display: none !important;
   }
 
   #light-toggle-light {
     padding-left: 10px;
     padding-top: 12px;
-    display: block;
+    display: block !important;
   }
 
   #back-to-top {
@@ -318,11 +345,49 @@ html[data-theme-setting="light"] {
   #light-toggle-dark {
     padding-left: 10px;
     padding-top: 12px;
-    display: block;
+    display: block !important;
   }
 
   #light-toggle-light {
-    display: none;
+    display: none !important;
+  }
+}
+
+// Fallback rules for when data-theme-setting is not set
+html:not([data-theme-setting]) {
+  #light-toggle-dark {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #light-toggle-light {
+    display: none !important;
+  }
+}
+
+// Additional rules based on data-theme attribute for consistency
+html[data-theme="dark"] {
+  #light-toggle-dark {
+    display: none !important;
+  }
+
+  #light-toggle-light {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+}
+
+html[data-theme="light"] {
+  #light-toggle-dark {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #light-toggle-light {
+    display: none !important;
   }
 }
 

@@ -46,80 +46,54 @@ social: false # includes social icons at the bottom of the page
 
 # BI & Data Analyst
 
-I'm Sameh Shehata, a BI & Data Analyst with over 15 years of experience in data analysis and business intelligence. My background as an Aeronautical Telecommunication Officer at NANSC, Egypt provided extensive experience with data-driven operational systems and precision-focused analytical processes.
+Data analyst with 15+ years of experience transforming complex data into actionable business insights. Specialized in business intelligence, predictive analytics, and cloud-based data solutions across multiple industries.
 
-## Professional Summary
+## Expertise
 
-As a certified Data Analyst and Business Intelligence professional, I specialize in data analysis, visualization, and cloud-based analytics across various industries. My technical expertise includes modern BI tools, programming languages, and analytical methodologies for data-driven decision support.
+**Technical Skills:** Power BI, Tableau, SQL, Python, R, Google BigQuery, IBM Db2  
+**Core Competencies:** Data visualization, statistical analysis, machine learning, dashboard development, data pipeline automation
 
-## Core Competencies
+## Certifications
 
-- Data Analysis & Visualization
-- Business Intelligence
-- Predictive Analytics
-- Data Pipeline Development
-- Cloud-Based Analytics
-- Cross-functional Collaboration
-- Statistical Analysis & Reporting
+- **Microsoft Fabric Analytics Engineer Associate (DP-600)** - Microsoft, 2025
+- **Microsoft Power BI Data Analyst Associate (PL-300)** - Microsoft, 2024
+- **Google Cloud Data Analytics Professional Certificate** - Google, 2024
+- **Google Business Intelligence Professional Certificate** - Google, 2024
+- **McKinsey Forward Program** - McKinsey & Company, 2024
+- **Google Advanced Data Analytics Professional Certificate** - Google, 2023
+- **IBM Data Analytics Professional Certificate** - IBM, 2023
 
-## Technical Expertise
+## Services
 
-- **BI Tools:** Power BI, Tableau, Looker, IBM Cognos
-- **Programming:** SQL, Python, R
-- **Data Analysis:** Pandas, NumPy, SciPy
-- **Big Data & Cloud:** Google BigQuery, IBM Db2
-- **Other:** Excel, Microsoft Office Suite
+- Interactive dashboard and report development
+- Predictive modeling and statistical analysis
+- Data pipeline design and implementation
+- Cloud analytics solutions (Google Cloud Platform)
+- Business intelligence strategy and consulting
 
-## Professional Certifications
+## Recent Projects
 
-1. **Microsoft Certified: Power BI Data Analyst Associate (PL-300)** - Microsoft Learning, October 2024
-2. **Google Advanced Data Analytics Professional Certificate** - Coursera, August 2024
-3. **Google Business Intelligence Professional Certificate** - Coursera, August 2024
-4. **Google Cloud Data Analytics Certificate** - Google Cloud Skills Boost, August 2024
-5. **IBM Data Analytics Professional Certificate** - Coursera, November 2023
-6. **Google Data Analytics Professional Certificate** - Coursera, November 2023
-7. **McKinsey Forward Program** - McKinsey, November 2023
+Completed eight data science projects through Applied Data Science Labs at WorldQuant University, including predictive modeling, time-series forecasting, machine learning classification, customer segmentation, and A/B testing optimization.
 
-## Service Offerings
+## Background
 
-I provide comprehensive data analysis services including:
+Former Aeronautical Telecommunication Officer at NANSC, Egypt, with extensive experience in data-driven operational systems and analytical processes. This foundation provided the precision and analytical rigor that drives my current data analysis practice.
 
-- Data cleaning, exploration, and statistical analysis
-- Development and implementation of data processing pipelines
-- Creation of interactive dashboards and reports using Power BI, Tableau, and Looker
-- Application of machine learning techniques for classification, clustering, and prediction
-- Cloud-based analytics implementation using Google Cloud Platform
+---
 
-## Recent Academic Projects
+**Available for consulting projects and business intelligence initiatives.**
 
-As part of the Applied Data Science Labs at WorldQuant University, I completed eight data science projects:
-
-- Predictive modeling for housing prices and apartment sales
-- Time-series forecasting for air quality monitoring
-- Machine learning models for earthquake damage assessment and bankruptcy prediction
-- Customer segmentation using clustering algorithms
-- A/B testing for email engagement optimization
-- Volatility forecasting in financial markets
-
-## Professional Background
-
-My experience includes 15+ years in analytical roles, beginning with my position as an Aeronautical Telecommunication Officer at NANSC, Egypt, where I developed expertise in data-driven operational systems and analytical processes. This foundation led to specialization in business intelligence and data analytics across multiple industries.
-
-## Contact Information
-
-I am available for data analysis consulting and business intelligence projects. Please use the contact form below or reach out through my professional profiles to discuss your data analysis requirements.
+## Contact
 
 <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mgvwqypd" method="post">
   <fieldset id="fs-frm-inputs">
-    <label for="full-name">Full Name</label>
-    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
-    <label for="email-address">Email Address</label>
-    <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
-    <label for="message">Message</label>
-    <textarea rows="5" name="message" id="message" placeholder="" required=""></textarea>
-    <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+    <label for="full-name">Name</label>
+    <input type="text" name="name" id="full-name" placeholder="Your name" required="">
+    <label for="email-address">Email</label>
+    <input type="email" name="_replyto" id="email-address" placeholder="your.email@domain.com" required="">
+    <label for="message">Project Details</label>
+    <textarea rows="4" name="message" id="message" placeholder="Describe your data analysis requirements..." required=""></textarea>
+    <input type="hidden" name="_subject" id="email-subject" value="Data Analysis Inquiry">
   </fieldset>
-  <!-- <input type="submit" value="Submit"> -->
-  <button type="submit" style="background-color: #4caf50 !important; color: #ffffff !important;">Submit</button>
-
+  <button type="submit" style="background-color: #4caf50 !important; color: #ffffff !important;">Send Message</button>
 </form>
