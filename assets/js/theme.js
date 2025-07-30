@@ -1,6 +1,9 @@
 // Has to be in the head tag, otherwise a flicker effect will occur.
 
 // Toggle through light and dark theme settings.
+// Has to be in the head tag, otherwise a flicker effect will occur.
+
+// Toggle through light and dark theme settings.
 let toggleThemeSetting = () => {
   let themeSetting = determineThemeSetting();
   console.log("toggleThemeSetting - current theme:", themeSetting);
@@ -208,7 +211,7 @@ let transTheme = () => {
   document.documentElement.classList.add("theme-transitioning");
   
   // Announce theme change to screen readers
-  announceThemeChange();
+  // announceThemeChange();
   
   window.setTimeout(() => {
     document.documentElement.classList.remove("theme-transitioning");
@@ -330,4 +333,6 @@ let initTheme = () => {
   // });
 };
 
-initTheme();
+document.addEventListener("DOMContentLoaded", function () {
+  initTheme();
+});
