@@ -25,6 +25,7 @@ group :jekyll_plugins do
     gem "jekyll-formspree"
     gem "google-protobuf"
     gem "github-pages"
+    gem "jekyll-remote-theme"
 end
 group :other_plugins do
     gem 'css_parser', '~> 1.14.0'
