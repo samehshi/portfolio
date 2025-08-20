@@ -1,0 +1,1 @@
+self.addEventListener("install",function(){console.log("Service Worker installing."),self.skipWaiting()}),self.addEventListener("activate",function(e){console.log("Service Worker activating."),e.waitUntil(self.clients.claim())}),self.addEventListener("fetch",function(e){console.log("Service Worker fetching:",e.request.url)});
