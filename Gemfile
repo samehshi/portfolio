@@ -24,6 +24,7 @@ group :jekyll_plugins do
     gem 'sass-embedded'
     gem "jekyll-formspree"
     gem "google-protobuf"
+    gem "github-pages"
 end
 group :other_plugins do
     gem 'css_parser', '~> 1.14.0'

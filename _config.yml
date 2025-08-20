@@ -2,7 +2,12 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-theme: null # Use our custom theme instead of GitHub Pages default theme
+# Use the al-folio theme via remote_theme for proper GitHub Pages deployment
+remote_theme: alshedivat/al-folio
+
+# Disable default theme
+theme: 
+
 title: Sameh S. Abdelaziz # the website title (if blank, full name will be used instead)
 first_name: Sameh
 middle_name: S.
