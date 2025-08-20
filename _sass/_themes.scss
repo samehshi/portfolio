@@ -318,6 +318,22 @@ html[data-theme="dark"] {
   }
 }
 
+// Navbar text color fix for dark mode
+html[data-theme="dark"] {
+  .navbar {
+    .navbar-brand,
+    .navbar-nav .nav-link,
+    .navbar-nav .dropdown-toggle,
+    .navbar-toggler .icon-bar {
+      color: var(--text-primary);
+    }
+    
+    .navbar-nav .dropdown-toggle::after {
+      border-top-color: var(--text-primary);
+    }
+  }
+}
+
 // Theme toggle icon visibility rules
 html[data-theme-setting="dark"] {
   #light-toggle-dark {

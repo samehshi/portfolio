@@ -41,6 +41,9 @@ jobs:
           npm install -g purgecss
           purgecss -c purgecss.config.js
       - name: Install lychee 🔗
-        run: npm install -g lychee
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lychee
       - name: Link Checker 🔗
-        run: npx lychee --offline --remap '_site(/?.*)/assets/(.*) _site/assets/$2' --verbose --no-progress '_site/**/*.html'
+        run: |
+          lychee --offline --verbose --no-progress '_site/**/*.html'

@@ -333,6 +333,10 @@ let initTheme = () => {
   // });
 };
 
+// Initialize theme immediately to prevent flash of dark theme
+initTheme();
+
+// Also initialize on DOMContentLoaded for compatibility
 document.addEventListener("DOMContentLoaded", function () {
   initTheme();
 });
