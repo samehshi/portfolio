@@ -2,6 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
+theme: null # Use our custom theme instead of GitHub Pages default theme
 title: Sameh S. Abdelaziz # the website title (if blank, full name will be used instead)
 first_name: Sameh
 middle_name: S.
