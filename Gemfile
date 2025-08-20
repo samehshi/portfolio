@@ -24,8 +24,8 @@ group :jekyll_plugins do
     gem 'sassc', '~> 2.4'
     gem "jekyll-formspree"
     gem "google-protobuf"
-    gem "github-pages"
     gem "jekyll-remote-theme"
+    gem "jekyll-seo-tag"
 end
 group :other_plugins do
     gem 'css_parser', '~> 1.14.0'
