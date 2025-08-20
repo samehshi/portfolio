@@ -1,20 +1,10 @@
 ---
 layout: page
-title: "Power BI Dashboard Portfolio"
-description: "Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting"
+title: Power BI Dashboard Portfolio
+description: Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting
 img: assets/img/Screenshot 2025-07-14 at 6.16.12 PM.png
 importance: 1
 category: PowerBI
-secondary_categories: ["executive-dashboards"]
-business_objective: "Executive-level business intelligence through interactive dashboards"
-methodology: "Power BI advanced visualizations, DAX calculations, data modeling"
-strategic_outcome: "Enhanced decision-making through real-time KPI monitoring and interactive reporting"
-tools: ["Power BI", "DAX", "Data Modeling", "Interactive Visualizations"]
-business_impact: ["strategic-decision-making", "operational-efficiency"]
-complexity: "advanced"
-kpi: "Real-time monitoring of critical business metrics with interactive filtering"
-quantified_results: "Demonstrated capability for 30%+ improvement in reporting efficiency"
-github_link: "https://github.com/samehshi/portfolio/tree/main/_projects/sameh_projects/PowerBI"
 ---
 
 ## Business Objective

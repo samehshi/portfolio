@@ -10,7 +10,7 @@
   -webkit-backdrop-filter: blur(8px);
   box-shadow: $shadow-xs;
   transition: $transition-shadow;
-  padding: $spacing-2 0;
+  padding: $spacing-1 0;
   
   // Override Bootstrap's navbar-light class to use theme colors
   &.navbar-light {
@@ -67,35 +67,35 @@
   
   // Enhanced container spacing with better responsive behavior
   .container {
-    padding-left: $spacing-4;
-    padding-right: $spacing-4;
+    padding-left: $spacing-3;
+    padding-right: $spacing-3;
     
     @media (min-width: $breakpoint-sm) {
+      padding-left: $spacing-4;
+      padding-right: $spacing-4;
+    }
+    
+    @media (min-width: $breakpoint-md) {
       padding-left: $spacing-5;
       padding-right: $spacing-5;
     }
     
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       padding-left: $spacing-6;
       padding-right: $spacing-6;
-    }
-    
-    @media (min-width: $breakpoint-lg) {
-      padding-left: $spacing-8;
-      padding-right: $spacing-8;
     }
   }
 }
 
 // Modern navbar brand styling
 .navbar-brand {
-  font-size: $font-size-xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: $letter-spacing-tight;
   transition: $transition-colors;
-  padding: $spacing-2 0;
+  padding: $spacing-1 0;
   
   &:hover,
   &:focus {
@@ -209,7 +209,7 @@
 
 // Modern navbar navigation
 .navbar-nav {
-  gap: $spacing-1;
+  gap: $spacing-0-5;
   
   @media (min-width: $breakpoint-lg) {
     gap: $spacing-2;
@@ -223,8 +223,8 @@
     .nav-link {
       color: var(--text-primary);
       font-weight: $font-weight-medium;
-      font-size: $font-size-base;
-      padding: $spacing-2 $spacing-3;
+      font-size: $font-size-sm;
+      padding: $spacing-1 $spacing-2;
       border-radius: $border-radius-md;
       transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
       text-decoration: none;
@@ -612,14 +612,14 @@
 @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1px) {
   .navbar {
     .container {
-      padding-left: $spacing-5;
-      padding-right: $spacing-5;
+      padding-left: $spacing-4;
+      padding-right: $spacing-4;
     }
   }
   
   .navbar-nav {
     .nav-item .nav-link {
-      padding: $spacing-2 $spacing-4;
+      padding: $spacing-1-5 $spacing-3;
     }
   }
 }
@@ -628,16 +628,16 @@
 @media (min-width: $breakpoint-xl) {
   .navbar {
     .container {
-      padding-left: $spacing-8;
-      padding-right: $spacing-8;
+      padding-left: $spacing-6;
+      padding-right: $spacing-6;
     }
   }
   
   .navbar-nav {
-    gap: $spacing-3;
+    gap: $spacing-2;
     
     .nav-item .nav-link {
-      padding: $spacing-2 $spacing-4;
+      padding: $spacing-1 $spacing-3;
       font-size: $font-size-base;
     }
   }

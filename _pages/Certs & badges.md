@@ -1,28 +1,22 @@
 ---
 layout: page
-title: Certifications & Credly Badges
-permalink: /certs-badges/
-description:
+title: Digital Badges & Professional Certifications 
+permalink: /certifications/
+description: Below is a curated collection of my digital badges and professional certificationsthat validate my expertise in data analytics, business intelligence, and cloud technologies. These credentials demonstrate my commitment to continuous learning and staying current with industry best practices.
 nav: true
-nav_order: 3
-display_categories: [Badges, Certifications]
-horizontal: false
+nav_order: 4
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
+<div class="certifications-page">
 
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized sections -->
-  {% for category in page.display_categories %}
-    <a id="{{ category | downcase | replace: ' ', '-' }}" href="#{{ category | downcase | replace: ' ', '-' }}">
-      <h2 class="category">{{ category }}</h2>
-    </a>
-
-    {% case category %}
+  <!-- Credly Badges Section -->
+  <section class="section-badges">
+    <h2 class="section-title">Digital Badges</h2>
+    <p class="section-description">
+      Industry-recognized digital credentials that showcase my skills and achievements in data science and analytics.
+    </p>
     
-    {% when "Badges" %}
-    <div class="badges">
+    <div class="badges-grid">
       {% assign badge_ids = 
         "1e7fec78-1157-48e6-90d9-5c8000198e33,
          afebee12-5f41-48d5-bb63-5ff08326eaba,
@@ -33,24 +27,34 @@ horizontal: false
          68a96644-fcc3-4340-85bf-d8f3f9de0339" | split: "," %}
       
       {% for id in badge_ids %}
-        <div class="badge badge-credly">
-          <div data-iframe-width="800" data-iframe-height="270"
+        <div class="badge-container">
+          <div class="badge-credly" 
+               data-iframe-width="100%" 
+               data-iframe-height="270"
                data-share-badge-id="{{ id | strip }}"
-               data-share-badge-host="https://www.credly.com"></div>
+               data-share-badge-host="https://www.credly.com">
+          </div>
         </div>
       {% endfor %}
     </div>
-
-    <div class="credly-profile">
-      <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+    
+    <div class="credly-profile-link">
       <p>
-        To see all badges, visit:
-        <a href="https://www.credly.com/users/sameh_shehata" target="_blank">Credly Profile</a>
+        <i class="fas fa-external-link-alt"></i>
+        View all my digital badges on my 
+        <a href="https://www.credly.com/users/sameh_shehata" target="_blank" rel="noopener noreferrer">Credly Profile</a>
       </p>
     </div>
+  </section>
 
-    {% when "Certifications" %}
-    <div class="certifications">
+  <!-- Certifications Section -->
+  <section class="section-certifications">
+    <h2 class="section-title">Professional Certifications</h2>
+    <p class="section-description">
+      Formal certifications from leading technology providers that validate my expertise in data analytics and business intelligence platforms.
+    </p>
+    
+    <div class="certifications-list">
       {% assign certs = 
         "Microsoft Certified: Fabric Analytics Engineer Associate DP-600|1xQmqwyQHlNB_zmVRipM8I8hcqtwI8m_R,
          Microsoft Certified: Power BI Data Analyst Associate PL-300|17MJIXzvnzBtO4-ttrnnbVYZIK2NRTmrX,
@@ -61,15 +65,20 @@ horizontal: false
 
       {% for cert in certs %}
         {% assign parts = cert | split: "|" %}
-        <figure class="certification">
-          <iframe src="https://drive.google.com/file/d/{{ parts[1] | strip }}/preview" width="100%" height="600px"></iframe>
-          <figcaption>{{ parts[0] | strip }}</figcaption>
-        </figure>
+        <div class="certification-card">
+          <figure class="certification-figure">
+            <iframe src="https://drive.google.com/file/d/{{ parts[1] | strip }}/preview" 
+                    width="100%" 
+                    height="400"
+                    loading="lazy"
+                    title="{{ parts[0] | strip }}"></iframe>
+            <figcaption class="certification-caption">{{ parts[0] | strip }}</figcaption>
+          </figure>
+        </div>
       {% endfor %}
     </div>
+  </section>
 
-    {% endcase %}
-  {% endfor %}
-{% endif %}
-
+  <!-- Credly Embed Script -->
+  <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
 </div>

@@ -1,15 +1,15 @@
 ---
 layout: page
-title: Accenture North America Data Analytics and Visualization
+title: Accenture North America Data Analytics and Visualization Project
 
-description: As a Data Analyst at Accenture Cleaned, modelled and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders
+description: As a Data Analyst at Accenture, I cleaned, modeled, and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions. Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders.
 
 img: assets/img/accenture.png
 importance: 3
 category: work
 ---
 
-### Social Buzz Project: Leveraging Data to Understand User Behavior
+## Social Buzz Project: Leveraging Data to Understand User Behavior
 
 **Objective:** We analyzed Social Buzz user data (similar to a bike-share program) to identify key differences between engaged and casual users. The goal was to create strategies for turning casual users into engaged, active members.
 
@@ -45,21 +45,21 @@ category: work
 
 ## Impact:
 
-By understanding the data, we can provide actionable insights that enable Social Buzz to improve its user engagement and potentially convert casual users into active, engaged members. This ultimately leads to a thriving community and a more sustainable content platform."
+By understanding the data, we can provide actionable insights that enable Social Buzz to improve its user engagement and potentially convert casual users into active, engaged members. This ultimately leads to a thriving community and a more sustainable content platform.
 
-## Skills i optained :
+## Skills I Obtained
 
-    - Communication
-    - Data Analysis
-    - Data Modeling
-    - Data Understanding
-    - Data Visualization
-    - Presentations
-    - Project Planning
-    - Public Speaking
-    - Storytelling
-    - Strategy
-    - Teamwork
+- Communication
+- Data Analysis
+- Data Modeling
+- Data Understanding
+- Data Visualization
+- Presentations
+- Project Planning
+- Public Speaking
+- Storytelling
+- Strategy
+- Teamwork
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 col-md-11 mt-3 mt-md-0">
