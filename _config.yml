@@ -218,9 +218,16 @@ exclude:
   - purgecss.config.js
   - README.md
   - readme_preview/
-  - vendor
+  - vendor/
+  - node_modules/
+  - "*.log"
+  - ".sass-cache/"
+  - ".jekyll-cache/"
+  - ".jekyll-metadata"
   - "_projects/**/*.py"
   - "_projects/**/.ipynb_checkpoints/"
+  - ".kiro/"
+  - "specs/"
 keep_files:
   - CNAME
   - .nojekyll
@@ -234,7 +241,7 @@ plugins:
   - jekyll-imagemagick
   - jekyll-jupyter-notebook
   - jekyll-link-attributes
-  # - jekyll-minifier  # Temporarily disabled due to JS parsing errors
+  - jekyll-minifier
   - jekyll-paginate-v2
   - jekyll-regex-replace
   - jekyll/scholar
@@ -242,6 +249,8 @@ plugins:
   - jekyll-tabs
   - jekyll-toc
   - jekyll-twitter-plugin
+  - jekyll-remote-theme
+  - jekyll-seo-tag
   - jemoji
 
 # Sitemap settings
@@ -253,15 +262,29 @@ defaults:
 
 sass:
   style: compressed
+  sourcemap: never
+
+# Performance optimizations
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: ["robots.txt", "assets/js/search/*.js"]
+  exclude: ["robots.txt", "assets/js/search/*.js", "sw.js", "assets/js/**/*.js"]
   uglifier_args:
     harmony: true
+    mangle: false
+  cssminifier_args:
+    remove_empty_rules: true
+    remove_all_empty_rules: true
 
 # -----------------------------------------------------------------------------
 # Jupyter Notebook Configuration
@@ -378,7 +401,7 @@ external_links:
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
 imagemagick:
-  enabled: false # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
   widths:
     - 480
     - 800
