@@ -21,7 +21,7 @@ group :jekyll_plugins do
     gem 'mini_racer'
     gem 'unicode_utils'
     gem 'webrick'
-    gem 'sass-embedded'
+    gem 'sassc', '~> 2.4'
     gem "jekyll-formspree"
     gem "google-protobuf"
     gem "github-pages"
