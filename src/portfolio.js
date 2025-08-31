@@ -47,7 +47,9 @@ const skillsSection = {
     emoji(
       "⚡ Develop data-driven strategies including predictive analytics, customer segmentation, and A/B testing"
     ),
-    emoji("⚡ Leverage AI & Machine Learning models for regression, classification, and time-series analysis"),
+    emoji(
+      "⚡ Leverage AI & Machine Learning models for regression, classification, and time-series analysis"
+    ),
     emoji(
       "⚡ Build and manage BI solutions using Power BI, Tableau, and Looker for insightful reporting"
     ),
@@ -190,12 +192,14 @@ const openSource = {
 // Some big projects you have worked on
 const bigProjects = {
   title: "Featured Projects",
-  subtitle: "IMPACTFUL DATA SCIENCE PROJECTS DELIVERED ACROSS MULTIPLE INDUSTRIES",
+  subtitle:
+    "IMPACTFUL DATA SCIENCE PROJECTS DELIVERED ACROSS MULTIPLE INDUSTRIES",
   projects: [
     {
       image: require("./assets/images/bankruptcyProject.webp"),
       projectName: "Bankruptcy Risk Assessment (Poland)",
-      projectDesc: "Built a robust data pipeline and predictive model for a financial services client, achieving 25% higher accuracy in identifying at-risk businesses to minimize credit losses.",
+      projectDesc:
+        "Built a robust data pipeline and predictive model for a financial services client, achieving 25% higher accuracy in identifying at-risk businesses to minimize credit losses.",
       footerLink: [
         {
           name: "View Details",
@@ -206,7 +210,8 @@ const bigProjects = {
     {
       image: require("./assets/images/earthquakeProject.jpeg"),
       projectName: "Earthquake Damage Prediction (Nepal)",
-      projectDesc: "Created a predictive model with 80% accuracy to forecast infrastructure damage for an NGO, enabling faster, more effective allocation of aid resources post-disaster.",
+      projectDesc:
+        "Created a predictive model with 80% accuracy to forecast infrastructure damage for an NGO, enabling faster, more effective allocation of aid resources post-disaster.",
       footerLink: [
         {
           name: "View Project",
@@ -217,7 +222,8 @@ const bigProjects = {
     {
       image: require("./assets/images/housingProject.webp"),
       projectName: "Housing Price Prediction (Mexico)",
-      projectDesc: "Processed and analyzed 21,000 property listings to develop a precise pricing model, improving valuation accuracy by 18% for a real estate firm.",
+      projectDesc:
+        "Processed and analyzed 21,000 property listings to develop a precise pricing model, improving valuation accuracy by 18% for a real estate firm.",
       footerLink: [
         {
           name: "View Analysis",
@@ -228,7 +234,8 @@ const bigProjects = {
     {
       image: require("./assets/images/aviationProject.webp"),
       projectName: "Customer Segmentation (US)",
-      projectDesc: "Analyzed customer data to identify high-value segments for a retail client, increasing email campaign engagement by 15% and driving higher conversions.",
+      projectDesc:
+        "Analyzed customer data to identify high-value segments for a retail client, increasing email campaign engagement by 15% and driving higher conversions.",
       footerLink: [
         {
           name: "Learn More",
@@ -251,7 +258,8 @@ const achievementSection = {
       title: "Data Analytics Professional Certificate",
       subtitle:
         "Google, 2023. Comprehensive certification covering data cleaning, visualization, SQL, and applied analytics.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
       imageAlt: "Google Logo",
       footerLink: [
         {
@@ -277,7 +285,8 @@ const achievementSection = {
       title: "Power BI Data Analyst Associate (PL-300)",
       subtitle:
         "Microsoft, 2024. Demonstrates expertise in designing, building, and deploying BI solutions with Power BI.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
       imageAlt: "Microsoft Logo",
       footerLink: [
         {
@@ -290,7 +299,8 @@ const achievementSection = {
       title: "Fabric Analytics Engineer Associate (DP-600)",
       subtitle:
         "Microsoft, 2025. Validates advanced skills in Microsoft Fabric for enterprise-scale analytics and AI.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
       imageAlt: "Microsoft Fabric Logo",
       footerLink: [
         {
@@ -316,7 +326,8 @@ const achievementSection = {
       title: "Forward Program",
       subtitle:
         "McKinsey, 2024. A professional development program focusing on soft skills and problem-solving methodologies.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/c/c8/McKinsey_Quarterly_logo.png",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c8/McKinsey_Quarterly_logo.png",
       imageAlt: "McKinsey Logo",
       footerLink: [
         {
@@ -355,9 +366,7 @@ const blogSection = {
 // Talks Sections
 const talkSection = {
   title: "TALKS & PRESENTATIONS",
-  subtitle: emoji(
-    "SHARING KNOWLEDGE ON DATA ANALYTICS AND AI 🎤"
-  ),
+  subtitle: emoji("SHARING KNOWLEDGE ON DATA ANALYTICS AND AI 🎤"),
   talks: [
     {
       title: "AI in Aviation: Data-Driven Safety Enhancement",

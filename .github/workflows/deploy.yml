@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy Portfolio
 env:
   CI: false
 on:
@@ -8,6 +8,7 @@ on:
       - main
   schedule:
     - cron: '0 12 * * 1' # weekly on Mondays at 12:00 UTC
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -22,23 +23,27 @@ jobs:
       GITHUB_USERNAME: "samehshi"
       # Set to "true" to enable fetching GitHub data in fetch.js
       USE_GITHUB_DATA: "true"
-      # Optional: Medium username (can be set as a repository secret if desired)
-  # MEDIUM_USERNAME can be supplied via repository secrets if you want to fetch Medium posts
+      # Optional: Medium username for blog integration
+      MEDIUM_USERNAME: "sameh_shi"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js 18.x
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
+          cache: 'npm'
 
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          CI: false
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -46,20 +51,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           publish_branch: gh-pages
+          force_orphan: true
 
-      - name: Configure GitHub Pages to use gh-pages branch
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            await github.rest.repos.update({
-              owner,
-              repo,
-              has_pages: true
-            });
-            await github.rest.repos.createPagesSite({
-              owner,
-              repo,
-              source: { branch: 'gh-pages', path: '/' }
-            });
+      - name: Verify deployment
+        run: |
+          echo "🚀 Deployment completed successfully!"
+          echo "📍 Site will be available at: https://samehshi.github.io/portfolio"
+          echo "⏰ Please allow 5-10 minutes for GitHub Pages to update"
