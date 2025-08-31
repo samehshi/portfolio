@@ -21,10 +21,10 @@ const greeting = {
   username: "Sameh Shehata Abdelaziz",
   title: "Hi all, I'm Sameh",
   subTitle: emoji(
-    "Accomplished Data & BI Analyst with over 15 years of experience transforming complex datasets into actionable business insights to drive organizational success. 📊 Specializes in designing efficient data systems and leveraging advanced analytics, AI, and business intelligence tools to solve critical business challenges."
+    "Experienced Data Scientist & BI Analyst with 15+ years of expertise transforming complex datasets into actionable business insights. 📊 Specializing in advanced analytics, AI/ML, and business intelligence solutions that drive organizational success and data-driven decision making."
   ),
   resumeLink:
-    "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // Updated resume link
+    "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // CV Download Link
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -42,19 +42,19 @@ const socialMediaLinks = {
 // Skills Section
 const skillsSection = {
   title: "What I do",
-  subTitle: "BI & DATA INSIGHTS ANALYST | AI SPECIALIST",
+  subTitle: "DATA SCIENTIST & BI ANALYST | AI/ML SPECIALIST",
   skills: [
     emoji(
-      "⚡ Develop data-driven strategies including predictive analytics, customer segmentation, and A/B testing"
+      "⚡ Develop comprehensive data strategies including predictive analytics, customer segmentation, and statistical modeling"
     ),
     emoji(
-      "⚡ Leverage AI & Machine Learning models for regression, classification, and time-series analysis"
+      "⚡ Build and deploy AI & Machine Learning models for regression, classification, forecasting, and business optimization"
     ),
     emoji(
-      "⚡ Build and manage BI solutions using Power BI, Tableau, and Looker for insightful reporting"
+      "⚡ Design and implement BI solutions using Power BI, Tableau, and Looker for executive reporting and KPI tracking"
     ),
     emoji(
-      "⚡ Orchestrate AI and data pipelines with tools like Microsoft Fabric, ChatGPT, and Gemini"
+      "⚡ Orchestrate end-to-end data pipelines with cloud platforms (AWS, Azure) and modern tools (Python, R, SQL)"
     )
   ],
 
@@ -103,12 +103,28 @@ https://fontawesome.com/icons?d=gallery */
       fontAwesomeClassname: "fab fa-aws"
     },
     {
+      skillName: "Azure",
+      fontAwesomeClassname: "fab fa-microsoft"
+    },
+    {
+      skillName: "TensorFlow",
+      fontAwesomeClassname: "fas fa-brain"
+    },
+    {
+      skillName: "scikit-learn",
+      fontAwesomeClassname: "fas fa-cogs"
+    },
+    {
       skillName: "Docker",
       fontAwesomeClassname: "fab fa-docker"
     },
     {
-      skillName: "Gemini",
-      fontAwesomeClassname: "fas fa-brain"
+      skillName: "Git",
+      fontAwesomeClassname: "fab fa-git-alt"
+    },
+    {
+      skillName: "Jupyter",
+      fontAwesomeClassname: "fas fa-code"
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -137,15 +153,15 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "Data Strategy & BI",
+      Stack: "Data Science & Analytics",
       progressPercentage: "95%"
     },
     {
-      Stack: "AI & Machine Learning",
+      Stack: "Business Intelligence & Visualization",
       progressPercentage: "90%"
     },
     {
-      Stack: "Data Management & Orchestration",
+      Stack: "AI/ML & Cloud Computing",
       progressPercentage: "85%"
     }
   ],
@@ -157,26 +173,29 @@ const workExperiences = {
   display: true, //Set it to true to show workExperiences Section
   experience: [
     {
-      role: "Freelance Data Analyst",
-      company: "Upwork",
+      role: "Freelance Data Scientist & BI Analyst",
+      company: "Upwork & Independent Clients",
       companylogo: require("./assets/images/upworkLogo.png"),
       date: "2020 — Present",
-      desc: "Designing and delivering BI dashboards and automated data solutions for global clients.",
+      desc: "Delivering end-to-end data science solutions and business intelligence dashboards for global clients across finance, retail, healthcare, and technology sectors.",
       descBullets: [
-        "Designed Power BI and Tableau dashboards to present key performance indicators for clients in finance, retail, and healthcare.",
-        "Developed automated data workflows using Python and SQL, reducing data processing times by over 30%.",
-        "Created tailored data-driven strategies that increased return on investment by up to 20% across diverse industries."
+        "Designed and deployed 50+ interactive Power BI and Tableau dashboards presenting KPIs for C-level executives and operational teams.",
+        "Developed automated ETL/ELT data workflows using Python, R, and SQL, reducing data processing times by 30-40% and improving data quality.",
+        "Built predictive models and ML algorithms that increased client ROI by up to 25% through customer segmentation, demand forecasting, and risk assessment.",
+        "Implemented cloud-based analytics solutions on AWS, Azure, and Google Cloud, enabling scalable data processing for enterprise clients."
       ]
     },
     {
-      role: "Data Services Officer Aeronautical Navigation",
-      company: "NANSC, Cairo",
+      role: "Data Services Officer - Aeronautical Navigation",
+      company: "NANSC (National Air Navigation Services Company), Cairo",
       companylogo: require("./assets/images/nanscLogo.png"),
       date: "2009 — Present",
-      desc: "Analyzing complex air navigation datasets to enhance operational safety and support critical decision-making.",
+      desc: "Leading data analysis and systems optimization for critical air navigation infrastructure, ensuring operational safety and regulatory compliance in Egypt's airspace management.",
       descBullets: [
-        "Identified and resolved communication bottlenecks through detailed data analysis, reducing operational risks by 15%.",
-        "Optimized mission-critical processes through systems analysis, improving efficiency and ensuring regulatory compliance."
+        "Analyzed complex air traffic and navigation datasets to identify operational bottlenecks, reducing communication risks by 15% and enhancing flight safety protocols.",
+        "Developed data-driven insights and reporting systems that support mission-critical decision-making for air traffic control operations.",
+        "Optimized air navigation systems through statistical analysis and process improvement methodologies, ensuring compliance with international aviation standards.",
+        "Created automated monitoring and alerting systems for real-time air traffic data, improving response times and operational efficiency."
       ]
     }
   ]
