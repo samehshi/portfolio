@@ -11,6 +11,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     env:
       # GitHub-provided token for API access during build
       REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,3 +46,20 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
           publish_branch: gh-pages
+
+      - name: Configure GitHub Pages to use gh-pages branch
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            await github.rest.repos.update({
+              owner,
+              repo,
+              has_pages: true
+            });
+            await github.rest.repos.createPagesSite({
+              owner,
+              repo,
+              source: { branch: 'gh-pages', path: '/' }
+            });
