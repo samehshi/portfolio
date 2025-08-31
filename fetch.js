@@ -72,7 +72,9 @@ if (USE_GITHUB_DATA === "true") {
 
     console.log(`statusCode: ${res.statusCode}`);
     if (res.statusCode !== 200) {
-      throw new Error(ERR.requestFailed);
+      console.error(`Request failed with status code: ${res.statusCode}. Check if GitHub token in your .env file is correct.`);
+      res.resume(); // Consume the response to free up memory.
+      return;
     }
 
     res.on("data", d => {
@@ -98,7 +100,7 @@ if (MEDIUM_USERNAME !== undefined) {
   console.log(`Fetching Medium blogs data for ${MEDIUM_USERNAME}`);
   const options = {
     hostname: "api.rss2json.com",
-    path: `/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`,
+    path: `/v1/api.json?rss_url=${encodeURIComponent(`https://medium.com/feed/@${MEDIUM_USERNAME}`)}`,
     port: 443,
     method: "GET"
   };
@@ -107,7 +109,7 @@ if (MEDIUM_USERNAME !== undefined) {
     let mediumData = "";
 
     console.log(`statusCode: ${res.statusCode}`);
-    if (res.statusCode !== 200) {
+    if (res.statusCode !== 200 && res.statusCode !== 422) {
       throw new Error(ERR.requestMediumFailed);
     }
 
