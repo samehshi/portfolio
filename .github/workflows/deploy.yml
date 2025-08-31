@@ -1,41 +1,44 @@
 name: Build and Deploy
 env:
   CI: false
-  GITHUB_USERNAME: ${{ github.repository_owner }}
-  REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This is automatically set by Github Actions
-  USE_GITHUB_DATA: "true"
-  MEDIUM_USERNAME: "saadpasta" # Change this to your medium username
 on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
   schedule:
-    - cron: "0 12 * * 1" # see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events
+    - cron: '0 12 * * 1' # weekly on Mondays at 12:00 UTC
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # GitHub-provided token for API access during build
+      REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Username to fetch profile data for during build
+      GITHUB_USERNAME: "samehshi"
+      # Set to "true" to enable fetching GitHub data in fetch.js
+      USE_GITHUB_DATA: "true"
+      # Optional: Medium username (can be set as a repository secret if desired)
+  # MEDIUM_USERNAME can be supplied via repository secrets if you want to fetch Medium posts
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      - name: Setup Node.js 🔧
-        uses: actions/setup-node@v3.8.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: '18.x'
 
-      - name: Update npm 🚀
-        run: npm install -g npm@latest
-
-      - name: Install and Build 🔧 # Build the Project
+      - name: Install dependencies and build
         run: |
-          npm install
+          npm ci
           npm run build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }} # This is provided by GitHub.
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
