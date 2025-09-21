@@ -1,8 +1,10 @@
 import React from "react";
 import "./Top.scss";
+import Analytics from "../../utils/analytics";
 
 export default function Top() {
   function TopEvent() {
+    Analytics.portfolioEvents.clickScrollToTop();
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
