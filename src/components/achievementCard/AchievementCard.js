@@ -29,7 +29,7 @@ export default function AchievementCard({cardInfo, isDark}) {
         </p>
       </div>
       <div className="certificate-card-footer">
-        {cardInfo.footer.map((v, i) => {
+        {cardInfo.footerLink.map((v, i) => {
           return (
             <span
               key={i}

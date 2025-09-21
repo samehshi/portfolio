@@ -45,9 +45,9 @@ export default function Greeting() {
                     href={greeting.resumeLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="download-link-button"
+                    className="download-link-button main-button"
                   >
-                    <Button text="View my resume" />
+                    View my resume
                   </a>
                 )}
               </div>

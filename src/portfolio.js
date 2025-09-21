@@ -5,6 +5,19 @@
 import emoji from "react-easy-emoji";
 import splashAnimation from "./assets/lottie/splashAnimation"; // Rename to your file name for custom animation
 
+// Import project images
+import manOnTable from "./assets/images/manOnTable.svg";
+import codeInLogo from "./assets/images/codeInLogo.webp";
+import contactMail from "./assets/images/contactMail.webp";
+import skill from "./assets/images/skill.svg";
+import housingProject from "./assets/images/housingProject.webp";
+import aviationProject from "./assets/images/aviationProject.webp";
+import earthquakeProject from "./assets/images/earthquakeProject.jpeg";
+import bankruptcyProject from "./assets/images/bankruptcyProject.webp";
+import worldquantLogo from "./assets/images/worldquantLogo.webp";
+import microsoftLogo from "./assets/images/microsoftLogo.webp";
+import developerActivity from "./assets/images/developerActivity.svg";
+
 // Splash Screen
 const splashScreen = {
   enabled: false, // set false to disable splash screen
@@ -56,7 +69,6 @@ const skillsSection = {
       "⚡ Orchestrate end-to-end data pipelines with cloud platforms (AWS, Azure) and modern tools (Python, R, SQL)"
     )
   ],
-
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
 
@@ -214,7 +226,7 @@ const bigProjects = {
     "IMPACTFUL DATA SCIENCE PROJECTS DELIVERED ACROSS MULTIPLE INDUSTRIES",
   projects: [
     {
-      image: require("./assets/images/manOnTable.svg"),
+      image: manOnTable,
       projectName:
         "Cyclistic Bike-Sharing Data Analysis for Marketing Strategy Development",
       projectDesc:
@@ -227,7 +239,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/codeInLogo.webp"),
+      image: codeInLogo,
       projectName: "Technology Trends Dashboard",
       projectDesc:
         "This project aims to develop an interactive dashboard that provides valuable insights into current technology usage and future trends. Leveraging survey data collected from developers worldwide, the dashboard will offer a comprehensive overview of the evolving technology landscape. The dashboard will be structured into three main tabs, each focusing on a distinct perspective of technology trends.",
@@ -239,7 +251,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/contactMail.webp"),
+      image: contactMail,
       projectName:
         "Employee Turnover Analysis and Retention Strategy Development at Salifort Motors",
       projectDesc:
@@ -252,7 +264,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/skill.svg"),
+      image: skill,
       projectName:
         "Accenture North America Data Analytics and Visualization Project",
       projectDesc:
@@ -260,7 +272,7 @@ const bigProjects = {
       footerLink: []
     },
     {
-      image: require("./assets/images/housingProject.webp"),
+      image: housingProject,
       projectName:
         "Real Estate Market Analysis Uncovering Price Drivers in Mexico and Brazil",
       projectDesc:
@@ -273,7 +285,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/housingProject.webp"),
+      image: housingProject,
       projectName: "Predicting Apartment Prices in Buenos Aires",
       projectDesc:
         "A machine learning project to predict apartment prices in Buenos Aires based on property listings.",
@@ -285,7 +297,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/aviationProject.webp"),
+      image: developerActivity,
       projectName: "Predictive Modeling of Air Quality in Nairobi, Kenya",
       projectDesc:
         "A machine learning project to predict air quality in Nairobi, Kenya.",
@@ -297,7 +309,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/earthquakeProject.jpeg"),
+      image: earthquakeProject,
       projectName: "Predicting Earthquake Damage: A Case Study in Nepal",
       projectDesc:
         "A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.",
@@ -309,7 +321,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/bankruptcyProject.webp"),
+      image: bankruptcyProject,
       projectName: "Predicting Corporate Bankruptcy in Poland",
       projectDesc:
         "A machine learning project to predict corporate bankruptcy using financial data from Polish companies.",
@@ -321,7 +333,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/contactMail.webp"),
+      image: contactMail,
       projectName:
         "Project Report: Improving Applicant Engagement through A/B Testing",
       projectDesc:
@@ -334,7 +346,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/worldquantLogo.webp"),
+      image: worldquantLogo,
       projectName: "Stock Volatility Forecasting",
       projectDesc:
         "A machine learning project to predict stock volatility using various time series models.",
@@ -346,7 +358,7 @@ const bigProjects = {
       ]
     },
     {
-      image: require("./assets/images/microsoftLogo.webp"),
+      image: microsoftLogo,
       projectName: "Power BI Dashboard Portfolio",
       projectDesc:
         "Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting",
@@ -372,7 +384,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "#"
+          url: "https://www.credly.com/badges/1e7fec78-1157-48e6-90d9-5c8000198e33/public_url"
         }
       ]
     },
@@ -386,7 +398,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "#"
+          url: "https://www.credly.com/badges/afebee12-5f41-48d5-bb63-5ff08326eaba/public_url"
         }
       ]
     },
@@ -400,7 +412,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "#"
+          url: "https://www.credly.com/badges/bf286a16-3571-4f3b-875c-928694459894/public_url"
         }
       ]
     },
@@ -414,7 +426,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "https://www.credly.com/badges/your-google-cert"
+          url: "https://www.credly.com/badges/850db187-7a2d-408f-b780-da7cebda2f21/public_url"
         }
       ]
     },
@@ -427,7 +439,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "https://www.credly.com/badges/your-ibm-cert"
+          url: "https://www.credly.com/badges/68a96644-fcc3-4340-85bf-d8f3f9de0339/public_url"
         }
       ]
     },
@@ -441,7 +453,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "Verify Certificate",
-          url: "https://learn.microsoft.com/api/credentials/share/your-link"
+          url: "https://learn.microsoft.com/api/credentials/share/en-us/SamehShehata-8562/9916649599296A4?sharingId=D0B225F017B4C349"
         }
       ]
     },
@@ -455,7 +467,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Certificate",
-          url: "https://learn.microsoft.com/api/credentials/share/your-fabric-cert"
+          url: "https://learn.microsoft.com/api/credentials/share/en-us/SamehShehata-8562/8E39FFDEBB97FC47?sharingId=D0B225F017B4C349"
         }
       ]
     },
@@ -468,7 +480,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "Program Details",
-          url: "https://worldquantuniversity.org/data-science"
+          url: "https://www.credly.com/badges/927d2d78-8b77-4476-97eb-42386e9c2eee/public_url"
         }
       ]
     },
@@ -482,7 +494,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "About Program",
-          url: "https://www.mckinsey.com/capabilities/forward/overview"
+          url: "https://www.credly.com/badges/75daa6d5-a645-44c2-9488-a41a002c1a4e/public_url"
         }
       ]
     }
