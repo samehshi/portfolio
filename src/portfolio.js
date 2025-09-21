@@ -23,8 +23,7 @@ const greeting = {
   subTitle: emoji(
     "Experienced Data Scientist & BI Analyst with 15+ years of expertise transforming complex datasets into actionable business insights. 📊 Specializing in advanced analytics, AI/ML, and business intelligence solutions that drive organizational success and data-driven decision making."
   ),
-  resumeLink:
-    "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // CV Download Link
+  resumeLink: "/Abdelaziz_Sameh_Data_Resume.pdf", // CV Download Link
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -215,52 +214,143 @@ const bigProjects = {
     "IMPACTFUL DATA SCIENCE PROJECTS DELIVERED ACROSS MULTIPLE INDUSTRIES",
   projects: [
     {
-      image: require("./assets/images/bankruptcyProject.webp"),
-      projectName: "Bankruptcy Risk Assessment (Poland)",
+      image: require("./assets/images/manOnTable.svg"),
+      projectName:
+        "Cyclistic Bike-Sharing Data Analysis for Marketing Strategy Development",
       projectDesc:
-        "Built a robust data pipeline and predictive model for a financial services client, achieving 25% higher accuracy in identifying at-risk businesses to minimize credit losses.",
+        "This project, undertaken as part of the Google Data Analytics Professional Certificate, focuses on analyzing data from Cyclistic, a fictional bike-sharing company. The project's objective is to identify usage patterns among different customer types and leverage these insights to inform the development of a new marketing strategy. The primary goal of the new strategy is to convert casual riders into annual members, thereby increasing long-term customer engagement and revenue.",
       footerLink: [
         {
-          name: "View Details",
-          url: "https://github.com/samehshi/bankruptcy-prediction"
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/google-data-analytics-capstone-project-case-1"
         }
       ]
     },
     {
-      image: require("./assets/images/earthquakeProject.jpeg"),
-      projectName: "Earthquake Damage Prediction (Nepal)",
+      image: require("./assets/images/codeInLogo.webp"),
+      projectName: "Technology Trends Dashboard",
       projectDesc:
-        "Created a predictive model with 80% accuracy to forecast infrastructure damage for an NGO, enabling faster, more effective allocation of aid resources post-disaster.",
+        "This project aims to develop an interactive dashboard that provides valuable insights into current technology usage and future trends. Leveraging survey data collected from developers worldwide, the dashboard will offer a comprehensive overview of the evolving technology landscape. The dashboard will be structured into three main tabs, each focusing on a distinct perspective of technology trends.",
       footerLink: [
         {
-          name: "View Project",
-          url: "https://github.com/samehshi/earthquake-damage-prediction"
+          name: "View on Google Drive",
+          url: "https://drive.google.com/file/d/1ly2cUboZKZucsAqcTIz7YonYMSLAJ1C0/preview"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/contactMail.webp"),
+      projectName:
+        "Employee Turnover Analysis and Retention Strategy Development at Salifort Motors",
+      projectDesc:
+        "Salifort Motors is experiencing a high rate of employee turnover, impacting productivity, team morale, and overall business performance. This project aims to analyze the company's employee dataset to identify the key factors contributing to this turnover. The project's objective is to develop data-driven recommendations and strategies for improving employee retention and mitigating the negative impacts of turnover on the organization. This project is commissioned by the HR department.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/google-advanced-da-salifort-motors-project"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/skill.svg"),
+      projectName:
+        "Accenture North America Data Analytics and Visualization Project",
+      projectDesc:
+        "As a Data Analyst at Accenture, I cleaned, modeled, and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions. Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders.",
+      footerLink: []
+    },
+    {
+      image: require("./assets/images/housingProject.webp"),
+      projectName:
+        "Real Estate Market Analysis Uncovering Price Drivers in Mexico and Brazil",
+      projectDesc:
+        "An analysis of the real estate markets in Mexico and Brazil to identify the key factors that influence property prices.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/uncovering-price-drivers-in-mexico-and-brazil"
         }
       ]
     },
     {
       image: require("./assets/images/housingProject.webp"),
-      projectName: "Housing Price Prediction (Mexico)",
+      projectName: "Predicting Apartment Prices in Buenos Aires",
       projectDesc:
-        "Processed and analyzed 21,000 property listings to develop a precise pricing model, improving valuation accuracy by 18% for a real estate firm.",
+        "A machine learning project to predict apartment prices in Buenos Aires based on property listings.",
       footerLink: [
         {
-          name: "View Analysis",
-          url: "https://github.com/samehshi/housing-price-prediction"
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/predicting-apartment-prices-in-buenos-aires"
         }
       ]
     },
     {
       image: require("./assets/images/aviationProject.webp"),
-      projectName: "Customer Segmentation (US)",
+      projectName: "Predictive Modeling of Air Quality in Nairobi, Kenya",
       projectDesc:
-        "Analyzed customer data to identify high-value segments for a retail client, increasing email campaign engagement by 15% and driving higher conversions.",
+        "A machine learning project to predict air quality in Nairobi, Kenya.",
       footerLink: [
         {
-          name: "Learn More",
-          url: "#"
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/predictive-modeling-of-air-quality-in-nairobi"
         }
       ]
+    },
+    {
+      image: require("./assets/images/earthquakeProject.jpeg"),
+      projectName: "Predicting Earthquake Damage: A Case Study in Nepal",
+      projectDesc:
+        "A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/predicting-earthquake-damage"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/bankruptcyProject.webp"),
+      projectName: "Predicting Corporate Bankruptcy in Poland",
+      projectDesc:
+        "A machine learning project to predict corporate bankruptcy using financial data from Polish companies.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/predicting-corporate-bankruptcy-in-poland"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/contactMail.webp"),
+      projectName:
+        "Project Report: Improving Applicant Engagement through A/B Testing",
+      projectDesc:
+        "An analysis of factors influencing applicant engagement and strategies for optimization.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/improving-applicant-engagement"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/worldquantLogo.webp"),
+      projectName: "Stock Volatility Forecasting",
+      projectDesc:
+        "A machine learning project to predict stock volatility using various time series models.",
+      footerLink: [
+        {
+          name: "View on Kaggle",
+          url: "https://www.kaggle.com/samehshehata/stock-volatility-forecasting"
+        }
+      ]
+    },
+    {
+      image: require("./assets/images/microsoftLogo.webp"),
+      projectName: "Power BI Dashboard Portfolio",
+      projectDesc:
+        "Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting",
+      footerLink: []
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -273,6 +363,47 @@ const achievementSection = {
     "Professional Certifications, Awards, and Milestones in Data Analytics and AI",
 
   achievementsCards: [
+    {
+      title: "Advanced Data Analytics",
+      subtitle: "Google, 2024. Advanced topics in data analytics.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "#"
+        }
+      ]
+    },
+    {
+      title: "Business Intelligence",
+      subtitle:
+        "Google, 2024. Professional certification in Business Intelligence.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "#"
+        }
+      ]
+    },
+    {
+      title: "Cloud Data Analytics",
+      subtitle:
+        "Google, 2024. Professional certification in Cloud Data Analytics.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "#"
+        }
+      ]
+    },
     {
       title: "Data Analytics Professional Certificate",
       subtitle:
