@@ -40,6 +40,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug - Run fetch.js and list public directory
+        run: |
+          echo "Running fetch.js..."
+          node fetch.js
+          echo "Contents of public directory after fetch.js:"
+          ls -la public
+
       - name: Build application
         run: npm run build
         env:
