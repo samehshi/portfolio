@@ -25,6 +25,8 @@ jobs:
       USE_GITHUB_DATA: "true"
       # Optional: Medium username for blog integration
       MEDIUM_USERNAME: "sameh_shi"
+      # Set to "true" to enable fetching Medium data in fetch.js
+      USE_MEDIUM_DATA: "false"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
