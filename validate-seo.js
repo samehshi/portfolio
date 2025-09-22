@@ -5,26 +5,27 @@
  * This script validates the SEO implementation and GA4 configuration
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Colors for console output
 const colors = {
-  green: '\x1b[32m',
-  red: '\x1b[31m',
-  yellow: '\x1b[33m',
-  blue: '\x1b[34m',
-  reset: '\x1b[0m',
-  bold: '\x1b[1m'
+  green: "\x1b[32m",
+  red: "\x1b[31m",
+  yellow: "\x1b[33m",
+  blue: "\x1b[34m",
+  reset: "\x1b[0m",
+  bold: "\x1b[1m"
 };
 
 // Helper functions
 const log = {
-  success: (msg) => console.log(`${colors.green}✅ ${msg}${colors.reset}`),
-  error: (msg) => console.log(`${colors.red}❌ ${msg}${colors.reset}`),
-  warning: (msg) => console.log(`${colors.yellow}⚠️  ${msg}${colors.reset}`),
-  info: (msg) => console.log(`${colors.blue}ℹ️  ${msg}${colors.reset}`),
-  header: (msg) => console.log(`\n${colors.bold}${colors.blue}=== ${msg} ===${colors.reset}`)
+  success: msg => console.log(`${colors.green}✅ ${msg}${colors.reset}`),
+  error: msg => console.log(`${colors.red}❌ ${msg}${colors.reset}`),
+  warning: msg => console.log(`${colors.yellow}⚠️  ${msg}${colors.reset}`),
+  info: msg => console.log(`${colors.blue}ℹ️  ${msg}${colors.reset}`),
+  header: msg =>
+    console.log(`\n${colors.bold}${colors.blue}=== ${msg} ===${colors.reset}`)
 };
 
 // Validation functions
@@ -39,25 +40,25 @@ function validateFile(filePath, description) {
 }
 
 function validateIndexHTML() {
-  log.header('Validating index.html');
+  log.header("Validating index.html");
 
-  const indexPath = path.join(__dirname, 'public', 'index.html');
-  if (!validateFile(indexPath, 'index.html')) return false;
+  const indexPath = path.join(__dirname, "public", "index.html");
+  if (!validateFile(indexPath, "index.html")) return false;
 
-  const content = fs.readFileSync(indexPath, 'utf8');
+  const content = fs.readFileSync(indexPath, "utf8");
 
   // Check GA4 implementation
-  if (content.includes('G-09NVE6K239')) {
-    log.success('GA4 measurement ID found');
+  if (content.includes("G-09NVE6K239")) {
+    log.success("GA4 measurement ID found");
   } else {
-    log.error('GA4 measurement ID not found');
+    log.error("GA4 measurement ID not found");
   }
 
   // Check gtag implementation
   if (content.includes('gtag("config"')) {
-    log.success('GA4 gtag configuration found');
+    log.success("GA4 gtag configuration found");
   } else {
-    log.error('GA4 gtag configuration missing');
+    log.error("GA4 gtag configuration missing");
   }
 
   // Check meta tags
@@ -80,31 +81,31 @@ function validateIndexHTML() {
   });
 
   // Check structured data
-  if (content.includes('application/ld+json')) {
-    log.success('Structured data (JSON-LD) found');
+  if (content.includes("application/ld+json")) {
+    log.success("Structured data (JSON-LD) found");
   } else {
-    log.error('Structured data missing');
+    log.error("Structured data missing");
   }
 
   // Check preconnect hints
   if (content.includes('rel="preconnect"')) {
-    log.success('Preconnect hints found');
+    log.success("Preconnect hints found");
   } else {
-    log.warning('Preconnect hints missing');
+    log.warning("Preconnect hints missing");
   }
 
   return true;
 }
 
 function validateSEOFiles() {
-  log.header('Validating SEO Files');
+  log.header("Validating SEO Files");
 
   const files = [
-    { path: 'public/robots.txt', name: 'robots.txt' },
-    { path: 'public/sitemap.xml', name: 'sitemap.xml' },
-    { path: 'public/manifest.json', name: 'Web App Manifest' },
-    { path: 'src/components/SEO/SEO.js', name: 'SEO Component' },
-    { path: 'src/utils/analytics.js', name: 'Analytics Utility' }
+    {path: "public/robots.txt", name: "robots.txt"},
+    {path: "public/sitemap.xml", name: "sitemap.xml"},
+    {path: "public/manifest.json", name: "Web App Manifest"},
+    {path: "src/components/SEO/SEO.js", name: "SEO Component"},
+    {path: "src/utils/analytics.js", name: "Analytics Utility"}
   ];
 
   files.forEach(file => {
@@ -113,81 +114,89 @@ function validateSEOFiles() {
 }
 
 function validateRobotsTxt() {
-  log.header('Validating robots.txt');
+  log.header("Validating robots.txt");
 
-  const robotsPath = path.join(__dirname, 'public', 'robots.txt');
+  const robotsPath = path.join(__dirname, "public", "robots.txt");
   if (!fs.existsSync(robotsPath)) {
-    log.error('robots.txt not found');
+    log.error("robots.txt not found");
     return;
   }
 
-  const content = fs.readFileSync(robotsPath, 'utf8');
+  const content = fs.readFileSync(robotsPath, "utf8");
 
-  if (content.includes('User-agent: *')) {
-    log.success('User-agent directive found');
+  if (content.includes("User-agent: *")) {
+    log.success("User-agent directive found");
   } else {
-    log.error('User-agent directive missing');
+    log.error("User-agent directive missing");
   }
 
-  if (content.includes('Sitemap:')) {
-    log.success('Sitemap reference found');
+  if (content.includes("Sitemap:")) {
+    log.success("Sitemap reference found");
   } else {
-    log.error('Sitemap reference missing');
+    log.error("Sitemap reference missing");
   }
 
-  if (content.includes('Allow: /')) {
-    log.success('Allow directive found');
+  if (content.includes("Allow: /")) {
+    log.success("Allow directive found");
   } else {
-    log.warning('Allow directive missing');
+    log.warning("Allow directive missing");
   }
 }
 
 function validateSitemap() {
-  log.header('Validating sitemap.xml');
+  log.header("Validating sitemap.xml");
 
-  const sitemapPath = path.join(__dirname, 'public', 'sitemap.xml');
+  const sitemapPath = path.join(__dirname, "public", "sitemap.xml");
   if (!fs.existsSync(sitemapPath)) {
-    log.error('sitemap.xml not found');
+    log.error("sitemap.xml not found");
     return;
   }
 
-  const content = fs.readFileSync(sitemapPath, 'utf8');
+  const content = fs.readFileSync(sitemapPath, "utf8");
 
   if (content.includes('<?xml version="1.0"')) {
-    log.success('XML declaration found');
+    log.success("XML declaration found");
   } else {
-    log.error('XML declaration missing');
+    log.error("XML declaration missing");
   }
 
-  if (content.includes('<urlset xmlns=')) {
-    log.success('URL set declaration found');
+  if (content.includes("<urlset xmlns=")) {
+    log.success("URL set declaration found");
   } else {
-    log.error('URL set declaration missing');
+    log.error("URL set declaration missing");
   }
 
   const urlCount = (content.match(/<url>/g) || []).length;
   log.info(`Found ${urlCount} URLs in sitemap`);
 
   if (urlCount > 0) {
-    log.success('Sitemap contains URLs');
+    log.success("Sitemap contains URLs");
   } else {
-    log.error('Sitemap is empty');
+    log.error("Sitemap is empty");
   }
 }
 
 function validateManifest() {
-  log.header('Validating Web App Manifest');
+  log.header("Validating Web App Manifest");
 
-  const manifestPath = path.join(__dirname, 'public', 'manifest.json');
+  const manifestPath = path.join(__dirname, "public", "manifest.json");
   if (!fs.existsSync(manifestPath)) {
-    log.error('manifest.json not found');
+    log.error("manifest.json not found");
     return;
   }
 
   try {
-    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
-    const requiredFields = ['name', 'short_name', 'start_url', 'display', 'theme_color', 'background_color', 'icons'];
+    const requiredFields = [
+      "name",
+      "short_name",
+      "start_url",
+      "display",
+      "theme_color",
+      "background_color",
+      "icons"
+    ];
 
     requiredFields.forEach(field => {
       if (manifest[field]) {
@@ -200,47 +209,46 @@ function validateManifest() {
     if (manifest.icons && manifest.icons.length > 0) {
       log.success(`Found ${manifest.icons.length} icon(s) in manifest`);
     } else {
-      log.error('No icons found in manifest');
+      log.error("No icons found in manifest");
     }
 
     if (manifest.shortcuts && manifest.shortcuts.length > 0) {
       log.success(`Found ${manifest.shortcuts.length} shortcut(s) in manifest`);
     } else {
-      log.warning('No shortcuts found in manifest');
+      log.warning("No shortcuts found in manifest");
     }
-
   } catch (error) {
     log.error(`Invalid JSON in manifest.json: ${error.message}`);
   }
 }
 
 function validateEnvConfig() {
-  log.header('Validating Environment Configuration');
+  log.header("Validating Environment Configuration");
 
-  const envPath = path.join(__dirname, '.env');
+  const envPath = path.join(__dirname, ".env");
   if (!fs.existsSync(envPath)) {
-    log.warning('.env file not found - using defaults');
+    log.warning(".env file not found - using defaults");
     return;
   }
 
-  const content = fs.readFileSync(envPath, 'utf8');
+  const content = fs.readFileSync(envPath, "utf8");
 
-  if (content.includes('REACT_APP_GA4_MEASUREMENT_ID')) {
-    if (content.includes('G-09NVE6K239')) {
-      log.success('GA4 measurement ID configured');
-    } else if (content.includes('G-XXXXXXXXXX')) {
-      log.warning('GA4 measurement ID placeholder found - update with real ID');
+  if (content.includes("REACT_APP_GA4_MEASUREMENT_ID")) {
+    if (content.includes("G-09NVE6K239")) {
+      log.success("GA4 measurement ID configured");
+    } else if (content.includes("G-XXXXXXXXXX")) {
+      log.warning("GA4 measurement ID placeholder found - update with real ID");
     } else {
-      log.error('GA4 measurement ID format invalid');
+      log.error("GA4 measurement ID format invalid");
     }
   } else {
-    log.error('GA4 measurement ID not configured');
+    log.error("GA4 measurement ID not configured");
   }
 
   const envVars = [
-    'REACT_APP_GITHUB_TOKEN',
-    'GITHUB_USERNAME',
-    'MEDIUM_USERNAME'
+    "REACT_APP_GITHUB_TOKEN",
+    "GITHUB_USERNAME",
+    "MEDIUM_USERNAME"
   ];
 
   envVars.forEach(envVar => {
@@ -257,21 +265,21 @@ function validateEnvConfig() {
 }
 
 function validateAnalyticsImplementation() {
-  log.header('Validating Analytics Implementation');
+  log.header("Validating Analytics Implementation");
 
-  const analyticsPath = path.join(__dirname, 'src', 'utils', 'analytics.js');
+  const analyticsPath = path.join(__dirname, "src", "utils", "analytics.js");
   if (!fs.existsSync(analyticsPath)) {
-    log.error('Analytics utility not found');
+    log.error("Analytics utility not found");
     return;
   }
 
-  const content = fs.readFileSync(analyticsPath, 'utf8');
+  const content = fs.readFileSync(analyticsPath, "utf8");
 
   const requiredFunctions = [
-    'initializeGA',
-    'trackPageView',
-    'trackEvent',
-    'portfolioEvents'
+    "initializeGA",
+    "trackPageView",
+    "trackEvent",
+    "portfolioEvents"
   ];
 
   requiredFunctions.forEach(func => {
@@ -283,11 +291,11 @@ function validateAnalyticsImplementation() {
   });
 
   const eventTypes = [
-    'viewSection',
-    'viewProject',
-    'clickSocialLink',
-    'downloadResume',
-    'toggleTheme'
+    "viewSection",
+    "viewProject",
+    "clickSocialLink",
+    "downloadResume",
+    "toggleTheme"
   ];
 
   eventTypes.forEach(eventType => {
@@ -300,44 +308,44 @@ function validateAnalyticsImplementation() {
 }
 
 function validateBuildOutput() {
-  log.header('Validating Build Output');
+  log.header("Validating Build Output");
 
-  const buildPath = path.join(__dirname, 'build');
+  const buildPath = path.join(__dirname, "build");
   if (!fs.existsSync(buildPath)) {
     log.warning('Build directory not found - run "npm run build" first');
     return;
   }
 
-  const buildIndexPath = path.join(buildPath, 'index.html');
+  const buildIndexPath = path.join(buildPath, "index.html");
   if (!fs.existsSync(buildIndexPath)) {
-    log.error('Built index.html not found');
+    log.error("Built index.html not found");
     return;
   }
 
-  const content = fs.readFileSync(buildIndexPath, 'utf8');
+  const content = fs.readFileSync(buildIndexPath, "utf8");
 
-  if (content.includes('G-09NVE6K239')) {
-    log.success('GA4 ID present in built files');
+  if (content.includes("G-09NVE6K239")) {
+    log.success("GA4 ID present in built files");
   } else {
-    log.error('GA4 ID missing from built files');
+    log.error("GA4 ID missing from built files");
   }
 
-  if (content.includes('gtag(')) {
-    log.success('GA4 tracking code present in built files');
+  if (content.includes("gtag(")) {
+    log.success("GA4 tracking code present in built files");
   } else {
-    log.error('GA4 tracking code missing from built files');
+    log.error("GA4 tracking code missing from built files");
   }
 
   // Check if files are minified
-  if (content.includes('\n') && content.length > 1000) {
-    log.warning('Built HTML appears to not be minified');
+  if (content.includes("\n") && content.length > 1000) {
+    log.warning("Built HTML appears to not be minified");
   } else {
-    log.success('Built HTML appears to be minified');
+    log.success("Built HTML appears to be minified");
   }
 }
 
 function generateSEOReport() {
-  log.header('SEO Implementation Report');
+  log.header("SEO Implementation Report");
 
   console.log(`\n${colors.bold}Current Configuration:${colors.reset}`);
   console.log(`• GA4 Measurement ID: G-09NVE6K239`);
@@ -353,16 +361,26 @@ function generateSEOReport() {
   console.log(`• Submit sitemap to Google Search Console`);
 
   console.log(`\n${colors.bold}Testing URLs:${colors.reset}`);
-  console.log(`• Facebook Sharing Debugger: https://developers.facebook.com/tools/debug/`);
-  console.log(`• Twitter Card Validator: https://cards-dev.twitter.com/validator`);
-  console.log(`• Google Rich Results Test: https://search.google.com/test/rich-results`);
+  console.log(
+    `• Facebook Sharing Debugger: https://developers.facebook.com/tools/debug/`
+  );
+  console.log(
+    `• Twitter Card Validator: https://cards-dev.twitter.com/validator`
+  );
+  console.log(
+    `• Google Rich Results Test: https://search.google.com/test/rich-results`
+  );
   console.log(`• Google PageSpeed Insights: https://pagespeed.web.dev/`);
 }
 
 // Main execution
 function main() {
-  console.log(`${colors.bold}${colors.blue}SEO & Analytics Validation Tool${colors.reset}`);
-  console.log(`${colors.blue}Portfolio: Sameh Shehata Abdelaziz${colors.reset}\n`);
+  console.log(
+    `${colors.bold}${colors.blue}SEO & Analytics Validation Tool${colors.reset}`
+  );
+  console.log(
+    `${colors.blue}Portfolio: Sameh Shehata Abdelaziz${colors.reset}\n`
+  );
 
   try {
     validateIndexHTML();
@@ -375,9 +393,12 @@ function main() {
     validateBuildOutput();
     generateSEOReport();
 
-    console.log(`\n${colors.green}${colors.bold}Validation Complete!${colors.reset}`);
-    console.log(`Run this script after any SEO changes to verify implementation.\n`);
-
+    console.log(
+      `\n${colors.green}${colors.bold}Validation Complete!${colors.reset}`
+    );
+    console.log(
+      `Run this script after any SEO changes to verify implementation.\n`
+    );
   } catch (error) {
     log.error(`Validation failed: ${error.message}`);
     process.exit(1);

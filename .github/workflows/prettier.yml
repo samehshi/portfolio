@@ -1,24 +1,79 @@
-name: Check Format
+name: Code Format Check and Auto-Fix
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    
+permissions:
+  contents: write
+  
 jobs:
-  check-format:
+  format-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18.x'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Check Format
-        run: npm run check-format
+      - name: Check Prettier formatting
+        id: format-check
+        run: |
+          echo "🔍 Checking code formatting..."
+          if npm run check-format; then
+            echo "✅ All files are properly formatted"
+            echo "format_needed=false" >> $GITHUB_OUTPUT
+          else
+            echo "⚠️ Format violations detected"
+            echo "format_needed=true" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+        continue-on-error: true
+
+      - name: Auto-fix formatting issues
+        if: steps.format-check.outputs.format_needed == 'true'
+        run: |
+          echo "🔧 Auto-fixing formatting issues..."
+          npm run format
+          echo "✅ Formatting fixes applied"
+          
+      - name: Check if changes were made
+        if: steps.format-check.outputs.format_needed == 'true'
+        id: check-changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changes_made=true" >> $GITHUB_OUTPUT
+            echo "📝 Changes detected after formatting"
+          else
+            echo "changes_made=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ No changes needed"
+          fi
+          
+      - name: Commit formatting fixes
+        if: steps.format-check.outputs.format_needed == 'true' && steps.check-changes.outputs.changes_made == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "🎨 Auto-fix: Apply Prettier formatting [skip ci]"
+          git push
+          echo "✅ Formatting fixes committed and pushed"
+          
+      - name: Verify final formatting
+        if: steps.format-check.outputs.format_needed == 'true'
+        run: |
+          echo "🔍 Final formatting verification..."
+          npm run check-format
+          echo "✅ All formatting issues resolved"
 

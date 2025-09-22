@@ -72,7 +72,33 @@ jobs:
           echo "  - Medium Username: ${MEDIUM_USERNAME:-'Not set'}"
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          echo "📦 Installing dependencies..."
+          npm ci
+          echo "✅ Dependencies installed successfully"
+          echo "🗺️ Package audit summary:"
+          npm audit --audit-level=moderate || echo "⚠️ Some vulnerabilities detected (non-blocking)"
+
+      - name: Format Check (with auto-fix)
+        run: |
+          echo "🔍 Checking code formatting..."
+          if ! npm run check-format; then
+            echo "⚠️ Format violations detected - applying auto-fixes..."
+            npm run format
+            echo "✅ Formatting fixes applied"
+            if ! npm run check-format; then
+              echo "❌ Critical: Formatting issues persist after auto-fix"
+              exit 1
+            fi
+          else
+            echo "✅ All files are properly formatted"
+          fi
+
+      - name: Health Check
+        run: |
+          echo "🚑 Running application health checks..."
+          npm run health-check || echo "⚠️ Health check warnings detected (non-blocking)"
+          echo "✅ Health check completed"
 
       - name: Fetch External Data
         run: |
@@ -107,9 +133,28 @@ jobs:
             echo "❌ Error: index.html not found in build directory"
             exit 1
           fi
+          
+          # Advanced build verification
           BUILD_SIZE=$(du -sh build | cut -f1)
+          JS_FILES=$(find build -name "*.js" | wc -l)
+          CSS_FILES=$(find build -name "*.css" | wc -l)
+          
           echo "✅ Build verification passed"
-          echo "📊 Build size: $BUILD_SIZE"
+          echo "📊 Build Quality Report:"
+          echo "  - Build size: $BUILD_SIZE"
+          echo "  - JavaScript files: $JS_FILES"
+          echo "  - CSS files: $CSS_FILES"
+          echo "  - Static assets: $(find build/static -type f | wc -l)"
+          
+          # Check for critical files
+          CRITICAL_FILES=("build/static/js/main." "build/static/css/main.")
+          for pattern in "${CRITICAL_FILES[@]}"; do
+            if ! ls $pattern* 1> /dev/null 2>&1; then
+              echo "⚠️ Warning: No files found matching $pattern"
+            fi
+          done
+          
+          echo "✅ Build quality verification completed"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

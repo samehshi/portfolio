@@ -265,8 +265,7 @@ const bigProjects = {
     },
     {
       image: skill,
-      projectName:
-        "Content Trends Analysis - Accenture Data Analytics Project",
+      projectName: "Content Trends Analysis - Accenture Data Analytics Project",
       projectDesc:
         "Cleaned, modeled, and analyzed 7 datasets to uncover strategic content insights for Accenture. Delivered executive presentations with key findings on content performance, user engagement patterns, and strategic recommendations for content optimization.",
       footerLink: []
@@ -278,7 +277,7 @@ const bigProjects = {
         "Comprehensive collection of interactive business intelligence dashboards showcasing advanced Power BI capabilities. Features KPI tracking, executive reporting, financial analysis, and operational dashboards with modern design and seamless user experience.",
       footerLink: []
     },
-    
+
     // === MACHINE LEARNING & PREDICTIVE ANALYTICS ===
     {
       image: earthquakeProject,
@@ -328,7 +327,7 @@ const bigProjects = {
         }
       ]
     },
-    
+
     // === REAL ESTATE & PRICING ANALYTICS ===
     {
       image: housingProject,
@@ -355,12 +354,11 @@ const bigProjects = {
         }
       ]
     },
-    
+
     // === BUSINESS OPTIMIZATION ===
     {
       image: contactMail,
-      projectName:
-        "A/B Testing Optimization - Applicant Engagement Analysis",
+      projectName: "A/B Testing Optimization - Applicant Engagement Analysis",
       projectDesc:
         "Statistical analysis of user engagement optimization through controlled A/B testing. Identified key factors influencing applicant behavior and developed strategies for improving conversion rates and user experience metrics.",
       footerLink: [
@@ -398,7 +396,8 @@ const achievementSection = {
     },
     {
       title: "Advanced Data Analytics",
-      subtitle: "Google, 2024. Advanced topics in statistical modeling, machine learning, and predictive analytics.",
+      subtitle:
+        "Google, 2024. Advanced topics in statistical modeling, machine learning, and predictive analytics.",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
       imageAlt: "Google Logo",
@@ -437,7 +436,7 @@ const achievementSection = {
         }
       ]
     },
-    
+
     // === MICROSOFT CERTIFICATIONS ===
     {
       title: "Power BI Data Analyst Associate (PL-300)",
@@ -467,7 +466,7 @@ const achievementSection = {
         }
       ]
     },
-    
+
     // === INDUSTRY RECOGNITION & PROGRAMS ===
     {
       title: "Advanced Data Analytics",

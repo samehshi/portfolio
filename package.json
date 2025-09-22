@@ -22,6 +22,7 @@
   "private": true,
   "dependencies": {
     "colorthief": "^2.3.0",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "gh-pages": "^6.3.0",
@@ -47,7 +48,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
-    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\""
+    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\"",
+    "format-staged": "prettier --write",
+    "validate-build": "npm run check-format && npm run build",
+    "pre-commit": "npm run format-staged",
+    "health-check": "node validate-content.js && node validate-seo.js",
+    "deployment-health": "node deployment-health-check.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -71,7 +77,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "dotenv": "^8.2.0",
     "prettier": "^2.3.1"
   }
 }
