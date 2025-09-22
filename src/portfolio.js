@@ -35,7 +35,7 @@ const greeting = {
   subTitle: emoji(
     "Experienced Data Scientist & BI Analyst with 15+ years of expertise transforming complex datasets into actionable business insights. 📊 Specializing in advanced analytics, AI/ML, and business intelligence solutions that drive organizational success and data-driven decision making."
   ),
-  resumeLink: "/Abdelaziz_Sameh_Data_Resume.pdf", // CV Download Link
+  resumeLink: "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // CV Download Link
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
@@ -45,6 +45,7 @@ const socialMediaLinks = {
   linkedin: "https://www.linkedin.com/in/sameh-shihata/",
   gmail: "samehshihata@gmail.com",
   medium: "https://medium.com/@sameh_shi",
+  twitter: "https://twitter.com/sameh_shi",
   // Instagram, Twitter and Kaggle are also supported in the links!
   // To customize icons and social links, tweak src/components/SocialMedia
   display: true // Set true to display this section, defaults to false
@@ -540,12 +541,12 @@ const talkSection = {
   title: "TALKS & PRESENTATIONS",
   subtitle: emoji("SHARING KNOWLEDGE ON DATA ANALYTICS AND AI 🎤"),
   talks: [
-    {
-      title: "AI in Aviation: Data-Driven Safety Enhancement",
-      subtitle: "Cairo Data Science Meetup 2024",
-      slides_url: "#",
-      event_url: "#"
-    }
+    // {
+    //   title: "AI in Aviation: Data-Driven Safety Enhancement",
+    //   subtitle: "Cairo Data Science Meetup 2024",
+    //   slides_url: "#",
+    //   event_url: "#"
+    // }
   ],
   display: false // Set false to hide this section, defaults to true
 };

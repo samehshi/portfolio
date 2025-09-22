@@ -36,7 +36,7 @@ const greeting = {
 
 // Your social links
 const socialMediaLinks = {
-  github: "https://github.com/yourusername",
+  github: "https://github.com/samehshi",
   linkedin: "https://linkedin.com/in/yourprofile",
   gmail: "your.email@gmail.com"
 };
