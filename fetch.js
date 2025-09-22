@@ -12,12 +12,10 @@ const ERR = {
   noUserName:
     "Github Username was found to be undefined. Please set all relevant environment variables.",
   requestFailed:
-    "The request to GitHub didn't succeed. Check if GitHub token in your .env file is correct.",
-  requestFailedMedium:
-    "The request to Medium didn't succeed. Check if Medium username in your .env file is correct."
+    "The request to GitHub didn't succeed. Check if GitHub token in your .env file is correct."
 };
 if (USE_GITHUB_DATA === "true") {
-  if (GITHUB_USERNAME === undefined) {
+  if (GITHUB_USERNAME === undefined || GITHUB_TOKEN === undefined) {
     throw new Error(ERR.noUserName);
   }
 
@@ -73,10 +71,10 @@ if (USE_GITHUB_DATA === "true") {
     console.log(`statusCode: ${res.statusCode}`);
     if (res.statusCode !== 200) {
       console.error(
-        `Request failed with status code: ${res.statusCode}. Check if GitHub token in your .env file is correct.`
+        `Request to GitHub failed with status code: ${res.statusCode}. Check if GitHub token in your .env file is correct.`
       );
       res.resume(); // Consume the response to free up memory.
-      return;
+      process.exit(1); // Exit with a non-zero code to indicate failure
     }
 
     res.on("data", d => {
@@ -84,14 +82,18 @@ if (USE_GITHUB_DATA === "true") {
     });
     res.on("end", () => {
       fs.writeFile("./public/profile.json", data, function (err) {
-        if (err) return console.log(err);
+        if (err) {
+          console.error("Error writing profile.json:", err);
+          process.exit(1);
+        }
         console.log("saved file to public/profile.json");
       });
     });
   });
 
   req.on("error", error => {
-    throw error;
+    console.error("Error during GitHub API request:", error);
+    process.exit(1);
   });
 
   req.write(data);
@@ -114,7 +116,11 @@ if (MEDIUM_USERNAME !== undefined) {
 
     console.log(`statusCode: ${res.statusCode}`);
     if (res.statusCode !== 200 && res.statusCode !== 422) {
-      throw new Error(ERR.requestMediumFailed);
+      console.error(
+        `Request to Medium failed with status code: ${res.statusCode}. Check if Medium username in your .env file is correct.`
+      );
+      res.resume();
+      process.exit(1);
     }
 
     res.on("data", d => {
@@ -122,15 +128,21 @@ if (MEDIUM_USERNAME !== undefined) {
     });
     res.on("end", () => {
       fs.writeFile("./public/blogs.json", mediumData, function (err) {
-        if (err) return console.log(err);
+        if (err) {
+          console.error("Error writing blogs.json:", err);
+          process.exit(1);
+        }
         console.log("saved file to public/blogs.json");
       });
     });
   });
 
   req.on("error", error => {
-    throw error;
+    console.error("Error during Medium API request:", error);
+    process.exit(1);
   });
 
   req.end();
+} else {
+  console.warn("MEDIUM_USERNAME is not defined. Skipping Medium blog data fetching.");
 }
