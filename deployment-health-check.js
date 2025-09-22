@@ -192,6 +192,24 @@ class DeploymentHealthChecker {
         this.warnings.push("dotenv dependency not found");
         log.warning("dotenv dependency not found");
       }
+
+      // Check if prettier is in dependencies (correct for CI/CD)
+      if (packageJson.dependencies && packageJson.dependencies.prettier) {
+        log.success("prettier in dependencies (correct for CI/CD)");
+      } else if (
+        packageJson.devDependencies &&
+        packageJson.devDependencies.prettier
+      ) {
+        this.errors.push(
+          "prettier should be in dependencies for CI/CD formatting checks"
+        );
+        log.error(
+          "prettier should be in dependencies for CI/CD formatting checks"
+        );
+      } else {
+        this.warnings.push("prettier dependency not found");
+        log.warning("prettier dependency not found");
+      }
     } catch (error) {
       this.errors.push(`Error reading package.json: ${error.message}`);
       log.error(`Error reading package.json: ${error.message}`);

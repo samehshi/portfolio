@@ -37,10 +37,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js 20.x
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20.x'
           cache: 'npm'
 
       - name: Validate Environment
@@ -115,7 +115,7 @@ jobs:
       - name: Build application
         run: |
           echo "🛠️ Building React application..."
-          npm run build
+          npx react-scripts build
           echo "✅ React build completed successfully"
           echo "📂 Build output summary:"
           ls -la build/ | head -10
