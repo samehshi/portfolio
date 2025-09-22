@@ -35,7 +35,8 @@ const greeting = {
   subTitle: emoji(
     "Experienced Data Scientist & BI Analyst with 15+ years of expertise transforming complex datasets into actionable business insights. 📊 Specializing in advanced analytics, AI/ML, and business intelligence solutions that drive organizational success and data-driven decision making."
   ),
-  resumeLink: "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // CV Download Link
+  resumeLink:
+    "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing", // CV Download Link
   displayGreeting: true // Set false to hide this section, defaults to true
 };
 
