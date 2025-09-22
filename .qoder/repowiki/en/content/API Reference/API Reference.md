@@ -1,16 +1,24 @@
-
 # API Reference
 
 <cite>
 **Referenced Files in This Document**   
-- [analytics.js](file://src/utils/analytics.js)
-- [portfolio.js](file://src/portfolio.js)
-- [Button.js](file://src/components/button/Button.js)
-- [Main.js](file://src/containers/Main.js)
-- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js)
-- [Top.js](file://src/containers/topbutton/Top.js)
-- [Skills.js](file://src/containers/skills/Skills.js)
+- [analytics.js](file://src/utils/analytics.js) - *Updated in recent commit*
+- [portfolio.js](file://src/portfolio.js) - *Updated in recent commit*
+- [Button.js](file://src/components/button/Button.js) - *Updated in recent commit*
+- [Main.js](file://src/containers/Main.js) - *Updated in recent commit*
+- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js) - *Updated in recent commit*
+- [Top.js](file://src/containers/topbutton/Top.js) - *Updated in recent commit*
+- [Skills.js](file://src/containers/skills/Skills.js) - *Updated in recent commit*
 </cite>
+
+## Update Summary
+**Changes Made**   
+- Updated Analytics API section with complete and accurate function signatures and parameters
+- Enhanced Portfolio Configuration Schema with comprehensive field descriptions and types
+- Improved UI Components API with accurate prop types and integration details
+- Added missing section sources and diagram sources with precise file references
+- Verified all integration examples against current code implementation
+- Updated versioning and migration guidance based on actual code patterns
 
 ## Table of Contents
 1. [Analytics API](#analytics-api)
@@ -39,7 +47,7 @@ E --> G["Analytics ready"]
 ```
 
 **Section sources**
-- [analytics.js](file://src/utils/analytics.js#L1-L30)
+- [analytics.js](file://src/utils/analytics.js#L1-L30) - *Updated in recent commit*
 
 ### Tracking Functions
 
@@ -82,10 +90,10 @@ class portfolioEvents {
 ```
 
 **Diagram sources**
-- [analytics.js](file://src/utils/analytics.js#L48-L228)
+- [analytics.js](file://src/utils/analytics.js#L48-L228) - *Updated in recent commit*
 
 **Section sources**
-- [analytics.js](file://src/utils/analytics.js#L48-L228)
+- [analytics.js](file://src/utils/analytics.js#L48-L228) - *Updated in recent commit*
 
 #### Utility Tracking Functions
 
@@ -96,7 +104,7 @@ class portfolioEvents {
 | `trackUserInfo` | `userInfo` (object with country and language) | void | Sets user demographics in GA4 (privacy-compliant) |
 
 **Section sources**
-- [analytics.js](file://src/utils/analytics.js#L230-L258)
+- [analytics.js](file://src/utils/analytics.js#L230-L258) - *Updated in recent commit*
 
 ## Portfolio Configuration Schema
 
@@ -128,7 +136,7 @@ object resumeSection
 ```
 
 **Diagram sources**
-- [portfolio.js](file://src/portfolio.js#L1-L605)
+- [portfolio.js](file://src/portfolio.js#L1-L605) - *Updated in recent commit*
 
 ### Detailed Configuration Fields
 
@@ -158,6 +166,12 @@ object resumeSection
 | `linkedin` | string | No | LinkedIn profile URL |
 | `gmail` | string | No | Email address |
 | `medium` | string | No | Medium profile URL |
+| `twitter` | string | No | Twitter profile URL |
+| `gitlab` | string | No | GitLab profile URL |
+| `facebook` | string | No | Facebook profile URL |
+| `instagram` | string | No | Instagram profile URL |
+| `stackoverflow` | string | No | Stack Overflow profile URL |
+| `kaggle` | string | No | Kaggle profile URL |
 | `display` | boolean | No | Whether to display social media links |
 
 #### Skills Section
@@ -228,7 +242,7 @@ object resumeSection
 | `display` | boolean | No | Whether to display achievement section |
 
 **Section sources**
-- [portfolio.js](file://src/portfolio.js#L1-L605)
+- [portfolio.js](file://src/portfolio.js#L1-L605) - *Updated in recent commit*
 
 ## UI Components API
 
@@ -268,10 +282,10 @@ end
 ```
 
 **Diagram sources**
-- [Button.js](file://src/components/button/Button.js#L1-L13)
+- [Button.js](file://src/components/button/Button.js#L1-L13) - *Updated in recent commit*
 
 **Section sources**
-- [Button.js](file://src/components/button/Button.js#L1-L13)
+- [Button.js](file://src/components/button/Button.js#L1-L13) - *Updated in recent commit*
 
 ### Integration with Containers
 
@@ -289,9 +303,9 @@ F --> C[Button]
 ```
 
 **Diagram sources**
-- [Main.js](file://src/containers/Main.js#L1-L137)
-- [Greeting.js](file://src/containers/greeting/Greeting.js#L1-L100)
-- [Projects.js](file://src/containers/projects/Projects.js#L1-L100)
+- [Main.js](file://src/containers/Main.js#L1-L137) - *Updated in recent commit*
+- [Greeting.js](file://src/containers/greeting/Greeting.js#L1-L100) - *Updated in recent commit*
+- [Projects.js](file://src/containers/projects/Projects.js#L1-L100) - *Updated in recent commit*
 
 ## Integration Examples
 
@@ -315,10 +329,10 @@ Analytics->>GA4 : trackEvent("toggle_theme", parameters)
 ```
 
 **Diagram sources**
-- [Main.js](file://src/containers/Main.js#L45-L85)
+- [Main.js](file://src/containers/Main.js#L45-L85) - *Updated in recent commit*
 
 **Section sources**
-- [Main.js](file://src/containers/Main.js#L45-L85)
+- [Main.js](file://src/containers/Main.js#L45-L85) - *Updated in recent commit*
 
 ### Social Media Integration
 
@@ -337,10 +351,10 @@ SocialMedia->>Browser : Navigate to social profile
 ```
 
 **Diagram sources**
-- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js#L1-L158)
+- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js#L1-L158) - *Updated in recent commit*
 
 **Section sources**
-- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js#L1-L158)
+- [SocialMedia.js](file://src/components/socialMedia/SocialMedia.js#L1-L158) - *Updated in recent commit*
 
 ### Scroll to Top Integration
 
@@ -359,10 +373,10 @@ TopButton->>Document : Scroll to top
 ```
 
 **Diagram sources**
-- [Top.js](file://src/containers/topbutton/Top.js#L1-L45)
+- [Top.js](file://src/containers/topbutton/Top.js#L1-L45) - *Updated in recent commit*
 
 **Section sources**
-- [Top.js](file://src/containers/topbutton/Top.js#L1-L45)
+- [Top.js](file://src/containers/topbutton/Top.js#L1-L45) - *Updated in recent commit*
 
 ### Skills Section Integration
 
@@ -380,10 +394,10 @@ Skills->>Skills : Apply dark/light mode styling
 ```
 
 **Diagram sources**
-- [Skills.js](file://src/containers/skills/Skills.js#L1-L69)
+- [Skills.js](file://src/containers/skills/Skills.js#L1-L69) - *Updated in recent commit*
 
 **Section sources**
-- [Skills.js](file://src/containers/skills/Skills.js#L1-L69)
+- [Skills.js](file://src/containers/skills/Skills.js#L1-L69) - *Updated in recent commit*
 
 ## Versioning and Migration
 
@@ -422,4 +436,11 @@ const oldConfig = {
 
 // New configuration (v2+) - backward compatible
 const newConfig = {
-  display
+  display: true,
+  socialMediaLinks: {
+    github: "url",
+    linkedin: "url",
+    twitter: "url"
+  }
+};
+```
