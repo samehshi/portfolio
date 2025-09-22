@@ -17,16 +17,20 @@ jobs:
       pages: write
       id-token: write
     env:
-      # GitHub-provided token for API access during build
-      REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Username to fetch profile data for during build
+      # Core configuration
       GITHUB_USERNAME: "samehshi"
-      # Set to "true" to enable fetching GitHub data in fetch.js
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      # Feature flags with validation
       USE_GITHUB_DATA: "true"
-      # Optional: Medium username for blog integration
+      USE_MEDIUM_DATA: "false"  # Disabled until username is confirmed
+      
+      # Optional integrations
       MEDIUM_USERNAME: "sameh_shi"
-      # Set to "true" to enable fetching Medium data in fetch.js
-      USE_MEDIUM_DATA: "false"
+      
+      # Build configuration
+      CI: false
+      NODE_ENV: production
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -39,23 +43,73 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
 
+      - name: Validate Environment
+        run: |
+          echo "🔍 Validating required environment variables..."
+          if [ "$USE_GITHUB_DATA" = "true" ]; then
+            if [ -z "$GITHUB_USERNAME" ]; then
+              echo "❌ Error: GITHUB_USERNAME is required when USE_GITHUB_DATA=true"
+              exit 1
+            fi
+            if [ -z "$GITHUB_TOKEN" ]; then
+              echo "❌ Error: GITHUB_TOKEN is required when USE_GITHUB_DATA=true"
+              exit 1
+            fi
+          fi
+          
+          if [ "$USE_MEDIUM_DATA" = "true" ]; then
+            if [ -z "$MEDIUM_USERNAME" ]; then
+              echo "⚠️ Warning: MEDIUM_USERNAME not set, Medium integration disabled"
+              echo "USE_MEDIUM_DATA=false" >> $GITHUB_ENV
+            fi
+          fi
+          
+          echo "✅ Environment validation complete"
+          echo "📊 Configuration summary:"
+          echo "  - GitHub Data: $USE_GITHUB_DATA"
+          echo "  - Medium Data: $USE_MEDIUM_DATA"
+          echo "  - GitHub Username: $GITHUB_USERNAME"
+          echo "  - Medium Username: ${MEDIUM_USERNAME:-'Not set'}"
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Debug - Print Environment Variables
-        run: printenv
-
-      - name: Debug - Run fetch.js and list public directory
+      - name: Fetch External Data
         run: |
-          echo "Running fetch.js..."
-          node fetch.js
-          echo "Contents of public directory after fetch.js:"
-          ls -la public
+          echo "📥 Running data fetch script with enhanced error handling..."
+          if ! node fetch.js; then
+            echo "⚠️ Data fetch encountered errors, but continuing with build..."
+            echo "This may result in missing GitHub profile or Medium blog data."
+          else
+            echo "✅ Data fetch completed successfully"
+          fi
+          echo "📂 Contents of public directory after fetch:"
+          ls -la public/
 
       - name: Build application
-        run: npm run build
+        run: |
+          echo "🛠️ Building React application..."
+          npm run build
+          echo "✅ React build completed successfully"
+          echo "📂 Build output summary:"
+          ls -la build/ | head -10
         env:
           CI: false
+
+      - name: Verify Build Quality
+        run: |
+          echo "🔍 Verifying build quality..."
+          if [ ! -d "build" ]; then
+            echo "❌ Error: Build directory not found"
+            exit 1
+          fi
+          if [ ! -f "build/index.html" ]; then
+            echo "❌ Error: index.html not found in build directory"
+            exit 1
+          fi
+          BUILD_SIZE=$(du -sh build | cut -f1)
+          echo "✅ Build verification passed"
+          echo "📊 Build size: $BUILD_SIZE"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -64,9 +118,16 @@ jobs:
           publish_dir: ./build
           publish_branch: gh-pages
           force_orphan: true
+          commit_message: "Deploy portfolio - ${{ github.sha }}"
 
       - name: Verify deployment
         run: |
           echo "🚀 Deployment completed successfully!"
           echo "📍 Site will be available at: https://samehshi.github.io/portfolio"
           echo "⏰ Please allow 5-10 minutes for GitHub Pages to update"
+          echo "📊 Deployment Summary:"
+          echo "  - Commit: ${{ github.sha }}"
+          echo "  - Branch: ${{ github.ref_name }}"
+          echo "  - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "  - Workflow: ${{ github.workflow }}"
+          echo "  - Run ID: ${{ github.run_id }}"

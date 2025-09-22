@@ -11,7 +11,6 @@ import codeInLogo from "./assets/images/codeInLogo.webp";
 import contactMail from "./assets/images/contactMail.webp";
 import skill from "./assets/images/skill.svg";
 import housingProject from "./assets/images/housingProject.webp";
-import aviationProject from "./assets/images/aviationProject.webp";
 import earthquakeProject from "./assets/images/earthquakeProject.jpeg";
 import bankruptcyProject from "./assets/images/bankruptcyProject.webp";
 import worldquantLogo from "./assets/images/worldquantLogo.webp";
@@ -223,14 +222,15 @@ const openSource = {
 const bigProjects = {
   title: "Featured Projects",
   subtitle:
-    "IMPACTFUL DATA SCIENCE PROJECTS DELIVERED ACROSS MULTIPLE INDUSTRIES",
+    "IMPACTFUL DATA SCIENCE PROJECTS ACROSS ANALYTICS, BUSINESS INTELLIGENCE & MACHINE LEARNING",
   projects: [
+    // === DATA ANALYTICS & BUSINESS INTELLIGENCE ===
     {
       image: manOnTable,
       projectName:
         "Cyclistic Bike-Sharing Data Analysis for Marketing Strategy Development",
       projectDesc:
-        "This project, undertaken as part of the Google Data Analytics Professional Certificate, focuses on analyzing data from Cyclistic, a fictional bike-sharing company. The project's objective is to identify usage patterns among different customer types and leverage these insights to inform the development of a new marketing strategy. The primary goal of the new strategy is to convert casual riders into annual members, thereby increasing long-term customer engagement and revenue.",
+        "Comprehensive analysis of bike-sharing usage patterns to develop data-driven marketing strategies. This Google Data Analytics capstone project identifies key differences between casual riders and annual members, providing actionable insights to convert casual users into long-term subscribers and increase revenue.",
       footerLink: [
         {
           name: "View on Kaggle",
@@ -240,12 +240,12 @@ const bigProjects = {
     },
     {
       image: codeInLogo,
-      projectName: "Technology Trends Dashboard",
+      projectName: "Technology Trends Dashboard - Developer Survey Analysis",
       projectDesc:
-        "This project aims to develop an interactive dashboard that provides valuable insights into current technology usage and future trends. Leveraging survey data collected from developers worldwide, the dashboard will offer a comprehensive overview of the evolving technology landscape. The dashboard will be structured into three main tabs, each focusing on a distinct perspective of technology trends.",
+        "Interactive BI dashboard analyzing global developer survey data to reveal technology adoption trends, skill demands, and industry insights. Features comprehensive visualizations of programming languages, frameworks, and tools usage across different regions and experience levels.",
       footerLink: [
         {
-          name: "View on Google Drive",
+          name: "View Dashboard",
           url: "https://drive.google.com/file/d/1ly2cUboZKZucsAqcTIz7YonYMSLAJ1C0/preview"
         }
       ]
@@ -253,12 +253,12 @@ const bigProjects = {
     {
       image: contactMail,
       projectName:
-        "Employee Turnover Analysis and Retention Strategy Development at Salifort Motors",
+        "Employee Turnover Analysis and Retention Strategy - Salifort Motors",
       projectDesc:
-        "Salifort Motors is experiencing a high rate of employee turnover, impacting productivity, team morale, and overall business performance. This project aims to analyze the company's employee dataset to identify the key factors contributing to this turnover. The project's objective is to develop data-driven recommendations and strategies for improving employee retention and mitigating the negative impacts of turnover on the organization. This project is commissioned by the HR department.",
+        "Advanced analytics project addressing high employee turnover through predictive modeling and statistical analysis. Developed data-driven retention strategies and identified key factors contributing to turnover, resulting in actionable recommendations for HR policy optimization.",
       footerLink: [
         {
-          name: "View on Kaggle",
+          name: "View Analysis",
           url: "https://www.kaggle.com/samehshehata/google-advanced-da-salifort-motors-project"
         }
       ]
@@ -266,103 +266,109 @@ const bigProjects = {
     {
       image: skill,
       projectName:
-        "Accenture North America Data Analytics and Visualization Project",
+        "Content Trends Analysis - Accenture Data Analytics Project",
       projectDesc:
-        "As a Data Analyst at Accenture, I cleaned, modeled, and analyzed 7 datasets to uncover insights into content trends to inform strategic decisions. Prepared a PowerPoint deck and video presentation to communicate key insights for the client and internal stakeholders.",
+        "Cleaned, modeled, and analyzed 7 datasets to uncover strategic content insights for Accenture. Delivered executive presentations with key findings on content performance, user engagement patterns, and strategic recommendations for content optimization.",
       footerLink: []
     },
     {
-      image: housingProject,
-      projectName:
-        "Real Estate Market Analysis Uncovering Price Drivers in Mexico and Brazil",
+      image: microsoftLogo,
+      projectName: "Power BI Dashboard Portfolio - Executive Reporting Suite",
       projectDesc:
-        "An analysis of the real estate markets in Mexico and Brazil to identify the key factors that influence property prices.",
-      footerLink: [
-        {
-          name: "View on Kaggle",
-          url: "https://www.kaggle.com/samehshehata/uncovering-price-drivers-in-mexico-and-brazil"
-        }
-      ]
+        "Comprehensive collection of interactive business intelligence dashboards showcasing advanced Power BI capabilities. Features KPI tracking, executive reporting, financial analysis, and operational dashboards with modern design and seamless user experience.",
+      footerLink: []
     },
-    {
-      image: housingProject,
-      projectName: "Predicting Apartment Prices in Buenos Aires",
-      projectDesc:
-        "A machine learning project to predict apartment prices in Buenos Aires based on property listings.",
-      footerLink: [
-        {
-          name: "View on Kaggle",
-          url: "https://www.kaggle.com/samehshehata/predicting-apartment-prices-in-buenos-aires"
-        }
-      ]
-    },
-    {
-      image: developerActivity,
-      projectName: "Predictive Modeling of Air Quality in Nairobi, Kenya",
-      projectDesc:
-        "A machine learning project to predict air quality in Nairobi, Kenya.",
-      footerLink: [
-        {
-          name: "View on Kaggle",
-          url: "https://www.kaggle.com/samehshehata/predictive-modeling-of-air-quality-in-nairobi"
-        }
-      ]
-    },
+    
+    // === MACHINE LEARNING & PREDICTIVE ANALYTICS ===
     {
       image: earthquakeProject,
-      projectName: "Predicting Earthquake Damage: A Case Study in Nepal",
+      projectName: "Earthquake Damage Prediction - Nepal Case Study",
       projectDesc:
-        "A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.",
+        "Machine learning classification model predicting building damage levels from the 2015 Gorkha earthquake. Utilized ensemble methods and feature engineering to achieve high accuracy in disaster impact assessment, supporting emergency response and reconstruction planning.",
       footerLink: [
         {
-          name: "View on Kaggle",
+          name: "View Project",
           url: "https://www.kaggle.com/samehshehata/predicting-earthquake-damage"
         }
       ]
     },
     {
       image: bankruptcyProject,
-      projectName: "Predicting Corporate Bankruptcy in Poland",
+      projectName: "Corporate Bankruptcy Prediction - Polish Market Analysis",
       projectDesc:
-        "A machine learning project to predict corporate bankruptcy using financial data from Polish companies.",
+        "Advanced machine learning model for financial risk assessment using ensemble techniques and feature selection. Achieved robust performance in predicting corporate bankruptcy using financial indicators, supporting investment decision-making and risk management.",
       footerLink: [
         {
-          name: "View on Kaggle",
+          name: "View Analysis",
           url: "https://www.kaggle.com/samehshehata/predicting-corporate-bankruptcy-in-poland"
         }
       ]
     },
     {
-      image: contactMail,
-      projectName:
-        "Project Report: Improving Applicant Engagement through A/B Testing",
+      image: developerActivity,
+      projectName: "Air Quality Prediction - Nairobi Environmental Analysis",
       projectDesc:
-        "An analysis of factors influencing applicant engagement and strategies for optimization.",
+        "Time series forecasting model for air quality prediction using environmental sensors data. Implemented advanced regression techniques and feature engineering to predict PM2.5 levels, supporting environmental monitoring and public health initiatives.",
       footerLink: [
         {
-          name: "View on Kaggle",
-          url: "https://www.kaggle.com/samehshehata/improving-applicant-engagement"
+          name: "View Project",
+          url: "https://www.kaggle.com/samehshehata/predictive-modeling-of-air-quality-in-nairobi"
         }
       ]
     },
     {
       image: worldquantLogo,
-      projectName: "Stock Volatility Forecasting",
+      projectName: "Stock Volatility Forecasting - Financial Time Series",
       projectDesc:
-        "A machine learning project to predict stock volatility using various time series models.",
+        "Sophisticated quantitative model for predicting stock market volatility using GARCH models and machine learning techniques. Developed as part of WorldQuant Applied Data Science program, focusing on financial risk assessment and portfolio optimization.",
       footerLink: [
         {
-          name: "View on Kaggle",
+          name: "View Analysis",
           url: "https://www.kaggle.com/samehshehata/stock-volatility-forecasting"
         }
       ]
     },
+    
+    // === REAL ESTATE & PRICING ANALYTICS ===
     {
-      image: microsoftLogo,
-      projectName: "Power BI Dashboard Portfolio",
+      image: housingProject,
+      projectName:
+        "Real Estate Market Analysis - Mexico and Brazil Price Drivers",
       projectDesc:
-        "Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting",
-      footerLink: []
+        "Comprehensive market analysis identifying key factors influencing property prices across Mexican and Brazilian real estate markets. Used statistical modeling and comparative analysis to uncover regional pricing patterns and investment opportunities.",
+      footerLink: [
+        {
+          name: "View Study",
+          url: "https://www.kaggle.com/samehshehata/uncovering-price-drivers-in-mexico-and-brazil"
+        }
+      ]
+    },
+    {
+      image: housingProject,
+      projectName: "Apartment Price Prediction - Buenos Aires Market",
+      projectDesc:
+        "Machine learning model for real estate price prediction in Buenos Aires using property characteristics and location data. Implemented regression techniques with feature engineering to achieve accurate price forecasting for property investment decisions.",
+      footerLink: [
+        {
+          name: "View Model",
+          url: "https://www.kaggle.com/samehshehata/predicting-apartment-prices-in-buenos-aires"
+        }
+      ]
+    },
+    
+    // === BUSINESS OPTIMIZATION ===
+    {
+      image: contactMail,
+      projectName:
+        "A/B Testing Optimization - Applicant Engagement Analysis",
+      projectDesc:
+        "Statistical analysis of user engagement optimization through controlled A/B testing. Identified key factors influencing applicant behavior and developed strategies for improving conversion rates and user experience metrics.",
+      footerLink: [
+        {
+          name: "View Report",
+          url: "https://www.kaggle.com/samehshehata/improving-applicant-engagement"
+        }
+      ]
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -375,47 +381,7 @@ const achievementSection = {
     "Professional Certifications, Awards, and Milestones in Data Analytics and AI",
 
   achievementsCards: [
-    {
-      title: "Advanced Data Analytics",
-      subtitle: "Google, 2024. Advanced topics in data analytics.",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
-      imageAlt: "Google Logo",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: "https://www.credly.com/badges/1e7fec78-1157-48e6-90d9-5c8000198e33/public_url"
-        }
-      ]
-    },
-    {
-      title: "Business Intelligence",
-      subtitle:
-        "Google, 2024. Professional certification in Business Intelligence.",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
-      imageAlt: "Google Logo",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: "https://www.credly.com/badges/afebee12-5f41-48d5-bb63-5ff08326eaba/public_url"
-        }
-      ]
-    },
-    {
-      title: "Cloud Data Analytics",
-      subtitle:
-        "Google, 2024. Professional certification in Cloud Data Analytics.",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
-      imageAlt: "Google Logo",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: "https://www.credly.com/badges/bf286a16-3571-4f3b-875c-928694459894/public_url"
-        }
-      ]
-    },
+    // === GOOGLE CERTIFICATIONS ===
     {
       title: "Data Analytics Professional Certificate",
       subtitle:
@@ -432,17 +398,47 @@ const achievementSection = {
     },
     {
       title: "Advanced Data Analytics",
-      subtitle:
-        "IBM, 2023. Advanced training in predictive modeling, statistical analysis, and business intelligence.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
-      imageAlt: "IBM Logo",
+      subtitle: "Google, 2024. Advanced topics in statistical modeling, machine learning, and predictive analytics.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
       footerLink: [
         {
           name: "View Certificate",
-          url: "https://www.credly.com/badges/68a96644-fcc3-4340-85bf-d8f3f9de0339/public_url"
+          url: "https://www.credly.com/badges/1e7fec78-1157-48e6-90d9-5c8000198e33/public_url"
         }
       ]
     },
+    {
+      title: "Business Intelligence",
+      subtitle:
+        "Google, 2024. Professional certification in Business Intelligence, data warehousing, and enterprise analytics.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "https://www.credly.com/badges/afebee12-5f41-48d5-bb63-5ff08326eaba/public_url"
+        }
+      ]
+    },
+    {
+      title: "Cloud Data Analytics",
+      subtitle:
+        "Google, 2024. Professional certification in Cloud Data Analytics, BigQuery, and GCP data services.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg",
+      imageAlt: "Google Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "https://www.credly.com/badges/bf286a16-3571-4f3b-875c-928694459894/public_url"
+        }
+      ]
+    },
+    
+    // === MICROSOFT CERTIFICATIONS ===
     {
       title: "Power BI Data Analyst Associate (PL-300)",
       subtitle:
@@ -471,10 +467,25 @@ const achievementSection = {
         }
       ]
     },
+    
+    // === INDUSTRY RECOGNITION & PROGRAMS ===
+    {
+      title: "Advanced Data Analytics",
+      subtitle:
+        "IBM, 2023. Advanced training in predictive modeling, statistical analysis, and business intelligence.",
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+      imageAlt: "IBM Logo",
+      footerLink: [
+        {
+          name: "View Certificate",
+          url: "https://www.credly.com/badges/68a96644-fcc3-4340-85bf-d8f3f9de0339/public_url"
+        }
+      ]
+    },
     {
       title: "Applied Data Science Labs",
       subtitle:
-        "WorldQuant University, 2024. Hands-on application of machine learning to real-world business problems.",
+        "WorldQuant University, 2024. Hands-on application of machine learning to real-world financial and business problems.",
       image: "https://upload.wikimedia.org/wikipedia/commons/7/76/WQU_logo.jpg",
       imageAlt: "WorldQuant University Logo",
       footerLink: [
@@ -487,7 +498,7 @@ const achievementSection = {
     {
       title: "Forward Program",
       subtitle:
-        "McKinsey, 2024. A professional development program focusing on soft skills and problem-solving methodologies.",
+        "McKinsey, 2024. A professional development program focusing on soft skills, leadership, and problem-solving methodologies.",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/c/c8/McKinsey_Quarterly_logo.png",
       imageAlt: "McKinsey Logo",
