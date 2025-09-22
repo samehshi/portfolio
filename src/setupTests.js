@@ -1,12 +1,15 @@
 import "jest-canvas-mock";
 
 // Mock ColorThief to prevent sharp issues in tests
-jest.mock('colorthief', () => {
+jest.mock("colorthief", () => {
   return {
     __esModule: true,
     default: jest.fn(() => ({
       getColor: jest.fn(() => [128, 128, 128]),
-      getPalette: jest.fn(() => [[128, 128, 128], [64, 64, 64]])
+      getPalette: jest.fn(() => [
+        [128, 128, 128],
+        [64, 64, 64]
+      ])
     }))
   };
 });
