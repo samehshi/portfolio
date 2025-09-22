@@ -40,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug - Print Environment Variables
+        run: printenv
+
       - name: Debug - Run fetch.js and list public directory
         run: |
           echo "Running fetch.js..."
