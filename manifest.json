@@ -1,0 +1,129 @@
+{
+  "short_name": "Sameh Portfolio",
+  "name": "Sameh Shehata Abdelaziz - Data Scientist & BI Analyst Portfolio",
+  "description": "Professional portfolio showcasing data science, business intelligence, and analytics expertise with 15+ years of experience",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-16x16.png?v8=qAJ44G5Bm7",
+      "type": "image/png",
+      "sizes": "16x16",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-32x32.png?v8=qAJ44G5Bm7",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png?v8=qAJ44G5Bm7",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png?v8=qAJ44G5Bm7",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-384x384.png?v8=qAJ44G5Bm7",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "orientation": "portrait-primary",
+  "theme_color": "#6c63ff",
+  "background_color": "#ffffff",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "education"],
+  "shortcuts": [
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "Browse data science and analytics projects",
+      "url": "/#projects",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png?v8=qAJ44G5Bm7",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Resume/CV",
+      "short_name": "Resume",
+      "description": "Download professional resume",
+      "url": "https://drive.google.com/file/d/19l9-hfWYe10w2v0uGoPAiixkjl8RKxxb/view?usp=sharing",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png?v8=qAJ44G5Bm7",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Contact Info",
+      "short_name": "Contact",
+      "description": "Get in touch for collaboration",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png?v8=qAJ44G5Bm7",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Skills & Expertise",
+      "short_name": "Skills",
+      "description": "Technical skills and certifications",
+      "url": "/#skills",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png?v8=qAJ44G5Bm7",
+          "sizes": "32x32",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Portfolio homepage showcasing data science expertise"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}
