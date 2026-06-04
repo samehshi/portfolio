@@ -1,178 +1,64 @@
-name: Build and Deploy Portfolio
-env:
-  CI: false
+name: Deploy Jekyll site to Pages
+
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
-  schedule:
-    - cron: '0 12 * * 1' # weekly on Mondays at 12:00 UTC
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  # Build job
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
-    env:
-      # Core configuration
-      GITHUB_USERNAME: "samehshi"
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Feature flags with validation
-      USE_GITHUB_DATA: "true"
-      USE_MEDIUM_DATA: "false"  # Disabled until username is confirmed
-      
-      # Optional integrations
-      MEDIUM_USERNAME: "sameh_shi"
-      
-      # Build configuration
-      CI: false
-      NODE_ENV: production
     steps:
-      - name: Checkout repository
+      - name: Checkout 🛎️
         uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          persist-credentials: false
+          ruby-version: "3.2.2"
+          bundler-cache: true
 
-      - name: Setup Node.js 20.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
-      - name: Validate Environment
+      - name: Install system dependencies 🔧
         run: |
-          echo "🔍 Validating required environment variables..."
-          if [ "$USE_GITHUB_DATA" = "true" ]; then
-            if [ -z "$GITHUB_USERNAME" ]; then
-              echo "❌ Error: GITHUB_USERNAME is required when USE_GITHUB_DATA=true"
-              exit 1
-            fi
-            if [ -z "$GITHUB_TOKEN" ]; then
-              echo "❌ Error: GITHUB_TOKEN is required when USE_GITHUB_DATA=true"
-              exit 1
-            fi
-          fi
-          
-          if [ "$USE_MEDIUM_DATA" = "true" ]; then
-            if [ -z "$MEDIUM_USERNAME" ]; then
-              echo "⚠️ Warning: MEDIUM_USERNAME not set, Medium integration disabled"
-              echo "USE_MEDIUM_DATA=false" >> $GITHUB_ENV
-            fi
-          fi
-          
-          echo "✅ Environment validation complete"
-          echo "📊 Configuration summary:"
-          echo "  - GitHub Data: $USE_GITHUB_DATA"
-          echo "  - Medium Data: $USE_MEDIUM_DATA"
-          echo "  - GitHub Username: $GITHUB_USERNAME"
-          echo "  - Medium Username: ${MEDIUM_USERNAME:-'Not set'}"
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          pip3 install --upgrade jupyter
 
-      - name: Install dependencies
-        run: |
-          echo "📦 Installing dependencies..."
-          npm ci
-          echo "✅ Dependencies installed successfully"
-          echo "🗺️ Package audit summary:"
-          npm audit --audit-level=moderate || echo "⚠️ Some vulnerabilities detected (non-blocking)"
+      - name: Install Ruby dependencies
+        run: bundle install
 
-      - name: Format Check (with auto-fix)
+      - name: Build with Jekyll 🏗️
         run: |
-          echo "🔍 Checking code formatting..."
-          if ! npm run check-format; then
-            echo "⚠️ Format violations detected - applying auto-fixes..."
-            npm run format
-            echo "✅ Formatting fixes applied"
-            if ! npm run check-format; then
-              echo "❌ Critical: Formatting issues persist after auto-fix"
-              exit 1
-            fi
-          else
-            echo "✅ All files are properly formatted"
-          fi
-
-      - name: Health Check
-        run: |
-          echo "🚑 Running application health checks..."
-          npm run health-check || echo "⚠️ Health check warnings detected (non-blocking)"
-          echo "✅ Health check completed"
-
-      - name: Fetch External Data
-        run: |
-          echo "📥 Running data fetch script with enhanced error handling..."
-          if ! node fetch.js; then
-            echo "⚠️ Data fetch encountered errors, but continuing with build..."
-            echo "This may result in missing GitHub profile or Medium blog data."
-          else
-            echo "✅ Data fetch completed successfully"
-          fi
-          echo "📂 Contents of public directory after fetch:"
-          ls -la public/
-
-      - name: Build application
-        run: |
-          echo "🛠️ Building React application..."
-          npx react-scripts build
-          echo "✅ React build completed successfully"
-          echo "📂 Build output summary:"
-          ls -la build/ | head -10
+          export JEKYLL_ENV=production
+          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
-          CI: false
+          JEKYLL_ENV: production
 
-      - name: Verify Build Quality
-        run: |
-          echo "🔍 Verifying build quality..."
-          if [ ! -d "build" ]; then
-            echo "❌ Error: Build directory not found"
-            exit 1
-          fi
-          if [ ! -f "build/index.html" ]; then
-            echo "❌ Error: index.html not found in build directory"
-            exit 1
-          fi
-          
-          # Advanced build verification
-          BUILD_SIZE=$(du -sh build | cut -f1)
-          JS_FILES=$(find build -name "*.js" | wc -l)
-          CSS_FILES=$(find build -name "*.css" | wc -l)
-          
-          echo "✅ Build verification passed"
-          echo "📊 Build Quality Report:"
-          echo "  - Build size: $BUILD_SIZE"
-          echo "  - JavaScript files: $JS_FILES"
-          echo "  - CSS files: $CSS_FILES"
-          echo "  - Static assets: $(find build/static -type f | wc -l)"
-          
-          # Check for critical files
-          CRITICAL_FILES=("build/static/js/main." "build/static/css/main.")
-          for pattern in "${CRITICAL_FILES[@]}"; do
-            if ! ls $pattern* 1> /dev/null 2>&1; then
-              echo "⚠️ Warning: No files found matching $pattern"
-            fi
-          done
-          
-          echo "✅ Build quality verification completed"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages
-          force_orphan: true
-          commit_message: "Deploy portfolio - ${{ github.sha }}"
-
-      - name: Verify deployment
-        run: |
-          echo "🚀 Deployment completed successfully!"
-          echo "📍 Site will be available at: https://samehshi.github.io/portfolio"
-          echo "⏰ Please allow 5-10 minutes for GitHub Pages to update"
-          echo "📊 Deployment Summary:"
-          echo "  - Commit: ${{ github.sha }}"
-          echo "  - Branch: ${{ github.ref_name }}"
-          echo "  - Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          echo "  - Workflow: ${{ github.workflow }}"
-          echo "  - Run ID: ${{ github.run_id }}"
+        id: deployment
+        uses: actions/deploy-pages@v4

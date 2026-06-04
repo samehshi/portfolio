@@ -1,0 +1,728 @@
+/*******************************************************************************
+ * Modern Theme System
+ *
+ * This file defines the light and dark theme color tokens using CSS custom properties.
+ * It includes:
+ * - Semantic color tokens for consistent theming
+ * - Legacy variable mappings for backward compatibility
+ * - Theme-specific component styling
+ * - Enhanced accessibility with proper contrast ratios
+ *
+ * Enhanced with semantic color tokens and improved accessibility
+ ******************************************************************************/
+
+:root {
+  // =============================================================================
+  // Semantic Color Tokens - Light Theme
+  // =============================================================================
+
+  // Surface colors
+  --surface-primary: #{$white-color};
+  --surface-secondary: #{$neutral-50};
+  --surface-elevated: #{$white-color};
+  --surface-overlay: rgba(255, 255, 255, 0.95);
+
+  // Text colors with improved contrast ratios
+  --text-primary: #{$neutral-900};
+  --text-secondary: #{$neutral-600};
+  --text-tertiary: #{$neutral-500};
+  --text-inverse: #{$white-color};
+
+  // Interactive colors
+  --interactive-primary: #{$primary-600};
+  --interactive-primary-hover: #{$primary-700};
+  --interactive-primary-active: #{$primary-800};
+  --interactive-secondary: #{$purple-600};
+  --interactive-secondary-hover: #{$purple-700};
+
+  // Border and divider colors
+  --border-primary: #{$neutral-200};
+  --border-secondary: #{$neutral-300};
+  --divider: rgba(0, 0, 0, 0.08);
+
+  // Status colors with proper contrast
+  --status-success: #{$success-500};
+  --status-success-bg: #f0fdf4;
+  --status-success-text: #166534;
+  --status-warning: #{$warning-500};
+  --status-warning-bg: #fffbeb;
+  --status-warning-text: #92400e;
+  --status-error: #{$error-500};
+  --status-error-bg: #fef2f2;
+  --status-error-text: #991b1b;
+  --status-info: #{$info-500};
+  --status-info-bg: #eff6ff;
+  --status-info-text: #1e40af;
+
+  // =============================================================================
+  // Legacy Variable Mappings for Backward Compatibility
+  // These maintain compatibility with existing components while using semantic tokens
+  // =============================================================================
+
+  --global-bg-color: var(--surface-primary);
+  --global-code-bg-color: var(--surface-secondary);
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--interactive-primary);
+  --global-hover-color: var(--interactive-primary-hover);
+  --global-hover-text-color: var(--text-inverse);
+  --global-footer-bg-color: #{$neutral-800};
+  --global-footer-text-color: var(--text-secondary);
+  --global-footer-link-color: var(--text-primary);
+  --global-distill-app-color: var(--text-secondary);
+  --global-divider-color: var(--divider);
+  --global-card-bg-color: var(--surface-elevated);
+  --global-highlight-color: var(--status-error);
+  --global-back-to-top-bg-color: var(--surface-secondary);
+  --global-back-to-top-text-color: var(--text-primary);
+  --global-newsletter-bg-color: var(--surface-primary);
+  --global-newsletter-text-color: var(--text-primary);
+
+  // Enhanced status blocks with better accessibility
+  --global-tip-block: var(--status-success);
+  --global-tip-block-bg: var(--status-success-bg);
+  --global-tip-block-text: var(--status-success-text);
+  --global-tip-block-title: var(--status-info);
+  --global-warning-block: var(--status-warning);
+  --global-warning-block-bg: var(--status-warning-bg);
+  --global-warning-block-text: var(--status-warning-text);
+  --global-warning-block-title: var(--status-warning);
+  --global-danger-block: var(--status-error);
+  --global-danger-block-bg: var(--status-error-bg);
+  --global-danger-block-text: var(--status-error-text);
+  --global-danger-block-title: var(--status-error);
+
+  // Additional theme coverage for common UI elements
+  --button-primary-bg: var(--interactive-primary);
+  --button-primary-text: var(--text-inverse);
+  --button-primary-hover-bg: var(--interactive-primary-hover);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--interactive-primary);
+  --button-secondary-border: var(--interactive-primary);
+  --button-secondary-hover-bg: var(--interactive-primary);
+  --button-secondary-hover-text: var(--text-inverse);
+
+  // Theme toggle button styling
+  #light-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--surface-secondary);
+      color: var(--interactive-primary);
+    }
+
+    &:focus {
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
+
+    i {
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+  }
+
+  // Form elements
+  --input-bg: var(--surface-primary);
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-border: var(--interactive-primary);
+
+  // Code and syntax highlighting
+  --code-bg: var(--surface-secondary);
+  --code-text: var(--text-primary);
+  --code-border: var(--border-primary);
+
+  // Tables
+  --table-bg: var(--surface-primary);
+  --table-border: var(--border-primary);
+  --table-header-bg: var(--surface-secondary);
+  --table-row-hover-bg: var(--surface-secondary);
+
+  // Overlays and modals
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --modal-bg: var(--surface-elevated);
+  --modal-border: var(--border-primary);
+
+
+
+  .repo-img-light {
+    display: block;
+  }
+  .repo-img-dark {
+    display: none;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+    bottom: $back-to-top-bottom;
+    right: $back-to-top-right;
+    height: $back-to-top-height;
+    width: $back-to-top-width;
+    z-index: $back-to-top-z-index;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
+    box-shadow: $shadow-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-lg;
+
+    &:hover {
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: $shadow-lg;
+      background: var(--interactive-primary);
+      color: var(--text-inverse);
+    }
+
+    &:active {
+      transform: translateY(-2px) scale(1.05);
+      transition-duration: $duration-75;
+    }
+
+    &:focus {
+      outline: 2px solid var(--interactive-primary);
+      outline-offset: 2px;
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  // =============================================================================
+  // Semantic Color Tokens - Dark Theme
+  // Enhanced with better contrast ratios for accessibility
+  // =============================================================================
+
+  // Surface colors - improved dark theme hierarchy
+  --surface-primary: #{$neutral-900};
+  --surface-secondary: #{$neutral-800};
+  --surface-elevated: #{$neutral-800};
+  --surface-overlay: rgba(23, 23, 23, 0.95);
+
+  // Text colors with enhanced contrast for better readability
+  --text-primary: #{$neutral-100};
+  --text-secondary: #{$neutral-300};
+  --text-tertiary: #{$neutral-400};
+  --text-inverse: #{$neutral-900};
+
+  // Interactive colors - optimized for dark backgrounds
+  --interactive-primary: #{$primary-400};
+  --interactive-primary-hover: #{$primary-300};
+  --interactive-primary-active: #{$primary-200};
+  --interactive-secondary: #{$purple-400};
+  --interactive-secondary-hover: #{$purple-300};
+
+  // Border and divider colors
+  --border-primary: #{$neutral-700};
+  --border-secondary: #{$neutral-600};
+  --divider: rgba(255, 255, 255, 0.1);
+
+  // Status colors adapted for dark theme with proper contrast
+  --status-success: #22c55e;
+  --status-success-bg: rgba(34, 197, 94, 0.1);
+  --status-success-text: #86efac;
+  --status-warning: #fbbf24;
+  --status-warning-bg: rgba(251, 191, 36, 0.1);
+  --status-warning-text: #fde047;
+  --status-error: #f87171;
+  --status-error-bg: rgba(248, 113, 113, 0.1);
+  --status-error-text: #fca5a5;
+  --status-info: #60a5fa;
+  --status-info-bg: rgba(96, 165, 250, 0.1);
+  --status-info-text: #93c5fd;
+
+  // =============================================================================
+  // Legacy Variable Mappings for Dark Theme
+  // =============================================================================
+
+  --global-bg-color: var(--surface-primary);
+  --global-code-bg-color: var(--surface-secondary);
+  --global-text-color: var(--text-primary);
+  --global-text-color-light: var(--text-secondary);
+  --global-theme-color: var(--interactive-primary);
+  --global-hover-color: var(--interactive-primary-hover);
+  --global-hover-text-color: var(--text-inverse);
+  --global-footer-bg-color: #{$neutral-800};
+  --global-footer-text-color: var(--text-secondary);
+  --global-footer-link-color: var(--text-primary);
+  --global-distill-app-color: var(--text-secondary);
+  --global-divider-color: var(--divider);
+  --global-card-bg-color: var(--surface-elevated);
+  --global-back-to-top-bg-color: var(--surface-secondary);
+  --global-back-to-top-text-color: var(--text-primary);
+  --global-newsletter-bg-color: var(--surface-elevated);
+  --global-newsletter-text-color: var(--text-primary);
+
+  // Enhanced status blocks for dark theme
+  --global-tip-block: var(--status-success);
+  --global-tip-block-bg: var(--status-success-bg);
+  --global-tip-block-text: var(--status-success-text);
+  --global-tip-block-title: var(--status-info);
+  --global-warning-block: var(--status-warning);
+  --global-warning-block-bg: var(--status-warning-bg);
+  --global-warning-block-text: var(--status-warning-text);
+  --global-warning-block-title: var(--status-warning);
+  --global-danger-block: var(--status-error);
+  --global-danger-block-bg: var(--status-error-bg);
+  --global-danger-block-text: var(--status-error-text);
+  --global-danger-block-title: var(--status-error);
+
+  // Additional theme coverage for dark mode
+  --button-primary-bg: var(--interactive-primary);
+  --button-primary-text: var(--text-inverse);
+  --button-primary-hover-bg: var(--interactive-primary-hover);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: var(--interactive-primary);
+  --button-secondary-border: var(--interactive-primary);
+  --button-secondary-hover-bg: var(--interactive-primary);
+  --button-secondary-hover-text: var(--text-inverse);
+
+  // Form elements for dark theme
+  --input-bg: var(--surface-secondary);
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-border: var(--interactive-primary);
+
+  // Code and syntax highlighting for dark theme
+  --code-bg: var(--surface-elevated);
+  --code-text: var(--text-primary);
+  --code-border: var(--border-primary);
+
+  // Tables for dark theme
+  --table-bg: var(--surface-primary);
+  --table-border: var(--border-primary);
+  --table-header-bg: var(--surface-secondary);
+  --table-row-hover-bg: var(--surface-secondary);
+
+  // Overlays and modals for dark theme
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+  --modal-bg: var(--surface-elevated);
+  --modal-border: var(--border-primary);
+
+  .repo-img-light {
+    display: none;
+  }
+  .repo-img-dark {
+    display: block;
+  }
+}
+
+// Navbar text color fix for dark mode
+html[data-theme="dark"] {
+  .navbar {
+    .navbar-brand,
+    .navbar-nav .nav-link,
+    .navbar-nav .dropdown-toggle,
+    .navbar-toggler .icon-bar {
+      color: var(--text-primary);
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+      border-top-color: var(--text-primary);
+    }
+  }
+}
+
+// Theme toggle icon visibility rules
+html[data-theme-setting="dark"] {
+  #light-toggle-dark {
+    display: none !important;
+  }
+
+  #light-toggle-light {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #back-to-top {
+    color: var(--global-back-to-top-text-color);
+    background: var(--global-back-to-top-bg-color);
+
+    &:hover {
+      background: var(--interactive-primary);
+      color: var(--text-inverse);
+    }
+  }
+}
+
+html[data-theme-setting="light"] {
+  #light-toggle-dark {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #light-toggle-light {
+    display: none !important;
+  }
+}
+
+// Fallback rules for when data-theme-setting is not set
+html:not([data-theme-setting]) {
+  #light-toggle-dark {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #light-toggle-light {
+    display: none !important;
+  }
+}
+
+// Additional rules based on data-theme attribute for consistency
+html[data-theme="dark"] {
+  #light-toggle-dark {
+    display: none !important;
+  }
+
+  #light-toggle-light {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+}
+
+html[data-theme="light"] {
+  #light-toggle-dark {
+    padding-left: 10px;
+    padding-top: 12px;
+    display: block !important;
+  }
+
+  #light-toggle-light {
+    display: none !important;
+  }
+}
+
+// =============================================================================
+// High Contrast Mode Support
+// Enhanced accessibility for users who need higher contrast
+// =============================================================================
+
+@media (prefers-contrast: high) {
+  :root {
+    // Enhanced contrast ratios for high contrast mode
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --surface-primary: #ffffff;
+    --surface-secondary: #f0f0f0;
+    --border-primary: #000000;
+    --border-secondary: #333333;
+    --interactive-primary: #0000ff;
+    --interactive-primary-hover: #000080;
+  }
+
+  html[data-theme="dark"] {
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db; // Improved contrast ratio
+    --surface-primary: #000000;
+    --surface-secondary: #1f1f1f; // Better contrast
+    --border-primary: #ffffff;
+    --border-secondary: #d1d5db;
+    --interactive-primary: #60a5fa; // Better contrast for dark backgrounds
+    --interactive-primary-hover: #93c5fd;
+  }
+
+  .card {
+    border-width: 2px;
+    box-shadow: none;
+  }
+
+  .nav-link.active::after {
+    height: 3px;
+  }
+
+  button, .btn {
+    border-width: 2px;
+    font-weight: $font-weight-bold;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &::after {
+      display: none; // Remove subtle underline animations in high contrast
+    }
+  }
+
+  .navbar {
+    border-bottom-width: 3px;
+  }
+
+  // Ensure all interactive elements have strong borders
+  input, textarea, select {
+    border-width: 2px;
+  }
+
+  // Remove subtle shadows and gradients
+  .professional-header,
+  .final-cta-section {
+    background: var(--interactive-primary) !important;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// =============================================================================
+// Theme Transition Announcements for Screen Readers
+// Improved accessibility for theme switching
+// =============================================================================
+
+.theme-announcement {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &.announce {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+    overflow: visible;
+  }
+}
+
+// =============================================================================
+// Enhanced Focus Management
+// Better keyboard navigation support
+// =============================================================================
+
+// Enhanced skip links for better accessibility
+.skip-links {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  display: flex;
+  gap: $spacing-2;
+  padding: $spacing-2;
+
+  .skip-link {
+    position: relative;
+    top: 0;
+    background: var(--interactive-primary);
+    color: var(--text-inverse);
+    padding: $spacing-2 $spacing-4;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+    border: 2px solid var(--interactive-primary);
+    transition: all $duration-200 $ease-out;
+    white-space: nowrap;
+
+    &:focus {
+      outline: 3px solid var(--text-inverse);
+      outline-offset: 2px;
+      transform: translateY(2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover {
+      background: var(--interactive-primary-hover);
+      border-color: var(--interactive-primary-hover);
+      transform: translateY(1px);
+    }
+  }
+
+  &:focus-within {
+    top: 0;
+  }
+}
+
+// Enhanced focus indicators for all interactive elements
+*:focus-visible {
+  outline: 2px solid var(--interactive-primary);
+  outline-offset: 2px;
+  border-radius: $border-radius-sm;
+}
+
+// Specific focus improvements for interactive elements
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--interactive-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2); // Using blue color with opacity
+}
+
+// Focus improvements for navigation
+.nav-link:focus-visible {
+  background-color: var(--surface-secondary);
+  border-radius: $border-radius-md;
+}
+
+.dropdown-item:focus-visible {
+  background-color: var(--interactive-primary);
+  color: var(--text-inverse);
+}
+
+// Card focus improvements
+.card:focus-within {
+  box-shadow: 0 0 0 2px var(--interactive-primary);
+  border-color: var(--interactive-primary);
+}
+
+// Focus trap for modals and dropdowns
+.focus-trap {
+  &:focus {
+    outline: none;
+  }
+}
+
+// =============================================================================
+// Improved Theme Switching Animation
+// Smoother transitions between light and dark modes
+// =============================================================================
+
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *:before,
+html.theme-transitioning *:after {
+  transition: background-color $duration-300 $ease-in-out,
+              color $duration-300 $ease-in-out,
+              border-color $duration-300 $ease-in-out,
+              box-shadow $duration-300 $ease-in-out !important;
+  transition-delay: 0 !important;
+}
+
+// =============================================================================
+// Screen Reader Utilities
+// Improved accessibility for assistive technologies
+// =============================================================================
+
+// Screen reader only content
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Screen reader only content that becomes visible on focus
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: inherit !important;
+  margin: inherit !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+}
+
+// Live region for dynamic content announcements
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &[aria-live="polite"],
+  &[aria-live="assertive"] {
+    // Ensure live regions are properly positioned for screen readers
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+// =============================================================================
+// Improved Color Contrast Utilities
+// Additional utilities for better accessibility
+// =============================================================================
+
+// Text contrast utilities
+.text-high-contrast {
+  color: var(--text-primary);
+  font-weight: $font-weight-semibold;
+}
+
+.text-medium-contrast {
+  color: var(--text-secondary);
+}
+
+// Background contrast utilities
+.bg-high-contrast {
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+}
+
+.bg-medium-contrast {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+// Interactive element contrast improvements
+.interactive-high-contrast {
+  background-color: var(--interactive-primary);
+  color: var(--text-inverse);
+  border: 2px solid var(--interactive-primary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--interactive-primary-hover);
+    border-color: var(--interactive-primary-hover);
+  }
+}
+
+// =============================================================================
+// Motion and Animation Accessibility
+// Respect user preferences for reduced motion
+// =============================================================================
+
+@media (prefers-reduced-motion: reduce) {
+  // Disable all animations and transitions
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  // Disable transform animations specifically
+  .card:hover,
+  .btn:hover,
+  .nav-link:hover,
+  #back-to-top:hover,
+  .social .contact-icons a:hover {
+    transform: none !important;
+  }
+
+  // Disable theme transition animations
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *:before,
+  html.theme-transitioning *:after {
+    transition: none !important;
+  }
+}

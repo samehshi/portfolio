@@ -1,11 +1,3 @@
-{
-	"trailingComma": "none",
-	"bracketSpacing": false,
-	"arrowParens": "avoid",
-	"singleQuote": false,
-	"printWidth": 80,
-	"useTabs": false,
-	"tabWidth": 2,
-	"semi": true
-}
-
+plugins: ["@shopify/prettier-plugin-liquid"]
+printWidth: 150
+trailingComma: "es5"
