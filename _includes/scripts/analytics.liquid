@@ -22,49 +22,117 @@
         }
       }
 
+      function text(el) {
+        return (el.getAttribute("aria-label") || el.textContent || "").replace(/\s+/g, " ").trim().slice(0, 100);
+      }
+
+      // ---- Click tracking (delegated) ----
       document.body.addEventListener("click", function (e) {
         var a = e.target.closest && e.target.closest("a");
         if (!a || !a.href) return;
-        var url = new URL(a.href, window.location.href);
-
-        // Explicit project / CTA links.
-        if (a.dataset && a.dataset.gaEvent) {
-          track(a.dataset.gaEvent, {
-            link_label: a.dataset.gaLabel || a.textContent.trim(),
-            link_url: url.href,
-          });
+        var url;
+        try {
+          url = new URL(a.href, window.location.href);
+        } catch (err) {
           return;
         }
 
-        // CV / file downloads.
-        if (/\.(pdf|csv|xlsx?|pptx?|zip)$/i.test(url.pathname)) {
-          track("file_download", {
-            file_name: url.pathname.split("/").pop(),
-            link_url: url.href,
-          });
+        // Explicit project / CTA links (data-ga-event / data-ga-label).
+        if (a.dataset && a.dataset.gaEvent) {
+          track(a.dataset.gaEvent, { link_label: a.dataset.gaLabel || text(a), link_url: url.href });
+          return;
+        }
+
+        // Contact links (email / phone).
+        if (url.protocol === "mailto:") {
+          track("contact_click", { method: "email", link_url: a.href });
+          return;
+        }
+        if (url.protocol === "tel:") {
+          track("contact_click", { method: "phone", link_url: a.href });
+          return;
+        }
+
+        // File downloads.
+        if (/\.(pdf|csv|xlsx?|pptx?|docx?|zip|ipynb)$/i.test(url.pathname)) {
+          track("file_download", { file_name: decodeURIComponent(url.pathname.split("/").pop()), link_url: url.href });
           return;
         }
 
         // Outbound links.
         if (url.hostname && url.hostname !== origin) {
-          track("outbound_click", {
-            link_domain: url.hostname,
-            link_url: url.href,
-          });
+          track("outbound_click", { link_domain: url.hostname, link_label: text(a), link_url: url.href });
+          return;
+        }
+
+        // Internal navigation clicks (top navbar).
+        if (a.closest("#navbar")) {
+          track("nav_click", { link_label: text(a), link_url: url.pathname });
         }
       });
 
-      // Light/dark theme toggle.
+      // ---- Search usage ----
+      var search = document.getElementById("search-toggle");
+      if (search) {
+        search.addEventListener("click", function () {
+          track("search_open", {});
+        });
+      }
+
+      // ---- Light/dark theme toggle ----
       var toggle = document.getElementById("light-toggle");
       if (toggle) {
         toggle.addEventListener("click", function () {
-          // Read after the theme handler has applied, so we log the resulting theme.
+          // Read after the theme handler has applied so we log the resulting theme.
           setTimeout(function () {
-            var theme = document.documentElement.getAttribute("data-theme") || "light";
-            track("theme_toggle", { theme: theme });
+            track("theme_toggle", { theme: document.documentElement.getAttribute("data-theme") || "light" });
           }, 0);
         });
       }
+
+      // ---- Scroll depth (25 / 50 / 75 / 90 / 100) ----
+      var marks = [25, 50, 75, 90, 100];
+      var fired = {};
+      function onScroll() {
+        var doc = document.documentElement;
+        var scrollable = doc.scrollHeight - doc.clientHeight;
+        if (scrollable <= 0) return;
+        var pct = Math.round((window.scrollY / scrollable) * 100);
+        for (var i = 0; i < marks.length; i++) {
+          var m = marks[i];
+          if (pct >= m && !fired[m]) {
+            fired[m] = true;
+            track("scroll_depth", { percent: m });
+          }
+        }
+      }
+      var ticking = false;
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              onScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
+      // ---- Engagement time on page (sent once when leaving / hidden) ----
+      var start = Date.now();
+      var sent = false;
+      function sendEngagement() {
+        if (sent) return;
+        sent = true;
+        track("engaged_time", { seconds: Math.round((Date.now() - start) / 1000), page_path: window.location.pathname });
+      }
+      document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === "hidden") sendEngagement();
+      });
+      window.addEventListener("pagehide", sendEngagement);
     });
   </script>
 {% endif %}
