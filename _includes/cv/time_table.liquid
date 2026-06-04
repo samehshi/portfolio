@@ -134,7 +134,7 @@
                     <strong>Achievement:</strong> {{ achievement.achievement }}
                   </div>
                   <div class="cross-sector-text">
-                    <strong>Cross-Sector Application:</strong> 
+                    <strong>Cross-Sector Application:</strong>
                     <em>{{ achievement.cross_sector_application }}</em>
                   </div>
                 </div>
@@ -197,11 +197,11 @@
               {% endfor %}
             </div>
           {% endif %}
-          
+
           {% comment %} Display contextual CTA if available {% endcomment %}
           {% if content.contextual_cta %}
             <div class="experience-cta ml-1 ml-md-4 mt-3">
-              {% include cv/cta_button.liquid 
+              {% include cv/cta_button.liquid
                  type=content.contextual_cta.cta_type
                  text=content.contextual_cta.text
                  action=content.contextual_cta.action
@@ -215,14 +215,14 @@
             {% comment %} Fallback CTA for entries with client value but no specific contextual CTA {% endcomment %}
             <div class="experience-cta ml-1 ml-md-4 mt-3">
               {% assign cta_action = "mailto:samehshihata@gmail.com?subject=Similar Results Discussion - " | append: content.title %}
-              {% include cv/cta_button.liquid 
-                 type='tertiary' 
-                 text='Ready to Achieve Similar Results? Let\'s Connect' 
+              {% include cv/cta_button.liquid
+                 type='tertiary'
+                 text='Ready to Achieve Similar Results? Let\'s Connect'
                  action=cta_action
-                 value_prop='Discuss how I can deliver comparable value for your organization' 
-                 icon='fa-solid fa-handshake' 
-                 tracking='experience_similar_results' 
-                 context='experience' 
+                 value_prop='Discuss how I can deliver comparable value for your organization'
+                 icon='fa-solid fa-handshake'
+                 tracking='experience_similar_results'
+                 context='experience'
                  size='small' %}
             </div>
           {% endif %}
@@ -235,13 +235,13 @@
 {% comment %} Experience Section CTA {% endcomment %}
 {% if entry.title == "Experience" %}
   <div class="experience-section-cta mt-4">
-    {% include cv/cta_button.liquid 
-       type='primary' 
-       text='Interested in These Results for Your Business?' 
-       action='calendar' 
-       value_prop='Schedule a consultation to discuss how I can transform your data challenges into competitive advantages' 
-       icon='fa-solid fa-rocket' 
-       tracking='experience_section_consultation' 
+    {% include cv/cta_button.liquid
+       type='primary'
+       text='Interested in These Results for Your Business?'
+       action='calendar'
+       value_prop='Schedule a consultation to discuss how I can transform your data challenges into competitive advantages'
+       icon='fa-solid fa-rocket'
+       tracking='experience_section_consultation'
        context='experience_section' %}
   </div>
 {% endif %}

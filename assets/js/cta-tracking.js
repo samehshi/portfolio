@@ -60,7 +60,7 @@ function trackCTAClick(ctaType, context) {
  */
 function openCalendarBooking(ctaType, context) {
   trackCTAClick(ctaType, context);
-  
+
   // Track conversion event
   if (CTA_CONFIG.analytics.gtag && CTA_CONFIG.analytics.enabled) {
     gtag('event', 'conversion', {
@@ -73,7 +73,7 @@ function openCalendarBooking(ctaType, context) {
   // Open calendar booking or fallback to email
   const calendarUrl = CTA_CONFIG.actions.consultation.calendar_url;
   const fallbackEmail = `mailto:${CTA_CONFIG.actions.consultation.fallback_email}`;
-  
+
   try {
     window.open(calendarUrl, '_blank', 'noopener,noreferrer');
   } catch (error) {
@@ -89,7 +89,7 @@ function openCalendarBooking(ctaType, context) {
  */
 function downloadPortfolio(ctaType, context) {
   trackCTAClick(ctaType, context);
-  
+
   // Track conversion event
   if (CTA_CONFIG.analytics.gtag && CTA_CONFIG.analytics.enabled) {
     gtag('event', 'conversion', {
@@ -102,19 +102,19 @@ function downloadPortfolio(ctaType, context) {
   // Download CV PDF or redirect to portfolio
   const downloadUrl = CTA_CONFIG.actions.portfolio.download_url;
   const portfolioUrl = CTA_CONFIG.actions.portfolio.portfolio_url;
-  
+
   // Create temporary download link
   const link = document.createElement('a');
   link.href = downloadUrl;
   link.download = 'Sameh_Shehata_Data_Analyst_CV.pdf';
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
-  
+
   // Trigger download
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  
+
   // Also open portfolio in new tab after short delay
   setTimeout(() => {
     window.open(portfolioUrl, '_blank', 'noopener,noreferrer');
@@ -130,7 +130,7 @@ function trackCTAToLocalStorage(ctaType, context) {
   try {
     const storageKey = 'cta_analytics';
     const existingData = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    
+
     const newEntry = {
       type: ctaType,
       context: context,
@@ -139,14 +139,14 @@ function trackCTAToLocalStorage(ctaType, context) {
       page_url: window.location.href,
       user_agent: navigator.userAgent.substring(0, 100) // Truncated for privacy
     };
-    
+
     existingData.push(newEntry);
-    
+
     // Keep only last 100 entries to prevent storage bloat
     if (existingData.length > 100) {
       existingData.splice(0, existingData.length - 100);
     }
-    
+
     localStorage.setItem(storageKey, JSON.stringify(existingData));
   } catch (error) {
     console.warn('Failed to store CTA analytics:', error);
@@ -160,12 +160,12 @@ function trackCTAToLocalStorage(ctaType, context) {
 function getSessionId() {
   const sessionKey = 'cta_session_id';
   let sessionId = sessionStorage.getItem(sessionKey);
-  
+
   if (!sessionId) {
     sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     sessionStorage.setItem(sessionKey, sessionId);
   }
-  
+
   return sessionId;
 }
 
@@ -195,19 +195,19 @@ function getCTAPerformanceReport() {
     clicks_by_day: {},
     recent_activity: data.slice(-10).reverse()
   };
-  
+
   data.forEach(entry => {
     // Count by type
     report.clicks_by_type[entry.type] = (report.clicks_by_type[entry.type] || 0) + 1;
-    
+
     // Count by context
     report.clicks_by_context[entry.context] = (report.clicks_by_context[entry.context] || 0) + 1;
-    
+
     // Count by day
     const day = entry.timestamp.split('T')[0];
     report.clicks_by_day[day] = (report.clicks_by_day[day] || 0) + 1;
   });
-  
+
   return report;
 }
 
@@ -221,7 +221,7 @@ function initializeCTATracking() {
       console.warn('CTA tracking error:', event.error);
     }
   });
-  
+
   // Track page load for context
   if (CTA_CONFIG.analytics.gtag && CTA_CONFIG.analytics.enabled) {
     gtag('event', 'page_view', {
@@ -229,7 +229,7 @@ function initializeCTATracking() {
       event_label: 'cv_page_load'
     });
   }
-  
+
   // Debug mode logging
   if (CTA_CONFIG.analytics.debug) {
     console.log('CTA Tracking System Initialized', {

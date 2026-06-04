@@ -34,10 +34,10 @@ horizontal: true
         <h2 class="category-title">{{ category }}</h2>
         <div class="category-divider"></div>
       </div>
-      
+
       {% assign categorized_projects = site.projects | where: "category", category %}
       {% assign sorted_projects = categorized_projects | sort: "importance" %}
-      
+
       <!-- Generate cards for each project -->
       <div class="projects-grid">
         {% for project in sorted_projects %}

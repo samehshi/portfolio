@@ -39,7 +39,7 @@
 
   .input-area {
     background-color: var(--surface-secondary);
-    
+
     pre {
       background: none;
       border: none;
@@ -51,7 +51,7 @@
 
   .output-area {
     background-color: var(--surface-primary);
-    
+
     &.output-error {
       background-color: var(--status-error-bg);
       border-color: var(--status-error);
@@ -77,18 +77,18 @@
       font-size: $font-size-sm;
       border-radius: $border-radius-md;
       overflow: hidden;
-      
+
       th, td {
         border: 1px solid var(--global-divider-color);
         padding: $spacing-2;
         text-align: left;
       }
-      
+
       th {
         background-color: var(--surface-secondary);
         font-weight: $font-weight-semibold;
       }
-      
+
       tr:nth-child(even) {
         background-color: var(--surface-secondary);
       }
@@ -98,7 +98,7 @@
   .output-image {
     text-align: center;
     margin: $spacing-4 0;
-    
+
     img {
       max-width: 100%;
       height: auto;
@@ -130,9 +130,9 @@
 
   .highlight {
     background: none !important;
-    
+
     .c { color: #6a737d; } // Comments
-    .k { color: #d73a49; } // Keywords  
+    .k { color: #d73a49; } // Keywords
     .s { color: #032f62; } // Strings
     .n { color: #24292e; } // Names
     .o { color: #d73a49; } // Operators
@@ -152,7 +152,7 @@
     .output-area {
       border-color: var(--border-primary);
     }
-    
+
     .input-area {
       background-color: var(--surface-secondary);
     }
@@ -160,7 +160,7 @@
     .output-area {
       background-color: var(--surface-primary);
       color: var(--text-primary);
-      
+
       &.output-error {
         background-color: var(--status-error-bg);
         border-color: var(--status-error);
@@ -170,11 +170,11 @@
 
     // Dark theme table styling
     .dataframe {
-      th, 
+      th,
       td {
         border-color: var(--border-primary);
       }
-      
+
       th,
       tr:nth-child(even) {
         background-color: var(--surface-secondary);
@@ -205,15 +205,15 @@
       min-width: 60px;
       font-size: $font-size-xs;
     }
-    
+
     .input-area,
     .output-area {
       padding: $spacing-2;
     }
-    
+
     .dataframe {
       font-size: $font-size-xs;
-      
+
       th, td {
         padding: $spacing-1;
       }

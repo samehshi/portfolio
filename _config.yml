@@ -6,7 +6,7 @@
 remote_theme: alshedivat/al-folio
 
 # Disable default theme
-theme: 
+theme:
 
 title: Sameh S. Abdelaziz # the website title (if blank, full name will be used instead)
 first_name: Sameh

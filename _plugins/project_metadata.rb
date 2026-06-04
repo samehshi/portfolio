@@ -7,18 +7,18 @@ module Jekyll
       # Process project directories with frontmatter.yml files
       site.collections['projects'].docs.each do |project|
         next unless project.path.end_with?('frontmatter.yml')
-        
+
         # Get the project directory
         project_dir = File.dirname(project.path)
         project_name = File.basename(project_dir)
-        
+
         # Look for corresponding .md file or .ipynb file
         main_project = find_main_project(site, project_name)
-        
+
         if main_project
           # Merge metadata from frontmatter.yml into main project
           merge_metadata(main_project, project)
-          
+
           # Remove the frontmatter.yml from the collection to avoid conflicts
           site.collections['projects'].docs.delete(project)
         end
@@ -43,7 +43,7 @@ module Jekyll
           main_project.data[key] = value
         end
       end
-      
+
       # Ensure the main project has the correct layout
       if frontmatter_project.data['layout']
         main_project.data['layout'] = frontmatter_project.data['layout']

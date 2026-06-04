@@ -11,7 +11,7 @@ profile:
     <p>Cairo, Egypt</p>
     <p>samehshihata@gmail.com</p>
 
-    <p> 
+    <p>
       <a href="https://www.linkedin.com/in/sameh-shihata/" target="_blank">
        <i class="fab fa-linkedin"></i> LinkedIn Profile
       </a>
@@ -57,7 +57,7 @@ I turn complex data into measurable business value. With **15+ years of experien
 
 ## Expertise
 
-**Technical Skills:** Power BI, Tableau, Looker, Microsoft Fabric, SQL, Python, R, Google BigQuery, IBM Db2, Azure  
+**Technical Skills:** Power BI, Tableau, Looker, Microsoft Fabric, SQL, Python, R, Google BigQuery, IBM Db2, Azure
 **Core Competencies:** Data visualization, statistical analysis, machine learning, dashboard development, data pipeline automation, data governance
 
 ## Selected Certifications

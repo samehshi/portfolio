@@ -209,10 +209,10 @@ let setSearchTheme = (theme) => {
 let transTheme = () => {
   // Add smooth transition class
   document.documentElement.classList.add("theme-transitioning");
-  
+
   // Announce theme change to screen readers
   // announceThemeChange();
-  
+
   window.setTimeout(() => {
     document.documentElement.classList.remove("theme-transitioning");
   }, 300);
@@ -226,9 +226,9 @@ let announceThemeChange = () => {
   announcement.setAttribute('aria-atomic', 'true');
   announcement.className = 'sr-only';
   announcement.textContent = `Theme changed to ${theme} mode`;
-  
+
   document.body.appendChild(announcement);
-  
+
   // Remove announcement after screen reader has processed it
   setTimeout(() => {
     document.body.removeChild(announcement);
@@ -255,7 +255,7 @@ let updateThemeToggleAccessibility = () => {
   const mode_toggle = document.getElementById("light-toggle");
   const currentTheme = determineComputedTheme();
   const nextTheme = currentTheme === "light" ? "dark" : "light";
-  
+
   if (mode_toggle) {
     mode_toggle.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
     mode_toggle.setAttribute("aria-pressed", currentTheme === "dark" ? "true" : "false");
@@ -299,17 +299,17 @@ let initTheme = () => {
       console.log("Before toggle - theme:", determineThemeSetting());
       console.log("Before toggle - data-theme:", document.documentElement.getAttribute("data-theme"));
       console.log("Before toggle - data-theme-setting:", document.documentElement.getAttribute("data-theme-setting"));
-      
+
       toggleThemeSetting();
       updateThemeToggleAccessibility();
-      
+
       // Check after toggle
       setTimeout(() => {
         console.log("After toggle - theme:", determineThemeSetting());
         console.log("After toggle - data-theme:", document.documentElement.getAttribute("data-theme"));
         console.log("After toggle - data-theme-setting:", document.documentElement.getAttribute("data-theme-setting"));
         console.log("After toggle - localStorage:", localStorage.getItem("theme"));
-        
+
         // Check icon visibility after toggle
         if (darkIcon) console.log("After toggle - Dark icon display:", window.getComputedStyle(darkIcon).display);
         if (lightIcon) console.log("After toggle - Light icon display:", window.getComputedStyle(lightIcon).display);

@@ -18,11 +18,11 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
       <p class="cta-value-text">{{ cta_value_prop }}</p>
     </div>
   {% endif %}
-  
+
   <div class="cta-button-wrapper">
     {% if cta_action contains "mailto:" %}
-      <a href="{{ cta_action }}" 
-         class="cta-button cta-{{ cta_type }}" 
+      <a href="{{ cta_action }}"
+         class="cta-button cta-{{ cta_type }}"
          {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
          {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
          onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
@@ -30,8 +30,8 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
         {{ cta_text }}
       </a>
     {% elsif cta_action contains "tel:" %}
-      <a href="{{ cta_action }}" 
-         class="cta-button cta-{{ cta_type }}" 
+      <a href="{{ cta_action }}"
+         class="cta-button cta-{{ cta_type }}"
          {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
          {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
          onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
@@ -39,10 +39,10 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
         {{ cta_text }}
       </a>
     {% elsif cta_action contains "http" %}
-      <a href="{{ cta_action }}" 
-         target="_blank" 
+      <a href="{{ cta_action }}"
+         target="_blank"
          rel="noopener noreferrer"
-         class="cta-button cta-{{ cta_type }}" 
+         class="cta-button cta-{{ cta_type }}"
          {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
          {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
          onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
@@ -50,7 +50,7 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
         {{ cta_text }}
       </a>
     {% elsif cta_action == "calendar" %}
-      <button class="cta-button cta-{{ cta_type }}" 
+      <button class="cta-button cta-{{ cta_type }}"
               {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
               {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
               onclick="openCalendarBooking('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
@@ -58,7 +58,7 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
         {{ cta_text }}
       </button>
     {% elsif cta_action == "portfolio_download" %}
-      <button class="cta-button cta-{{ cta_type }}" 
+      <button class="cta-button cta-{{ cta_type }}"
               {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
               {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
               onclick="downloadPortfolio('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
@@ -66,8 +66,8 @@ Displays conversion-optimized CTA buttons with professional styling and tracking
         {{ cta_text }}
       </button>
     {% else %}
-      <a href="{{ cta_action }}" 
-         class="cta-button cta-{{ cta_type }}" 
+      <a href="{{ cta_action }}"
+         class="cta-button cta-{{ cta_type }}"
          {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
          {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
          onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">

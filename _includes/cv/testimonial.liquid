@@ -25,11 +25,11 @@
               {% endif %}
             </div>
           </div>
-          
+
           <!-- LinkedIn Profile Link -->
           {% if testimonial.linkedin_profile %}
             <div class="testimonial-social">
-              <a href="{{ testimonial.linkedin_profile }}" target="_blank" rel="noopener noreferrer" 
+              <a href="{{ testimonial.linkedin_profile }}" target="_blank" rel="noopener noreferrer"
                  class="btn btn-sm btn-outline-primary" title="View LinkedIn Profile">
                 <i class="fab fa-linkedin"></i>
               </a>
@@ -78,22 +78,22 @@
     <h6 class="mb-3">Ready to Achieve Similar Results for Your Organization?</h6>
     <p class="mb-3">Join these satisfied clients who have transformed their business through data-driven insights.</p>
     <div class="cta-buttons d-flex justify-content-center flex-wrap gap-3">
-      {% include cv/cta_button.liquid 
-         type='success' 
-         text='Schedule a Consultation' 
-         action='calendar' 
-         value_prop='Discuss your specific data challenges and opportunities' 
-         icon='fa-solid fa-calendar-check' 
-         tracking='testimonials_consultation' 
+      {% include cv/cta_button.liquid
+         type='success'
+         text='Schedule a Consultation'
+         action='calendar'
+         value_prop='Discuss your specific data challenges and opportunities'
+         icon='fa-solid fa-calendar-check'
+         tracking='testimonials_consultation'
          context='testimonials' %}
-      
-      {% include cv/cta_button.liquid 
-         type='tertiary' 
-         text='View Complete Portfolio' 
-         action='portfolio_download' 
-         value_prop='See detailed case studies and project methodologies' 
-         icon='fa-solid fa-download' 
-         tracking='testimonials_portfolio' 
+
+      {% include cv/cta_button.liquid
+         type='tertiary'
+         text='View Complete Portfolio'
+         action='portfolio_download'
+         value_prop='See detailed case studies and project methodologies'
+         icon='fa-solid fa-download'
+         tracking='testimonials_portfolio'
          context='testimonials' %}
     </div>
   </div>

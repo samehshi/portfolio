@@ -12,7 +12,7 @@
 {% if project.path contains 'frontmatter.yml' %}
   {% assign project_dir = project.path | split: '/' | slice: 0, -1 | join: '/' %}
   {% assign project_name = project_dir | split: '/' | last %}
-  
+
   {% comment %}Look for a corresponding .md file{% endcomment %}
   {% for p in site.projects %}
     {% assign p_name = p.path | split: '/' | last | remove: '.md' %}

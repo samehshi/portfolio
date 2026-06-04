@@ -14,29 +14,29 @@
     {% endif %}
     {% include scripts/jquery.liquid %}
     {% include scripts/mathjax.liquid %}
-    
+
     <!-- Plotly.js for interactive charts -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    
+
     <!-- Custom notebook styling -->
     <style>
       .jupyter-notebook {
         max-width: 100%;
         margin: 0 auto;
       }
-      
+
       .jupyter-notebook .highlight {
         background: var(--code-bg);
         border-radius: 4px;
         padding: 0.5rem;
       }
-      
+
       .jupyter-notebook .output_png,
       .jupyter-notebook .output_jpeg {
         text-align: center;
         margin: 1rem 0;
       }
-      
+
       .jupyter-notebook .output_png img,
       .jupyter-notebook .output_jpeg img {
         max-width: 100%;
@@ -45,7 +45,7 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
     </style>
-    
+
     {% if page._styles %}
       <!-- Page/Post style -->
       <style type="text/css">
@@ -66,7 +66,7 @@
           {% if page.description %}
             <p class="post-description">{{ page.description }}</p>
           {% endif %}
-          
+
           {% if page.category %}
             <div class="post-meta">
               <span class="badge badge-primary">{{ page.category }}</span>
@@ -77,7 +77,7 @@
               {% endif %}
             </div>
           {% endif %}
-          
+
           {% if page.tools %}
             <div class="post-tools mt-2">
               <strong>Tools:</strong>
@@ -91,7 +91,7 @@
         <article class="post-content jupyter-notebook">
           {{ content }}
         </article>
-        
+
         {% if page.github_link %}
           <div class="post-footer mt-4">
             <a href="{{ page.github_link }}" target="_blank" class="btn btn-primary">
@@ -109,7 +109,7 @@
     {% include scripts/progressBar.liquid %}
     {% include scripts/back_to_top.liquid %}
     {% include scripts/search.liquid %}
-    
+
     <!-- Custom script for notebook enhancements -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -118,7 +118,7 @@
         images.forEach(function(img, index) {
           img.alt = 'Notebook output image ' + (index + 1);
         });
-        
+
         // Enhance table styling
         const tables = document.querySelectorAll('.jupyter-notebook table');
         tables.forEach(function(table) {
@@ -128,7 +128,7 @@
           table.parentNode.insertBefore(wrapper, table);
           wrapper.appendChild(table);
         });
-        
+
         // Handle Plotly charts
         const plotlyDivs = document.querySelectorAll('.plotly-graph-div');
         plotlyDivs.forEach(function(div) {

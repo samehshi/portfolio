@@ -13,7 +13,7 @@
           {% endif %}
         </div>
       </div>
-      
+
       {% if content.items %}
         <div class="case-study-content">
           {% for item in content.items %}
@@ -23,7 +23,7 @@
           {% endfor %}
         </div>
       {% endif %}
-      
+
       {% if content.client_value_delivered %}
         <div class="client-value-highlight mt-3 p-3 bg-light rounded">
           <strong class="text-success">Client Value Delivered:</strong> {{ content.client_value_delivered }}
@@ -34,13 +34,13 @@
 
   {% comment %} Case Studies CTA Section {% endcomment %}
   <div class="case-studies-cta mt-4">
-    {% include cv/cta_button.liquid 
-       type='secondary' 
-       text='Need Similar Results? Let\'s Discuss Your Challenges' 
-       action='mailto:samehshihata@gmail.com?subject=Data Strategy Discussion - Case Study Interest' 
-       value_prop='See how these proven methodologies can transform your business' 
-       icon='fa-solid fa-comments' 
-       tracking='case_studies_discussion' 
+    {% include cv/cta_button.liquid
+       type='secondary'
+       text='Need Similar Results? Let\'s Discuss Your Challenges'
+       action='mailto:samehshihata@gmail.com?subject=Data Strategy Discussion - Case Study Interest'
+       value_prop='See how these proven methodologies can transform your business'
+       icon='fa-solid fa-comments'
+       tracking='case_studies_discussion'
        context='case_studies' %}
   </div>
 </div>

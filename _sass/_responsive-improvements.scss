@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Responsive Design Improvements
- * 
+ *
  * This file contains comprehensive responsive improvements for the portfolio theme
  * including enhanced mobile experience, touch-friendly elements, and fluid typography.
  ******************************************************************************/
@@ -18,7 +18,7 @@
       display: flex;
       align-items: center;
       padding: $spacing-3 $spacing-4;
-      
+
       // Better visual feedback on touch
       &:active {
         background-color: var(--surface-secondary);
@@ -26,14 +26,14 @@
         transition-duration: $duration-75;
       }
     }
-    
+
     // Enhanced dropdown for mobile
     .dropdown-menu {
       .dropdown-item {
         min-height: 44px;
         display: flex;
         align-items: center;
-        
+
         &:active {
           background-color: var(--interactive-primary);
           color: var(--text-inverse);
@@ -41,13 +41,13 @@
       }
     }
   }
-  
+
   // Better mobile search and theme toggle
   #search-toggle,
   #light-toggle {
     min-height: 44px;
     min-width: 44px;
-    
+
     &:active {
       transform: scale(0.95);
       transition-duration: $duration-75;
@@ -75,11 +75,11 @@ p, li, .card-text {
     font-size: $font-size-sm;
     line-height: $line-height-relaxed;
   }
-  
+
   @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1px) {
     font-size: $font-size-base;
   }
-  
+
   @media (min-width: $breakpoint-lg) {
     font-size: $font-size-base;
     line-height: $line-height-relaxed;
@@ -95,28 +95,28 @@ p, li, .card-text {
   @media (max-width: $breakpoint-sm - 1px) {
     margin-bottom: $spacing-4;
     border-radius: $border-radius-md;
-    
+
     .card-body {
       padding: $spacing-3;
     }
-    
+
     .card-title {
       font-size: $font-size-lg;
       margin-bottom: $spacing-2;
     }
-    
+
     .card-text {
       font-size: $font-size-sm;
       margin-bottom: $spacing-3;
     }
   }
-  
+
   // Tablet optimizations
   @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1px) {
     .card-body {
       padding: $spacing-5;
     }
-    
+
     .card-title {
       font-size: $font-size-xl;
     }
@@ -132,7 +132,7 @@ p, li, .card-text {
   @media (hover: none) and (pointer: coarse) {
     min-height: 44px;
     min-width: 44px;
-    
+
     // Better touch feedback
     &:active {
       transform: scale(0.96);
@@ -151,7 +151,7 @@ p, li, .card-text {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    
+
     &:active {
       transform: scale(0.9);
     }
@@ -170,13 +170,13 @@ p, li, .card-text {
       padding: $spacing-3 $spacing-4;
       border-radius: $border-radius-md;
     }
-    
+
     button[type="submit"] {
       min-height: 48px;
       padding: $spacing-3 $spacing-6;
       font-size: $font-size-base;
       border-radius: $border-radius-md;
-      
+
       &:active {
         transform: scale(0.98);
       }
@@ -192,20 +192,20 @@ p, li, .card-text {
   @media (max-width: $breakpoint-md - 1px) {
     text-align: center;
     margin-bottom: $spacing-8;
-    
+
     img {
       max-width: 200px;
       margin: 0 auto $spacing-4;
     }
-    
+
     .more-info {
       text-align: left;
       max-width: 300px;
       margin: $spacing-4 auto 0;
-      
+
       p {
         margin-bottom: $spacing-2;
-        
+
         a {
           display: inline-flex;
           align-items: center;
@@ -213,7 +213,7 @@ p, li, .card-text {
           padding: $spacing-1 $spacing-2;
           border-radius: $border-radius-sm;
           transition: $transition-colors;
-          
+
           &:hover {
             background-color: var(--surface-secondary);
           }
@@ -233,13 +233,13 @@ p, li, .card-text {
     .post-header {
       padding-bottom: $spacing-4;
       margin-bottom: $spacing-6;
-      
+
       .post-title {
         font-size: clamp($font-size-2xl, 6vw, $font-size-4xl);
         line-height: $line-height-tight;
         margin-bottom: $spacing-3;
       }
-      
+
       .post-description {
         font-size: $font-size-base;
         margin-top: $spacing-2;
@@ -256,17 +256,17 @@ p, li, .card-text {
 table {
   @media (max-width: $breakpoint-md - 1px) {
     font-size: $font-size-sm;
-    
+
     td, th {
       padding: $spacing-2 $spacing-3;
-      
+
       // Stack table cells on very small screens
       @media (max-width: $breakpoint-sm - 1px) {
         display: block;
         width: 100%;
         border: none;
         border-bottom: 1px solid var(--border-primary);
-        
+
         &:before {
           content: attr(data-label) ": ";
           font-weight: $font-weight-semibold;
@@ -307,7 +307,7 @@ footer {
     .container {
       padding: $spacing-6 $spacing-4;
       text-align: center;
-      
+
       p {
         margin-bottom: $spacing-2;
         font-size: $font-size-sm;
@@ -332,11 +332,11 @@ footer {
   .card {
     border-width: 2px;
   }
-  
+
   .nav-link.active::after {
     height: 3px;
   }
-  
+
   button, .btn {
     border-width: 2px;
   }
@@ -349,7 +349,7 @@ footer {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .card.hoverable:hover {
     transform: none;
   }
@@ -363,17 +363,17 @@ footer {
   .navbar, .social, #back-to-top {
     display: none;
   }
-  
+
   .card {
     box-shadow: none;
     border: 1px solid var(--text-primary);
     break-inside: avoid;
   }
-  
+
   h1, h2, h3 {
     break-after: avoid;
   }
-  
+
   p, li {
     orphans: 3;
     widows: 3;

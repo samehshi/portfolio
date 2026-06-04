@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Base Element Styles
- * 
+ *
  * Core styling for fundamental HTML elements and components.
  * This file has been optimized to:
  * - Consolidate redundant styles and remove duplicates
@@ -72,7 +72,7 @@ table.table a {
   &:hover {
     color: var(--interactive-primary-hover);
     text-decoration: none;
-    
+
     &::after {
       width: 100%;
     }
@@ -200,7 +200,7 @@ ul.task-list {
 
   > li {
     margin-bottom: $spacing-3;
-    
+
     ul {
       padding-inline-start: $spacing-6;
       margin-top: $spacing-2;
@@ -266,7 +266,7 @@ ul.task-list {
     box-shadow: $card-shadow-hover;
     transform: translateY(-2px);
     border-color: var(--border-secondary);
-    
+
     &::before {
       transform: scaleX(1);
     }
@@ -280,12 +280,12 @@ ul.task-list {
 
 .card-body {
   padding: $card-padding;
-  
+
   // Enhanced spacing within cards
   > * + * {
     margin-top: $spacing-4;
   }
-  
+
   // Tighter spacing for related elements
   .card-title + .card-text,
   .card-title + .card-description {
@@ -298,7 +298,7 @@ ul.task-list {
   display: flex;
   align-items: flex-start;
   gap: $spacing-5;
-  
+
   @media (max-width: $breakpoint-md) {
     flex-direction: column;
     gap: $spacing-4;
@@ -326,7 +326,7 @@ ul.task-list {
 
 .card-text {
   flex: 1;
-  
+
   // Better spacing within card text content
   > * + * {
     margin-top: $spacing-3;
@@ -372,11 +372,11 @@ ul.task-list {
       display: block;
       margin-bottom: $spacing-3;
       color: var(--text-secondary);
-      
+
       &:last-child {
         margin-bottom: 0;
       }
-      
+
       a {
         color: var(--interactive-primary);
         text-decoration: none;
@@ -384,12 +384,12 @@ ul.task-list {
         display: inline-flex;
         align-items: center;
         gap: $spacing-2;
-        
+
         &:hover {
           color: var(--interactive-primary-hover);
           text-decoration: underline;
         }
-        
+
         i {
           font-size: $font-size-base;
         }
@@ -401,7 +401,7 @@ ul.task-list {
 .profile.float-right {
   margin-left: $spacing-6;
   margin-bottom: $spacing-6;
-  
+
   @media (max-width: $breakpoint-md) {
     margin-left: 0;
     margin-bottom: $spacing-8;
@@ -411,7 +411,7 @@ ul.task-list {
 .profile.float-left {
   margin-right: $spacing-6;
   margin-bottom: $spacing-6;
-  
+
   @media (max-width: $breakpoint-md) {
     margin-right: 0;
     margin-bottom: $spacing-8;
@@ -436,7 +436,7 @@ ul.task-list {
     float: none !important;
     text-align: center;
     margin: 0 0 $spacing-8 0;
-    
+
     .more-info {
       text-align: left;
       max-width: 300px;
@@ -450,7 +450,7 @@ ul.task-list {
   font-size: $font-size-lg;
   line-height: $line-height-relaxed;
   color: var(--text-secondary);
-  
+
   @media (max-width: $breakpoint-md) {
     font-size: $font-size-base;
   }
@@ -646,7 +646,7 @@ select {
   .contact-icons {
     font-size: 4rem;
     margin-bottom: $spacing-6;
-    
+
     // Better spacing between icons with enhanced interactions
     a {
       margin: 0 $spacing-3;
@@ -655,7 +655,7 @@ select {
       border-radius: $border-radius-lg;
       padding: $spacing-2;
       transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
-      
+
       i::before {
         color: var(--text-primary);
         transition: all $duration-200 $ease-out;
@@ -678,11 +678,11 @@ select {
 
       &:hover {
         transform: translateY(-4px) scale(1.05);
-        
+
         i::before {
           color: var(--interactive-primary);
         }
-        
+
         &::after {
           width: 60px;
           height: 60px;
@@ -783,12 +783,12 @@ footer {
     background-color: var(--surface-primary);
     border: 1px solid var(--border-primary);
     margin-bottom: $spacing-8;
-    
+
     .card-header {
       padding: $spacing-5 $spacing-6;
       background-color: var(--surface-secondary);
       border-bottom: 1px solid var(--border-primary);
-      
+
       h3, h4, h5 {
         margin: 0;
         color: var(--interactive-primary);
@@ -799,7 +799,7 @@ footer {
       background-color: inherit;
       border-color: var(--border-primary);
       padding: $spacing-4 $spacing-6;
-      
+
       &:not(:last-child) {
         margin-bottom: $spacing-2;
       }
@@ -811,20 +811,20 @@ footer {
         font-size: $font-size-xs;
         margin-left: $spacing-2;
       }
-      
+
       // Better spacing for CV content
       .cv-item-title {
         font-weight: $font-weight-semibold;
         margin-bottom: $spacing-2;
         color: var(--text-primary);
       }
-      
+
       .cv-item-description {
         color: var(--text-secondary);
         line-height: $line-height-relaxed;
         margin-bottom: $spacing-2;
       }
-      
+
       .cv-item-date {
         font-size: $font-size-sm;
         color: var(--text-secondary);
@@ -870,12 +870,12 @@ footer {
     font-size: $font-size-5xl;
     margin-bottom: $spacing-4;
     line-height: $line-height-tight;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $font-size-4xl;
     }
   }
-  
+
   .subtitle {
     font-size: $font-size-lg;
     color: var(--text-secondary);
@@ -907,7 +907,7 @@ footer {
       color: var(--text-secondary);
       border-radius: $border-radius-md;
       transition: $transition-colors;
-      
+
       &:hover {
         background-color: var(--surface-secondary);
         color: var(--interactive-primary);
@@ -931,11 +931,11 @@ footer {
     border-bottom: 1px solid var(--border-primary);
     list-style: none;
     padding: $spacing-10 0;
-    
+
     &:first-child {
       padding-top: $spacing-6;
     }
-    
+
     &:last-child {
       border-bottom: none;
       padding-bottom: 0;
@@ -945,7 +945,7 @@ footer {
     .post-title {
       margin-bottom: $spacing-3;
       line-height: $line-height-snug;
-      
+
       a {
         color: var(--text-primary);
         text-decoration: none;
@@ -958,7 +958,7 @@ footer {
         }
       }
     }
-    
+
     .post-description {
       margin: $spacing-4 0;
       line-height: $line-height-relaxed;
@@ -975,7 +975,7 @@ footer {
 
     .post-tags {
       margin-top: $spacing-3;
-      
+
       a {
         margin-right: $spacing-2;
         padding: $spacing-1 $spacing-2;
@@ -983,7 +983,7 @@ footer {
         border-radius: $border-radius-sm;
         text-decoration: none;
         transition: $transition-colors;
-        
+
         &:hover {
           background-color: var(--interactive-primary);
           color: var(--text-inverse);
@@ -1050,7 +1050,7 @@ footer {
     text-align: center;
     margin: $spacing-8 0 $spacing-12;
     line-height: $line-height-tight;
-    
+
     @media (max-width: $breakpoint-md) {
       font-size: $font-size-3xl;
     }
@@ -1091,7 +1091,7 @@ footer {
       border: 1px solid var(--border-primary);
       border-radius: $border-radius-lg;
       box-shadow: $shadow-xs;
-      
+
       &:last-child {
         margin-bottom: 0;
       }
@@ -1178,7 +1178,7 @@ footer {
 
       .badges {
         padding-bottom: $spacing-2;
-        
+
         span {
           display: inline-block;
           color: var(--text-primary);
@@ -1574,7 +1574,7 @@ ninja-keys {
   &::after {
     border-top-color: var(--surface-primary);
   }
-  
+
   &:before {
     border-top-color: var(--border-primary);
   }
@@ -1584,7 +1584,7 @@ ninja-keys {
   &::after {
     border-bottom-color: var(--surface-primary);
   }
-  
+
   &:before {
     border-bottom-color: var(--border-primary);
   }
@@ -1637,7 +1637,7 @@ ninja-keys {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
-    
+
     &:hover {
       transform: none;
       box-shadow: $button-shadow;
@@ -1666,7 +1666,7 @@ ninja-keys {
     &:hover {
       background-color: var(--interactive-primary-hover);
       border-color: var(--interactive-primary-hover);
-      
+
       &::before {
         left: 100%;
       }
@@ -1701,7 +1701,7 @@ ninja-keys {
     &:hover {
       color: var(--interactive-primary);
       border-color: var(--interactive-primary);
-      
+
       &::before {
         width: 100%;
       }
@@ -1766,7 +1766,7 @@ form textarea {
   // Enhanced validation states
   &:valid:not(:placeholder-shown) {
     border-color: var(--status-success);
-    
+
     &:focus {
       box-shadow: 0 0 0 3px rgba(var(--status-success), 0.15);
     }
@@ -1774,7 +1774,7 @@ form textarea {
 
   &:invalid:not(:placeholder-shown) {
     border-color: var(--status-error);
-    
+
     &:focus {
       box-shadow: 0 0 0 3px rgba(var(--status-error), 0.15);
     }
@@ -1814,16 +1814,16 @@ form {
   input,
   textarea {
     margin-bottom: $spacing-6;
-    
+
     &:last-of-type {
       margin-bottom: $spacing-8;
     }
   }
-  
+
   // Better spacing between form sections
   fieldset {
     margin-bottom: $spacing-6;
-    
+
     &:last-child {
       margin-bottom: 0;
     }
@@ -1912,7 +1912,7 @@ input[type="reset"],
 .interactive {
   transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
   cursor: pointer;
-  
+
   &:hover {
     transform: translateY(-1px);
   }
@@ -1927,7 +1927,7 @@ input[type="reset"],
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
-    
+
     &:hover {
       transform: none;
     }
@@ -1939,7 +1939,7 @@ input[type="reset"],
 .tag,
 .chip {
   transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
-  
+
   &:hover {
     transform: scale(1.05);
     box-shadow: $shadow-sm;
@@ -1955,7 +1955,7 @@ input[type="reset"],
 .table {
   tbody tr {
     transition: background-color $duration-150 $ease-out;
-    
+
     &:hover {
       background-color: var(--surface-secondary);
     }
@@ -1966,7 +1966,7 @@ input[type="reset"],
 .list-group-item,
 li.interactive {
   transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
-  
+
   &:hover {
     background-color: var(--surface-secondary);
     transform: translateX(4px);
@@ -1982,7 +1982,7 @@ li.interactive {
 img.interactive,
 .image-hover {
   transition: all $duration-300 $ease-out, transform $duration-200 $ease-out;
-  
+
   &:hover {
     transform: scale(1.02);
     box-shadow: $shadow-md;
@@ -2002,12 +2002,12 @@ img.interactive,
   .overlay-content,
   .popup-content {
     transition: all $duration-300 $ease-out, transform $duration-200 $ease-out;
-    
+
     &.show,
     &.active {
       transform: scale(1) translateY(0);
     }
-    
+
     &.hide,
     &.inactive {
       transform: scale(0.95) translateY(-20px);
@@ -2024,7 +2024,7 @@ img.interactive,
     opacity: 0;
     transform: translateY(10px);
   }
-  
+
   &:hover {
     &::before,
     &::after {
@@ -2040,12 +2040,12 @@ img.interactive,
   .accordion-header,
   .collapsible-header {
     transition: all $duration-200 $ease-out;
-    
+
     &:hover {
       background-color: var(--surface-secondary);
     }
   }
-  
+
   .accordion-content,
   .collapsible-content {
     transition: all $duration-300 $ease-out;
@@ -2056,7 +2056,7 @@ img.interactive,
 .nav-tabs {
   .nav-link {
     transition: all $duration-200 $ease-out, transform $duration-150 $ease-out;
-    
+
     &:hover {
       transform: translateY(-2px);
     }
@@ -2195,7 +2195,7 @@ img.interactive,
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   // Disable transform animations for reduced motion
   button,
   [role="button"],
@@ -2226,11 +2226,11 @@ img.interactive,
   .form-control {
     border-width: 2px;
   }
-  
+
   .card {
     border-width: 2px;
   }
-  
+
   a::after {
     height: 3px;
   }

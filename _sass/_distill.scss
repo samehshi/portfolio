@@ -1,6 +1,6 @@
 /*******************************************************************************
  * Distill Blog Post Styling
- * 
+ *
  * Style overrides for distill blog posts with modern design tokens.
  * This file contains:
  * - Byline and article header styling
@@ -23,7 +23,7 @@ d-byline {
   a,
   d-article & a {
     color: var(--global-text-color) !important;
-    
+
     &:hover {
       color: var(--global-hover-color) !important;
     }
@@ -36,7 +36,7 @@ d-byline {
 
 d-article {
   border-top-color: var(--global-divider-color) !important;
-  
+
   // Text elements styling
   p,
   h1,
@@ -49,7 +49,7 @@ d-article {
   table {
     color: var(--global-text-color) !important;
   }
-  
+
   // Border elements styling
   h1,
   h2,
@@ -59,21 +59,21 @@ d-article {
   table td {
     border-bottom-color: var(--global-divider-color) !important;
   }
-  
+
   // Link styling
   a {
     color: var(--global-theme-color) !important;
-    
+
     &:hover {
       color: var(--global-theme-color) !important;
     }
   }
-  
+
   // Inline elements
   b i {
     display: inline;
   }
-  
+
   // Blockquote styling
   blockquote {
     border-left: 2px solid var(--global-theme-color) !important;
@@ -82,7 +82,7 @@ d-article {
   // =============================================================================
   // Distill Details and Code Block Styling
   // =============================================================================
-  
+
   details {
     color: var(--global-text-color);
     background-color: var(--global-code-bg-color);
@@ -107,7 +107,7 @@ d-article {
   // =============================================================================
   // Distill Table of Contents Styling
   // =============================================================================
-  
+
   d-contents {
     align-self: start;
     grid-column: 1 / 4;
@@ -167,7 +167,7 @@ d-article {
   // =============================================================================
   // Distill Footnote Styling
   // =============================================================================
-  
+
   d-footnote {
     scroll-margin-top: 66px;
   }

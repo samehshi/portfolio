@@ -1341,22 +1341,22 @@ html[data-theme="dark"] {
   padding: 0.5rem 0;
   margin-bottom: 1rem;
   font-size: 0.9rem;
-  
+
   .breadcrumb-item {
     + .breadcrumb-item::before {
       content: "›";
       color: var(--global-text-color-light);
     }
-    
+
     a {
       color: var(--global-theme-color);
       text-decoration: none;
-      
+
       &:hover {
         text-decoration: underline;
       }
     }
-    
+
     &.active {
       color: var(--global-text-color);
       font-weight: 500;
@@ -1376,7 +1376,7 @@ html[data-theme="dark"] {
     margin-bottom: 1rem;
     line-height: 1.2;
   }
-  
+
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
@@ -1386,7 +1386,7 @@ html[data-theme="dark"] {
     border-bottom: 2px solid var(--global-theme-color);
     padding-bottom: 0.5rem;
   }
-  
+
   h3 {
     font-size: 1.25rem;
     font-weight: 500;
@@ -1394,7 +1394,7 @@ html[data-theme="dark"] {
     margin-top: 1.5rem;
     margin-bottom: 0.75rem;
   }
-  
+
   // Ensure proper heading hierarchy for SEO
   .card-title {
     &.font-weight-medium {
@@ -1412,7 +1412,7 @@ html[data-theme="dark"] {
   position: relative;
   top: -80px;
   visibility: hidden;
-  
+
   // Ensure anchors work with fixed navigation
   @media (max-width: 768px) {
     top: -100px;
@@ -1429,43 +1429,43 @@ html[data-theme="dark"] {
     header {
       margin-bottom: 2rem;
     }
-    
+
     section {
       margin-bottom: 2rem;
     }
   }
-  
+
   // Enhanced readability for SEO
   p {
     line-height: 1.6;
     margin-bottom: 1rem;
   }
-  
+
   // Structured data friendly lists
   ul, ol {
     margin-bottom: 1rem;
-    
+
     li {
       margin-bottom: 0.5rem;
       line-height: 1.5;
     }
   }
-  
+
   // Professional emphasis styling
   strong {
     font-weight: 600;
     color: var(--global-theme-color);
   }
-  
+
   // Enhanced link styling for better UX
   a {
     color: var(--global-theme-color);
     text-decoration: none;
-    
+
     &:hover {
       text-decoration: underline;
     }
-    
+
     &:focus {
       outline: 2px solid var(--global-theme-color);
       outline-offset: 2px;

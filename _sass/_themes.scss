@@ -1,13 +1,13 @@
 /*******************************************************************************
  * Modern Theme System
- * 
+ *
  * This file defines the light and dark theme color tokens using CSS custom properties.
  * It includes:
  * - Semantic color tokens for consistent theming
  * - Legacy variable mappings for backward compatibility
  * - Theme-specific component styling
  * - Enhanced accessibility with proper contrast ratios
- * 
+ *
  * Enhanced with semantic color tokens and improved accessibility
  ******************************************************************************/
 
@@ -15,31 +15,31 @@
   // =============================================================================
   // Semantic Color Tokens - Light Theme
   // =============================================================================
-  
+
   // Surface colors
   --surface-primary: #{$white-color};
   --surface-secondary: #{$neutral-50};
   --surface-elevated: #{$white-color};
   --surface-overlay: rgba(255, 255, 255, 0.95);
-  
+
   // Text colors with improved contrast ratios
   --text-primary: #{$neutral-900};
   --text-secondary: #{$neutral-600};
   --text-tertiary: #{$neutral-500};
   --text-inverse: #{$white-color};
-  
+
   // Interactive colors
   --interactive-primary: #{$primary-600};
   --interactive-primary-hover: #{$primary-700};
   --interactive-primary-active: #{$primary-800};
   --interactive-secondary: #{$purple-600};
   --interactive-secondary-hover: #{$purple-700};
-  
+
   // Border and divider colors
   --border-primary: #{$neutral-200};
   --border-secondary: #{$neutral-300};
   --divider: rgba(0, 0, 0, 0.08);
-  
+
   // Status colors with proper contrast
   --status-success: #{$success-500};
   --status-success-bg: #f0fdf4;
@@ -53,12 +53,12 @@
   --status-info: #{$info-500};
   --status-info-bg: #eff6ff;
   --status-info-text: #1e40af;
-  
+
   // =============================================================================
   // Legacy Variable Mappings for Backward Compatibility
   // These maintain compatibility with existing components while using semantic tokens
   // =============================================================================
-  
+
   --global-bg-color: var(--surface-primary);
   --global-code-bg-color: var(--surface-secondary);
   --global-text-color: var(--text-primary);
@@ -111,47 +111,47 @@
     padding: 8px;
     border-radius: 4px;
     transition: all 0.2s ease;
-    
+
     &:hover {
       background: var(--surface-secondary);
       color: var(--interactive-primary);
     }
-    
+
     &:focus {
       outline: 2px solid var(--interactive-primary);
       outline-offset: 2px;
     }
-    
+
     i {
       font-size: 1.2rem;
       transition: all 0.2s ease;
     }
   }
-  
+
   // Form elements
   --input-bg: var(--surface-primary);
   --input-border: var(--border-primary);
   --input-text: var(--text-primary);
   --input-placeholder: var(--text-tertiary);
   --input-focus-border: var(--interactive-primary);
-  
+
   // Code and syntax highlighting
   --code-bg: var(--surface-secondary);
   --code-text: var(--text-primary);
   --code-border: var(--border-primary);
-  
+
   // Tables
   --table-bg: var(--surface-primary);
   --table-border: var(--border-primary);
   --table-header-bg: var(--surface-secondary);
   --table-row-hover-bg: var(--surface-secondary);
-  
+
   // Overlays and modals
   --overlay-bg: rgba(0, 0, 0, 0.5);
   --modal-bg: var(--surface-elevated);
   --modal-border: var(--border-primary);
 
-  
+
 
   .repo-img-light {
     display: block;
@@ -177,7 +177,7 @@
     align-items: center;
     justify-content: center;
     font-size: $font-size-lg;
-    
+
     &:hover {
       transform: translateY(-4px) scale(1.1);
       box-shadow: $shadow-lg;
@@ -202,31 +202,31 @@ html[data-theme="dark"] {
   // Semantic Color Tokens - Dark Theme
   // Enhanced with better contrast ratios for accessibility
   // =============================================================================
-  
+
   // Surface colors - improved dark theme hierarchy
   --surface-primary: #{$neutral-900};
   --surface-secondary: #{$neutral-800};
   --surface-elevated: #{$neutral-800};
   --surface-overlay: rgba(23, 23, 23, 0.95);
-  
+
   // Text colors with enhanced contrast for better readability
   --text-primary: #{$neutral-100};
   --text-secondary: #{$neutral-300};
   --text-tertiary: #{$neutral-400};
   --text-inverse: #{$neutral-900};
-  
+
   // Interactive colors - optimized for dark backgrounds
   --interactive-primary: #{$primary-400};
   --interactive-primary-hover: #{$primary-300};
   --interactive-primary-active: #{$primary-200};
   --interactive-secondary: #{$purple-400};
   --interactive-secondary-hover: #{$purple-300};
-  
+
   // Border and divider colors
   --border-primary: #{$neutral-700};
   --border-secondary: #{$neutral-600};
   --divider: rgba(255, 255, 255, 0.1);
-  
+
   // Status colors adapted for dark theme with proper contrast
   --status-success: #22c55e;
   --status-success-bg: rgba(34, 197, 94, 0.1);
@@ -240,11 +240,11 @@ html[data-theme="dark"] {
   --status-info: #60a5fa;
   --status-info-bg: rgba(96, 165, 250, 0.1);
   --status-info-text: #93c5fd;
-  
+
   // =============================================================================
   // Legacy Variable Mappings for Dark Theme
   // =============================================================================
-  
+
   --global-bg-color: var(--surface-primary);
   --global-code-bg-color: var(--surface-secondary);
   --global-text-color: var(--text-primary);
@@ -286,25 +286,25 @@ html[data-theme="dark"] {
   --button-secondary-border: var(--interactive-primary);
   --button-secondary-hover-bg: var(--interactive-primary);
   --button-secondary-hover-text: var(--text-inverse);
-  
+
   // Form elements for dark theme
   --input-bg: var(--surface-secondary);
   --input-border: var(--border-primary);
   --input-text: var(--text-primary);
   --input-placeholder: var(--text-tertiary);
   --input-focus-border: var(--interactive-primary);
-  
+
   // Code and syntax highlighting for dark theme
   --code-bg: var(--surface-elevated);
   --code-text: var(--text-primary);
   --code-border: var(--border-primary);
-  
+
   // Tables for dark theme
   --table-bg: var(--surface-primary);
   --table-border: var(--border-primary);
   --table-header-bg: var(--surface-secondary);
   --table-row-hover-bg: var(--surface-secondary);
-  
+
   // Overlays and modals for dark theme
   --overlay-bg: rgba(0, 0, 0, 0.7);
   --modal-bg: var(--surface-elevated);
@@ -327,7 +327,7 @@ html[data-theme="dark"] {
     .navbar-toggler .icon-bar {
       color: var(--text-primary);
     }
-    
+
     .navbar-nav .dropdown-toggle::after {
       border-top-color: var(--text-primary);
     }
@@ -349,7 +349,7 @@ html[data-theme-setting="dark"] {
   #back-to-top {
     color: var(--global-back-to-top-text-color);
     background: var(--global-back-to-top-bg-color);
-    
+
     &:hover {
       background: var(--interactive-primary);
       color: var(--text-inverse);
@@ -424,7 +424,7 @@ html[data-theme="light"] {
     --interactive-primary: #0000ff;
     --interactive-primary-hover: #000080;
   }
-  
+
   html[data-theme="dark"] {
     --text-primary: #ffffff;
     --text-secondary: #d1d5db; // Improved contrast ratio
@@ -435,43 +435,43 @@ html[data-theme="light"] {
     --interactive-primary: #60a5fa; // Better contrast for dark backgrounds
     --interactive-primary-hover: #93c5fd;
   }
-  
+
   .card {
     border-width: 2px;
     box-shadow: none;
   }
-  
+
   .nav-link.active::after {
     height: 3px;
   }
-  
+
   button, .btn {
     border-width: 2px;
     font-weight: $font-weight-bold;
   }
-  
+
   a {
     text-decoration: underline;
-    
+
     &::after {
       display: none; // Remove subtle underline animations in high contrast
     }
   }
-  
+
   .navbar {
     border-bottom-width: 3px;
   }
-  
+
   // Ensure all interactive elements have strong borders
   input, textarea, select {
     border-width: 2px;
   }
-  
+
   // Remove subtle shadows and gradients
   .professional-header,
   .final-cta-section {
     background: var(--interactive-primary) !important;
-    
+
     &::before {
       display: none;
     }
@@ -489,7 +489,7 @@ html[data-theme="light"] {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  
+
   &.announce {
     position: static;
     width: auto;
@@ -514,7 +514,7 @@ html[data-theme="light"] {
   display: flex;
   gap: $spacing-2;
   padding: $spacing-2;
-  
+
   .skip-link {
     position: relative;
     top: 0;
@@ -528,21 +528,21 @@ html[data-theme="light"] {
     border: 2px solid var(--interactive-primary);
     transition: all $duration-200 $ease-out;
     white-space: nowrap;
-    
+
     &:focus {
       outline: 3px solid var(--text-inverse);
       outline-offset: 2px;
       transform: translateY(2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     &:hover {
       background: var(--interactive-primary-hover);
       border-color: var(--interactive-primary-hover);
       transform: translateY(1px);
     }
   }
-  
+
   &:focus-within {
     top: 0;
   }
@@ -644,7 +644,7 @@ html.theme-transitioning *:after {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  
+
   &[aria-live="polite"],
   &[aria-live="assertive"] {
     // Ensure live regions are properly positioned for screen readers
@@ -685,7 +685,7 @@ html.theme-transitioning *:after {
   background-color: var(--interactive-primary);
   color: var(--text-inverse);
   border: 2px solid var(--interactive-primary);
-  
+
   &:hover,
   &:focus {
     background-color: var(--interactive-primary-hover);
@@ -708,7 +708,7 @@ html.theme-transitioning *:after {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   // Disable transform animations specifically
   .card:hover,
   .btn:hover,
@@ -717,7 +717,7 @@ html.theme-transitioning *:after {
   .social .contact-icons a:hover {
     transform: none !important;
   }
-  
+
   // Disable theme transition animations
   html.theme-transitioning,
   html.theme-transitioning *,
