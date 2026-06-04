@@ -58,8 +58,11 @@
       var toggle = document.getElementById("light-toggle");
       if (toggle) {
         toggle.addEventListener("click", function () {
-          var theme = document.documentElement.getAttribute("data-theme") || "light";
-          track("theme_toggle", { theme: theme === "dark" ? "light" : "dark" });
+          // Read after the theme handler has applied, so we log the resulting theme.
+          setTimeout(function () {
+            var theme = document.documentElement.getAttribute("data-theme") || "light";
+            track("theme_toggle", { theme: theme });
+          }, 0);
         });
       }
     });
