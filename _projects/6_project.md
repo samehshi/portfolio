@@ -2,10 +2,16 @@
 layout: page
 title: Predicting Apartment Prices in Buenos Aires
 description: A machine learning project to predict apartment prices in Buenos Aires based on property listings.
-img: assets/img/Placeholders/Capture-2025-07-21-201334.png
+img: assets/img/projects/apartment-prices-ba.svg
 importance: 6
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/predicting-apartment-prices-in-buenos-aires">View on Kaggle ↗</a>
+</div>
 
 This project focuses on predicting apartment prices in Buenos Aires using a dataset of property listings. The primary goal is to build a machine learning model that can accurately predict the price of apartments in U.S. dollars.
 

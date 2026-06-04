@@ -6,7 +6,7 @@ description: As a Data Analyst at Accenture, I cleaned, modeled, and analyzed 7 
 
 img: assets/img/accenture.png
 importance: 3
-category: work
+category: Work
 ---
 
 ## Social Buzz Project: Leveraging Data to Understand User Behavior

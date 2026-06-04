@@ -8,6 +8,12 @@ category: Study
 related_publications: false
 ---
 
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View Dashboard" href="https://drive.google.com/file/d/1ly2cUboZKZucsAqcTIz7YonYMSLAJ1C0/preview">View Dashboard ↗</a>
+</div>
+
 ## A. Current Technology Usage Tab
 
 This tab showcases the most popular technologies currently in use:

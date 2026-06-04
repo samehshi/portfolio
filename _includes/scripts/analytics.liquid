@@ -1,12 +1,70 @@
 {% if site.enable_google_analytics %}
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       window.dataLayer.push(arguments);
     }
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
+    gtag("js", new Date());
+    gtag("config", "{{ site.google_analytics }}", {
+      anonymize_ip: true,
+      send_page_view: true,
+    });
+
+    // Enhanced event tracking (works even if Enhanced Measurement is off).
+    document.addEventListener("DOMContentLoaded", function () {
+      var origin = window.location.hostname;
+
+      function track(name, params) {
+        if (typeof gtag === "function") {
+          gtag("event", name, params || {});
+        }
+      }
+
+      document.body.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a");
+        if (!a || !a.href) return;
+        var url = new URL(a.href, window.location.href);
+
+        // Explicit project / CTA links.
+        if (a.dataset && a.dataset.gaEvent) {
+          track(a.dataset.gaEvent, {
+            link_label: a.dataset.gaLabel || a.textContent.trim(),
+            link_url: url.href,
+          });
+          return;
+        }
+
+        // CV / file downloads.
+        if (/\.(pdf|csv|xlsx?|pptx?|zip)$/i.test(url.pathname)) {
+          track("file_download", {
+            file_name: url.pathname.split("/").pop(),
+            link_url: url.href,
+          });
+          return;
+        }
+
+        // Outbound links.
+        if (url.hostname && url.hostname !== origin) {
+          track("outbound_click", {
+            link_domain: url.hostname,
+            link_url: url.href,
+          });
+        }
+      });
+
+      // Light/dark theme toggle.
+      var toggle = document.getElementById("light-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          // Read after the theme handler has applied, so we log the resulting theme.
+          setTimeout(function () {
+            var theme = document.documentElement.getAttribute("data-theme") || "light";
+            track("theme_toggle", { theme: theme });
+          }, 0);
+        });
+      }
+    });
   </script>
 {% endif %}

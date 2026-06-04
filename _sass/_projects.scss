@@ -331,3 +331,21 @@
     }
   }
 }
+
+/* External CTA button on individual project pages */
+.project-cta {
+  margin: 0 0 1.5rem;
+
+  .btn {
+    background-color: var(--global-theme-color);
+    border-color: var(--global-theme-color);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+
+    &:hover {
+      filter: brightness(0.92);
+      color: #fff;
+    }
+  }
+}

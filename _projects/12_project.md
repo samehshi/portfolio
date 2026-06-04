@@ -4,7 +4,7 @@ title: Power BI Dashboard Portfolio
 description: Interactive business intelligence dashboards showcasing advanced Power BI capabilities for data visualization, KPI tracking, and executive reporting
 img: assets/img/Screenshot 2025-07-14 at 6.16.12 PM.png
 importance: 1
-category: PowerBI
+category: Power BI
 ---
 
 ## Business Objective

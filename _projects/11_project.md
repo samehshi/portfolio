@@ -2,10 +2,16 @@
 layout: page
 title: Stock Volatility Forecasting
 description: A machine learning project to predict stock volatility using various time series models.
-img: assets/img/Placeholders/Capture-2025-07-21-201951.png
+img: assets/img/projects/stock-volatility.svg
 importance: 11
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/stock-volatility-forecasting">View on Kaggle ↗</a>
+</div>
 
 This project focuses on predicting stock volatility using various time series models. The notebook covers:
 
