@@ -1,0 +1,333 @@
+/*******************************************************************************
+ * Projects Section - Theme-Aware Styling
+ * Updated to use semantic color tokens and proper theme integration
+ ******************************************************************************/
+
+.projects-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-6 $spacing-4;
+  
+  // Page introduction
+  .projects-intro {
+    text-align: center;
+    margin-bottom: $spacing-8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .page-title {
+      font-size: $font-size-3xl;
+      font-weight: $font-weight-bold;
+      color: var(--text-primary);
+      margin-bottom: $spacing-4;
+      letter-spacing: $letter-spacing-tight;
+    }
+    
+    .page-description {
+      font-size: $font-size-lg;
+      color: var(--text-secondary);
+      line-height: $line-height-relaxed;
+      margin-bottom: 0;
+    }
+  }
+  
+  // Category navigation
+  .category-navigation {
+    margin-bottom: $spacing-8;
+    
+    .category-nav {
+      .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: $spacing-2;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        .category-item {
+          .category-link {
+            display: inline-block;
+            padding: $spacing-2 $spacing-4;
+            background-color: var(--surface-secondary);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: $border-radius-full;
+            font-weight: $font-weight-medium;
+            transition: all $duration-200 $ease-out;
+            border: 1px solid var(--border-primary);
+            
+            &:hover,
+            &:focus {
+              background-color: var(--interactive-primary);
+              color: var(--text-inverse);
+              transform: translateY(-2px);
+              box-shadow: $shadow-sm;
+            }
+            
+            &.active {
+              background-color: var(--interactive-primary);
+              color: var(--text-inverse);
+              border-color: var(--interactive-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Category sections
+  .category-section {
+    margin-bottom: $spacing-10;
+    
+    .category-header {
+      text-align: center;
+      margin-bottom: $spacing-6;
+      
+      .category-title {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: var(--interactive-primary);
+        margin-bottom: $spacing-3;
+      }
+      
+      .category-divider {
+        width: 60px;
+        height: 3px;
+        background-color: var(--interactive-primary);
+        margin: 0 auto;
+        border-radius: $border-radius-full;
+      }
+    }
+  }
+  
+  // Projects grid
+  .projects-grid {
+    display: grid;
+    gap: $spacing-6;
+  }
+  
+  // Project link styling
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+}
+
+.projects {
+  padding: $spacing-8 $spacing-4;
+
+  h2 {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-4;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: var(--text-secondary);
+  }
+
+  // Individual project card with theme integration
+  .project-item {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border-primary);
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    overflow: hidden;
+    transition: all $duration-300 $ease-out, transform $duration-200 $ease-out;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-md;
+      border-color: var(--border-secondary);
+    }
+
+    .card-body {
+      padding: $spacing-5;
+
+      h3, h5 {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        line-height: $line-height-snug;
+        margin-bottom: $spacing-3;
+        color: var(--text-primary);
+      }
+
+      p {
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-4;
+        color: var(--text-secondary);
+      }
+
+      .badge {
+        font-size: $font-size-sm;
+        padding: $spacing-1 $spacing-3;
+        border-radius: $border-radius-full;
+        background-color: var(--interactive-primary);
+        color: var(--text-inverse);
+        margin-right: $spacing-2;
+        margin-bottom: $spacing-2;
+        font-weight: $font-weight-medium;
+        display: inline-block;
+
+        &.badge-secondary {
+          background-color: var(--interactive-secondary);
+        }
+
+        &.badge-success {
+          background-color: var(--status-success);
+        }
+
+        &.badge-warning {
+          background-color: var(--status-warning);
+          color: var(--text-primary);
+        }
+
+        &.badge-info {
+          background-color: var(--status-info);
+        }
+        
+        &.badge-light {
+          background-color: var(--surface-secondary);
+          color: var(--text-primary);
+        }
+      }
+      
+      // Project meta information
+      .project-meta {
+        margin-top: $spacing-3;
+        margin-bottom: $spacing-4;
+        
+        .tools-used {
+          display: flex;
+          flex-wrap: wrap;
+          gap: $spacing-1;
+          
+          .tool-badge {
+            font-size: $font-size-xs;
+            padding: $spacing-0-5 $spacing-2;
+            background-color: var(--surface-secondary);
+            color: var(--text-secondary);
+            border-radius: $border-radius-full;
+            font-weight: $font-weight-medium;
+          }
+        }
+      }
+    }
+
+    .card-img-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      padding: $spacing-3;
+      background-color: var(--surface-primary);
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-primary);
+
+      .card-img-top {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        transition: transform $duration-300 $ease-out;
+        border-radius: $border-radius-sm;
+      }
+
+      &:hover .card-img-top {
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .section-title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: var(--interactive-primary);
+    margin: $spacing-8 auto $spacing-6;
+    text-align: center;
+    max-width: 720px;
+    line-height: $line-height-tight;
+  }
+
+  // Enhanced accessibility
+  a:focus-visible {
+    outline: 2px solid var(--interactive-primary);
+    outline-offset: 2px;
+    border-radius: $border-radius-sm;
+  }
+
+  // Responsive improvements
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-6 $spacing-3;
+
+    .project-item {
+      margin: $spacing-4 auto;
+      padding-left: 0;
+      padding-right: 0;
+
+      .card-body {
+        padding: $spacing-4;
+      }
+
+      .card-img-container {
+        height: 160px;
+        padding: $spacing-2;
+      }
+    }
+
+    .section-title {
+      font-size: $font-size-xl;
+      margin: $spacing-6 auto $spacing-4;
+    }
+    
+    // Horizontal project layout on mobile
+    .project-item.col {
+      padding-left: $spacing-3;
+      padding-right: $spacing-3;
+    }
+  }
+  
+  // Horizontal project layout styling
+  .project-item.col {
+    padding-left: 0;
+    padding-right: 0;
+    
+    .card {
+      height: 100%;
+      
+      .row.no-gutters {
+        margin-left: 0;
+        margin-right: 0;
+        
+        > [class*="col-"] {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      
+      .card-img {
+        height: 100%;
+        object-fit: cover;
+        border-top-left-radius: $border-radius-lg;
+        border-bottom-left-radius: $border-radius-lg;
+        border-top-right-radius: 0;
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        .card-img {
+          border-top-left-radius: $border-radius-lg;
+          border-top-right-radius: $border-radius-lg;
+          border-bottom-left-radius: 0;
+          height: 200px;
+        }
+      }
+    }
+  }
+}

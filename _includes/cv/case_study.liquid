@@ -1,0 +1,46 @@
+<div class="case-studies-section">
+  {% for content in entry.contents %}
+    <div class="case-study-item mb-4 p-4 border rounded">
+      <div class="case-study-header mb-3">
+        <h5 class="case-study-title font-weight-bold text-primary">{{ content.title }}</h5>
+        <div class="case-study-meta mb-2">
+          <span class="badge badge-info mr-2">{{ content.industry }}</span>
+          {% if content.year %}
+            <span class="badge badge-secondary mr-2">{{ content.year }}</span>
+          {% endif %}
+          {% if content.client_profile %}
+            <small class="text-muted">{{ content.client_profile }}</small>
+          {% endif %}
+        </div>
+      </div>
+      
+      {% if content.items %}
+        <div class="case-study-content">
+          {% for item in content.items %}
+            <div class="case-study-section mb-3">
+              {{ item | markdownify }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if content.client_value_delivered %}
+        <div class="client-value-highlight mt-3 p-3 bg-light rounded">
+          <strong class="text-success">Client Value Delivered:</strong> {{ content.client_value_delivered }}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% comment %} Case Studies CTA Section {% endcomment %}
+  <div class="case-studies-cta mt-4">
+    {% include cv/cta_button.liquid 
+       type='secondary' 
+       text='Need Similar Results? Let\'s Discuss Your Challenges' 
+       action='mailto:samehshihata@gmail.com?subject=Data Strategy Discussion - Case Study Interest' 
+       value_prop='See how these proven methodologies can transform your business' 
+       icon='fa-solid fa-comments' 
+       tracking='case_studies_discussion' 
+       context='case_studies' %}
+  </div>
+</div>

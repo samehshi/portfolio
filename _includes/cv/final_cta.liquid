@@ -1,0 +1,32 @@
+{% comment %}
+Final CTA Section Component for CV
+Displays comprehensive call-to-action section at the end of CV
+{% endcomment %}
+
+<div class="final-cta-section">
+  {% for content in entry.contents %}
+    {% if content.type == "cta_group" %}
+      <div class="final-cta-container">
+        <div class="final-cta-header text-center mb-4">
+          <h4 class="final-cta-title">{{ content.title }}</h4>
+          {% if content.description %}
+            <p class="final-cta-description">{{ content.description }}</p>
+          {% endif %}
+        </div>
+        
+        <div class="cta-group">
+          {% for cta in content.ctas %}
+            {% include cv/cta_button.liquid 
+               type=cta.cta_type 
+               text=cta.text 
+               action=cta.action 
+               value_prop=cta.value_prop 
+               icon=cta.icon 
+               tracking=cta.tracking 
+               context=cta.context %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

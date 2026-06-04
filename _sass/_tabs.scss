@@ -1,0 +1,69 @@
+/*******************************************************************************
+ * Tab Navigation Component
+ * 
+ * Modern tab interface with improved accessibility and design tokens.
+ * This file contains:
+ * - Tab navigation styling with modern hover states
+ * - Tab content display logic
+ * - Accessible keyboard navigation support
+ ******************************************************************************/
+
+// =============================================================================
+// Tab Navigation
+// =============================================================================
+
+.tab {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$spacing-5;
+  padding: 0;
+  list-style: none;
+  position: relative;
+
+  > * {
+    flex: none;
+    padding-left: $spacing-5;
+    position: relative;
+
+    > a {
+      display: block;
+      text-align: center;
+      padding: $spacing-2 $spacing-5;
+      color: var(--global-text-color-light);
+      border-bottom: 2px solid transparent;
+      font-size: $font-size-xs;
+      text-transform: uppercase;
+      transition: $transition-colors;
+      line-height: $line-height-snug;
+      text-decoration: none;
+      cursor: pointer;
+      letter-spacing: $letter-spacing-wide;
+
+      &:hover {
+        color: var(--global-text-color);
+      }
+    }
+  }
+
+  > .active > a {
+    color: var(--global-text-color);
+    border-color: var(--global-theme-color);
+    font-weight: $font-weight-medium;
+  }
+}
+
+// =============================================================================
+// Tab Content
+// =============================================================================
+
+.tab-content {
+  padding: 0;
+
+  > li {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}

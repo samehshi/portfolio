@@ -1,0 +1,79 @@
+{% comment %}
+Call-to-Action Button Component for CV
+Displays conversion-optimized CTA buttons with professional styling and tracking
+{% endcomment %}
+
+{% assign cta_type = include.type | default: "primary" %}
+{% assign cta_text = include.text %}
+{% assign cta_action = include.action %}
+{% assign cta_value_prop = include.value_prop %}
+{% assign cta_icon = include.icon %}
+{% assign cta_tracking = include.tracking %}
+{% assign cta_size = include.size | default: "medium" %}
+{% assign cta_context = include.context %}
+
+<div class="cta-container cta-{{ cta_type }} cta-{{ cta_size }}">
+  {% if cta_value_prop %}
+    <div class="cta-value-prop">
+      <p class="cta-value-text">{{ cta_value_prop }}</p>
+    </div>
+  {% endif %}
+  
+  <div class="cta-button-wrapper">
+    {% if cta_action contains "mailto:" %}
+      <a href="{{ cta_action }}" 
+         class="cta-button cta-{{ cta_type }}" 
+         {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+         {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+         onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </a>
+    {% elsif cta_action contains "tel:" %}
+      <a href="{{ cta_action }}" 
+         class="cta-button cta-{{ cta_type }}" 
+         {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+         {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+         onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </a>
+    {% elsif cta_action contains "http" %}
+      <a href="{{ cta_action }}" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="cta-button cta-{{ cta_type }}" 
+         {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+         {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+         onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </a>
+    {% elsif cta_action == "calendar" %}
+      <button class="cta-button cta-{{ cta_type }}" 
+              {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+              {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+              onclick="openCalendarBooking('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </button>
+    {% elsif cta_action == "portfolio_download" %}
+      <button class="cta-button cta-{{ cta_type }}" 
+              {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+              {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+              onclick="downloadPortfolio('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </button>
+    {% else %}
+      <a href="{{ cta_action }}" 
+         class="cta-button cta-{{ cta_type }}" 
+         {% if cta_tracking %}data-track="{{ cta_tracking }}"{% endif %}
+         {% if cta_context %}data-context="{{ cta_context }}"{% endif %}
+         onclick="trackCTAClick('{{ cta_tracking | default: cta_type }}', '{{ cta_context | default: 'cv' }}')">
+        {% if cta_icon %}<i class="{{ cta_icon }}"></i>{% endif %}
+        {{ cta_text }}
+      </a>
+    {% endif %}
+  </div>
+</div>

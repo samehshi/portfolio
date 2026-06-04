@@ -1,0 +1,154 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: "Sameh Shehata Abdelaziz"
+    - name: Professional Title
+      value: "Data & BI Analyst | Microsoft Fabric Engineer | AI-Driven Insights Specialist"
+    - name: Value Proposition
+      value: "Data & BI professional with 15+ years of experience turning complex data into measurable business value — Power BI dashboards, predictive ML models, and automated ETL pipelines across aviation, finance, retail, and non-profit sectors."
+    - name: Key Metrics
+      value: "15+ Years Experience • Triple-Certified in Microsoft Fabric • 10+ Industry Certifications • 30%+ Faster Reporting • Up to 20% ROI Uplift"
+    - name: Location
+      value: "Cairo, Egypt — Open to Remote & Relocation"
+    - name: Phone
+      value: "+20 127 476 6641"
+    - name: Email
+      value: "samehshihata@gmail.com"
+    - name: Portfolio
+      value: "https://samehshi.github.io/portfolio/"
+
+- title: Professional Summary
+  type: list
+  contents:
+    - "Data & BI professional with <strong>15+ years of experience</strong> across aviation, finance, retail, and non-profit sectors, transforming complex datasets into actionable business insights."
+    - "<strong>Triple-certified in Microsoft Fabric</strong> (PL-300, DP-600, DP-700), delivering Power BI dashboards, predictive ML models, and automated ETL pipelines that reduce processing time by 30%+ and improve client ROI by up to 20%."
+    - "Skilled in Python, SQL, and cloud platforms (Microsoft Fabric, Azure, Google Cloud), with a proven record of translating technical complexity into business value for both technical teams and executive stakeholders."
+
+- title: Core Skills
+  type: nested_list
+  contents:
+    - title: "Business Intelligence"
+      items:
+        - "Power BI (PL-300), Tableau, Looker, IBM Cognos, Microsoft Fabric"
+        - "DAX, Power Query, Data Modeling, KPI Dashboards, Report Design"
+    - title: "Data Engineering"
+      items:
+        - "Microsoft Fabric (DP-700), ETL Pipeline Development, Dataflows Gen2"
+        - "Lakehouse Architecture, Data Factory, SQL, Python (Pandas, NumPy)"
+        - "Google BigQuery, IBM Db2, Data Warehousing"
+    - title: "Analytics & Machine Learning"
+      items:
+        - "Predictive Analytics, Classification, Regression, Time-Series Analysis"
+        - "XGBoost, Random Forest, k-means Clustering, A/B Testing"
+        - "Feature Engineering, Scikit-learn, Statistical Analysis"
+    - title: "Cloud Platforms"
+      items:
+        - "Microsoft Azure, Microsoft Fabric (OneLake, Synapse Analytics)"
+        - "Google Cloud Platform (BigQuery, Cloud Data Analytics), IBM Cloud"
+    - title: "Programming Languages"
+      items:
+        - "Python, SQL, R, DAX, M (Power Query)"
+    - title: "AI & Automation"
+      items:
+        - "Microsoft Copilot Studio, Prompt Engineering"
+        - "LLM-assisted Data Workflows, AI-driven Pipeline Automation"
+    - title: "Data Management"
+      items:
+        - "Data Governance, Data Quality, Data Cleaning, EDA"
+        - "Data Pipeline Optimization, ETL/ELT Processes"
+    - title: "Soft Skills"
+      items:
+        - "Data Storytelling, Stakeholder Management, Cross-functional Collaboration"
+        - "Problem Solving, Project Lifecycle Management, Client Consulting"
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: "Freelance Data & BI Analyst"
+      institution: "Upwork — Independent Consulting"
+      year: "2023 - Now"
+      description:
+        - "Design and deliver end-to-end Power BI and Tableau solutions for clients across finance, retail, and healthcare — covering data modeling, DAX measure development, Power Query transformation, dashboard deployment, and user training."
+        - "Build automated Python and SQL data pipelines that reduce manual reporting effort by 30%+, enabling clients to access real-time, reliable analytics without manual intervention."
+        - "Develop customer segmentation, churn prediction, and demand-forecasting models that have collectively driven up to 20% improvement in marketing ROI and operational efficiency for SME clients."
+        - "Manage the full project lifecycle end-to-end — from requirements gathering and solution design through delivery and iterative refinement — maintaining strong client satisfaction across diverse industries and time zones."
+
+    - title: "Data Services Officer — Aeronautical Navigation"
+      institution: "NANSC (National Air Navigation Services Company)"
+      location: "Cairo, Egypt"
+      year: "2009 - Now"
+      description:
+        - "Analyse high-volume, safety-critical air navigation datasets to deliver actionable operational insights, directly supporting decision-making for aviation stakeholders in a strict regulatory environment (ICAO compliance)."
+        - "Identified and resolved systemic data and communication bottlenecks through root-cause analysis, implementing corrective protocols that reduced operational risk incidents by 15%."
+        - "Optimise mission-critical data workflows using systems-level process analysis, improving throughput and data quality while maintaining full compliance with ICAO safety and data management standards."
+        - "Collaborate with cross-functional teams spanning operations, engineering, and regulatory bodies to translate complex data findings into actionable improvements — adopted across the organisation."
+        - "Manage and maintain structured databases for air traffic and navigation information, ensuring data integrity, availability, and security across 24/7 operational cycles."
+
+- title: Applied Analytics Projects
+  type: nested_list
+  contents:
+    - title: "Client & Professional Work"
+      items:
+        - "<strong>Power BI Dashboard Suite (Upwork Clients):</strong> Designed and deployed a portfolio of interactive Power BI dashboards for finance and retail clients, enabling executive teams to self-serve KPI monitoring. Integrated with live SQL and cloud data sources, replacing static Excel reporting."
+    - title: "Independent Research & Applied Modeling"
+      items:
+        - "<strong>Bankruptcy Risk Assessment (Financial Services):</strong> Built an end-to-end ML pipeline using XGBoost and Random Forest to predict business insolvency risk, achieving 25% higher accuracy over baseline — enabling earlier intervention and reduced credit exposure."
+        - "<strong>Customer Segmentation (Retail):</strong> Applied k-means clustering on transactional data to identify high-value customer segments; targeted campaigns generated a 15% uplift in email engagement and measurable retention gains."
+        - "<strong>Housing Price Prediction (Real Estate):</strong> Processed 21,000+ property listings through a feature-engineered regression model, improving valuation accuracy by 18% — supporting more confident investment decisions."
+        - "<strong>Earthquake Damage Prediction (NGO / Humanitarian):</strong> Developed a classification model with 80% accuracy to forecast infrastructure damage severity post-disaster, enabling an NGO to prioritize aid allocation and reduce response time."
+
+- title: Certifications
+  type: time_table
+  contents:
+    - title: "Fabric Data Engineer Associate (DP-700)"
+      institution: "Microsoft"
+      year: 2026
+    - title: "Fabric Analytics Engineer Associate (DP-600) — Renewed"
+      institution: "Microsoft"
+      year: 2025
+    - title: "Power BI Data Analyst Associate (PL-300) — Renewed"
+      institution: "Microsoft"
+      year: 2024
+    - title: "Google Cloud Data Analytics Certificate"
+      institution: "Google Cloud"
+      year: 2024
+    - title: "Google Business Intelligence Professional Certificate"
+      institution: "Google / Coursera"
+      year: 2024
+    - title: "Google Advanced Data Analytics Professional Certificate"
+      institution: "Google / Coursera"
+      year: 2024
+    - title: "Data Science Math Skills"
+      institution: "Duke University"
+      year: 2024
+    - title: "Applied Data Science Labs"
+      institution: "WorldQuant University"
+      year: 2024
+    - title: "Forward Program — Problem Solving & Leadership"
+      institution: "McKinsey & Company"
+      year: 2024
+    - title: "IBM Data Analyst Professional Certificate"
+      institution: "IBM / Coursera"
+      year: 2023
+    - title: "Google Data Analytics Professional Certificate"
+      institution: "Google / Coursera"
+      year: 2023
+
+- title: Education
+  type: time_table
+  contents:
+    - title: "B.Sc. Chemistry & Microbiology"
+      institution: "Ain Shams University"
+      location: "Cairo, Egypt"
+      year: "2004 - 2008"
+      description:
+        - "Transitioned into data analytics through continuous professional development, earning 10+ industry certifications across BI, data engineering, ML, and cloud platforms."
+
+- title: Languages
+  type: map
+  contents:
+    - name: Arabic
+      value: "Native"
+    - name: English
+      value: "Professional Fluency (written & spoken)"
