@@ -2,10 +2,16 @@
 layout: page
 title: Predictive Modeling of Air Quality in Nairobi, Kenya
 description: A machine learning project to predict air quality in Nairobi, Kenya.
-img: assets/img/Placeholders/Capture-2025-07-21-201458.png
+img: assets/img/projects/air-quality-nairobi.svg
 importance: 7
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/predictive-modeling-of-air-quality-in-nairobi">View on Kaggle ↗</a>
+</div>
 
 This project focuses on building a machine learning model to predict air quality, specifically the concentration of PM2.5, in Nairobi. The primary goal is to create a reliable model for forecasting PM2.5 levels, which is a critical air pollutant with significant health implications.
 

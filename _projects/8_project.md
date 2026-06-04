@@ -2,10 +2,16 @@
 layout: page
 title: "Predicting Earthquake Damage: A Case Study in Nepal"
 description: A machine learning project to predict the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal.
-img: assets/img/Placeholders/Capture-2025-07-21-201604.png
+img: assets/img/projects/earthquake-nepal.svg
 importance: 8
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/predicting-earthquake-damage">View on Kaggle ↗</a>
+</div>
 
 This project focuses on predicting the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal. The goal is to classify buildings into different damage grades based on their structural characteristics and the intensity of the earthquake.
 

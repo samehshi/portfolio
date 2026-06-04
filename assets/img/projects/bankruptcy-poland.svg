@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="v" cx="0.2" cy="0.15" r="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <rect width="1200" height="675" fill="url(#v)"/>
+  <polyline points="740,300 800,330 860,310 920,380 980,360 1040,440 1100,470 1160,520" fill="none" stroke="#fff" stroke-width="6" opacity="0.24"/>
+  <polygon points="1160,520 1130,470 1180,475" fill="#fff" opacity="0.30"/>
+  <g font-family="Inter, Helvetica, Arial, sans-serif">
+    <rect x="80" y="150" width="109" height="40" rx="20" fill="#ffffff" fill-opacity="0.22"/>
+    <text x="134.5" y="177" font-size="20" letter-spacing="2" fill="#fff" text-anchor="middle" font-weight="700">FINANCE</text>
+    <text x="80" y="300" font-size="60" font-weight="800" fill="#ffffff"><tspan x="80" dy="0">Corporate Bankruptcy</tspan><tspan x="80" dy="74">Prediction</tspan></text>
+    <text x="80" y="432" font-size="27" fill="#ffffff" fill-opacity="0.92" font-weight="500">Poland  ·  Ensemble ML</text>
+    <text x="80" y="600" font-size="22" fill="#ffffff" fill-opacity="0.85" font-weight="600">Sameh S. Abdelaziz  ·  Data &amp; BI Analyst</text>
+  </g>
+</svg>

@@ -2,10 +2,16 @@
 layout: page
 title: Predicting Corporate Bankruptcy in Poland
 description: A machine learning project to predict corporate bankruptcy using financial data from Polish companies.
-img: assets/img/Placeholders/Capture-2025-07-21-201702.png
+img: assets/img/projects/bankruptcy-poland.svg
 importance: 9
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/predicting-corporate-bankruptcy-in-poland">View on Kaggle ↗</a>
+</div>
 
 This project focuses on building predictive models for corporate bankruptcy using financial data from Polish companies. The objective is to predict corporate bankruptcy.
 

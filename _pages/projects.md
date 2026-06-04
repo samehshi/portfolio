@@ -5,7 +5,7 @@ permalink: /projects/
 description: Explore my portfolio of data analytics and business intelligence projects that demonstrate my expertise in transforming complex data into actionable insights. Each project showcases a unique approach to solving real-world business challenges through data-driven solutions.
 nav: true
 nav_order: 3
-display_categories: [PowerBI, Data Science Projects, work, Study]
+display_categories: [Power BI, Data Science Projects, Work, Study]
 horizontal: true
 ---
 

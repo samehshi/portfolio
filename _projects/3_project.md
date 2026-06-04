@@ -8,6 +8,12 @@ category: Study
 related_publications: false
 ---
 
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/google-advanced-da-salifort-motors-project">View on Kaggle ↗</a>
+</div>
+
 ## Methodology
 
 I approached this analysis in a structured manner to ensure comprehensive coverage and generate actionable insights:

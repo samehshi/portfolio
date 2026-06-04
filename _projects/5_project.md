@@ -2,10 +2,16 @@
 layout: page
 title: Real Estate Market Analysis Uncovering Price Drivers in Mexico and Brazil
 description: An analysis of the real estate markets in Mexico and Brazil to identify the key factors that influence property prices.
-img: assets/img/Placeholders/Capture-2025-07-21-201233.png
+img: assets/img/projects/real-estate-mx-br.svg
 importance: 5
 category: Data Science Projects
 ---
+
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/uncovering-price-drivers-in-mexico-and-brazil">View on Kaggle ↗</a>
+</div>
 
 This project analyzes an e-commerce dataset to understand and predict product prices in the real estate markets of Mexico and Brazil. The process involves several key stages:
 

@@ -8,6 +8,12 @@ category: Study
 related_publications: false
 ---
 
+<!-- project-cta -->
+<div class="project-cta" markdown="0">
+  <a class="btn btn-sm z-depth-0" role="button" target="_blank" rel="noopener noreferrer"
+     data-ga-event="project_link" data-ga-label="View on Kaggle" href="https://www.kaggle.com/samehshehata/google-data-analytics-capstone-project-case-1">View on Kaggle ↗</a>
+</div>
+
 **Objective:** We analyzed one year of Cyclistic bike-share data to understand the differences between annual members and casual riders, with the goal of developing strategies to convert casual riders into members.
 
 **Key Findings:**
