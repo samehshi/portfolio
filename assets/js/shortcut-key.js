@@ -1,0 +1,1 @@
+document.addEventListener("readystatechange",()=>{if("interactive"===document.readyState){let isMac=navigator.platform.toUpperCase().indexOf("MAC")>=0,shortcutKeyElement=document.querySelector("#search-toggle .nav-link");shortcutKeyElement&&isMac&&(shortcutKeyElement.innerHTML='&#x2318; k <i class="ti ti-search"></i>')}});
