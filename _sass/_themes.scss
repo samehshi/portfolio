@@ -341,8 +341,6 @@ html[data-theme-setting="dark"] {
   }
 
   #light-toggle-light {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block !important;
   }
 
@@ -359,8 +357,6 @@ html[data-theme-setting="dark"] {
 
 html[data-theme-setting="light"] {
   #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block !important;
   }
 
@@ -372,8 +368,6 @@ html[data-theme-setting="light"] {
 // Fallback rules for when data-theme-setting is not set
 html:not([data-theme-setting]) {
   #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block !important;
   }
 
@@ -389,16 +383,12 @@ html[data-theme="dark"] {
   }
 
   #light-toggle-light {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block !important;
   }
 }
 
 html[data-theme="light"] {
   #light-toggle-dark {
-    padding-left: 10px;
-    padding-top: 12px;
     display: block !important;
   }
 
