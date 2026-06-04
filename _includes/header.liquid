@@ -10,22 +10,13 @@
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation" aria-label="Main navigation">
     <div class="container">
       {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
-          {% endif %}
+        <a class="navbar-brand title" href="{{ site.baseurl }}/" aria-label="Home — {{ site.first_name }} {{ site.last_name }}">
+          <span class="brand-mark" aria-hidden="true">{{ site.first_name | slice: 0 }}{{ site.last_name | slice: 0 }}</span>
+          <span class="brand-name">
+            <span class="brand-accent">{{- site.first_name -}}</span>
+            {% if site.middle_name %} {{ site.middle_name }}{% endif %}
+            {% if site.last_name %} {{ site.last_name }}{% endif %}
+          </span>
         </a>
       {% elsif site.enable_navbar_social %}
         <!-- Social Icons -->
@@ -108,7 +99,7 @@
                 <li class="nav-item {% if page.url contains parent_link %}active{% endif %}" role="none">
                   {% if p.permalink contains '/blog/' %}{% assign url = '/blog/' %} {% else %}{% assign url = p.url %}{% endif %}
                   <a class="nav-link" href="{{ url | relative_url }}" role="menuitem" {% if page.url contains p.url %}aria-current="page"{% endif %}>
-                    {{- p.title }}
+                    {{- p.nav_label | default: p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current page)</span>
                     {% endif %}

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Digital Badges & Professional Certifications
+nav_label: Certifications
 permalink: /certifications/
 description: Below is a curated collection of my digital badges and professional certifications that validate my expertise in data analytics, business intelligence, and cloud technologies. These credentials demonstrate my commitment to continuous learning and staying current with industry best practices.
 nav: true

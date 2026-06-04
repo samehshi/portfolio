@@ -8,8 +8,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Cairo, Egypt</p>
-    <p>samehshihata@gmail.com</p>
+    <p><i class="fas fa-location-dot"></i> Cairo, Egypt</p>
+    <p><a href="mailto:samehshihata@gmail.com"><i class="fas fa-envelope"></i> samehshihata@gmail.com</a></p>
 
     <p>
       <a href="https://www.linkedin.com/in/sameh-shihata/" target="_blank">
@@ -36,7 +36,7 @@ profile:
     </p>
 
     <p>
-      <i class="fas fa-phone"></i> +201274766641
+      <a href="tel:+201274766641"><i class="fas fa-phone"></i> +201274766641</a>
     </p>
 
 news: false # includes a list of news items

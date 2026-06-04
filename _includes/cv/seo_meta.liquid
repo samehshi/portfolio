@@ -16,9 +16,8 @@ Provides enhanced SEO metadata specifically for the CV page
   <meta name="availability" content="Available for consulting">
 
   <!-- Industry-Specific Keywords -->
-  <meta name="industry-expertise" content="Aviation, Finance, Retail, Healthcare, Technology">
-  <meta name="technical-skills" content="Python, SQL, Power BI, Tableau, Machine Learning, Statistical Analysis">
-  <meta name="business-value" content="$20M+ client value delivered, 99.9% satisfaction rate">
+  <meta name="industry-expertise" content="Aviation, Finance, Retail, Non-profit, Technology">
+  <meta name="technical-skills" content="Python, SQL, Power BI, Tableau, Microsoft Fabric, Machine Learning, Statistical Analysis">
 
   <!-- Local SEO -->
   <meta name="geo.region" content="EG-C">
@@ -27,7 +26,7 @@ Provides enhanced SEO metadata specifically for the CV page
   <meta name="ICBM" content="30.0444, 31.2357">
 
   <!-- Professional Verification -->
-  <meta name="verification.linkedin" content="sameh-shehata">
+  {% if site.linkedin_username %}<meta name="verification.linkedin" content="{{ site.linkedin_username }}">{% endif %}
   <meta name="portfolio.url" content="{{ site.url }}{{ site.baseurl }}">
 
   <!-- Content Freshness -->
@@ -37,11 +36,6 @@ Provides enhanced SEO metadata specifically for the CV page
   <!-- Mobile Optimization -->
   <meta name="format-detection" content="telephone=yes">
   <meta name="format-detection" content="email=yes">
-
-  <!-- Rich Snippets Support -->
-  <meta name="rating" content="5.0">
-  <meta name="review-count" content="50">
-  <meta name="client-count" content="50+">
 
   <!-- Professional Categories -->
   <meta name="category" content="Data Analytics">
@@ -63,7 +57,7 @@ Provides enhanced SEO metadata specifically for the CV page
       "@type": "Person",
       "name": "Sameh Shehata Abdelaziz",
       "alternateName": "Sameh S. Abdelaziz",
-      "jobTitle": "Data Analyst & Business Intelligence Specialist",
+      "jobTitle": "Data & BI Analyst | Microsoft Fabric Engineer",
       "description": "{{ page.description }}",
       "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
       "image": "{{ '/assets/img/prof_pic.jpg' | prepend: site.baseurl | prepend: site.url }}",
@@ -119,6 +113,11 @@ Provides enhanced SEO metadata specifically for the CV page
       "hasCredential": [
         {
           "@type": "EducationalOccupationalCredential",
+          "name": "Microsoft Fabric Data Engineer Associate (DP-700)",
+          "credentialCategory": "Professional Certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
           "name": "Microsoft Fabric Analytics Engineer Associate (DP-600)",
           "credentialCategory": "Professional Certification"
         },
@@ -129,7 +128,9 @@ Provides enhanced SEO metadata specifically for the CV page
         }
       ],
       "sameAs": [
-        "https://www.linkedin.com/in/sameh-shehata",
+        {% if site.linkedin_username %}"https://www.linkedin.com/in/{{ site.linkedin_username }}",{% endif %}
+        {% if site.github_username %}"https://github.com/{{ site.github_username }}",{% endif %}
+        {% if site.kaggle_id %}"https://www.kaggle.com/{{ site.kaggle_id }}",{% endif %}
         "{{ site.url }}{{ site.baseurl }}"
       ]
     }

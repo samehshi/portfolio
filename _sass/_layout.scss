@@ -10,7 +10,7 @@
   -webkit-backdrop-filter: blur(8px);
   box-shadow: $shadow-xs;
   transition: $transition-shadow;
-  padding: $spacing-1 0;
+  padding: $spacing-2 0;
 
   // Override Bootstrap's navbar-light class to use theme colors
   &.navbar-light {
@@ -119,6 +119,44 @@
         transform: translateY(-1px);
       }
     }
+  }
+
+  // Branded layout: monogram badge + name with accented first name
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: $border-radius-md;
+    background: linear-gradient(135deg, var(--interactive-primary), #6f6cf2);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    box-shadow: $shadow-sm;
+    transition: transform $duration-200 $ease-out, box-shadow $duration-200 $ease-out;
+  }
+
+  .brand-name {
+    font-weight: $font-weight-semibold;
+    white-space: nowrap;
+  }
+
+  .brand-accent {
+    color: var(--interactive-primary);
+    font-weight: $font-weight-bold;
+  }
+
+  &:hover .brand-mark,
+  &:focus .brand-mark {
+    transform: translateY(-1px) rotate(-3deg);
+    box-shadow: $shadow-md;
   }
 }
 
@@ -263,14 +301,16 @@
       .nav-item.active & {
         color: var(--interactive-primary);
         font-weight: $font-weight-semibold;
+        background-color: var(--surface-secondary);
 
         &::after {
           content: '';
           position: absolute;
-          bottom: -2px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 20px;
+          bottom: 2px;
+          left: $spacing-2;
+          right: $spacing-2;
+          width: auto;
+          transform: none;
           height: 2px;
           background-color: var(--interactive-primary);
           border-radius: 1px;
